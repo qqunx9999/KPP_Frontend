@@ -1,0 +1,99 @@
+.dell-x-p-s {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: var(--Theme6, #47624f);
+  }
+
+.center-frame {
+    width: 886px;
+    height: 696px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: relative;
+    top: 160px;
+    left: 517px;
+  }
+
+.k-u-people {
+    width: 448px;
+    height: 129px;
+    overflow: visible;
+    text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
+    font-family: "Inter", sans-serif;
+    color: var(--Theme4, #447604);
+    font-size: 91px;
+    letter-spacing: 0px;
+    line-height: 1.2;
+    position: absolute;
+    top: 47px;
+    left: 219px;
+  }
+
+.descb-text {
+    width: 654px;
+    height: 110px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 38px;
+    letter-spacing: 0px;
+    line-height: 1.2;
+    position: absolute;
+    top: 176px;
+    left: 116px;
+  }
+
+.signup-frame {
+    width: 430px;
+    height: 119px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 29px;
+    position: absolute;
+    top: 320px;
+    left: 228px;
+  }
+
+.login-frame {
+    width: 430px;
+    height: 119px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 29px;
+    position: absolute;
+    top: 478px;
+    left: 228px;
+  }
+
+.sign-up {
+    width: 193px;
+    height: 119px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme1, #ffffff);
+    font-size: 46px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: -9px;
+    left: 119px;
+  }
+
+.log-in {
+    width: 153px;
+    height: 119px;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme1, #ffffff);
+    font-size: 46px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: -9px;
+    left: 138px;
+  }
