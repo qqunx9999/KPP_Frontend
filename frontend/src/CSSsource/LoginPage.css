@@ -16,3 +16,224 @@
     top: 159px;
     left: 444px;
   }
+
+.k-u-people {
+    width: 448px;
+    height: 129px;
+    overflow: visible;
+    text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
+    font-family: "Inter", sans-serif;
+    color: var(--Theme4, #447604);
+    font-size: 91px;
+    letter-spacing: 0px;
+    line-height: 1.2;
+    position: relative;
+    top: 47px;
+    left: 292px;
+  }
+
+.text_Please {
+    width: 654px;
+    height: 110px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 38px;
+    letter-spacing: 0px;
+    line-height: 1.2;
+    position: absolute;
+    top: 160px;
+    left: 189px;
+  }
+
+.email_ {
+    width: 163px;
+    height: 138px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 46px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 271px;
+    left: 78px;
+  }
+
+.Input_email {
+    background-color: rgb(221, 221, 227);
+    font-size: 22;
+    color: "#333333";
+    border: rgba(0,0,0,0);
+    border-width: 1;
+    /*focusColor=#09F*/
+    /*focused:false*/
+    font: false;
+    font-family: "";
+    /*keyboard:""*/
+    /*multiLine:false*/
+    padding: 12;
+    /*password:false*/
+    border-radius: 10;
+    position: absolute;
+    top: 41px;
+    left: 180px;
+}
+
+._ku-th {
+  width: 158px;
+  height: 126px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme3, #0f0508);
+  font-size: 42px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: absolute;
+  top: 5px;
+  left: 680px;
+}
+
+.password_ {
+  width: 269px;
+  height: 138px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme3, #0f0508);
+  font-size: 46px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: relative;
+  top: 250px;
+  left: 78px;
+}
+
+.Input_password {
+  background-color: rgb(221, 221, 227);
+  font-size: 22;
+  color: "#333333";
+  border: rgba(0,0,0,0);
+  border-width: 1;
+  /*focusColor=#09F*/
+  /*focused:false*/
+  font: false;
+  font-family: "";
+  /*keyboard:""*/
+  /*multiLine:false*/
+  padding: 12;
+  /*password:false*/
+  border-radius: 10;
+  position: relative;
+  top: -145px;
+  left: 280px;
+}
+
+.text_Forget {
+  width: 322px;
+  height: 69px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme3, #0f0508);
+  font-size: 23px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: relative;
+  top: 220px;
+  left: 402px;
+}
+
+.click-here_ {
+  width: 145px;
+  height: 69px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme4, #447604);
+  font-size: 23px;
+  letter-spacing: 3px;
+  line-height: 3;
+  text-decoration: underline;
+  position: relative;
+  top: 151px;
+  left: 720px;
+}
+
+._go-back {
+  width: 186px;
+  height: 90px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  font-size: 30px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: relative;
+  top: 0px;
+  left: 40px;
+}
+
+.frame_go-back {
+  width: 215px;
+  height: 90px;
+  overflow: visible;
+  background: var(--Theme5, #6cc551);
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+  border-radius: 19px;
+  position: relative;
+  top: 200px;
+  left: 80px;
+}
+
+.text_Dont {
+  width: 331px;
+  height: 69px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme3, #0f0508);
+  font-size: 23px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: relative;
+  top: 100px;
+  left: 350px;
+}
+
+.go-to-sign-up {
+  width: 191px;
+  height: 69px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme4, #447604);
+  font-size: 23px;
+  letter-spacing: 3px;
+  line-height: 3;
+  text-decoration: underline;
+  position: relative;
+  top: 70px;
+  left: 350px;
+}
+
+.frame_log-in {
+  width: 215px;
+  height: 90px;
+  overflow: visible;
+  background: var(--Theme5, #6cc551);
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+  border-radius: 19px;
+  position: relative;
+  top: -30px;
+  left: 750px;
+}
+
+.log-in {
+  width: 112px;
+  height: 46px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  font-size: 38px;
+  letter-spacing: 0px;
+  line-height: 1.2;
+  position: relative;
+  top: 20px;
+  left: 55px;
+}
