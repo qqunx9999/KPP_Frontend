@@ -1,0 +1,18 @@
+.log-in-page-1 {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: var(--Theme6, #47624f);
+  }
+
+.center-frame-login {
+    width: 1032px;
+    height: 762px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: relative;
+    top: 159px;
+    left: 444px;
+  }

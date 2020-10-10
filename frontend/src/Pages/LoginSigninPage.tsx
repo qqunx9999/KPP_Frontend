@@ -5,8 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import '../CSSsource/Login-SigninPage.css';
-import SignUpPage from './Sign-UpPage' ;
+import '../CSSsource/LoginSigninPage.css';
 
 
 const LoginSigninPage = () => {
@@ -22,16 +21,16 @@ const LoginSigninPage = () => {
             <div className="descb-text">
                   Please sign up or log in before use. 
             </div>
-            <a className="signup-frame" href="/sign-up">
+            <a className="signup-frame" href="/SignUp">
               <div className="sign-up">
                   Sign Up
               </div>
             </a>
-            <Link to="/log-in" className="login-frame">
+            <a className="login-frame" href="/LogIn">
               <div className="log-in">
                   Log In
               </div>    
-            </Link>
+            </a>
         </div>
       </div>
     </Router>
