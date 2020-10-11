@@ -1,18 +1,18 @@
-.dell-x-p-s {
+.outer-frame {
     width: 1920px;
     height: 1080px;
     overflow: hidden;
     background: var(--Theme6, #47624f);
   }
 
-.center-frame {
+.white-frame {
     width: 1242px;
     height: 996px;
     overflow: visible;
     background: var(--Theme1, #ffffff);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
-    position: relative;
+    position: absolute;
     top: 38px;
     left: 329px;
   }
@@ -75,8 +75,8 @@
     padding: 20;
     /*password:false*/
     border-radius: 10;
-    position: relative;    
-    top: -150px;
+    position: absolute;    
+    top: 50px;
     left: 380px;
 }
 .email-text {
@@ -88,12 +88,12 @@
     font-size: 46px;
     letter-spacing: 3px;
     line-height: 3;
-    position: relative;
+    position: absolute;
     top: 397px;
     left: 53px;
   }
 
-.Input_email {
+.user_email {
     background-color: rgb(221, 221, 227);
     font-size: 22;
     color: "#333333";
@@ -113,7 +113,7 @@
     left: 180px;
 }
 
-._ku-th {
+.addku {
   width: 158px;
   height: 126px;
   overflow: visible;
@@ -127,7 +127,7 @@
   left: 680px;
 }
 
-.password {
+.pass {
   width: 269px;
   height: 138px;
   overflow: visible;
@@ -141,7 +141,7 @@
   left: 53px;
 }
 
-.Input_password {
+.user_password {
   background-color: rgb(221, 221, 227);
   font-size: 22;
   color: "#333333";
@@ -156,8 +156,8 @@
   padding: 12;
   /*password:false*/
   border-radius: 10;
-  position: relative;    
-  top: -150px;
+  position: absolute;    
+  top: 50px;
   left: 260px;
 }
 
@@ -175,7 +175,7 @@
   left: 53px;
 }
 
-.Input_conpassword {
+.user_conpassword {
   background-color: rgb(221, 221, 227);
   font-size: 22;
   color: "#333333";
@@ -190,9 +190,9 @@
   padding: 12;
   /*password:false*/
   border-radius: 10;
-  position: relative;    
-  top: -150px;
-  left: 450px;
+  position: absolute;    
+  top: 50px;
+  left: 470px;
 }
 
 .accept {
