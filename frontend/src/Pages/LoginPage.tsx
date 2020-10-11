@@ -11,49 +11,49 @@ import AuthenLogIn from './AuthenLogIn';
 
 const LoginPage = () => {
   return (
-    <div className="log-in-page-1">
-      <div className="center-frame-login">
-        <div className="k-u-people">
+    <div className="LogInPage1">
+      <div className="CenterFrameLogin1">
+        <div className="KUPeopleLogin1">
                 KU People
         </div>
-        <p className="text_Please">
+        <p className="TextPleaseLogIn1">
                 Please sign up or log in before use.
         </p>
-        <div className="email_">
+        <div className="EmailLogIn1">
             <form>
               Email :
-              <input placeholder="Type your Email..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="Input_email"/>
-              <div className="_ku-th">
+              <input placeholder="Type your Email..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="InputEmailLogIn1"/>
+              <div className="kuthLogIn1">
                 @ku.th
               </div>
             </form>
         </div>
-        <div className="password_">
+        <div className="PasswordLogIn1">
             <form>
               Password :
-              <input placeholder="Type your password..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="Input_password"/>
+              <input placeholder="Type your password..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="InputPasswordLogIn1"/>
             </form>
         </div>
-        <div className="text_Forget">
+        <div className="TextForgetLogIn1">
                 Forget your password?
         </div>
-        <a className="click-here_" href="/ForgetPwd">
+        <a className="ClickHereLogIn1" href="/ForgetPwd">
                 click here!
         </a>
-        <Link to="/" className="frame_go-back" >
-          <div className="_go-back">
+        <Link to="/" className="FrameGoBackLogIn1" >
+          <div className="GoBackButtonLogIn1">
             Go Back
           </div>
         </Link>
-        <div className="text_Dont">
+        <div className="TextDontLogIn1">
                 Don't have an account?
         </div>
-        <a className="go-to-sign-up" href="/Signup">
+        <a className="GoToSignUpLogIn1" href="/Signup">
                 Go to Sign Up
         </a>
         <Link to="/LogIn/AuthenLogIn">
-          <div className="frame_log-in">
-            <div className="log-in">
+          <div className="FrameLogIn1">
+            <div className="LogInButtonLogIn1">
                   Log In
             </div>
           </div>

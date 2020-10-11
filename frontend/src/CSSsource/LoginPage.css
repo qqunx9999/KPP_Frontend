@@ -1,11 +1,11 @@
-.log-in-page-1 {
+.LogInPage1 {
     width: 1920px;
     height: 1080px;
     overflow: hidden;
     background: var(--Theme6, #47624f);
   }
 
-.center-frame-login {
+.CenterFrameLogin1 {
     width: 1032px;
     height: 762px;
     overflow: visible;
@@ -17,7 +17,7 @@
     left: 444px;
   }
 
-.k-u-people {
+.KUPeopleLogin1 {
     width: 448px;
     height: 129px;
     overflow: visible;
@@ -32,7 +32,7 @@
     left: 292px;
   }
 
-.text_Please {
+.TextPleaseLogIn1 {
     width: 654px;
     height: 110px;
     overflow: visible;
@@ -46,7 +46,7 @@
     left: 189px;
   }
 
-.email_ {
+.EmailLogIn1 {
     width: 163px;
     height: 138px;
     overflow: visible;
@@ -60,7 +60,7 @@
     left: 78px;
   }
 
-.Input_email {
+.InputEmailLogIn1 {
     background-color: rgb(221, 221, 227);
     font-size: 22;
     color: "#333333";
@@ -80,7 +80,7 @@
     left: 180px;
 }
 
-._ku-th {
+.kuthLogIn1 {
   width: 158px;
   height: 126px;
   overflow: visible;
@@ -94,7 +94,7 @@
   left: 680px;
 }
 
-.password_ {
+.PasswordLogIn1 {
   width: 269px;
   height: 138px;
   overflow: visible;
@@ -108,7 +108,7 @@
   left: 78px;
 }
 
-.Input_password {
+.InputPasswordLogIn1 {
   background-color: rgb(221, 221, 227);
   font-size: 22;
   color: "#333333";
@@ -128,7 +128,7 @@
   left: 280px;
 }
 
-.text_Forget {
+.TextForgetLogIn1 {
   width: 322px;
   height: 69px;
   overflow: visible;
@@ -142,7 +142,7 @@
   left: 360px;
 }
 
-.click-here_ {
+.ClickHereLogIn1 {
   width: 145px;
   height: 69px;
   overflow: visible;
@@ -157,7 +157,7 @@
   left: 680px;
 }
 
-._go-back {
+.GoBackButtonLogIn1 {
   width: 186px;
   height: 90px;
   overflow: visible;
@@ -171,7 +171,7 @@
   left: 40px;
 }
 
-.frame_go-back {
+.FrameGoBackLogIn1 {
   width: 215px;
   height: 90px;
   overflow: visible;
@@ -183,7 +183,7 @@
   left: 80px;
 }
 
-.text_Dont {
+.TextDontLogIn1 {
   width: 331px;
   height: 69px;
   overflow: visible;
@@ -197,7 +197,7 @@
   left: 350px;
 }
 
-.go-to-sign-up {
+.GoToSignUpLogIn1 {
   width: 191px;
   height: 69px;
   overflow: visible;
@@ -212,7 +212,7 @@
   left: 350px;
 }
 
-.frame_log-in {
+.FrameLogIn1 {
   width: 215px;
   height: 90px;
   overflow: visible;
@@ -224,7 +224,7 @@
   left: 750px;
 }
 
-.log-in {
+.LogInButtonLogIn1 {
   width: 112px;
   height: 46px;
   overflow: visible;
