@@ -23,14 +23,14 @@ const SignUpPage = () => {
             <div className="accountName">
               <form>
                   Account Name :
-                  <input placeholder="Type your username... (Only characters and Numbers allowed.)" style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="Input_account"/>
+                  <input placeholder="Type your username... (Only characters and Numbers allowed.)" style={{ width:"560px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="Input_account"/>
                  
               </form>
             </div>
             <div className="email-text">
               <form>
                   Email :
-                  <input placeholder="Type your Email..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="user_email"/>
+                  <input placeholder="Type your Email..." style={{ width:"600px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="user_email"/>
                   <div className="addku">
                     @ku.th
                   </div>
@@ -39,7 +39,7 @@ const SignUpPage = () => {
             <div className="pass">
               <form>
                   Password :
-                  <input placeholder="Type your password..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="user_password"/>
+                  <input placeholder="Type your password..." style={{ width:"690px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="user_password"/>
                  
               </form>
             </div>
@@ -54,9 +54,13 @@ const SignUpPage = () => {
             <div className="accept">
                   You alreay read and accept
             </div>
+            
             <div className="term">
+              <Link to= "/TermOfUse">
                   Term of use Agreement
+              </Link>
             </div>
+            
             <div className="_go-back">
               <button className="button">
                   &lt; Go Back
