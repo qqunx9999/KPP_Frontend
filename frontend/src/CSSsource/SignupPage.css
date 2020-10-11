@@ -1,0 +1,285 @@
+.dell-x-p-s {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: var(--Theme6, #47624f);
+  }
+
+.center-frame {
+    width: 1242px;
+    height: 996px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: relative;
+    top: 38px;
+    left: 329px;
+  }
+
+.k-u-people {
+    width: 448px;
+    height: 129px;
+    overflow: visible;
+    text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
+    font-family: "Inter", sans-serif;
+    color: var(--Theme4, #447604);
+    font-size: 91px;
+    letter-spacing: 0px;
+    line-height: 1.2;
+    position: absolute;
+    top: 47px;
+    left: 397px;
+  }
+
+.descb-text {
+    width: 654px;
+    height: 110px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 38px;
+    letter-spacing: 0px;
+    line-height: 1.2;
+    position: absolute;
+    top: 193px;
+    left: 294px;
+  }
+
+.accountName { 
+    width: 390px;
+    height: 138px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 46px;
+    letter-spacing: 3px;
+    line-height: 3;  
+    position: absolute;
+    top: 281px;
+    left: 53px;
+  }
+
+.Input_account {
+    background-color: rgb(221, 221, 227);
+    font-size: 22;
+    color: "#333333";
+    border: rgba(0,0,0,0);
+    border-width: 1;
+    /*focusColor=#09F*/
+    /*focused:false*/
+    font: false;
+    font-family: "";
+    /*keyboard:""*/
+    /*multiLine:false*/
+    padding: 20;
+    /*password:false*/
+    border-radius: 10;
+    position: relative;    
+    top: -150px;
+    left: 380px;
+}
+.email-text {
+    width: 163px;
+    height: 138px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 46px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: relative;
+    top: 397px;
+    left: 53px;
+  }
+
+.Input_email {
+    background-color: rgb(221, 221, 227);
+    font-size: 22;
+    color: "#333333";
+    border: rgba(0,0,0,0);
+    border-width: 1;
+    /*focusColor=#09F*/
+    /*focused:false*/
+    font: false;
+    font-family: "";
+    /*keyboard:""*/
+    /*multiLine:false*/
+    padding: 12;
+    /*password:false*/
+    border-radius: 10;
+    position: absolute;
+    top: 41px;
+    left: 180px;
+}
+
+._ku-th {
+  width: 158px;
+  height: 126px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme3, #0f0508);
+  font-size: 42px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: absolute;
+  top: 5px;
+  left: 680px;
+}
+
+.password {
+  width: 269px;
+  height: 138px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme3, #0f0508);
+  font-size: 46px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: absolute;
+  top: 502px;
+  left: 53px;
+}
+
+.Input_password {
+  background-color: rgb(221, 221, 227);
+  font-size: 22;
+  color: "#333333";
+  border: rgba(0,0,0,0);
+  border-width: 1;
+  /*focusColor=#09F*/
+  /*focused:false*/
+  font: false;
+  font-family: "";
+  /*keyboard:""*/
+  /*multiLine:false*/
+  padding: 12;
+  /*password:false*/
+  border-radius: 10;
+  position: relative;    
+  top: -150px;
+  left: 260px;
+}
+
+.conpassword {
+  width: 500px;  
+  height: 138px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme3, #0f0508);
+  font-size: 46px;
+  letter-spacing: 3px;
+  line-height: 3;  
+  position: absolute;
+  top: 608px;
+  left: 53px;
+}
+
+.Input_conpassword {
+  background-color: rgb(221, 221, 227);
+  font-size: 22;
+  color: "#333333";
+  border: rgba(0,0,0,0);
+  border-width: 1;
+  /*focusColor=#09F*/
+  /*focused:false*/
+  font: false;
+  font-family: "";
+  /*keyboard:""*/
+  /*multiLine:false*/
+  padding: 12;
+  /*password:false*/
+  border-radius: 10;
+  position: relative;    
+  top: -150px;
+  left: 450px;
+}
+
+.accept {
+  width: 402px;
+  height: 69px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme3, #0f0508);
+  font-size: 23px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: absolute;    
+  top: 737px;
+  left: 791px;
+}
+
+.term {
+  width: 323px;
+  height: 69px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme4, #447604);
+  font-size: 23px;
+  letter-spacing: 3px;
+  line-height: 3;
+  text-decoration: underline;
+  position: absolute;    
+  top: 775px;
+  left: 827px;
+}
+
+.button {
+  background: var(--Theme5, #6cc551); /* Green */
+  border-radius: 19px;
+  color: white;
+  width: 215px;
+  height: 82px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+  position: absolute;    
+  top: 855px;
+  left: 154px;
+}
+._go-back {
+  width: 186px;
+  height: 90px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme1, #ffffff);
+  font-size: 30px;
+  letter-spacing: 3px;
+  line-height: 3;
+}
+
+.button2 {
+  background: var(--Theme5, #6cc551); /* Green */
+  border-radius: 19px;
+  color: white;
+  width: 215px;
+  height: 82px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+  position: absolute;    
+  top: 859px;
+  left: 750px;
+}
+
+.sign-up {
+  width: 145px;
+  height: 90px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme1, #ffffff);
+  font-size: 30px;
+  letter-spacing: 3px;
+  line-height: 3;
+}
+
+.square {
+  background-color: rgb(255, 255, 255);
+  border-width: 1px;
+  width: 40px;
+  height: 40px;
+}
