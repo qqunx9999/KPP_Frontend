@@ -12,8 +12,8 @@ const SignUpPage = () => {
 
   return (
     <Router>
-      <div className="dell-x-p-s">
-        <div className="center-frame">
+      <div className="outer-frame">
+        <div className="white-frame">
             <div className="k-u-people">
                   KU people
             </div>
@@ -30,16 +30,16 @@ const SignUpPage = () => {
             <div className="email-text">
               <form>
                   Email :
-                  <input placeholder="Type your Email..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="Input_email"/>
-                  <div className="_ku-th">
+                  <input placeholder="Type your Email..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="user_email"/>
+                  <div className="addku">
                     @ku.th
                   </div>
               </form>
             </div>
-            <div className="password">
+            <div className="pass">
               <form>
                   Password :
-                  <input placeholder="Type your password..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="Input_password"/>
+                  <input placeholder="Type your password..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="user_password"/>
                  
               </form>
             </div>
@@ -47,7 +47,7 @@ const SignUpPage = () => {
               <form>                  
                   Confirm Password :
                   
-                  <input placeholder="Comfirm your password..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="Input_conpassword"/>
+                  <input placeholder="Comfirm your password..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="user_conpassword"/>
                  
               </form>
             </div>
