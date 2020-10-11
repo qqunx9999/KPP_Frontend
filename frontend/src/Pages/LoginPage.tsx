@@ -42,7 +42,7 @@ const LoginPage = () => {
         </a>
         <Link to="/" className="FrameGoBackLogIn1" >
           <div className="GoBackButtonLogIn1">
-            Go Back
+            &lt; Go Back
           </div>
         </Link>
         <div className="TextDontLogIn1">
