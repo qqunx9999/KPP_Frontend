@@ -6,34 +6,32 @@ import {
   Link
 } from "react-router-dom";
 import '../CSSsource/LoginSigninPage.css';
-
+import LogInPage from './LoginPage'
 
 const LoginSigninPage = () => {
   
 
   return (
-    <Router>
-      <div className="dell-x-p-s">
-        <div className="center-frame">
-            <div className="k-u-people">
-                  KU people
+    <div className="dell-x-p-s">
+      <div className="center-frame">
+          <div className="k-u-people">
+                KU people
+          </div>
+          <div className="descb-text">
+                Please sign up or log in before use. 
+          </div>
+          <Link to="/SignUp" className="signup-frame">
+            <div className="sign-up">
+                Sign Up
             </div>
-            <div className="descb-text">
-                  Please sign up or log in before use. 
-            </div>
-            <a className="signup-frame" href="/SignUp">
-              <div className="sign-up">
-                  Sign Up
-              </div>
-            </a>
-            <a className="login-frame" href="/LogIn">
-              <div className="log-in">
-                  Log In
-              </div>    
-            </a>
-        </div>
+          </Link>
+          <Link to="/LogIn" className="login-frame">
+            <div className="log-In">
+                Log In
+            </div>    
+          </Link>
       </div>
-    </Router>
+    </div>
   );
 }
 

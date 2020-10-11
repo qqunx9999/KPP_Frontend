@@ -11,6 +11,10 @@ import {
 import LoginSigninPage from './Pages/LoginSigninPage';
 import SignUpPage from './Pages/SignUpPage' ;
 import LoginPage from './Pages/LoginPage' ;
+import AuthenLogIn from './Pages/AuthenLogIn';
+import ForgetPwd from './Pages/ForgetPwd';
+import TermOfUse from './Pages/TermOfUse';
+
 
 ReactDOM.render(
   <Router>
@@ -18,11 +22,20 @@ ReactDOM.render(
         <Route exact path="/">
           <LoginSigninPage/>
         </Route>
-        <Route path="/LogIn">
+        <Route exact path="/LogIn">
           <LoginPage/>
         </Route>
-        <Route path="/SignUp">
+        <Route exact path="/SignUp">
           <SignUpPage />
+        </Route>
+        <Route exact path="/LogIn/AuthenLogIn">
+          <AuthenLogIn/>
+        </Route>
+        <Route exact path="/ForgetPwd">
+          <ForgetPwd/>
+        </Route>
+        <Route exact path="/TermOfUse">
+          <TermOfUse/>
         </Route>
       </Switch>
   </Router>,
