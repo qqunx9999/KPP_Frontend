@@ -5,14 +5,21 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
+import '../CSSsource/AuthenLogIn.css';
 
 const AuthenLogIn = () => {
   
 
   return (
-      <div>
-          ควย
+      <div className="greenBackgroungAuth">
+          <div className="frameAuth">
+            <div className="KUpeopleAuth">
+              KU People
+            </div>
+            <div className="textAuth">
+              Checking your verification code...
+            </div>
+          </div>
       </div>
   );
 }
