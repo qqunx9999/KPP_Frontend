@@ -1,0 +1,101 @@
+.backgroundTermOfUse {
+    width: 1920px;
+    height: 2530px;
+    overflow: hidden;
+    background: var(--Theme6, #47624f);
+  }
+
+  .frameTermOfUse {
+    width: 932px;
+    height: 2431px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;
+    top: 70px;
+    left: 300px;
+  }
+
+.KUpeopleTermOfUse {
+    width: 448px;
+    height: 129px;
+    overflow: visible;
+    text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
+    font-family: "Inter", sans-serif;
+    color: var(--Theme4, #447604);
+    font-size: 91px;
+    letter-spacing: 0px;
+    line-height: 1.2;
+    position: absolute;
+    top: 60px;
+    left: 250px;
+  }
+
+.textTermOfUse {
+    width: 457px;
+    height: 110px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 38px;
+    letter-spacing: 0px;
+    line-height: 1.2;
+    text-decoration: underline;
+    position: absolute;
+    top: 210px;
+    left: 250px;
+  }
+
+.frameDetailTermOfUse {
+    width: 744px;
+    height: 1932px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 62px;
+    position: absolute;
+    top: 300px;
+    left: 100px;
+  }
+
+.detailTermOfUse {
+    width: 704px;
+    height: 2052px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 32px;
+    letter-spacing: 0px;
+    line-height: 1.8;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.frameGoBackTermOfUse {
+    width: 215px;
+    height: 82px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 2370px;
+    left: 400px;
+  }
+
+.GoBackButtonTermOfUse {
+    width: 186px;
+    height: 90px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 30px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: -5px;
+    left: 15px;
+  }
+
