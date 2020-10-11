@@ -1,11 +1,11 @@
-.dell-x-p-s {
+.backgroundLoginSignin {
     width: 1920px;
     height: 1080px;
     overflow: hidden;
     background: var(--Theme6, #47624f);
   }
 
-.center-frame {
+.centerFrameLoginSignin {
     width: 886px;
     height: 696px;
     overflow: visible;
@@ -17,7 +17,7 @@
     left: 517px;
   }
 
-.k-u-people {
+.KUPeopleLoginSignin {
     width: 448px;
     height: 129px;
     overflow: visible;
@@ -32,7 +32,7 @@
     left: 219px;
   }
 
-.descb-text {
+.DesbTextLoginSignin {
     width: 654px;
     height: 110px;
     overflow: visible;
@@ -46,7 +46,7 @@
     left: 116px;
   }
 
-.signup-frame {
+.SignupFrameLoginSignin {
     width: 430px;
     height: 119px;
     overflow: visible;
@@ -58,7 +58,7 @@
     left: 228px;
   }
 
-.login-frame {
+.LoginFrameLoginSignin {
     width: 430px;
     height: 119px;
     overflow: visible;
@@ -70,7 +70,7 @@
     left: 228px;
   }
 
-.sign-up {
+.SignUpLoginSignin {
     width: 193px;
     height: 119px;
     overflow: visible;
@@ -84,7 +84,7 @@
     left: 119px;
   }
 
-.log-In {
+.LogInLoginSignin {
     width: 153px;
     height: 119px;
     overflow: hidden;

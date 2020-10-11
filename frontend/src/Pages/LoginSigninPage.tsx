@@ -12,21 +12,21 @@ const LoginSigninPage = () => {
   
 
   return (
-    <div className="dell-x-p-s">
-      <div className="center-frame">
-          <div className="k-u-people">
+    <div className="backgroundLoginSignin">
+      <div className="centerFrameLoginSignin">
+          <div className="KUPeopleLoginSignin">
                 KU people
           </div>
-          <div className="descb-text">
+          <div className="DesbTextLoginSignin">
                 Please sign up or log in before use. 
           </div>
-          <Link to="/SignUp" className="signup-frame">
-            <div className="sign-up">
+          <Link to="/SignUp" className="SignupFrameLoginSignin">
+            <div className="SignUpLoginSignin">
                 Sign Up
             </div>
           </Link>
-          <Link to="/LogIn" className="login-frame">
-            <div className="log-In">
+          <Link to="/LogIn" className="LoginFrameLoginSignin">
+            <div className="LogInLoginSignin ">
                 Log In
             </div>    
           </Link>
