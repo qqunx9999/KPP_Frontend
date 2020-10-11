@@ -11,7 +11,7 @@ import '../CSSsource/SignupPage.css';
 const SignUpPage = () => {
 
   return (
-    <Router>
+    
       <div className="outer-frame">
         <div className="white-frame">
             <div className="k-u-people">
@@ -75,7 +75,7 @@ const SignUpPage = () => {
         </div>
       </div>
       
-    </Router>
+    
   );
 }
 
