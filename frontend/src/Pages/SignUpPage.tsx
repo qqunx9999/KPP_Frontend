@@ -65,7 +65,7 @@ const SignUpPage = () => {
             <div className="sign-up">
               <button className="button2">
                 <button className="square"></button>
-                  &lt; Sign Up
+                  &nbsp; Sign Up
               </button>
             </div>
         </div>
