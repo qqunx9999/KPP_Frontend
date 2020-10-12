@@ -106,7 +106,8 @@
     color: #ffffff;
     font-size: 35px;
     letter-spacing: 3px;
-    line-height: 3;
+    line-height: 1;
+    
   }
 
 .verification {
@@ -284,4 +285,8 @@
         letter-spacing: 0px;
         line-height: 1.2;
       
+  }
+
+  input::placeholder {
+    font-size: 30px;    
   }
