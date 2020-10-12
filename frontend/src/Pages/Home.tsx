@@ -5,9 +5,14 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { thread } from '../interfaces/newsEntity';
 
 const Home = () => {
-  
+  const [thread, setThread] = useState<thread[]>([]);
+
+  const fetchNews = () => {
+    
+  }
 
   return (
      <div>
