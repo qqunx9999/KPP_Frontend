@@ -9,26 +9,26 @@ import { thread } from '../interfaces/newsEntity';
 import threadService from '../service/threadService';
 
 const Home = () => {
-  const [thread, setThread] = useState<thread[]>([]);
+  // const [thread, setThread] = useState<thread[]>([]);
 
-  const fetchThread = () => {
-    threadService.fetchThreads()
-      .then(thread => {
-        setThread(thread)
-      });
-  }
+  // const fetchThread = () => {
+  //   threadService.fetchThreads()
+  //     .then(thread => {
+  //       setThread(thread)
+  //     });
+  // }
 
-  useEffect(() => {
-    fetchThread();
-  }, []);
+  // useEffect(() => {
+  //   fetchThread();
+  // }, []);
 
   return (
      <div>
-      { thread.map(item => {
+      {/* { thread.map(item => {
         <ul>
           
         </ul>
-      }) }
+      }) } */}
      </div>
   );
 }
