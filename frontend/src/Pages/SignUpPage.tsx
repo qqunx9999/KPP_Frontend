@@ -86,7 +86,6 @@ const SignUpPage = () => {
         </div>
       </div>
       
-    
   );
 }
 

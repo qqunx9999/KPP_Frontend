@@ -6,12 +6,14 @@ import {
   Link
 } from "react-router-dom";
 import '../CSSsource/TermOfUse.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const TermOfUse = () => {
   
 
   return (
     <div className="backgroundTermOfUse">
+      <div className="container">
         <div className="frameTermOfUse">
           <div className="KUpeopleTermOfUse">
             KU People
@@ -49,6 +51,7 @@ const TermOfUse = () => {
           </div>
           
         </Link>
+        </div>
     </div>
   );
 }

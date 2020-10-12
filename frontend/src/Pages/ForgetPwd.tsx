@@ -6,6 +6,7 @@ import {
     Link
 } from "react-router-dom";
 import '../CSSsource/ForgetPwd.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const ForgetPwd = () => {
 
@@ -22,6 +23,7 @@ const ForgetPwd = () => {
 
     return (
         <div className="forgetpwd-frame">
+            <div className="container">
             <div className="forgetpwd-whiteframe">
                 <div className="forgetpwd-k-u-people">
                     KU People
@@ -71,6 +73,7 @@ const ForgetPwd = () => {
                         Confirm
                     </button>
                 </Link>
+            </div>
             </div>
         </div>
     );
