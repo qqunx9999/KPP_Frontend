@@ -5,14 +5,17 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.css';
 import '../CSSsource/LoginPage.css';
 import SignUpPage from "./SignUpPage"
 import AuthenLogIn from './AuthenLogIn';
 
 const LoginPage = () => {
   return (
-      <div className="LogInPage1">
-        <div className="CenterFrameLogin1">
+    <div className="LogInPage1">
+      <div className="container">
+      <div className="CenterFrameLogin1">
+        
           <div className="KUPeopleLogin1">
                   KU People
           </div>
@@ -60,6 +63,7 @@ const LoginPage = () => {
           </Link>
         </div>
       </div>
+    </div>
 
   );
 }
