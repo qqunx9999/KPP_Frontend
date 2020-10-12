@@ -5,14 +5,26 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import '../CSSsource/AuthenSignup.css';
 
 const AuthenSignup = () => {
   
 
   return (
-     <div>
+     <Router>
+         <div className="AuthenSU-outer-frame">
+             <div className="AuthenSU-whiteframe">
+                 <div className="AuthenSU-k-u-people">
+                     KU People
+                 </div>
+                 <div className="AuthenSU-in_progess">
+                     Signing up in progess...
+                 </div>
+
+             </div>
+         </div>
          
-     </div>
+     </Router>
   );
 }
 

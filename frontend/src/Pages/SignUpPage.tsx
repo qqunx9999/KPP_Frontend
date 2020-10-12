@@ -61,17 +61,17 @@ const SignUpPage = () => {
               </Link>
             </div>
             
-            <Link to="/" className="_go-back">
-              <button className="button">
+            <div className="_go-back">
+              <Link to= "/" className="button">
                   &lt; Go Back
-              </button>
-            </Link>
-            <Link to="/SignUp/AuthenSignup" className="sign-up">
-              <button className="button2">
+              </Link>
+            </div>
+            <div className="sign-up">
+              <Link to= "/SignUp/AuthenSignup" className="button2">
                 <button className="square"></button>
                   &nbsp; Sign Up
-              </button>
-            </Link>
+              </Link>
+            </div>
         </div>
       </div>
       
