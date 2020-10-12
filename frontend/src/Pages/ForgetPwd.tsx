@@ -11,7 +11,6 @@ const ForgetPwd = () => {
   
 
   return (
-      <Router>
         <div className="forgetpwd-frame">
             <div className="forgetpwd-whiteframe">
                 <div className="forgetpwd-k-u-people">
@@ -52,19 +51,18 @@ const ForgetPwd = () => {
                     <input placeholder="Type your verification code..." style={{ width:"440px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="verification-code_input"/>                    
                 </form>
                 </div>
-                <div className="fgpwd_go-back">
-                    <button className="fgpwd_goback_button">
+                <Link to="/LogIn" className="fgpwd_go-back">
+                    <div className="fgpwd_goback_button">
                         &lt; Go Back
-                    </button>
-                </div>
-                <div className="fgpwd_confirm">
+                    </div>
+                </Link>
+                <Link to='/ForgetPwd/AuthenResetPwd' className="fgpwd_confirm">
                     <button className="fgpwd_confirm_button">                        
                         Confirm
                     </button>
-                </div>
+                </Link>
             </div>
         </div>
-      </Router>
   );
 }
 

@@ -43,12 +43,12 @@ const TermOfUse = () => {
               </p>
           </div>
         </div>
-        <div className="frameGoBackTermOfUse">
+        <Link to="/SignUp" className="frameGoBackTermOfUse">
           <div className="GoBackButtonTermOfUse">
           &lt; Go Back
           </div>
           
-        </div>
+        </Link>
     </div>
   );
 }

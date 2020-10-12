@@ -14,6 +14,10 @@ import LoginPage from './Pages/LoginPage' ;
 import AuthenLogIn from './Pages/AuthenLogIn';
 import ForgetPwd from './Pages/ForgetPwd';
 import TermOfUse from './Pages/TermOfUse';
+import AuthenSignup from './Pages/AuthenSignup';
+import AuthenResetPwd from './Pages/AuthenResetPwd'
+import Home from './Pages/Home'
+import Threads from './Pages/Threads'
 
 
 ReactDOM.render(
@@ -36,6 +40,18 @@ ReactDOM.render(
         </Route>
         <Route exact path="/TermOfUse">
           <TermOfUse/>
+        </Route>
+        <Route exact path="/ForgetPwd/AuthenResetPwd">
+          <AuthenResetPwd/>
+        </Route>
+        <Route exact path="/SignUp/AuthenSignup">
+          <AuthenSignup/>
+        </Route>
+        <Route exact path="/Home">
+          <Home/>
+        </Route>
+        <Route exact path="/Threads">
+          <Threads/>
         </Route>
       </Switch>
   </Router>,
