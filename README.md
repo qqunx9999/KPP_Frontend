@@ -6,7 +6,7 @@
  
   <h4>Before run the app please install node modules for each folders first, go to the folder and type <code>npm install</code></h4>
   
-  <ul>
+  <ol>
     <li>Install via git : <code>git clone https://github.com/qqunx9999/KUPEOPLE_FULLSTACK.git</code> at the destination folder</li><br>
     <li>Go to the folder and Install adminmongo : <code>git clone https://github.com/mrvautin/adminMongo.git</code> or direct to his site at <a href="https://github.com/mrvautin/adminMongo">Here</a>
       <ul>
@@ -25,6 +25,6 @@
         <li>must install <a href="https://typeorm.io/#/">typeorm</a> and nest mongodb : <code>npm install --save @nestjs/typeorm typeorm mongodb</code></li>
       </ul>
     </li><br>
-  </ul>
+  </ol>
   
   <h5>Other description is in backend/frontend's readme </h5>
