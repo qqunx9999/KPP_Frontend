@@ -4,7 +4,7 @@ import {ObjectID} from 'mongodb';
 @Entity()
 export class Admin{
     @ObjectIdColumn()
-    AdminID?:ObjectID;
+    adminID?:ObjectID;
     @Column()
     userID:ObjectID;
 }

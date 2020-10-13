@@ -13,5 +13,7 @@ export class Chatroom{
     date_create:Date;
     @Column()
     date_delete?:Date;
+    @Column()
+    members: ObjectID[];
 }
 export default Chatroom;

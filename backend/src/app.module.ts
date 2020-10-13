@@ -4,7 +4,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import Admin from './entities/admin.entity';
-import Chat_member from './entities/chat_member.entity';
 import Chat_message from './entities/chat_message.entity';
 import Chat_read from './entities/chat_read.entity';
 import Chatroom from './entities/chatroom.entity';
@@ -25,7 +24,7 @@ import { ThreadsController } from './threads/threads.controller';
       type: 'mongodb',
       host: 'localhost',
       database: 'test_kuPeople',
-      entities: [Admin,Chat_member, Chat_message, Chat_read, Chatroom, Commentation,
+      entities: [Admin, Chat_message, Chat_read, Chatroom, Commentation,
          Report_read, Reportment_comment, Reportment_thread, Thread, User],
       synchronize: true,
     }),
