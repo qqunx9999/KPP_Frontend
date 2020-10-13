@@ -12,11 +12,11 @@ const Threads = () => {
 
   return (
      <div className="Threads-bigframe">
-       <div className="thread_goback">
+       <Link to="/Home" className="thread_goback">
           <button className="thread_goback_button">                        
           &lt; Go back
           </button>
-      </div>
+      </Link>
 
       <div className="thread-tags-frame">
         <div className="threads_tags_tags">
@@ -53,7 +53,7 @@ const Threads = () => {
       
       <div>
          <button className="thread-upvote-frame">
-
+          
          </button>
       </div>
 
