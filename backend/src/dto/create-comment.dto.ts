@@ -3,7 +3,7 @@ import {ObjectID} from 'mongodb';
 
 
 
-export class Commentation {
+export class CreateComment {
     
     userID:ObjectID;
     
