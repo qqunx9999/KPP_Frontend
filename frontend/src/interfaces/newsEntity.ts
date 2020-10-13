@@ -1,9 +1,9 @@
-export interface thread {
+export interface Thread {
     userID: string,
     topic: string,
     tags: string,
     content: string,
-    images: images,
+    Images: Images,
     upVote: [string],
     downVote: [string],
     upVoteCount: number,
@@ -15,7 +15,7 @@ export interface thread {
     isAnonymous: boolean,
 }
 
-interface images {
+interface Images {
     URL: string,
     pos: number,
 }
