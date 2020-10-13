@@ -1,0 +1,554 @@
+.Threads-bigframe {
+    width: 1920px;
+    height: 1274px;
+    overflow: hidden;
+    background: var(--Theme6, #47624f);
+  }
+
+.thread_goback_button {
+    background: var(--Theme5, #6cc551); /* Green */
+    border-radius: 19px;
+    color: white;
+    width: 206px;
+    height: 90px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    position: absolute;    
+    top: 32px;
+    left: 42px;
+    border-width: 0px;
+  }
+
+.thread_goback {
+    width: 107px;
+    height: 105px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 35px;
+    letter-spacing: 3px;
+    line-height: 1;
+    
+  }
+
+.thread-tags-frame {
+    width: 338px;
+    height: 413px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 33px;
+    position: absolute;    
+    top: 182px;
+    left: 42px;
+  }
+
+.threads_tags_tags {
+    width: 128px;
+    height: 64px;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 39px;
+    letter-spacing: 0px;
+    line-height: 1.8;
+    position: absolute;    
+    top: 10px;
+    left: 24px;
+  }
+.thread_minitag1_frame {
+    background: var(--Theme4, #447604); /* Green */
+    border-radius: 19px;
+    color: white;
+    width: 290px;
+    height: 73px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    position: absolute;    
+    top: 96px;
+    left: 24px;
+    border-width: 0px;
+  }
+
+.thread_minitag1 {
+    width: 244px;
+    height: 70px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 39px;
+    letter-spacing: 0px;
+    line-height: 1.8;
+    
+  }
+
+.thread_minitag2_frame {
+    background: var(--Theme4, #447604); /* Green */
+    border-radius: 19px;
+    color: white;
+    width: 290px;
+    height: 73px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    position: absolute;    
+    top: 193px;
+    left: 24px;
+    border-width: 0px;
+  }
+
+.thread_minitag2 {
+    width: 244px;
+    height: 70px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 39px;
+    letter-spacing: 0px;
+    line-height: 1.8;    
+  }
+
+  .thread_minitag3_frame {
+    background: var(--Theme4, #447604); /* Green */
+    border-radius: 19px;
+    color: white;
+    width: 290px;
+    height: 73px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    position: absolute;    
+    top: 285px;
+    left: 24px;
+    border-width: 0px;
+  }
+
+.thread_minitag3 {
+    width: 244px;
+    height: 70px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 39px;
+    letter-spacing: 0px;
+    line-height: 1.8;    
+  }
+
+.thread-vote-frame {
+    width: 175px;
+    height: 332px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 33px;
+    position: absolute;    
+    top: 66px;
+    left: 1563px;
+  }
+
+.thread-upvote-no {
+    width: 65px;
+    height: 49px;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 29px;
+    letter-spacing: 0px;
+    line-height: 1.8;
+    position: absolute;    
+    top: 21px;
+    left: 110px;
+  }
+
+.thread-downvote-no {
+    width: 65px;
+    height: 49px;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 29px;
+    letter-spacing: 0px;
+    line-height: 1.8;
+    position: absolute;    
+    top: 141px;
+    left: 110px;
+  }
+
+.thread-comment-no {
+    width: 65px;
+    height: 49px;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 29px;
+    letter-spacing: 0px;
+    line-height: 1.8;
+    position: absolute;    
+    top: 264px;
+    left: 110px;
+  }
+
+.thread-upvote-frame {
+    width: 97px;
+    height: 92px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 29px;
+    position: absolute;    
+    top: 66px;
+    left: 1769px;
+  }
+
+.thread-downvote-frame {
+    width: 97px;
+    height: 94px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 29px;
+    position: absolute;    
+    top: 186px;
+    left: 1769px;
+  }
+
+.thread-comment-frame {
+    width: 97px;
+    height: 94px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 29px;
+    position: absolute;    
+    top: 304px;
+    left: 1769px;
+  }
+
+.thread-givecm-button {
+    width: 303px;
+    height: 88px;
+    overflow: visible;
+    background: var(--Theme4, #447604);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 28px;
+    position: absolute;    
+    top: 890px;
+    left: 1563px;
+    color: white;
+  }
+
+.thread-givecomment-txt {
+    width: 185px;
+    height: 63px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme1, #ffffff);
+    font-size: 21px;
+    letter-spacing: 3px;
+    line-height: 3;
+    
+  }
+
+.thread-topic-frame {
+    width: 865px;
+    height: 698px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;    
+    top: 61px;
+    left: 527px;
+  }
+
+.thread-topicname-frame {
+    width: 790px;
+    height: 84px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 28px;
+    position: absolute;    
+    top: 22px;
+    left: 34px;
+  }
+
+.thread-topicname {
+    width: 401px;
+    height: 102px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 34px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: -25px;
+    left: 95px;
+  }
+
+.thread-topiccreater {
+    width: 320px;
+    height: 63px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 21px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 32px;
+    left: 103px;
+  }
+
+.thread-topic-createdate {
+    width: 200px;
+    height: 48px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: -7px;
+    left: 596px;
+  }
+
+.thread-topic-lastedit {
+    width: 200px;
+    height: 48px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 17px;
+    left: 595px;
+  }
+
+.thread-topic-lastedit-date {
+    width: 210px;
+    height: 48px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 41px;
+    left: 572px;
+  }
+
+.thread-topic-detail-frame {
+    width: 781px;
+    height: 515px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 26px;
+    position: absolute;    
+    top: 137px;
+    left: 34px;
+  }
+
+.thread-reply1-whiteframe {
+    width: 865px;
+    height: 229px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;    
+    top: 786px;
+    left: 527px;
+  }
+
+.thread-reply1-blackframe {
+    width: 790px;
+    height: 84px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 28px;
+    position: absolute;    
+    top: 22px;
+    left: 34px;
+  }
+
+.thread-topicname-inreply1 {
+    width: 401px;
+    height: 102px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 34px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: -30px;
+    left: 95px;
+  }
+
+.thread-reply1-user {
+    width: 277px;
+    height: 63px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 21px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 32px;
+    left: 103px;
+  }
+
+.thread-reply1-time {
+    width: 185px;
+    height: 48px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: -7px;
+    left: 596px;
+  }
+
+.thread-reply1-lastedit {
+    width: 185px;
+    height: 48px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 17px;
+    left: 595px;
+  }
+
+.thread-reply1-lastedit-date {
+    width: 194px;
+    height: 48px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 41px;
+    left: 587px;
+  }
+
+.thread-reply2-whiteframe {
+    width: 865px;
+    height: 229px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;    
+    top: 1042px;
+    left: 527px;
+  }  
+
+  .thread-reply2-blackframe {
+    width: 790px;
+    height: 84px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 28px;
+    position: absolute;    
+    top: 22px;
+    left: 34px;
+  }
+
+.thread-topicname-inreply2 {
+    width: 401px;
+    height: 102px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 34px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: -30px;
+    left: 95px;
+  }
+
+.thread-reply2-user {
+    width: 277px;
+    height: 63px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 21px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 32px;
+    left: 103px;
+  }
+
+.thread-reply2-time {
+    width: 185px;
+    height: 48px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: -7px;
+    left: 596px;
+  }
+
+.thread-reply2-lastedit {
+    width: 185px;
+    height: 48px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 17px;
+    left: 595px;
+  }
+
+.thread-reply2-lastedit-date {
+    width: 194px;
+    height: 48px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 41px;
+    left: 587px;
+  }
