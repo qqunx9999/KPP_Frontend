@@ -17,5 +17,6 @@ export class Chat_message{
     date_create:Date;
     @Column()
     date_delete:Date;
+    //hello
 }
 export default Chat_message;
