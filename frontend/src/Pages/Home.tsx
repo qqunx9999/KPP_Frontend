@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { Thread } from '../interfaces/newsEntity';
 import 'bootstrap/dist/css/bootstrap.css';
+import '../CSSsource/Home.css';
 
 const Home = () => {
   const [thread, setThread] = useState<Thread[]>([]);
@@ -20,31 +21,48 @@ const Home = () => {
   },[]);
 
   return (
-     <div className="container">
-       <h6>Latest</h6>
-       <ul>
-         <Link to={ `Threads` }>
-           { thread.map(item => {
-             return <li key={ item.userID }>{ item.content }</li>
-           }) }
-         </Link>
-       </ul>
-       <h6>Hottest</h6>
-       <ul>
-         <Link to={ `Threads` }>
-          { thread.map(item => {
+     <div>
+       <div className="backgroundHomePage">
+       <div className="topBlackFrameHomePage">
+        <div className="topKUPeopleHomePage">
+        </div>
+        <div className="searchSymbolHomePage">
+        </div>
+        <div className="createBlogSymbolHomePage">
+        </div>
+        <div className="profilePicHomePage">
+        </div>
+        <div className="rankHomePage">
+          Beginner
+        </div>
+       </div>
+        
+        
+        <h6>Latest</h6>
+        <ul>
+          <Link to={ `Threads` }>
+            { thread.map(item => {
               return <li key={ item.userID }>{ item.content }</li>
             }) }
-         </Link>
-       </ul>
-       <h6>News</h6>
-       <ul>
-        <Link to={ `Threads` }>
-          { thread.map(item => {
-            return <li key={ item.userID }>{ item.content }</li>
-          }) }
-        </Link>
-       </ul>
+          </Link>
+        </ul>
+        <h6>Hottest</h6>
+        <ul>
+          <Link to={ `Threads` }>
+            { thread.map(item => {
+                return <li key={ item.userID }>{ item.content }</li>
+              }) }
+          </Link>
+        </ul>
+        <h6>News</h6>
+        <ul>
+          <Link to={ `Threads` }>
+            { thread.map(item => {
+              return <li key={ item.userID }>{ item.content }</li>
+            }) }
+          </Link>
+        </ul>
+       </div>
      </div>
   );
 }
