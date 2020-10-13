@@ -1,4 +1,4 @@
-import { IsInt , IsNotEmpty , IsBoolean , IsDate , IsString } from "class-validator";
+import { IsInt , IsNotEmpty , IsBoolean , IsDate , IsString , IsArray} from "class-validator";
 import {ObjectID} from 'mongodb';
 
 export class CreateUserDto {
@@ -12,7 +12,7 @@ export class CreateUserDto {
     exp: number;
     @IsString()
     rank: string;
-
+    @IsArray()
     friend_arr: [ ObjectID, Date, Date, boolean][];// userID, date_add, date_remove(default null), isaccept
     @IsDate()
     numberfriends: number;
@@ -22,6 +22,6 @@ export class CreateUserDto {
     description: string;
     @IsDate()
     date_join: Date;
-    
+    @IsArray()
     ischatmember: [ObjectID, Date, Date][]; // chatroomID, date_join, date_leave(default null)
 }

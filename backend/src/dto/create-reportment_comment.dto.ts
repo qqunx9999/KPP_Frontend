@@ -1,27 +1,17 @@
 import { IsInt , IsNotEmpty , IsBoolean , IsDate , IsString , IsArray} from "class-validator";
 import {ObjectID} from 'mongodb';
 
-
-
-export class CreateCommentDto {
+export class CreateReportment_CommentDto{
     
     userID:ObjectID;
     
-    threadID:ObjectID;
+    commentID:ObjectID;
     @IsString()
-    content:string;
+    description:string;
     @IsArray()
-    image_arr:[string, number][];
-    @IsInt()
-    reply_to:number;
-    @IsInt()
-    commentNO:number;
+    image_arr: [string, number][]; 
     @IsDate()
     date_create:Date;
     @IsDate()
-    date_lastedit:Date;
-    @IsDate()
     date_delete:Date;
-    @IsBoolean()
-    isanonymous:boolean;
 }

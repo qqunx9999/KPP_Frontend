@@ -1,5 +1,6 @@
-import { IsInt , IsNotEmpty , IsBoolean , IsDate , IsString } from "class-validator";
+import { IsInt , IsNotEmpty , IsBoolean , IsDate , IsString , IsArray} from "class-validator";
 import {ObjectID} from 'mongodb';
+
 
 export class CreateThreadDto {
 
@@ -8,19 +9,19 @@ export class CreateThreadDto {
     @IsString()
     topic: string;
 
-    
+    @IsArray()
     tag_arr : string[];
 
     @IsString()
     content: string;
 
+    @IsArray()
+    image_arr: [string, number][]; 
     
-    image_arr: [string, number][]; //Url: string pos: number
-    
-
+    @IsArray()
     up_vote_arr: ObjectID[];
 
-
+    @IsArray()
     down_vote_arr: ObjectID[];
 
     @IsInt()
