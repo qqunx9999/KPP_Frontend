@@ -37,7 +37,11 @@ const Threads = () => {
         </div> 
         <div className="thread_minitag1">
           <button className="thread_minitag1_frame">                        
-            Tag1
+            { thread.map(item => {
+              return item.tag_arr.map(tag => {
+                return tag
+              })
+            }) }
           </button>
         </div>
         <div className="thread_minitag2">
@@ -54,13 +58,19 @@ const Threads = () => {
 
       <div className="thread-vote-frame">
         <div className="thread-upvote-no">
-          99
+          { thread.map(item => {
+            return item.up_vote_count
+          }) }
         </div>
         <div className="thread-downvote-no">
-          99
+          { thread.map(item => {
+            return item.down_vote_count
+          }) }
         </div>
         <div className="thread-comment-no">
-          99
+          { thread.map(item => {
+            return item.number_of_comment
+          }) }
         </div>
       </div>
       
@@ -92,7 +102,7 @@ const Threads = () => {
         <div className="thread-topicname-frame">
           <div className="thread-topicname">
             Topic : { thread.map(item => {
-              return item.content
+              return item.topic
             }) }
           </div>
           <div className="thread-topiccreater">
@@ -109,7 +119,9 @@ const Threads = () => {
           </div>
         </div>        
         <div className="thread-topic-detail-frame">
-
+            { thread.map(item => {
+              return item.content
+            }) }
         </div>
       </div>
 
