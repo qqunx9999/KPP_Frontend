@@ -21,7 +21,8 @@
     </li><br>
     <li>In backend part we use <a href="https://nestjs.com/">Nestjs</a> (server-side application framework) for building application, this is how to use
       <ul>
-        <li>go to backend project and type <code>npm rum start</code> in xommand line</li>  
+        <li>go to backend project and type <code>npm rum start</code> in command line</li>
+        <li>must install <a herf="https://typeorm.io/#/">typeorm</a> and nest mongodb : <code>npm install --save @nestjs/typeorm typeorm mongodb</code></li>
       </ul>
     </li><br>
   </ul>
