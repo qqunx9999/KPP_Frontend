@@ -8,13 +8,14 @@ export class Chatroom{
     @Column()
     room_name:string;
     @Column()
+    member_arr: [ObjectID, Date, Date][];
+    @Column()
     totalmember:number;
     @Column()
     date_create:Date;
     @Column()
     date_delete:Date;
-    @Column()
-    members: ObjectID[];
+    
     
 }
 export default Chatroom;

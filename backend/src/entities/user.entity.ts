@@ -25,6 +25,6 @@ export class User{
     @Column()
     date_join: Date;
     @Column()
-    ischatmember: [ObjectID, Date, Date][]; // chatroomID, date_join, date_leave(default null)
+    ischatmember: ObjectID[]; 
 }
 export default User;
