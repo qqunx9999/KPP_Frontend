@@ -3,9 +3,21 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
+import Admin from './entities/admin.entity';
+import Chat_member from './entities/chat_member.entity';
+import Chat_message from './entities/chat_message.entity';
+import Chat_read from './entities/chat_read.entity';
+import Chatroom from './entities/chatroom.entity';
+import Commentation from './entities/comentation.entity';
+import Report_read from './entities/report_read.entity';
+import Reportment_comment from './entities/reportment_comment.entity';
+import Reportment_thread from './entities/reportment_thread.entity';
 import Thread from './entities/thread.entity';
-import { ThreadsController } from './threads/threads.controller';
+import User from './entities/user.entity';
+
 import { ThreadsService } from './threads/threads.service';
+import { ThreadsController } from './threads/threads.controller';
+
 
 @Module({
   imports: [
@@ -13,7 +25,8 @@ import { ThreadsService } from './threads/threads.service';
       type: 'mongodb',
       host: 'localhost',
       database: 'test_kuPeople',
-      entities: [Thread],
+      entities: [Admin,Chat_member, Chat_message, Chat_read, Chatroom, Commentation,
+         Report_read, Reportment_comment, Reportment_thread, Thread, User],
       synchronize: true,
     }),
     TypeOrmModule.forFeature([Thread]),
