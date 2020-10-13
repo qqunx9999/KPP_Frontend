@@ -5,20 +5,27 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { Thread } from '../interfaces/newsEntity';
+import { Thread } from '../interfaces/threadEntity';
 import 'bootstrap/dist/css/bootstrap.css';
+
 import '../CSSsource/Home.css';
+
+import threadService from '../service/threadService';
+
 
 const Home = () => {
   const [thread, setThread] = useState<Thread[]>([]);
 
-  useEffect(() => {
-    fetch('http://localhost:3000')
-      .then(res => res.json())
+  const fetchThread = () => {
+    threadService.fetchThread()
       .then(obj => {
-        setThread(obj.json());
-      });
-  },[]);
+        setThread(obj);
+      })
+  };
+
+  useEffect(() => {
+    fetchThread();
+  }, []);
 
   return (
      <div>

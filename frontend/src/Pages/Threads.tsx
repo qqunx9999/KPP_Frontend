@@ -6,9 +6,22 @@ import {
   Link
 } from "react-router-dom";
 import '../CSSsource/Threads.css';
+import { Thread } from '../interfaces/threadEntity';
+import threadService from '../service/threadService';
 
 const Threads = () => {
-  
+  const [thread, setThread] = useState<Thread[]>([]);
+
+  const fetchThread = () => {
+    threadService.fetchThread()
+      .then(obj => {
+        setThread(obj);
+      })
+  }; 
+
+  useEffect(() => {
+    fetchThread();
+  }, []);
 
   return (
      <div className="Threads-bigframe">
@@ -78,7 +91,9 @@ const Threads = () => {
       <div className="thread-topic-frame">
         <div className="thread-topicname-frame">
           <div className="thread-topicname">
-            Topic : Topic Name
+            Topic : { thread.map(item => {
+              return item.content
+            }) }
           </div>
           <div className="thread-topiccreater">
             by topic creater name
