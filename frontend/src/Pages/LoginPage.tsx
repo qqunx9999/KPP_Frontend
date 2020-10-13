@@ -11,17 +11,6 @@ import SignUpPage from "./SignUpPage"
 import AuthenLogIn from './AuthenLogIn';
 
 const LoginPage = () => {
-  const [newEmail, setNewEmail] = useState<string>('');
-  const [newPassword, setNewPassword] = useState<string>(''); 
-
-  const handleEmail = (email: React.ChangeEvent<HTMLInputElement>) => {
-    setNewEmail(email.target.value);
-  }
-
-  const handlePassword = (pass: React.ChangeEvent<HTMLInputElement>) => {
-    setNewPassword(pass.target.value);
-  }
-
   return (
     <div className="LogInPage1">
       <div className="container">
@@ -36,7 +25,7 @@ const LoginPage = () => {
           <div className="EmailLogIn1">
               <form>
                 Email :
-                <input value={ newEmail } onChange={ handleEmail } placeholder="Type your Email..." style={{ width:"500px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onSubmit={undefined} className="InputEmailLogIn1"/>
+                <input placeholder="Type your Email..." style={{ width:"500px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="InputEmailLogIn1"/>
                 <div className="kuthLogIn1">
                   @ku.th
                 </div>
@@ -45,7 +34,7 @@ const LoginPage = () => {
           <div className="PasswordLogIn1">
               <form>
                 Password :
-                <input value={ newPassword } onChange={ handlePassword } placeholder="Type your password..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onSubmit={undefined} className="InputPasswordLogIn1"/>
+                <input placeholder="Type your password..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="InputPasswordLogIn1"/>
               </form>
           </div>
           <div className="TextForgetLogIn1">

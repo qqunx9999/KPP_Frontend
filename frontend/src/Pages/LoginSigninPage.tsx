@@ -5,7 +5,6 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.css';
 import '../CSSsource/LoginSigninPage.css';
 import LogInPage from './LoginPage'
 
@@ -14,7 +13,6 @@ const LoginSigninPage = () => {
 
   return (
     <div className="backgroundLoginSignin">
-      <div className="containe">
       <div className="centerFrameLoginSignin">
           <div className="KUPeopleLoginSignin">
                 KU people
@@ -32,7 +30,6 @@ const LoginSigninPage = () => {
                 Log In
             </div>    
           </Link>
-      </div>
       </div>
     </div>
   );
