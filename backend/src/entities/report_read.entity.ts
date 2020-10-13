@@ -8,9 +8,9 @@ export class Report_read{
     @Column()
     adminID:ObjectID;
     @Column()
-    reportCID?:ObjectID;
+    reportCID:ObjectID;
     @Column()
-    reportTID?:ObjectID;
+    reportTID:ObjectID;
     @Column()
     date_read:Date;
 }

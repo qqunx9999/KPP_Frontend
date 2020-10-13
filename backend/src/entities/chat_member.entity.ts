@@ -12,6 +12,6 @@ export class Chat_member{
     @Column()
     date_join_chat:Date;
     @Column()
-    date_leave_chat?:Date;
+    date_leave_chat:Date;
 }
 export default Chat_member;
