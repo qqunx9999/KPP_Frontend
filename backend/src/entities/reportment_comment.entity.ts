@@ -16,6 +16,6 @@ export class Reportment_comment{
     @Column()
     date_create:Date;
     @Column()
-    date_delete?:Date;
+    date_delete:Date;
 }
 export default Reportment_comment;

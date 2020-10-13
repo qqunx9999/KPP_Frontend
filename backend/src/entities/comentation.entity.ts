@@ -21,9 +21,9 @@ export class Commentation {
     @Column()
     date_create:Date;
     @Column()
-    date_lastedit?:Date;
+    date_lastedit:Date;
     @Column()
-    date_delete?:Date;
+    date_delete:Date;
     @Column()
     isanonymous:boolean;
 }
