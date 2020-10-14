@@ -23,5 +23,5 @@ export class CreateUserDto {
     @IsDate()
     date_join: Date;
     @IsArray()
-    ischatmember: [ObjectID, Date, Date][]; // chatroomID, date_join, date_leave(default null)
+    ischatmember_arr: ObjectID[]; //chatroomID
 }

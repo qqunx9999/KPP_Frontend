@@ -12,7 +12,7 @@ export class Chat_message{
     @Column()
     message:string;
     @Column()
-    chat_read_arr: [ObjectID, Date][] //userID, date_read 
+    chat_read_arr: [ObjectID, Date ][]; //userID, date_read 
     @Column()
     readnum:number;
     @Column()
