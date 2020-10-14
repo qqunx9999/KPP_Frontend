@@ -365,6 +365,20 @@
     left: 34px;
   }
 
+.thread-topic-detail-text {
+    width: 741px;
+    height: 75px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 25px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 12px;
+    left: 27px;
+  }
+
 .thread-reply1-whiteframe {
     width: 865px;
     height: 229px;
