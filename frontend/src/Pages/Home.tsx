@@ -53,9 +53,9 @@ const Home = () => {
               <div className="firstLatestTextHomePage">
                 { thread.map(item => (
                   <Link to={`/Threads/${ item.userID }`}>
-                    { thread.map(item => (
-                      item.topic
-                    )) }
+                    <ul>
+                      <li key={ item.threadID }>{ item.topic }</li>
+                    </ul>
                   </Link>
                 )) }
               </div>
@@ -118,12 +118,12 @@ const Home = () => {
             <div className="stackHottestHomePage">
               <div className="firstHottestTextHomePage">
                 { thread.map(item => (
-                    <Link to={`/Threads/${ item.userID }`}>
-                      { thread.map(item => (
-                        item.topic
-                      )) }
-                    </Link>
-                  )) }
+                  <Link to={`/Threads/${ item.userID }`}>
+                    <ul>
+                      <li key={ item.threadID }>{ item.topic }</li>
+                    </ul>
+                  </Link>
+                )) }
               </div>
               <div className="firstHottestStatusFrameHomePage"> 
                 <div className="firstHottestLikeFrameHomePage">
@@ -196,12 +196,12 @@ const Home = () => {
             <div className="stackNewsHomePage">
               <div className="firstNewsTextHomePage">
                 { thread.map(item => (
-                    <Link to={`/Threads/${ item.userID }`}>
-                      { thread.map(item => (
-                        item.topic
-                      )) }
-                    </Link>
-                  )) }
+                  <Link to={`/Threads/${ item.userID }`}>
+                    <ul>
+                      <li key={ item.threadID }>{ item.topic }</li>
+                    </ul>
+                  </Link>
+                )) }
               </div>
               <div className="firstNewsDateFrameHomePage"> 
                 <div className="firstNewsDateHomePage">

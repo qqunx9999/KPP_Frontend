@@ -6,17 +6,36 @@ import {
   Link
 } from "react-router-dom";
 import '../CSSsource/CreateComment.css';
+import { Thread } from '../interfaces/threadEntity';
+import threadService from '../service/threadService';
 
 const CreateComment = () => {
-  
+  const [thread, setThread] = useState<Thread[]>([]);
+
+  const fetchThread = () => {
+    threadService.fetchThread()
+      .then(obj => {
+        setThread(obj);
+      })
+  }; 
+
+  useEffect(() => {
+    fetchThread();
+  }, []);
 
   return (
       <div className="createcm-bigframe">
-        <div className="createcm_goback">
-          <button className="createcm_goback_button">
-            &lt; Go back
-          </button>
-        </div>
+        { thread.map(item => (
+          <div>
+            <Link to={ `/Threads/${ item.userID }/` }>
+              <div className="createcm_goback">
+                <button className="createcm_goback_button">
+                  &lt; Go back
+                </button>
+              </div>
+            </Link>
+          </div>
+        )) }
         <div className="createcm-whiteframe">          
           <div className="createcm-give-comment">
             Give Comment
@@ -27,7 +46,9 @@ const CreateComment = () => {
               In Topic :
             </div>
             <div className="createcm-topic-name">
-              Topic Name
+              { thread.map(item => (
+                item.topic
+              )) }
             </div>
           </div>
 
