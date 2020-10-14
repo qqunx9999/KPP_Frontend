@@ -57,10 +57,10 @@ ReactDOM.render(
         <Route path="/Home">
           <Home/>
         </Route>
-        <Route path="/Threads/:threadID">
+        <Route exact path="/Threads/:threadID">
           <Threads/>
         </Route>
-        <Route exact path="/Threads/CreateComment">
+        <Route exact path="/Threads/:threadID/CreateComment">
           <CreateComment/>
         </Route>
         <Route exact path="/CreateThread">
@@ -75,7 +75,7 @@ ReactDOM.render(
         <Route exact path="/Profile">
           <Profile/>
         </Route>
-        <Route exact path="/Threads/CreateReport">
+        <Route exact path="/Threads/:threadID/CreateReport">
           <CreateReport/>
         </Route>
         <Route exact path="/Setting">
