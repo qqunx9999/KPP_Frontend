@@ -117,7 +117,7 @@ const SearchThread = () => {
               </div>
           <div className="frameSortBySearchThread">
             <div className="textSortBySearchThread">
-              Sort By
+              Sort By &#86;
             </div>
           </div>
         </form>
