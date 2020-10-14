@@ -1,3 +1,11 @@
+<!--
+npm install --save @nestjs/typeorm typeorm
+npm install --save mongodb
+npm install -save-dev @types/mongodb
+
+npm i --save class-validator class-transformer
+
+--->
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
