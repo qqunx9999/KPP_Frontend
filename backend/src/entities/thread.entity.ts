@@ -14,11 +14,11 @@ export class Thread{
     @Column()
     content: string;
     @Column()
-    image_arr: [string, number][]; //Url: string pos: number
+    image_arr: [string, number][]; //Url, pos
     @Column()
-    up_vote_arr: ObjectID[];
+    up_vote_arr: ObjectID[]; //userID
     @Column()
-    down_vote_arr: ObjectID[];
+    down_vote_arr: ObjectID[]; //userID
     @Column()
     up_vote_count: number;
     @Column()

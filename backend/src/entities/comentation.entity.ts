@@ -1,6 +1,7 @@
 import {Entity , Column , ObjectIdColumn } from 'typeorm';
 import {ObjectID} from 'mongodb';
 
+let pos:number;
 
 @Entity()
 export class Commentation {
@@ -13,7 +14,7 @@ export class Commentation {
     @Column()
     content:string;
     @Column()
-    image_arr:[string, number][];
+    image_arr:[string, number ][];//URL ,pos
     @Column()
     reply_to:number;
     @Column()
