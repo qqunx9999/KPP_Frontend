@@ -54,7 +54,7 @@ const Home = () => {
                 { thread.map(item => (
                   <Link to={`/Threads/${ item.userID }`}>
                     { thread.map(item => (
-                      item.topic
+                      <li key={ item.userID }>item.topic</li>
                     )) }
                   </Link>
                 )) }
@@ -120,7 +120,7 @@ const Home = () => {
                 { thread.map(item => (
                     <Link to={`/Threads/${ item.userID }`}>
                       { thread.map(item => (
-                        item.topic
+                        <li key={ item.userID }>item.topic</li>
                       )) }
                     </Link>
                   )) }
@@ -198,7 +198,7 @@ const Home = () => {
                 { thread.map(item => (
                     <Link to={`/Threads/${ item.userID }`}>
                       { thread.map(item => (
-                        item.topic
+                        <li key={ item.userID }>item.topic</li>
                       )) }
                     </Link>
                   )) }

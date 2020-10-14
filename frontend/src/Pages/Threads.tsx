@@ -117,6 +117,7 @@ const Threads = () => {
           </div>
         </div>        
         <div className="thread-topic-detail-frame">
+          <div className="thread-topic-detail-text">
             { thread.map(item => {
               console.log(item.image_pos);
               return item.content
@@ -124,6 +125,7 @@ const Threads = () => {
             { thread.map(item => (
               <img src={ item.image_URL } />
             )) }
+          </div>
         </div>
       </div>
 
