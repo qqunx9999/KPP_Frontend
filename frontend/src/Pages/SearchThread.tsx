@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import '../CSSsource/SearchThread.css';
+import '../CSSsource/Home.css';
 
 const SearchThread = () => {
   
