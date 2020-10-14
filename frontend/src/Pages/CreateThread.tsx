@@ -12,6 +12,12 @@ const CreateThread = () => {
 
   return (
       <div className="backgroundCreateThread">
+        <div className="frameGoBackCreateThread">
+          <div className="textGoBackCreateThread"> 
+           &lt; Go Back
+          </div>
+
+        </div>
         <div className="whiteFrameCreateThread">
           <div className="createNewThreadTextCreateThread">
             Create New Thread

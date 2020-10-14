@@ -609,3 +609,29 @@
     top: 170px;
     left: -650px;
 }
+
+.frameGoBackCreateThread {
+  width: 207px;
+  height: 90px;
+  overflow: visible;
+  background: var(--Theme5, #6cc551);
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+  border-radius: 19px;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.textGoBackCreateThread {
+  width: 186px;
+  height: 90px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  font-size: 30px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: absolute;
+  top: 5px;
+  left: 10px;
+}
