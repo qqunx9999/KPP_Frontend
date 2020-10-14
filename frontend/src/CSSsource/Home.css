@@ -17,47 +17,49 @@
   }
 
 .topKUPeopleHomePage {
-    width: 510px;
-    height: 107px;
+    width: 200px;
+    height: 200px;
     overflow: visible;
-    background-image: url(/* kuppl2.png */);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme1, #ffffff);
+    font-size: 34px;
+    letter-spacing: 3px;
+    line-height: 3;
     position: absolute;
     top: 0px;
-    left: 794px;
-  }
+    left: 0px;
+}
+
+
 
 .searchSymbolHomePage {
-    width: 112px;
-    height: 117px;
-    overflow: visible;
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
-    background-image: url(/* createSearchSymbol.png */);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 56px;
-    position: absolute;
-    top: 0px;
-    left: 794px;
+  width: 168px;
+  height: 102px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme1, #ffffff);
+  font-size: 34px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: absolute;
+  top: 0px;
+  left: 1600px;
   }
 
 .createBlogSymbolHomePage {
-    width: 115px;
-    height: 127px;
-    overflow: visible;
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
-    background-image: url(/* createBlogSymbol.png */);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 58px;
-    position: absolute;
-    top: 0px;
-    left: 794px;
-  }
+  width: 209px;
+  height: 192px;
+  overflow: visible;
+  text-shadow: 4px 5px 6px rgba(0, 0, 0, 0.25);
+  font-family: "Inter", sans-serif;
+  color: var(--Theme3, #ff004c);
+  font-size: 64px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: absolute;
+  top: -55px;
+  left: 50px;
+}
 
 .profilePicHomePage {
     width: 130px;
@@ -83,7 +85,7 @@
     line-height: 3;
     position: absolute;
     top: 0px;
-    left: 1700px;
+    left: 1600px;
   }
 
 .userDisplayNameHomePage {
