@@ -81,11 +81,11 @@ const LoginPage = () => {
                   Go to Sign Up
           </a>
           <Link to="/LogIn/AuthenLogIn">
-            <button onClick={ handleFetch } className="FrameLogIn1">
+            <div onClick={ handleFetch } className="FrameLogIn1">
               <div className="LogInButtonLogIn1">
                     Log In
               </div>
-            </button>
+            </div>
           </Link>
         </div>
       </div>
