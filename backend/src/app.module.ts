@@ -16,6 +16,8 @@ import User from './entities/user.entity';
 
 import { ThreadsService } from './threads/threads.service';
 import { ThreadsController } from './threads/threads.controller';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 
 
 @Module({
@@ -29,6 +31,8 @@ import { ThreadsController } from './threads/threads.controller';
       synchronize: true,
     }),
     TypeOrmModule.forFeature([Thread]),
+    AuthModule,
+    UsersModule,
   ],
 
   controllers: [AppController, ThreadsController],
