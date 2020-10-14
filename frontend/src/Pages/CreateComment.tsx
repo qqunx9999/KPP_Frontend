@@ -5,13 +5,117 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import '../CSSsource/CreateComment.css';
 
 const CreateComment = () => {
   
 
   return (
-      <div>
+      <div className="createcm-bigframe">
+        <div className="createcm_goback">
+          <button className="createcm_goback_button">
+            &lt; Go back
+          </button>
+        </div>
+        <div className="createcm-whiteframe">          
+          <div className="createcm-give-comment">
+            Give Comment
+          </div>
 
+          <div className="createcm-topicname-frame">
+            <div className="createcm-in-topic_">
+              In Topic :
+            </div>
+            <div className="createcm-topic-name">
+              Topic Name
+            </div>
+          </div>
+
+          <div className="createcm-repltyo-frame">
+            <div className="createcm-replyto">
+                <form>
+                    Reply to :
+                    <input placeholder=" Comment numbers" style={{ width:"250px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="createcm_replyto_input"/>                    
+                </form>
+            </div>
+          </div>
+
+          <div className="createcm-leave-empty">
+            *if you do not reply just leave it empty
+          </div>
+
+          <div className="createcm-cm-frame">
+            <div className="createcm-placecm">
+              Place your comment :
+            </div>
+            <div className="createcm-green-frame">
+              <div>
+                <button className="createcm-bold-frame">
+
+                </button>
+              </div>
+              <div>
+                <button className="createcm-Italic-frame">
+
+                </button>
+              </div>
+              <div className="createcm-fonts">
+                <button className="createcm-fonts-frame">
+                  Fonts
+                </button>
+              </div>
+              <div className="createcm-size-frame">
+                <div className="createcm-size">
+                  <form>
+                    Size
+                    <input placeholder="" style={{ width:"75px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="createcm_size_input"/>                    
+                  </form>
+                </div>
+              </div>
+
+              <div>
+                <button className="createcm-Clipboard-frame">
+
+                </button>
+              </div>
+
+              <div>
+                <button className="createcm-Upload-frame">
+
+                </button>
+              </div>
+
+              <div>
+                <button className="createcm-Link-frame">
+
+                </button>
+              </div>
+
+              <div>
+                <button className="createcm-Image-frame">
+
+                </button>
+              </div>
+
+              <div>
+                <button className="createcm-Barchart-frame">
+
+                </button>
+              </div>
+
+              <div className="createcm-send">
+                <button className="createcm-send-frame">
+                  Send
+                </button>
+              </div>
+            </div>
+
+            <form>                    
+              <input placeholder="" style={{ width:"1140px" , height:"250px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="createcm_cm_input"/>                    
+            </form>
+          </div>
+
+        </div>
       </div>
   );
 }
