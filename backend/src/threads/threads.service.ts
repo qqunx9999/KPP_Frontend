@@ -4,6 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import Thread from './thread.entity';
 import Commentation from './comentation.entity';
+
 import { ObjectID } from 'mongodb';
 import { CreateThreadDto } from 'src/dto/create-thread.dto';
 import { CreateCommentDto } from 'src/dto/create-comment.dto';
@@ -26,8 +27,10 @@ export class ThreadsService {
   }
 
   async findAllCommentations(threadID: ObjectID): Promise<Commentation[]> {
-    return this.commentationsRepository.find({where:{ threadID:threadID }});
+    return this.commentationsRepository.find({where:{ threadID: threadID }});
   } 
 
-  
+  async createCommentation(createCommentationDto: CreateCommentDto) {
+    return this.commentationsRepository.save(createCommentationDto);
+  }
 }

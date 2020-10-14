@@ -1,14 +1,15 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { ThreadsService } from './threads.service';
+import { Body, Controller, Get, Param, Post, HttpException, HttpStatus } from '@nestjs/common';
 import { ObjectID } from 'mongodb'
-import { ParseObjectIdPipe } from '../common/pipes';
+
 import Thread from './thread.entity';
 import Commentation from './comentation.entity';
 
-import { CreateThreadDto } from 'src/dto/create-thread.dto';
-import { threadId } from 'worker_threads';
-import { CreateCommentDto } from 'src/dto/create-comment.dto';
+import { ThreadsService } from './threads.service';
+import { ParseObjectIdPipe } from '../common/pipes';
 
+
+import { CreateThreadDto } from 'src/dto/create-thread.dto';
+import { CreateCommentDto } from 'src/dto/create-comment.dto';
 
 @Controller('threads')
 export class ThreadsController {
@@ -24,11 +25,18 @@ export class ThreadsController {
     return this.threadsService.createThread(createThreadDto);
   }
 
-
   @Get(':threadID/comments')
-  async findAllCommentations(@Param('threadID') threadID: ObjectID): Promise<Commentation[]> {
+  async findAllCommentations(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<Commentation[]>{
     return this.threadsService.findAllCommentations(threadID);
   }
+  
+  
+  @Post(':threadID/comments')
+  async createCommentation(@Param('threadID', ParseObjectIdPipe) threadID:ObjectID, 
+                @Body() createCommentationDto: CreateCommentDto){
+    createCommentationDto.threadID = threadID;
+    return this.threadsService.createCommentation(createCommentationDto);
+    }
 
   
 
