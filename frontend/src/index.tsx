@@ -18,6 +18,13 @@ import AuthenSignup from './Pages/AuthenSignup';
 import AuthenResetPwd from './Pages/AuthenResetPwd'
 import Home from './Pages/Home'
 import Threads from './Pages/Threads'
+import CreateComment from './Pages/CreateComment'
+import CreateThread from './Pages/CreateThread'
+import CreateReport from './Pages/CreateReport'
+import Profile from './Pages/Profile'
+import ReportList from './Pages/ReportList'
+import SearchThread from './Pages/SearchThread'
+import Setting from './Pages/Setting'
 
 
 ReactDOM.render(
@@ -52,6 +59,27 @@ ReactDOM.render(
         </Route>
         <Route exact path="/Threads">
           <Threads/>
+        </Route>
+        <Route exact path="/Threads/CreateComment">
+          <CreateComment/>
+        </Route>
+        <Route exact path="/CreateThread">
+          <CreateThread/>
+        </Route>
+        <Route exact path="/ReportList">
+          <ReportList/>
+        </Route>
+        <Route exact path="/SearchThread">
+          <SearchThread/>
+        </Route>
+        <Route exact path="/Profile">
+          <Profile/>
+        </Route>
+        <Route exact path="/Threads/CreateReport">
+          <CreateReport/>
+        </Route>
+        <Route exact path="/Setting">
+          <Setting/>
         </Route>
       </Switch>
   </Router>,
