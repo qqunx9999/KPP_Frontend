@@ -6,14 +6,13 @@ import { AppService } from './app.service';
 import Admin from './entities/admin.entity';
 import Chat_message from './entities/chat_message.entity';
 import Chatroom from './entities/chatroom.entity';
-import Commentation from './entities/comentation.entity';
+import Commentation from './threads/comentation.entity';
 import Reportment_comment from './entities/reportment_comment.entity';
 import Reportment_thread from './entities/reportment_thread.entity';
-import Thread from './entities/thread.entity';
+import Thread from './threads/thread.entity';
 import User from './entities/user.entity';
 
-import { ThreadsService } from './threads/threads.service';
-import { ThreadsController } from './threads/threads.controller';
+import { ThreadsModule } from './threads/threads.module';
 
 
 @Module({
@@ -26,10 +25,10 @@ import { ThreadsController } from './threads/threads.controller';
           Reportment_comment, Reportment_thread, Thread, User],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([Thread]),
+    ThreadsModule,
   ],
 
-  controllers: [AppController, ThreadsController],
-  providers: [AppService, ThreadsService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
