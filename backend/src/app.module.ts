@@ -13,7 +13,8 @@ import Thread from './threads/thread.entity';
 import User from './entities/user.entity';
 
 import { ThreadsModule } from './threads/threads.module';
-
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -26,6 +27,8 @@ import { ThreadsModule } from './threads/threads.module';
       synchronize: true,
     }),
     ThreadsModule,
+    AuthModule,
+    UsersModule,
   ],
 
   controllers: [AppController],
