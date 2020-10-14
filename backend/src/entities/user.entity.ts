@@ -15,7 +15,7 @@ export class User{
     @Column()
     rank: string;
     @Column()
-    friend_arr: [ ObjectID, Date, Date, boolean][];// userID, date_add, date_remove(default null), isaccept
+    friend_arr: [ObjectID, Date, Date, boolean][];// userID, date_add, date_remove(default null), isaccept
     @Column()
     numberfriends: number;
     @Column()
@@ -25,6 +25,6 @@ export class User{
     @Column()
     date_join: Date;
     @Column()
-    ischatmember: [ObjectID, Date, Date][]; // chatroomID, date_join, date_leave(default null)
+    ischatmember_arr: ObjectID[]; //chatroomID 
 }
 export default User;

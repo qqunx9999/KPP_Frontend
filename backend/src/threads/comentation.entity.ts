@@ -2,20 +2,28 @@ import {Entity , Column , ObjectIdColumn } from 'typeorm';
 import {ObjectID} from 'mongodb';
 
 @Entity()
-export class Reportment_thread{
+export class Commentation {
     @ObjectIdColumn()
-    reportTID?:ObjectID;
+    commentID?:ObjectID;
     @Column()
     userID:ObjectID;
     @Column()
     threadID:ObjectID;
     @Column()
-    description:string;
+    content:string;
     @Column()
-    image_arr: [string, number][]; //Url, pos
+    image_arr:[string, number ][];//URL ,pos
+    @Column()
+    reply_to:number;
+    @Column()
+    commentNO:number;
     @Column()
     date_create:Date;
     @Column()
+    date_lastedit:Date;
+    @Column()
     date_delete:Date;
+    @Column()
+    isanonymous:boolean;
 }
-export default Reportment_thread;
+export default Commentation;

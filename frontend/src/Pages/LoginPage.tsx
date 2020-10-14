@@ -9,8 +9,34 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../CSSsource/LoginPage.css';
 import SignUpPage from "./SignUpPage"
 import AuthenLogIn from './AuthenLogIn';
+import { UserPass } from '../interfaces/threadEntity';
+import { runInNewContext } from 'vm';
 
 const LoginPage = () => {
+  const [login, setLogin] = useState<UserPass[]>([]);
+  const [email, setEmail] = useState<string>('');
+  const [pass, setPassword] = useState<string>('');
+
+  const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+
+  const handleFetch = () => {
+    const newFetch = {
+
+    };
+
+    fetch('', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(newFetch),
+    });
+  };
+
   return (
     <div className="LogInPage1">
       <div className="container">
@@ -25,7 +51,7 @@ const LoginPage = () => {
           <div className="EmailLogIn1">
               <form>
                 Email :
-                <input placeholder="Type your Email..." style={{ width:"500px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="InputEmailLogIn1"/>
+                <input placeholder="Type your Email..." style={{ width:"500px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={ handleEmail } onSubmit={undefined} value={ email }  className="InputEmailLogIn1"/>
                 <div className="kuthLogIn1">
                   @ku.th
                 </div>
@@ -34,7 +60,7 @@ const LoginPage = () => {
           <div className="PasswordLogIn1">
               <form>
                 Password :
-                <input placeholder="Type your password..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="InputPasswordLogIn1"/>
+                <input type="password" placeholder="Type your password..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={ handlePassword } onSubmit={undefined} value={ pass }  className="InputPasswordLogIn1"/>
               </form>
           </div>
           <div className="TextForgetLogIn1">
@@ -55,7 +81,7 @@ const LoginPage = () => {
                   Go to Sign Up
           </a>
           <Link to="/LogIn/AuthenLogIn">
-            <div className="FrameLogIn1">
+            <div onClick={ handleFetch } className="FrameLogIn1">
               <div className="LogInButtonLogIn1">
                     Log In
               </div>

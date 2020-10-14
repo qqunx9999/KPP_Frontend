@@ -1,0 +1,437 @@
+.createrp-bigframe {
+    width: 1920px;
+    height: 1274px;
+    overflow: hidden;
+    background: var(--Theme6, #47624f);
+  }
+
+.createrp_goback_button {
+    background: var(--Theme5, #6cc551); /* Green */
+    border-radius: 19px;
+    color: white;
+    width: 207px;
+    height: 90px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    position: absolute;    
+    top: 36px;
+    left: 27px;
+    border-width: 0px;
+  }
+
+.createrp_goback {
+    width: 186px;
+    height: 90px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 30px;
+    letter-spacing: 3px;
+    line-height: 3;    
+  }
+
+.createrp_whiteframe {
+    width: 1348px;
+    height: 1011px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;    
+    top: 35px;
+    left: 286px;
+  }
+
+.createrp-report {
+    width: 292px;
+    height: 129px;
+    overflow: visible;
+    text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 91px;
+    letter-spacing: 0px;
+    line-height: 1.2;
+    position: absolute;    
+    top: 18px;
+    left: 528px;
+  }
+
+.createrp-select-frame {
+    width: 1233px;
+    height: 200px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 33px;
+    position: absolute;    
+    top: 171px;
+    left: 57px;
+  }
+
+.createrp-want-to-report_ {
+    width: 422px;
+    height: 138px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 46px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 31px;
+    left: 50px;
+  }
+
+.createrp_selthread_button {
+    background: var(--Theme4, #447604); /* Green */
+    border-radius: 19px;
+    color: white;
+    width: 292px;
+    height: 70px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    position: absolute;    
+    top: 18px;
+    left: 472px;
+    border-width: 0px;
+  }
+
+.createrp_selthread_square {    
+    background-color: rgb(255, 255, 255);
+    border-width: 0px;
+    width: 30px;
+    height: 30px;          
+}
+
+.createrp-this-thread {
+    width: 158px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 2;    
+  }
+
+.createrp_selcm_button {
+    background: var(--Theme4, #447604); /* Green */
+    border-radius: 19px;
+    color: white;
+    width: 480px;
+    height: 66px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    position: absolute;    
+    top: 103px;
+    left: 472px;
+    border-width: 0px;
+  }
+
+.createrp_selcm_square {    
+    background-color: rgb(255, 255, 255);
+    border-width: 0px;
+    width: 30px;
+    height: 30px;          
+}
+
+.createrp-selcm {
+    width: 128px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height:2;    
+  }
+
+.createrp_cm_no {
+    background-color: rgb(221, 221, 227);
+    font-size: 17;
+    color: "#333333";
+    border: rgba(0,0,0,0);
+    border-width: 1;
+    /*focusColor=#09F*/
+    /*focused:false*/
+    font: false;
+    font-family: "";
+    /*keyboard:""*/
+    /*multiLine:false*/
+    padding: 12;
+    /*password:false*/
+    border-radius: 10;
+    width: 411px;
+    position: absolute;    
+    top: 28px;
+    left: 78px;
+}
+
+.createrp-reason-frame {
+    width: 1232px;
+    height: 455px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 33px;
+    position: absolute;    
+    top: 407px;
+    left: 58px;
+  }
+
+.createrp-place-your-reason_ {
+    width: 488px;
+    height: 138px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 46px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 26px;
+    left: 45px;
+  }
+
+.createrp-greenframe {
+    width: 488px;
+    height: 150px;
+    overflow: visible;
+    background: var(--Theme4, #447604);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 33px;
+    position: absolute;    
+    top: 20px;
+    left: 691px;
+  }
+
+.createrp-bold-frame {
+    width: 53px;
+    height: 53px;
+    overflow: visible;
+    background-color: #ffffff;
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 15px;
+    position: absolute;    
+    top: 17px;
+    left: 24px;
+    border-width: 0px;
+  }
+
+.createrp-Italic-frame {
+    width: 53px;
+    height: 53px;
+    overflow: visible;
+    background-color: #ffffff;
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 15px;
+    position: absolute;    
+    top: 17px;
+    left: 88px;
+    border-width: 0px;
+  }
+
+.createrp-fonts-frame {    
+    width: 117px;
+    height: 53px;
+    overflow: visible;
+    background-color: #ffffff;
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 16px;
+    position: absolute;    
+    top: 17px;
+    left: 152px;
+    border-width: 0px;    
+  }
+
+.createrp-fonts {
+    width: 108px;
+    height: 105px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #7e7c7c;
+    font-size: 35px;
+    letter-spacing: 3px;
+    line-height: 1;
+  }
+
+  .createrp-size-frame {
+    width: 180px;
+    height: 53px;
+    overflow: visible;
+    background-color: #ffffff;
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 15px;
+    position: absolute;  
+    top: 17px;
+    left: 280px;    
+  }
+
+.createrp-size {
+    width: 85px;
+    height: 213px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #7e7c7c;
+    font-size: 36px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;  
+    top: -28px;
+    left: 10px;
+  }
+
+.createrp_size_input {
+    background-color: rgb(221, 221, 227);
+    font-size: 20;
+    color: "#333333";
+    border: rgba(0,0,0,0.29);
+    border-width: 3;
+    /*focusColor=#09F*/
+    /*focused:false*/
+    font: false;
+    font-family: "";
+    /*keyboard:""*/
+    /*multiLine:false*/
+    padding: 12;
+    /*password:false*/
+    border-radius: 10;
+    width: 411px;
+    position: absolute;    
+    top: 28px;
+    left: 78px;
+}
+
+.createrp-Clipboard-frame {
+    width: 53px;
+    height: 53px;
+    overflow: visible;
+    background-color: #ffffff;
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 15px;
+    position: absolute;    
+    top: 81px;
+    left: 24px;
+    border-width: 0px;
+  }
+
+.createrp-Upload-frame {
+    width: 53px;
+    height: 53px;
+    overflow: visible;
+    background-color: #ffffff;
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 15px;
+    position: absolute;    
+    top: 81px;
+    left: 88px;
+    border-width: 0px;
+  }
+
+.createrp-Link-frame {
+    width: 53px;
+    height: 53px;
+    overflow: visible;
+    background-color: #ffffff;
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 15px;
+    position: absolute;    
+    top: 81px;
+    left: 152px;
+    border-width: 0px;
+  }
+
+.createrp-Image-frame {
+    width: 53px;
+    height: 53px;
+    overflow: visible;
+    background-color: #ffffff;
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 15px;
+    position: absolute;    
+    top: 81px;
+    left: 216px;
+    border-width: 0px;
+  }
+
+.createrp-Barchart-frame {
+    width: 53px;
+    height: 53px;
+    overflow: visible;
+    background-color: #ffffff;
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 15px;
+    position: absolute;    
+    top: 81px;
+    left: 280px;
+    border-width: 0px;
+  }
+
+.createrp-send-frame {
+    width: 116px;
+    height: 53px;
+    overflow: visible;
+    background: var(--ThemeSup1, #9beb33);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 15px;
+    position: absolute;    
+    top: 81px;
+    left: 344px;
+  }
+
+.createrp-send {
+    width: 101px;
+    height: 108px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #7e7c7c;
+    font-size: 36px;
+    letter-spacing: 3px;
+    line-height: 3;
+    line-height: 1;
+  }
+
+.createrp_reason_input {
+    background-color: rgb(221, 221, 227);
+    font-size: 20;
+    color: "#333333";
+    border: rgba(0,0,0,0);
+    border-width: 1;
+    /*focusColor=#09F*/
+    /*focused:false*/
+    font: false;
+    font-family: "";
+    /*keyboard:""*/
+    /*multiLine:false*/
+    padding: 12;
+    /*password:false*/
+    border-radius: 10;
+    width: 411px;
+    position: absolute;    
+    top: 178px;
+    left: 45px;
+} 
+
+.createrp-desc-text {
+    width: 1131px;
+    height: 92px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 2;
+    position: absolute;    
+    top: 887px;
+    left: 109px;
+  }

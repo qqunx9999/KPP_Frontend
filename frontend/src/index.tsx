@@ -18,6 +18,13 @@ import AuthenSignup from './Pages/AuthenSignup';
 import AuthenResetPwd from './Pages/AuthenResetPwd'
 import Home from './Pages/Home'
 import Threads from './Pages/Threads'
+import CreateComment from './Pages/CreateComment'
+import CreateThread from './Pages/CreateThread'
+import CreateReport from './Pages/CreateReport'
+import Profile from './Pages/Profile'
+import ReportList from './Pages/ReportList'
+import SearchThread from './Pages/SearchThread'
+import Setting from './Pages/Setting'
 
 
 ReactDOM.render(
@@ -32,26 +39,47 @@ ReactDOM.render(
         <Route exact path="/SignUp">
           <SignUpPage />
         </Route>
-        <Route exact path="/LogIn/AuthenLogIn">
+        <Route path="/LogIn/AuthenLogIn">
           <AuthenLogIn/>
         </Route>
         <Route exact path="/ForgetPwd">
           <ForgetPwd/>
         </Route>
-        <Route exact path="/TermOfUse">
+        <Route path="/TermOfUse">
           <TermOfUse/>
         </Route>
-        <Route exact path="/ForgetPwd/AuthenResetPwd">
+        <Route path="/ForgetPwd/AuthenResetPwd">
           <AuthenResetPwd/>
         </Route>
-        <Route exact path="/SignUp/AuthenSignup">
+        <Route path="/SignUp/AuthenSignup">
           <AuthenSignup/>
         </Route>
-        <Route exact path="/Home">
+        <Route path="/Home">
           <Home/>
         </Route>
-        <Route exact path="/Threads">
+        <Route exact path="/Threads/:threadID">
           <Threads/>
+        </Route>
+        <Route exact path="/Threads/:threadID/CreateComment">
+          <CreateComment/>
+        </Route>
+        <Route exact path="/CreateThread">
+          <CreateThread/>
+        </Route>
+        <Route exact path="/ReportList">
+          <ReportList/>
+        </Route>
+        <Route exact path="/SearchThread">
+          <SearchThread/>
+        </Route>
+        <Route exact path="/Profile">
+          <Profile/>
+        </Route>
+        <Route exact path="/Threads/:threadID/CreateReport">
+          <CreateReport/>
+        </Route>
+        <Route exact path="/Setting">
+          <Setting/>
         </Route>
       </Switch>
   </Router>,
