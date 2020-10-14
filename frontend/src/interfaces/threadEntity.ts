@@ -1,4 +1,5 @@
 export interface Thread {
+    threadID: string,
     userID: string,
     topic: string,
     tag_arr: [string],

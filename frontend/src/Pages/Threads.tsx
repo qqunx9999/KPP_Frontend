@@ -90,11 +90,17 @@ const Threads = () => {
          </button>
       </div>
 
-      <div className="thread-givecomment-txt">
-         <button className="thread-givecm-button">
-          Give Comment
-         </button>
-      </div>
+      { thread.map(item => (
+        <div>
+          <Link to ={`/Threads/${ item.userID }/CreateComment`}>
+            <div className="thread-givecomment-txt">
+              <button className="thread-givecm-button">
+                Give Comment
+              </button>
+            </div>
+          </Link>
+        </div>
+      )) }
       
       <div className="thread-topic-frame">
         <div className="thread-topicname-frame">
