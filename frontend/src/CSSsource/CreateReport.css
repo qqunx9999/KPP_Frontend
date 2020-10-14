@@ -1,15 +1,15 @@
-.createcm-bigframe {
+.createrp-bigframe {
     width: 1920px;
     height: 1274px;
     overflow: hidden;
     background: var(--Theme6, #47624f);
   }
 
-.createcm_goback_button {
+.createrp_goback_button {
     background: var(--Theme5, #6cc551); /* Green */
     border-radius: 19px;
     color: white;
-    width: 206px;
+    width: 207px;
     height: 90px;
     text-align: center;
     text-decoration: none;
@@ -22,7 +22,7 @@
     border-width: 0px;
   }
 
-.createcm_goback {
+.createrp_goback {
     width: 186px;
     height: 90px;
     overflow: visible;
@@ -33,20 +33,20 @@
     line-height: 3;    
   }
 
-.createcm-whiteframe {
-    width: 1347px;
-    height: 986px;
+.createrp_whiteframe {
+    width: 1348px;
+    height: 1011px;
     overflow: visible;
     background: var(--Theme1, #ffffff);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;    
-    top: 36px;
-    left: 287px;
+    top: 35px;
+    left: 286px;
   }
 
-.createcm-give-comment {
-    width: 639px;
+.createrp-report {
+    width: 292px;
     height: 129px;
     overflow: visible;
     text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
@@ -56,24 +56,24 @@
     letter-spacing: 0px;
     line-height: 1.2;
     position: absolute;    
-    top: 17px;
-    left: 345px;
+    top: 18px;
+    left: 528px;
   }
 
-.createcm-topicname-frame {
-    width: 1234px;
-    height: 101px;
+.createrp-select-frame {
+    width: 1233px;
+    height: 200px;
     overflow: visible;
     background: var(--Theme3, #0f0508);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     position: absolute;    
-    top: 145px;
-    left: 53px;
+    top: 171px;
+    left: 57px;
   }
 
-.createcm-in-topic_ {
-    width: 243px;
+.createrp-want-to-report_ {
+    width: 422px;
     height: 138px;
     overflow: visible;
     font-family: "Inter", sans-serif;
@@ -82,53 +82,83 @@
     letter-spacing: 3px;
     line-height: 3;
     position: absolute;    
-    top: -20px;
-    left: 49px;
+    top: 31px;
+    left: 50px;
   }
 
-.createcm-topic-name {
-    width: 380px;
-    height: 138px;
+.createrp_selthread_button {
+    background: var(--Theme4, #447604); /* Green */
+    border-radius: 19px;
+    color: white;
+    width: 292px;
+    height: 70px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    position: absolute;    
+    top: 18px;
+    left: 472px;
+    border-width: 0px;
+  }
+
+.createrp_selthread_square {    
+    background-color: rgb(255, 255, 255);
+    border-width: 0px;
+    width: 30px;
+    height: 30px;          
+}
+
+.createrp-this-thread {
+    width: 158px;
+    height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color: var(--ThemeSup1, #9beb33);
-    font-size: 46px;
+    color: #ffffff;
+    font-size: 23px;
     letter-spacing: 3px;
-    line-height: 3;
-    position: absolute;    
-    top: -20px;
-    left: 323px;
+    line-height: 2;    
   }
 
-.createcm-repltyo-frame {
-    width: 582px;
-    height: 101px;
-    overflow: visible;
-    background: var(--Theme3, #0f0508);
-    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
-    border-radius: 33px;
+.createrp_selcm_button {
+    background: var(--Theme4, #447604); /* Green */
+    border-radius: 19px;
+    color: white;
+    width: 480px;
+    height: 66px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     position: absolute;    
-    top: 285px;
-    left: 53px;
+    top: 103px;
+    left: 472px;
+    border-width: 0px;
   }
 
-.createcm-replyto {
-    width: 250px;
-    height: 138px;
+.createrp_selcm_square {    
+    background-color: rgb(255, 255, 255);
+    border-width: 0px;
+    width: 30px;
+    height: 30px;          
+}
+
+.createrp-selcm {
+    width: 128px;
+    height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color:  #ffffff;
-    font-size: 46px;
+    color: #ffffff;
+    font-size: 23px;
     letter-spacing: 3px;
-    line-height: 3;
-    position: absolute;
-    top: -21px;
-    left: 49px;
+    line-height:2;    
   }
 
-.createcm_replyto_input {
+.createrp_cm_no {
     background-color: rgb(221, 221, 227);
-    font-size: 23;
+    font-size: 17;
     color: "#333333";
     border: rgba(0,0,0,0);
     border-width: 1;
@@ -143,38 +173,24 @@
     border-radius: 10;
     width: 411px;
     position: absolute;    
-    top: 50px;
-    left: 250px;
+    top: 28px;
+    left: 78px;
 }
 
-.createcm-leave-empty {
-    width: 533px;
-    height: 138px;
-    overflow: visible;
-    font-family: "Inter", sans-serif;
-    color: var(--ThemeSup1,#0f0508);
-    font-size: 22px;
-    letter-spacing: 3px;
-    line-height: 3;
-    position: absolute;    
-    top: 390px;
-    left: 85px;
-  }
-
-.createcm-cm-frame {
-    width: 1230px;
-    height: 465px;
+.createrp-reason-frame {
+    width: 1232px;
+    height: 455px;
     overflow: visible;
     background: var(--Theme3, #0f0508);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     position: absolute;    
-    top: 460px;
-    left: 57px;
+    top: 407px;
+    left: 58px;
   }
 
-.createcm-placecm {
-    width: 547px;
+.createrp-place-your-reason_ {
+    width: 488px;
     height: 138px;
     overflow: visible;
     font-family: "Inter", sans-serif;
@@ -183,11 +199,11 @@
     letter-spacing: 3px;
     line-height: 3;
     position: absolute;    
-    top: 15px;
-    left: 93px;
+    top: 26px;
+    left: 45px;
   }
 
-.createcm-green-frame {
+.createrp-greenframe {
     width: 488px;
     height: 150px;
     overflow: visible;
@@ -195,11 +211,11 @@
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     position: absolute;    
-    top: 14px;
-    left: 696px;
+    top: 20px;
+    left: 691px;
   }
 
-.createcm-bold-frame {
+.createrp-bold-frame {
     width: 53px;
     height: 53px;
     overflow: visible;
@@ -212,7 +228,7 @@
     border-width: 0px;
   }
 
-.createcm-Italic-frame {
+.createrp-Italic-frame {
     width: 53px;
     height: 53px;
     overflow: visible;
@@ -225,7 +241,7 @@
     border-width: 0px;
   }
 
-.createcm-fonts-frame {    
+.createrp-fonts-frame {    
     width: 117px;
     height: 53px;
     overflow: visible;
@@ -238,7 +254,7 @@
     border-width: 0px;    
   }
 
-.createcm-fonts {
+.createrp-fonts {
     width: 108px;
     height: 105px;
     overflow: visible;
@@ -249,7 +265,7 @@
     line-height: 1;
   }
 
-.createcm-size-frame {
+  .createrp-size-frame {
     width: 180px;
     height: 53px;
     overflow: visible;
@@ -261,7 +277,7 @@
     left: 280px;    
   }
 
-.createcm-size {
+.createrp-size {
     width: 85px;
     height: 213px;
     overflow: visible;
@@ -275,7 +291,7 @@
     left: 10px;
   }
 
-.createcm_size_input {
+.createrp_size_input {
     background-color: rgb(221, 221, 227);
     font-size: 20;
     color: "#333333";
@@ -296,7 +312,7 @@
     left: 78px;
 }
 
-.createcm-Clipboard-frame {
+.createrp-Clipboard-frame {
     width: 53px;
     height: 53px;
     overflow: visible;
@@ -309,7 +325,7 @@
     border-width: 0px;
   }
 
-.createcm-Upload-frame {
+.createrp-Upload-frame {
     width: 53px;
     height: 53px;
     overflow: visible;
@@ -322,7 +338,7 @@
     border-width: 0px;
   }
 
-.createcm-Link-frame {
+.createrp-Link-frame {
     width: 53px;
     height: 53px;
     overflow: visible;
@@ -335,7 +351,7 @@
     border-width: 0px;
   }
 
-.createcm-Image-frame {
+.createrp-Image-frame {
     width: 53px;
     height: 53px;
     overflow: visible;
@@ -348,7 +364,7 @@
     border-width: 0px;
   }
 
-.createcm-Barchart-frame {
+.createrp-Barchart-frame {
     width: 53px;
     height: 53px;
     overflow: visible;
@@ -361,7 +377,7 @@
     border-width: 0px;
   }
 
-.createcm-send-frame {
+.createrp-send-frame {
     width: 116px;
     height: 53px;
     overflow: visible;
@@ -373,7 +389,7 @@
     left: 344px;
   }
 
-.createcm-send {
+.createrp-send {
     width: 101px;
     height: 108px;
     overflow: visible;
@@ -385,7 +401,7 @@
     line-height: 1;
   }
 
-.createcm_cm_input {
+.createrp_reason_input {
     background-color: rgb(221, 221, 227);
     font-size: 20;
     color: "#333333";
@@ -405,3 +421,17 @@
     top: 178px;
     left: 45px;
 } 
+
+.createrp-desc-text {
+    width: 1131px;
+    height: 92px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 2;
+    position: absolute;    
+    top: 887px;
+    left: 109px;
+  }
