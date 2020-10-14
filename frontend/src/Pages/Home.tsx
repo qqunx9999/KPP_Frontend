@@ -72,7 +72,7 @@ const Home = () => {
               <div className="firstLatestTextHomePage">
                 { thread.map(item => (
                   <Link to={`/Threads/${ item.userID }`}>
-                    <ul>
+                    <ul className="content">
                       <li key={ item.threadID }>{ item.topic }</li>
                     </ul>
                   </Link>
@@ -138,7 +138,7 @@ const Home = () => {
               <div className="firstHottestTextHomePage">
                 { thread.map(item => (
                   <Link to={`/Threads/${ item.userID }`}>
-                    <ul>
+                    <ul className="content">
                       <li key={ item.threadID }>{ item.topic }</li>
                     </ul>
                   </Link>
@@ -146,19 +146,25 @@ const Home = () => {
               </div>
               <div className="firstHottestStatusFrameHomePage"> 
                 <div className="firstHottestLikeFrameHomePage">
-                  <div className="firstHottestLikeNumberHomePage">
-                    99
-                  </div>
+                  { thread.slice(0,1).map(item => (
+                    <div key={ item.threadID } className="firstHottestLikeNumberHomePage">
+                      { item.up_vote_count }
+                    </div>
+                  )) }
                 </div>
                 <div className="firstHottestDislikeFrameHomePage">
-                  <div className="firstHottestDislikeNumberHomePage">
-                    99
-                  </div>
+                  { thread.slice(0,1).map(item => (
+                    <div key={ item.threadID } className="firstHottestDislikeNumberHomePage">
+                      { item.down_vote_count }
+                    </div>
+                  )) }
                 </div>
                 <div className="firstHottestCommentFrameHomePage">
-                  <div className="firstHottestCommentNumberHomePage">
-                    2
-                  </div>
+                  { thread.slice(0,1).map(item => (
+                    <div key={ item.threadID } className="firstHottestCommentNumberHomePage">
+                      { item.number_of_comment }
+                    </div>
+                  )) }
                 </div>
               </div>
             </div>
@@ -216,7 +222,7 @@ const Home = () => {
               <div className="firstNewsTextHomePage">
                 { thread.map(item => (
                   <Link to={`/Threads/${ item.userID }`}>
-                    <ul>
+                    <ul className="content">
                       <li key={ item.threadID }>{ item.topic }</li>
                     </ul>
                   </Link>

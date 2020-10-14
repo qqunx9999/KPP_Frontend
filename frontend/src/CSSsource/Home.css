@@ -1070,3 +1070,8 @@
     top: 820px;
     left: 1330px;
   }
+
+.content {
+  color: white;
+  list-style-type: none;
+}

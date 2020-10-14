@@ -1,8 +1,6 @@
 import {Entity , Column , ObjectIdColumn } from 'typeorm';
 import {ObjectID} from 'mongodb';
 
-let pos:number;
-
 @Entity()
 export class Commentation {
     @ObjectIdColumn()
