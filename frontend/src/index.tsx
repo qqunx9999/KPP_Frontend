@@ -39,25 +39,25 @@ ReactDOM.render(
         <Route exact path="/SignUp">
           <SignUpPage />
         </Route>
-        <Route exact path="/LogIn/AuthenLogIn">
+        <Route path="/LogIn/AuthenLogIn">
           <AuthenLogIn/>
         </Route>
         <Route exact path="/ForgetPwd">
           <ForgetPwd/>
         </Route>
-        <Route exact path="/TermOfUse">
+        <Route path="/TermOfUse">
           <TermOfUse/>
         </Route>
-        <Route exact path="/ForgetPwd/AuthenResetPwd">
+        <Route path="/ForgetPwd/AuthenResetPwd">
           <AuthenResetPwd/>
         </Route>
-        <Route exact path="/SignUp/AuthenSignup">
+        <Route path="/SignUp/AuthenSignup">
           <AuthenSignup/>
         </Route>
-        <Route exact path="/Home">
+        <Route path="/Home">
           <Home/>
         </Route>
-        <Route exact path="/Threads">
+        <Route path="/Threads/:threadID">
           <Threads/>
         </Route>
         <Route exact path="/Threads/CreateComment">

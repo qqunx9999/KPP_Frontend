@@ -1,0 +1,1070 @@
+.backgroundHomePage {
+    width: 1920px;
+    height: 3251px;
+    overflow: hidden;
+    background: var(--Theme6, #47624f);
+  }
+
+.topBlackFrameHomePage {
+    width: 1920px;
+    height: 150px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    position: absolute;
+    top: 100;
+    left: 100;
+  }
+
+.topKUPeopleHomePage {
+    width: 510px;
+    height: 107px;
+    overflow: visible;
+    background-image: url(/* kuppl2.png */);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 0px;
+    left: 794px;
+  }
+
+.searchSymbolHomePage {
+    width: 112px;
+    height: 117px;
+    overflow: visible;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    background-image: url(/* createSearchSymbol.png */);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 56px;
+    position: absolute;
+    top: 0px;
+    left: 794px;
+  }
+
+.createBlogSymbolHomePage {
+    width: 115px;
+    height: 127px;
+    overflow: visible;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    background-image: url(/* createBlogSymbol.png */);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 58px;
+    position: absolute;
+    top: 0px;
+    left: 794px;
+  }
+
+.profilePicHomePage {
+    width: 130px;
+    height: 130px;
+    overflow: visible;
+    background-image: url(/* profile1.png */);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 0px;
+    left: 794px;
+  }
+
+.userRankHomePage {
+    width: 168px;
+    height: 102px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme1, #ffffff);
+    font-size: 34px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 0px;
+    left: 1700px;
+  }
+
+.userDisplayNameHomePage {
+    width: 224px;
+    height: 102px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme1, #ffffff);
+    font-size: 34px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 60px;
+    left: 1640px;
+  }
+
+.latestFrameHomePage {
+    width: 297px;
+    height: 80px;
+    transform: rotate(342deg);
+    overflow: visible;
+    background: var(--ThemeSup1, #9beb33);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    position: absolute;
+    top: 230px;
+    left: 30px;
+  }
+
+.latestTextHomePage {
+    width: 209px;
+    height: 192px;
+    overflow: visible;
+    text-shadow: 4px 5px 6px rgba(0, 0, 0, 0.25);
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 64px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: -55px;
+    left: 50px;
+  }
+
+.latestWhiteFrameHomePage {
+    width: 1594px;
+    height: 916px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;
+    top: 250px;
+    left: 100px;
+  }
+
+.latestGreenFrameHomePage {
+    width: 1496px;
+    height: 720px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;
+    top: 80px;
+    left: 50px;
+  }
+
+.firstLatestTextHomePage {
+    width: 755px;
+    height: 108px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 36px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 20px;
+    left: 150px;
+  }
+
+.firstLatestTimeFrameHomePage {
+    width: 378px;
+    height: 50px;
+    overflow: visible;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    position: absolute;
+    top: 50px;
+    left: 1000px;
+  }
+
+.firstLatestTimeHomePage {
+    width: 258px;
+    height: 95px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: rgba(13, 4, 82, 0.85);
+    font-size: 32px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: -20px;
+    left: 100px;
+  }
+
+.stackLatestHomePage {
+    width: 1450px;
+    height: 686px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: visible;
+  }
+
+.stackLatestPageNumberHomePage {
+    width: 578px;
+    height: 104px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: visible;
+  }
+
+.goFirstButtonLatestPageNumber {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 910px;
+  }
+
+.goBackButtonLatestPageNumberHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme4, #447604);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 980px;
+  }
+
+.goNextButtonLatestPageNumberHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme4, #447604);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1400px;
+  }
+
+  .goLastButtonLatestPageNumber {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1470px;
+  }
+
+
+.currentPageNumberButtonLatestHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1050px;
+  }
+
+  .firstPageNumberLatestHomePage {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 820px;
+    left: 1070px;
+  }
+
+  .secondPageNumberLatestHomePage {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 820px;
+    left: 1140px;
+  }
+
+  .thirdPageNumberLatestHomePage {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 820px;
+    left: 1210px;
+  }
+
+  .fouthPageNumberLatestHomePage {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 820px;
+    left: 1280px;
+  }
+
+  .fifthPageNumberLatestHomePage {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 820px;
+    left: 1350px;
+  }
+
+  .firstPageFrameLatestHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1050px;
+  }
+
+  .secondPageFrameLatestHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1120px;
+  }
+
+  .thirdPageFrameLatestHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1190px;
+  }
+
+  .fouthPageFrameLatestHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1260px;
+  }
+
+  .fifthPageFrameLatestHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1330px;
+  }
+
+  .hottestFrameHomePage {
+    width: 316px;
+    height: 77px;
+    transform: rotate(342deg);
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    position: absolute;
+    top: 1250px;
+    left: 30px;
+  }
+
+.hottestTextHomePage {
+    width: 248px;
+    height: 192px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--ThemeSup1, #9beb33);
+    font-size: 64px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: -55px;
+    left: 40px;
+  }
+
+.hottestWhiteFrameHomePage {
+    width: 1594px;
+    height: 916px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;
+    top: 1270px;
+    left: 100px;
+  }
+
+.hottestGreenFrameHomePage {
+    width: 1496px;
+    height: 720px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;
+    top: 80px;
+    left: 50px;
+  }
+
+.firstHottestTextHomePage {
+    width: 755px;
+    height: 108px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 36px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 20px;
+    left: 150px;
+  }
+
+.firstHottestStatusFrameHomePage {
+    width: 436px;
+    height: 70px;
+    overflow: visible;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    position: absolute;
+    top: 40px;
+    left: 1000px;
+  }
+
+.firstHottestLikeFrameHomePage {
+    width: 125px;
+    height: 49px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+.firstHottestLikeNumberHomePage {
+    width: 66px;
+    height: 52px;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    color: rgba(13, 4, 82, 0.85);
+    font-size: 29px;
+    letter-spacing: 0px;
+    line-height: 1.8;
+    position: absolute;
+    top: 0px;
+    left: 70px;
+  }
+
+.firstHottestDislikeFrameHomePage {
+    width: 125px;
+    height: 49px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    position: absolute;
+    top: 10px;
+    left: 150px;
+  }
+
+  .firstHottestDislikeNumberHomePage {
+    width: 66px;
+    height: 52px;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    color: rgba(13, 4, 82, 0.85);
+    font-size: 29px;
+    letter-spacing: 0px;
+    line-height: 1.8;
+    position: absolute;
+    top: 0px;
+    left: 70px;
+  }
+
+  .firstHottestCommentFrameHomePage {
+    width: 125px;
+    height: 49px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    position: absolute;
+    top: 10px;
+    left: 290px;
+  }
+
+  .firstHottestCommentNumberHomePage {
+    width: 66px;
+    height: 52px;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    color: rgba(13, 4, 82, 0.85);
+    font-size: 29px;
+    letter-spacing: 0px;
+    line-height: 1.8;
+    position: absolute;
+    top: 0px;
+    left: 70px;
+  }
+
+.stackHottestHomePage {
+    width: 1450px;
+    height: 686px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: visible;
+  }
+
+.stackHottestPageNumberHomePage {
+    width: 578px;
+    height: 104px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: visible;
+  }
+
+.goFirstButtonHottestPageNumber {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 910px;
+  }
+
+.goBackButtonHottestPageNumberHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme4, #447604);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 980px;
+  }
+
+.goNextButtonHottestPageNumberHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme4, #447604);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1400px;
+  }
+
+  .goLastButtonHottestPageNumber {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1470px;
+  }
+
+
+.currentPageNumberButtonHottestHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1050px;
+  }
+
+  .firstPageNumberHottestHomePage {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 820px;
+    left: 1070px;
+  }
+
+  .secondPageNumberHottestHomePage {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 820px;
+    left: 1140px;
+  }
+
+  .thirdPageNumberHottestHomePage {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 820px;
+    left: 1210px;
+  }
+
+  .fouthPageNumberHottestHomePage {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 820px;
+    left: 1280px;
+  }
+
+  .fifthPageNumberHottestHomePage {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 820px;
+    left: 1350px;
+  }
+
+  .firstPageFrameHottestHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1050px;
+  }
+
+  .secondPageFrameHottestHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1120px;
+  }
+
+  .thirdPageFrameHottestHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1190px;
+  }
+
+  .fouthPageFrameHottestHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1260px;
+  }
+
+  .fifthPageFrameHottestHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1330px;
+  }
+
+  .newsFrameHomePage {
+    width: 297px;
+    height: 80px;
+    transform: rotate(342deg);
+    overflow: visible;
+    background: var(--ThemeSup1, #9beb33);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    position: absolute;
+    top: 2250px;
+    left: 30px;
+  }
+
+.newsTextHomePage {
+    width: 209px;
+    height: 192px;
+    overflow: visible;
+    text-shadow: 4px 5px 6px rgba(0, 0, 0, 0.25);
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 64px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: -55px;
+    left: 55px;
+  }
+
+.newsWhiteFrameHomePage {
+    width: 1594px;
+    height: 916px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;
+    top: 2270px;
+    left: 100px;
+  }
+
+.newsGreenFrameHomePage {
+    width: 1496px;
+    height: 720px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;
+    top: 80px;
+    left: 50px;
+  }
+
+.firstNewsTextHomePage {
+    width: 755px;
+    height: 108px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 36px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 20px;
+    left: 150px;
+  }
+
+.firstNewsDateFrameHomePage {
+    width: 320px;
+    height: 50px;
+    overflow: visible;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    position: absolute;
+    top: 50px;
+    left: 1100px;
+  }
+
+.firstNewsDateHomePage {
+    width: 185px;
+    height: 95px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: rgba(13, 4, 82, 0.85);
+    font-size: 32px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: -20px;
+    left: 100px;
+  }
+
+.stackNewsHomePage {
+    width: 1450px;
+    height: 686px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: visible;
+  }
+
+.stackNewsPageNumberHomePage {
+    width: 578px;
+    height: 104px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: visible;
+  }
+
+.goFirstButtonNewsPageNumber {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 910px;
+  }
+
+.goBackButtonNewsPageNumberHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme4, #447604);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 980px;
+  }
+
+.goNextButtonNewsPageNumberHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme4, #447604);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1400px;
+  }
+
+  .goLastButtonNewsPageNumber {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1470px;
+  }
+
+
+.currentPageNumberButtonNewsHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1050px;
+  }
+
+  .firstPageNumberNewsHomePage {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 820px;
+    left: 1070px;
+  }
+
+  .secondPageNumberNewsHomePage {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 820px;
+    left: 1140px;
+  }
+
+  .thirdPageNumberNewsHomePage {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 820px;
+    left: 1210px;
+  }
+
+  .fouthPageNumberNewsHomePage {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 820px;
+    left: 1280px;
+  }
+
+  .fifthPageNumberNewsHomePage {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 820px;
+    left: 1350px;
+  }
+
+  .firstPageFrameNewsHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1050px;
+  }
+
+  .secondPageFrameNewsHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1120px;
+  }
+
+  .thirdPageFrameNewsHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1190px;
+  }
+
+  .fouthPageFrameNewsHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1260px;
+  }
+
+  .fifthPageFrameNewsHomePage {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 820px;
+    left: 1330px;
+  }
