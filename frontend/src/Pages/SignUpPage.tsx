@@ -9,6 +9,38 @@ import '../CSSsource/SignupPage.css';
 
 
 const SignUpPage = () => {
+  const [account, setAccount] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [pass, setPassword] = useState<string>('');
+  const [conPass, setConPass] = useState<string>('');
+
+  const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+
+  const handleAccount = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setAccount(event.target.value);
+  };
+
+  const handleConPass = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setConPass(event.target.value);
+  };
+
+  const handleFetch = () => {
+    const newFetch = {
+
+    };
+
+    fetch('', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(newFetch),
+    });
+  };
 
   return (
     
@@ -23,14 +55,14 @@ const SignUpPage = () => {
             <div className="accountName">
               <form>
                   Account Name :
-                  <input placeholder="Type your username... (Only characters and Numbers allowed.)" style={{ width:"560px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="Input_account"/>
+                  <input placeholder="Type your username... (Only characters and Numbers allowed.)" style={{ width:"560px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={ handleAccount } onSubmit={undefined} value={ account }  className="Input_account"/>
                  
               </form>
             </div>
             <div className="email-text">
               <form>
                   Email :
-                  <input placeholder="Type your Email..." style={{ width:"600px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="user_email"/>
+                  <input placeholder="Type your Email..." style={{ width:"600px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={ handleEmail } onSubmit={undefined} value={ email }  className="user_email"/>
                   <div className="addku">
                     @ku.th
                   </div>
@@ -39,7 +71,7 @@ const SignUpPage = () => {
             <div className="pass">
               <form>
                   Password :
-                  <input placeholder="Type your password..." style={{ width:"690px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="user_password"/>
+                  <input placeholder="Type your password..." style={{ width:"690px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={ handlePassword } onSubmit={undefined} value={ pass }  className="user_password"/>
                  
               </form>
             </div>
@@ -47,7 +79,7 @@ const SignUpPage = () => {
               <form>                  
                   Confirm Password :
                   
-                  <input placeholder="Comfirm your password..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="user_conpassword"/>
+                  <input placeholder="Comfirm your password..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={ handleConPass } onSubmit={undefined} value={ conPass }  className="user_conpassword"/>
                  
               </form>
             </div>
@@ -68,7 +100,7 @@ const SignUpPage = () => {
             </div>
             <div className="sign-up">
               <Link to= "/SignUp/AuthenSignup" className="button2">
-                <button className="square"></button>
+                <button onClick={ handleFetch } className="square"></button>
                   &nbsp; Sign Up
               </Link>
             </div>
