@@ -15,3 +15,7 @@ export interface Thread {
     date_lelete: Date,
     isanonymous: boolean,
 }
+
+export interface UserPass {
+
+}
