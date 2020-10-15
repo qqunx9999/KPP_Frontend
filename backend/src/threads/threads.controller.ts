@@ -10,6 +10,8 @@ import { ParseObjectIdPipe } from '../common/pipes';
 
 import { CreateThreadDto } from 'src/dto/create-thread.dto';
 import { CreateCommentDto } from 'src/dto/create-comment.dto';
+import Reportment_thread from 'src/entities/reportment_thread.entity';
+import { CreateReportment_threadDto } from 'src/dto/create-reportment_thread';
 
 @Controller('threads')
 export class ThreadsController {
@@ -43,6 +45,14 @@ export class ThreadsController {
     return this.threadsService.createCommentation(createCommentationDto);
     }
 
+  @Post(':threadID/reportTs')
+  async createReportment_thread(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
+                @Body() createReportment_threadDto: CreateReportment_threadDto){
+    createReportment_threadDto.threadID = threadID;
+    return this.threadsService.createReportment_thread(createReportment_threadDto);
+    }
+
+  
   
 
 }

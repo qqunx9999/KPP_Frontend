@@ -8,6 +8,8 @@ import Commentation from './comentation.entity';
 import { ObjectID } from 'mongodb';
 import { CreateThreadDto } from 'src/dto/create-thread.dto';
 import { CreateCommentDto } from 'src/dto/create-comment.dto';
+import { CreateReportment_threadDto } from 'src/dto/create-reportment_thread';
+import Reportment_thread from 'src/entities/reportment_thread.entity';
 
 @Injectable()
 export class ThreadsService {
@@ -15,7 +17,9 @@ export class ThreadsService {
     @InjectRepository(Thread)
     private threadsRepository: Repository<Thread>,
     @InjectRepository(Commentation)
-    private commentationsRepository: Repository<Commentation>
+    private commentationsRepository: Repository<Commentation>,
+    @InjectRepository(Reportment_thread)
+    private reportment_threadsRepository: Repository<Reportment_thread>
   ) {}
 
   async findAll(): Promise<Thread[]> {
@@ -36,5 +40,9 @@ export class ThreadsService {
 
   async createCommentation(createCommentationDto: CreateCommentDto) {
     return this.commentationsRepository.save(createCommentationDto);
+  }
+
+  async createReportment_thread(createReportment_threadDto: CreateReportment_threadDto) {
+    return this.reportment_threadsRepository.save(createReportment_threadDto);
   }
 }
