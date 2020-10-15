@@ -1,0 +1,698 @@
+.rpList-bigframe {
+    width: 1920px;
+    height: 2530px;
+    overflow: hidden;
+    background: var(--Theme6, #47624f);
+  }
+
+.rpList-blackframe {
+    width: 1920px;
+    height: 150px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+  }
+
+.rpList-kuppl2 {
+    width: 510px;
+    height: 107px;
+    overflow: visible;
+    background-image: url(/* kuppl2.png */);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #ffffff;
+    position: absolute;    
+    top: 22px;
+    left: 38px;
+  }
+
+.rpList-admin {
+    width: 118px;
+    height: 102px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 34px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 0px;
+    left: 1718px;
+  }
+
+.rpList-thread-whiteframe {
+    width: 1474px;
+    height: 779px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;    
+    top: 182px;
+    left: 223px;
+  }
+
+.rpList-thread-report-list {
+    width: 354px;
+    height: 186px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 62px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: -25px;
+    left: 560px;
+  }
+
+.rpList-thread-greenframe {
+    width: 1357px;
+    height: 519px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;    
+    top: 115px;
+    left: 59px;
+  }
+
+.rpList-report-thread1 {
+    width: 313px;
+    height: 108px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 36px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 17px;
+    left: 67px;
+  }
+
+.rpList-read-round1 {
+    width: 197px;
+    height: 50px;
+    overflow: visible;
+    background: var(--Theme1_50_, rgba(255, 255, 255, 0.5));
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    position: absolute;    
+    top: 45px;
+    left: 447px;
+  }
+
+.rplist-read1 {
+    width: 90px;
+    height: 108px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: rgba(13, 4, 82, 0.85);
+    font-size: 36px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: -29px;
+    left: 85px;
+  }
+
+.rpList-date-round1 {
+    width: 296px;
+    height: 50px;
+    overflow: visible;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    position: absolute;    
+    top: 45px;
+    left: 667px;
+  }
+
+.rpList-date1 {
+    width: 185px;
+    height: 96px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: rgba(13, 4, 82, 0.85);
+    font-size: 32px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: -23px;
+    left: 78px;
+  }
+
+.rpList-correct-round1 {
+    width: 91px;
+    height: 50px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    position: absolute;    
+    top: 45px;
+    left: 985px;
+    border-width: 0px;
+  }
+
+.rpList-incorrect-round1 {
+    width: 91px;
+    height: 50px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    position: absolute;    
+    top: 45px;
+    left: 1096px;
+    border-width: 0px;
+  }
+
+.rpList-thread-fpre-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;    
+    top: 679px;
+    left: 790px;
+    border-width: 0px;
+  }
+
+.rpList-thread-pre-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;    
+    top: 679px;
+    left: 860px;
+    border-width: 0px;
+  }
+
+.rpList-no1-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute; 
+    top: 679px;
+    left: 930px;
+    border-width: 0px;
+  }
+
+.rpList-no1 {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color:  #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 2;
+    position: absolute; 
+    top: 683px;
+    left: 951px;
+  }
+
+.rpList-no2-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute; 
+    top: 679px;
+    left: 1000px;
+    border-width: 0px;
+  }
+
+.rpList-no2 {
+    width: 18px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 2;
+    position: absolute; 
+    top: 683px;
+    left: 1021px;
+  }
+
+.rpList-no3-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute; 
+    top: 679px;
+    left: 1070px;
+    border-width: 0px;
+  }
+
+.rpList-no3 {
+    width: 19px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 2;
+    position: absolute; 
+    top: 683px;
+    left: 1091px;
+  }
+
+.rpList-no4-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute; 
+    top: 679px;
+    left: 1140px;
+    border-width: 0px;
+  }
+
+.rpList-no4 {
+    width: 19px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 2;
+    position: absolute; 
+    top: 683px;
+    left: 1161px;
+  }
+
+.rpList-no5-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute; 
+    top: 679px;
+    left: 1210px;
+    border-width: 0px;
+  }
+
+.rpList-no5 {
+    width: 19px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 2;
+    position: absolute; 
+    top: 683px;
+    left: 1231px;
+  }
+
+.rpList-thread-ffw-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme4, #447604);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute; 
+    top: 679px;
+    left: 1280px;
+    border-width: 0px;
+  }
+
+.rpList-thread-fw-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme4, #447604);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute; 
+    top: 679px;
+    left: 1350px;
+    border-width: 0px;
+  }
+
+.rpList-cm-whiteframe {
+    width: 1474px;
+    height: 779px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;    
+    top: 1143px;
+    left: 223px;
+  }
+
+.rpList-cm-report-list {
+    width: 354px;
+    height: 186px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 62px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: -25px;
+    left: 560px;
+  }
+
+.rpList-cm-greenframe {
+    width: 1357px;
+    height: 519px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;    
+    top: 115px;
+    left: 59px;
+  }
+
+.rpList-report-cm1 {
+    width: 313px;
+    height: 108px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 36px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 17px;
+    left: 67px;
+  }
+
+.rpList-cmread-round1 {
+    width: 197px;
+    height: 50px;
+    overflow: visible;
+    background: var(--Theme1_50_, rgba(255, 255, 255, 0.5));
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    position: absolute;    
+    top: 45px;
+    left: 447px;
+  }
+
+.rplist-cmread1 {
+    width: 90px;
+    height: 108px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: rgba(13, 4, 82, 0.85);
+    font-size: 36px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: -29px;
+    left: 85px;
+  }
+
+.rpList-cmdate-round1 {
+    width: 296px;
+    height: 50px;
+    overflow: visible;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    position: absolute;    
+    top: 45px;
+    left: 667px;
+  }
+
+.rpList-cmdate1 {
+    width: 185px;
+    height: 96px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: rgba(13, 4, 82, 0.85);
+    font-size: 32px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: -23px;
+    left: 78px;
+  }
+
+.rpList-cmcorrect-round1 {
+    width: 91px;
+    height: 50px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    position: absolute;    
+    top: 45px;
+    left: 985px;
+    border-width: 0px;
+  }
+
+.rpList-cmincorrect-round1 {
+    width: 91px;
+    height: 50px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    position: absolute;    
+    top: 45px;
+    left: 1096px;
+    border-width: 0px;
+  }
+
+.rpList-cm-fpre-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;    
+    top: 679px;
+    left: 790px;
+    border-width: 0px;
+  }
+
+.rpList-cm-pre-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;    
+    top: 679px;
+    left: 860px;
+    border-width: 0px;
+  }
+
+.rpList-cmno1-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute; 
+    top: 679px;
+    left: 930px;
+    border-width: 0px;
+  }
+
+.rpList-cmno1 {
+    width: 15px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color:  #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 2;
+    position: absolute; 
+    top: 683px;
+    left: 951px;
+  }
+
+.rpList-cmno2-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute; 
+    top: 679px;
+    left: 1000px;
+    border-width: 0px;
+  }
+
+.rpList-cmno2 {
+    width: 18px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 2;
+    position: absolute; 
+    top: 683px;
+    left: 1021px;
+  }
+
+.rpList-cmno3-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute; 
+    top: 679px;
+    left: 1070px;
+    border-width: 0px;
+  }
+
+.rpList-cmno3 {
+    width: 19px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 2;
+    position: absolute; 
+    top: 683px;
+    left: 1091px;
+  }
+
+.rpList-cmno4-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute; 
+    top: 679px;
+    left: 1140px;
+    border-width: 0px;
+  }
+
+.rpList-cmno4 {
+    width: 19px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 2;
+    position: absolute; 
+    top: 683px;
+    left: 1161px;
+  }
+
+.rpList-cmno5-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute; 
+    top: 679px;
+    left: 1210px;
+    border-width: 0px;
+  }
+
+.rpList-cmno5 {
+    width: 19px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 2;
+    position: absolute; 
+    top: 683px;
+    left: 1231px;
+  }
+
+.rpList-cm-ffw-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme4, #447604);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute; 
+    top: 679px;
+    left: 1280px;
+    border-width: 0px;
+  }
+
+.rpList-cm-fw-frame {
+    width: 60px;
+    height: 61px;
+    overflow: visible;
+    background: var(--Theme4, #447604);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute; 
+    top: 679px;
+    left: 1350px;
+    border-width: 0px;
+  }
+
+.rpList-contact-frame {
+    width: 340px;
+    height: 75px;
+    overflow: visible;
+    background-color: rgba(255, 255, 255, 0.83);
+    position: absolute; 
+    top: 2453px;
+    left: 1580px;
+    border-width: 0px;
+  }
+
+.rpList-contract {
+    width: 166px;
+    height: 102px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #000000;
+    font-size: 34px;
+    letter-spacing: 3px;
+    line-height: 2;
+  }
