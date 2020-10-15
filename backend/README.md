@@ -73,6 +73,20 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+
+# TypeOrm MongoDB
+$ npm install --save @nestjs/typeorm typeorm
+$ npm install --save mongodb
+$ npm install -save-dev @types/mongodb
+
+# Validator Pipe
+$ npm i --save class-validator class-transformer
+
+# Authen
+$ npm install --save @nestjs/passport passport passport-local
+$ npm install --save-dev @types/passport-local
+$ npm install --save @nestjs/jwt passport-jwt
+$ npm install --save-dev @types/passport-jwt
 ```
 
 ## Support

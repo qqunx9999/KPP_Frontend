@@ -24,7 +24,9 @@ export class Thread{
     @Column()
     down_vote_count: number;
     @Column()
-    number_of_comment: number;
+    total_comment: number;
+    @Column()
+    number_of_all_comment: number;
     @Column()
     date_create: Date;
     @Column()

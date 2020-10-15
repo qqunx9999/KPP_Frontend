@@ -22,7 +22,9 @@ export class CreateThreadDto {
     @IsInt()
     down_vote_count: number;
     @IsInt()
-    number_of_comment: number;
+    total_comment: number;
+    @IsInt()
+    number_of_all_comment: number;
     @IsDate()
     date_create: Date;
     @IsDate()
