@@ -31,6 +31,11 @@ const Threads = () => {
           </button>
       </Link>
 
+      <div className="thread-givecomment-txt">
+        <button className="thread-givecm-button">
+          Give comment
+        </button>
+      </div>
       <div className="thread-tags-frame">
         <div className="threads_tags_tags">
           Tags :
