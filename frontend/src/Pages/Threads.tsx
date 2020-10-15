@@ -125,8 +125,8 @@ const Threads = () => {
         <div className="thread-topic-detail-frame">
           <div className="thread-topic-detail-text">
             { thread.map(item => {
-              console.log(item.image_pos);
-              return item.content
+              if (item.userID === item.userID) 
+                return item.content
             }) } <br/>
             { thread.map(item => (
               <img src={ item.image_URL } />

@@ -9,21 +9,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../CSSsource/LoginPage.css';
 import SignUpPage from "./SignUpPage"
 import AuthenLogIn from './AuthenLogIn';
-import { UserPass } from '../interfaces/threadEntity';
-import { runInNewContext } from 'vm';
+import Account from '../interfaces/accountEntity';
+import { EmailID, PassID } from '../component/loginForm';
 
 const LoginPage = () => {
-  const [login, setLogin] = useState<UserPass[]>([]);
-  const [email, setEmail] = useState<string>('');
-  const [pass, setPassword] = useState<string>('');
-
-  const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
+  const [login, setLogin] = useState<Account[]>([]);
 
   const handleFetch = () => {
     const newFetch = {
@@ -49,19 +39,11 @@ const LoginPage = () => {
                   Please sign up or log in before use.
           </p>
           <div className="EmailLogIn1">
-              <form>
-                Email :
-                <input placeholder="Type your Email..." style={{ width:"500px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={ handleEmail } onSubmit={undefined} value={ email }  className="InputEmailLogIn1"/>
-                <div className="kuthLogIn1">
-                  @ku.th
-                </div>
-              </form>
+            <EmailID />
+              
           </div>
           <div className="PasswordLogIn1">
-              <form>
-                Password :
-                <input type="password" placeholder="Type your password..." style={{ width:"480px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={ handlePassword } onSubmit={undefined} value={ pass }  className="InputPasswordLogIn1"/>
-              </form>
+            <PassID />
           </div>
           <div className="TextForgetLogIn1">
                   Forget your password?

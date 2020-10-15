@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { Thread } from '../interfaces/threadEntity';
 import 'bootstrap/dist/css/bootstrap.css';
-
+import ThreadItem from '../component/threadItem';
 import '../CSSsource/Home.css';
 
 import threadService from '../service/threadService';
@@ -71,9 +71,9 @@ const Home = () => {
             <div className="stackLatestHomePage">
               <div className="firstLatestTextHomePage">
                 { thread.map(item => (
-                  <Link to={`/Threads/${ item.userID }`}>
+                  <Link to={{pathname:`/Threads/${ item.threadID }`}}>
                     <ul className="content">
-                      <li key={ item.threadID }>{ item.topic }</li>
+                      <ThreadItem key={ item.threadID } thread={ item } />
                     </ul>
                   </Link>
                 )) }
@@ -137,9 +137,9 @@ const Home = () => {
             <div className="stackHottestHomePage">
               <div className="firstHottestTextHomePage">
                 { thread.map(item => (
-                  <Link to={`/Threads/${ item.userID }`}>
+                  <Link to={`/Threads/${ item.threadID }`}>
                     <ul className="content">
-                      <li key={ item.threadID }>{ item.topic }</li>
+                      <ThreadItem key={ item.threadID } thread={ item } />
                     </ul>
                   </Link>
                 )) }
@@ -221,9 +221,9 @@ const Home = () => {
             <div className="stackNewsHomePage">
               <div className="firstNewsTextHomePage">
                 { thread.map(item => (
-                  <Link to={`/Threads/${ item.userID }`}>
+                  <Link to={`/Threads/${ item.threadID }`} >
                     <ul className="content">
-                      <li key={ item.threadID }>{ item.topic }</li>
+                      <ThreadItem key={ item.threadID } thread={ item } />
                     </ul>
                   </Link>
                 )) }
