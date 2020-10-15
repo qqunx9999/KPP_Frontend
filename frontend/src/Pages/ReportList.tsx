@@ -14,9 +14,7 @@ const ReportList = () => {
       <div className="rpList-bigframe">
         <div className="rpList-blackframe">
           <div className="rpList-kuppl2">
-            <Link to={ `/Home` }>
-              KU PEOPLE
-            </Link>
+            <Link to={ `/Home` }></Link>
           </div>
           <div className="rpList-admin">
             Admin
@@ -167,29 +165,11 @@ const ReportList = () => {
           </div>
         </div>
 
-        <div className="rpList-contract-detail">
-          <div className="rpList-us1">
-            <button className="rpList-us1-frame">
-              us1 firstName <br></br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; us1 lastName
-            </button>
-          </div>
-          <div className="rpList-us2">
-            <button className="rpList-us2-frame">
-              us2 firstName <br></br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; us2 lastName
-            </button>
-          </div>
-          <div className="rpList-us3">
-            <button className="rpList-us3-frame">
-              us3 firstName <br></br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; us3 lastName
-            </button>
-          </div>
-        </div>
         <div className="rpList-contract">
           <button className="rpList-contact-frame">
             Contract
           </button>
         </div>
-        
       </div>
   );
 }

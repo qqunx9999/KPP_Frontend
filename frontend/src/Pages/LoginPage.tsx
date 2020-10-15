@@ -10,22 +10,10 @@ import '../CSSsource/LoginPage.css';
 import SignUpPage from "./SignUpPage"
 import AuthenLogIn from './AuthenLogIn';
 import Account from '../interfaces/accountEntity';
-import { EmailID, PassID } from '../component/loginForm';
+import { EmailID } from '../component/loginForm';
+import { stringify } from 'querystring';
 
 const LoginPage = () => {
-  const [login, setLogin] = useState<Account[]>([]);
-
-  const handleFetch = () => {
-    const newFetch = {
-
-    };
-
-    fetch('', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(newFetch),
-    });
-  };
 
   return (
     <div className="LogInPage1">
@@ -38,13 +26,7 @@ const LoginPage = () => {
           <p className="TextPleaseLogIn1">
                   Please sign up or log in before use.
           </p>
-          <div className="EmailLogIn1">
-            <EmailID />
-              
-          </div>
-          <div className="PasswordLogIn1">
-            <PassID />
-          </div>
+          <EmailID />
           <div className="TextForgetLogIn1">
                   Forget your password?
           </div>
@@ -62,13 +44,6 @@ const LoginPage = () => {
           <a className="GoToSignUpLogIn1" href="/Signup">
                   Go to Sign Up
           </a>
-          <Link to="/LogIn/AuthenLogIn">
-            <div onClick={ handleFetch } className="FrameLogIn1">
-              <div className="LogInButtonLogIn1">
-                    Log In
-              </div>
-            </div>
-          </Link>
         </div>
       </div>
     </div>
