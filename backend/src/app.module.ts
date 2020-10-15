@@ -15,6 +15,8 @@ import User from './entities/user.entity';
 import { ThreadsModule } from './threads/threads.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
+import { ReportsModule } from './reports/reports.module';
+import { ChatroomsModule } from './chatrooms/chatrooms.module';
 
 @Module({
   imports: [
@@ -29,6 +31,8 @@ import { UsersModule } from './users/users.module';
     ThreadsModule,
     AuthModule,
     UsersModule,
+    ReportsModule,
+    ChatroomsModule,
   ],
 
   controllers: [AppController],
