@@ -8,20 +8,23 @@ export class CreateUserDto {
     email: string;
     @IsString()
     password: string;
+    @IsString()
+    avatar_URL: string;
     @IsInt()
     exp: number;
     @IsString()
     rank: string;
     @IsArray()
-    friend_arr: [ ObjectID, Date, Date, boolean][];// userID, date_add, date_remove(default null), isaccept
+    friend_arr: [ ObjectID, boolean, boolean, Date, Date][];// userID,sender, isaccepted date_add, date_delete
     @IsDate()
     numberfriends: number;
     @IsString()
-    avatar_URL: string;
-    @IsString()
     description: string;
-    @IsDate()
-    date_join: Date;
     @IsArray()
     ischatmember_arr: ObjectID[]; //chatroomID
+    @IsDate()
+    date_join: Date;
+    @IsBoolean()
+    isloggedin: boolean;
+    
 }

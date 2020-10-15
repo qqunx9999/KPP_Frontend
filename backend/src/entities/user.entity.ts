@@ -11,20 +11,22 @@ export class User{
     @Column()
     password: string;
     @Column()
+    avatar_URL: string;
+    @Column()
     exp: number;
     @Column()
     rank: string;
     @Column()
-    friend_arr: [ObjectID, Date, Date, boolean][];// userID, date_add, date_remove(default null), isaccept
+    friend_arr: [ObjectID, boolean, boolean,Date, Date][];// userID, sender, isaccepted, date_add, date_delete
     @Column()
     numberfriends: number;
     @Column()
-    avatar_URL: string;
-    @Column()
     description: string;
+    @Column()
+    ischatmember_arr: ObjectID[]; //chatroomID
     @Column()
     date_join: Date;
     @Column()
-    ischatmember_arr: ObjectID[]; //chatroomID 
+    isloggedin: boolean
 }
 export default User;
