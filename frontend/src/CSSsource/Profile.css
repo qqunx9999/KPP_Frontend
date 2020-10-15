@@ -1,0 +1,306 @@
+.backgroundUserProfile{
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: var(--Theme6, #47624f);
+  }
+
+  .frameWhiteUserProfile {
+    width: 1390px;
+    height: 947px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;
+    top: 50px;
+    left: 250px;
+  }
+
+  .frameBlackUserProfile {
+    width: 1314px;
+    height: 758px;
+    overflow: visible;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 20px;
+    position: absolute;
+    top: 50px;
+    left: 35px;
+  }
+
+  .frameLeftGrayUserProfile {
+    width: 270px;
+    height: 698px;
+    overflow: visible;
+    background-color: #7e7c7c;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 20px;
+    position: absolute;
+    top: 30px;
+    left: 35px;
+  }
+
+  .textJoinUserProfile {
+    width: 157px;
+    height: 162px;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 53px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 0px;
+    left: 80px;
+  }
+
+  .textJoinedDateUserProfile {
+    width: 234px;
+    height: 108px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 36px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 120px;
+    left: 30px;
+  }
+
+  .picUserProfile {
+    width: 230px;
+    height: 230px;
+    overflow: visible;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25);
+    background-image: url(https://www.pngitem.com/pimgs/m/80-800501_patrick-star-transparent-png-patrick-star-png-download.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 115px;
+    position: absolute;
+    top: 230px;
+    left: 20px;
+  }
+
+  .userRankUserProfile {
+    width: 227px;
+    height: 144px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 48px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 450px;
+    left: 25px;
+  }
+
+  .userExpUserProfile {
+    width: 238px;
+    height: 108px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 36px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 550px;
+    left: 20px;
+  }
+
+  .textProfileUserProfile {
+    width: 275px;
+    height: 129px;
+    overflow: visible;
+    text-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 91px;
+    letter-spacing: 0px;
+    line-height: 1.2;
+    text-decoration: underline;
+    position: absolute;
+    top: 30px;
+    left: 620px;
+  }
+
+  .usernameUserProfile {
+    width: 433px;
+    height: 216px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 72px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 100px;
+    left: 400px;
+  }
+
+  .userQuotationUserProfile {
+    width: 552px;
+    height: 144px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 48px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 250px;
+    left: 500px;
+  }
+
+  .favorpartUserProfile {
+    width: 383px;
+    height: 216px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 72px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 320px;
+    left: 400px;
+  }
+
+  .textFoodUserProfile {
+    width: 176px;
+    height: 144px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 48px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 450px;
+    left: 500px;
+  }
+
+  .userFoodUserProfile {
+    width: 1000px;
+    height: 144px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 48px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 450px;
+    left: 700px;
+  }
+
+  .userHabitUserProfile {
+    width: 1000px;
+    height: 144px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 48px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 530px;
+    left: 500px;
+  }
+
+  .userTopicUserProfile {
+    width: 1000px;
+    height: 144px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 48px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 610px;
+    left: 500px;
+  }
+
+  .frameGobackUserProfile {
+    width: 215px;
+    height: 90px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 880px;
+    left: 300px;
+  }
+
+  .textGobackUserProfile {
+    width: 186px;
+    height: 90px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 30px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 0px;
+    left: 20px;
+  }
+
+  .frameAddFriendUserProfile {
+    width: 222px;
+    height: 90px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 880px;
+    left: 1380px;
+  }
+
+  .textAddFriendUserProfile {
+    width: 186px;
+    height: 90px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 30px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 0px;
+    left: 20px;
+  }
+
+  .frameUserNicknameUserProfile {
+    width: 184px;
+    height: 82px;
+    overflow: visible;
+    background: var(--Theme4, #447604);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 30px;
+    position: absolute;
+    top: 50px;
+    left: 1080px;
+  }
+
+  .textUserNicknameUserProfile {
+    width: 159px;
+    height: 108px;
+    overflow: visible;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 36px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: -15px;
+    left: 20px;
+  }
