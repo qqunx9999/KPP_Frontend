@@ -41,9 +41,13 @@ const Threads = () => {
           Tags :
         </div> 
         <div className="thread_minitag1">
-          <button className="thread_minitag1_frame">                        
+          <button className="thread_minitag1_frame">
+            {/* {thread[0].tag_arr}                       */}
             { thread.map(item => (
-              item.tag_arr[0]
+              <div>
+              {console.log(item)}
+              {item.tag_arr[0]}
+              </div>
             )) }
           </button>
         </div>

@@ -38,11 +38,11 @@ const Home = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="#">Seacrh Thread</a>
+              <Link to={ `/SearchThread` }><a className="nav-link" href="#">Seacrh Thread</a></Link>
             </li>
 
             <li className="nav-item active">
-              <a className="nav-link" href="#">Create Thread</a>
+              <Link to={ `/CreateThread` }><a className="nav-link" href="#">Create Thread</a></Link>
             </li>
             
             <li className="nav-item">
@@ -57,7 +57,7 @@ const Home = () => {
             </li>
 
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
                 Dropdown link
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
