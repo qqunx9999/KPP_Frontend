@@ -1,8 +1,10 @@
 .backgroundLoginSignin {
-    width: 1920px;
-    height: 1080px;
+    width: 100%;
+    height: 110%;
     overflow: hidden;
+    margin: 0;
     background: var(--Theme6, #47624f);
+    position: absolute;
   }
 
 .centerFrameLoginSignin {
@@ -13,8 +15,7 @@
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: relative;
-    top: 160px;
-    left: 517px;
+    margin : 7.5%;
   }
 
 .KUPeopleLoginSignin {
@@ -45,26 +46,30 @@
     top: 176px;
     left: 116px;
   }
+  .btn-success:hover{
+    background: var(--Theme5, #4FD237)!important;
+  }
 
 .SignupFrameLoginSignin {
     width: 430px;
     height: 119px;
     overflow: visible;
-    background: var(--Theme5, #6cc551);
+    background: var(--Theme5, #6cc551)!important;;
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
-    border-radius: 29px;
+    border-radius: 29px!important;;
     position: absolute;
     top: 320px;
     left: 228px;
   }
 
+
 .LoginFrameLoginSignin {
     width: 430px;
     height: 119px;
     overflow: visible;
-    background: var(--Theme5, #6cc551);
+    background: var(--Theme5, #6cc551)!important;;
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
-    border-radius: 29px;
+    border-radius: 29px!important;;
     position: absolute;
     top: 478px;
     left: 228px;

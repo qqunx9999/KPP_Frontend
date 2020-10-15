@@ -18,7 +18,7 @@ export const EmailID = (props: AccountProps) => {
     return(
         <form>
             Email :
-            <input placeholder="Type your Email..." style={{ width: "500px", height: "50px" }} onFocus={undefined} onBlur={undefined} onChange={handleEmail} onSubmit={undefined} value={email} className="InputEmailLogIn1" />
+            <input placeholder="Type your Email..." style={{ width: "500px", height: "50px" }} onFocus={undefined} onBlur={undefined} onChange={handleEmail} onSubmit={undefined} value={email} className="InputEmailLogIn1 form-control" />
             <div className="kuthLogIn1">
                 @ku.th
                 </div>
@@ -36,7 +36,7 @@ export const PassID = (props: AccountProps) => {
     return (
         <form>
             Password :
-            <input type="password" placeholder="Type your password..." style={{ width: "480px", height: "50px" }} onFocus={undefined} onBlur={undefined} onChange={handlePassword} onSubmit={undefined} value={pass} className="InputPasswordLogIn1" />
+            <input type="password" placeholder="Type your password..." style={{ width: "480px", height: "50px" }} onFocus={undefined} onBlur={undefined} onChange={handlePassword} onSubmit={undefined} value={pass} className="InputPasswordLogIn1 form-control" />
         </form>
     );
 };
