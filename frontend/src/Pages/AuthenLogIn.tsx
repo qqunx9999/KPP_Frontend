@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import '../CSSsource/AuthenLogIn.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from '/home/mnlenium/KUPEOPLE_FULLSTACK/frontend/src/Pages/image/nong_plub.png'
+import logo from '../Pages/image/nong_plub.png'
 
 const AuthenLogIn = () => {
   
