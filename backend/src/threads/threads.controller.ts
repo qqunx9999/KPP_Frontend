@@ -20,6 +20,11 @@ export class ThreadsController {
     return this.threadsService.findAll();
   }
 
+  @Get(':threadID')
+  async findOne(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<Thread[]> {
+    return this.threadsService.findOne(threadID);
+  }
+
   @Post()
   async createThread(@Body() createThreadDto: CreateThreadDto){
     return this.threadsService.createThread(createThreadDto);

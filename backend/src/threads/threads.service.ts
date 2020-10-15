@@ -22,6 +22,10 @@ export class ThreadsService {
     return this.threadsRepository.find();
   }
 
+  async findOne(threadID: ObjectID): Promise<Thread[]>{
+    return this.threadsRepository.find({where:{ _id: threadID}});
+  }
+
   async createThread(createThreadDto: CreateThreadDto) {
     return this.threadsRepository.save(createThreadDto);
   }

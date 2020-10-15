@@ -1,4 +1,7 @@
-<!--
+<!-- install
+
+
+
 npm install --save @nestjs/typeorm typeorm
 npm install --save mongodb
 npm install -save-dev @types/mongodb
