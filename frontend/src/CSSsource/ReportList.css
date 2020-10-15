@@ -681,7 +681,7 @@
     overflow: visible;
     background-color: rgba(255, 255, 255, 0.83);
     position: absolute; 
-    top: 2453px;
+    top: 2042px;
     left: 1580px;
     border-width: 0px;
   }
@@ -693,6 +693,79 @@
     font-family: "Inter", sans-serif;
     color: #000000;
     font-size: 34px;
+    letter-spacing: 3px;
+    line-height: 2;
+  }
+
+.rpList-contract-detail {
+    width: 340px;
+    height: 413px;
+    overflow: visible;
+    background: var(--Theme1_50_, rgba(255, 255, 255, 0.5));
+    position: absolute; 
+    top: 2117px;
+    left: 1580px;
+  }
+
+.rpList-us1-frame {
+    width: 320px;
+    height: 100px;
+    overflow: visible;
+    background-color: rgba(0, 0, 0, 0.25);
+    position: absolute; 
+    top: 33px;
+    left: 11px;
+  }
+
+.rpList-us1 {
+    width: 159px;
+    height: 72px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 24px;
+    letter-spacing: 3px;
+    line-height: 2;
+  }
+
+.rpList-us2-frame {
+    width: 320px;
+    height: 100px;
+    overflow: visible;
+    background-color: rgba(0, 0, 0, 0.25);
+    position: absolute; 
+    top: 148px;
+    left: 11px;
+  }
+
+.rpList-us2 {
+    width: 159px;
+    height: 72px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 24px;
+    letter-spacing: 3px;
+    line-height: 2;
+  }
+
+.rpList-us3-frame {
+    width: 320px;
+    height: 100px;
+    overflow: visible;
+    background-color: rgba(0, 0, 0, 0.25);
+    position: absolute; 
+    top: 263px;
+    left: 11px;
+  }
+
+.rpList-us3 {
+    width: 159px;
+    height: 72px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 24px;
     letter-spacing: 3px;
     line-height: 2;
   }
