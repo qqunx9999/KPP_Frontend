@@ -14,7 +14,9 @@ const ReportList = () => {
       <div className="rpList-bigframe">
         <div className="rpList-blackframe">
           <div className="rpList-kuppl2">
-            KU PEOPLE
+            <Link to={ `/Home` }>
+              KU PEOPLE
+            </Link>
           </div>
           <div className="rpList-admin">
             Admin
