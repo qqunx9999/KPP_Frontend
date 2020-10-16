@@ -1,9 +1,11 @@
 .outer-frame {
-    width: 1920px;
-    height: 1080px;
-    overflow: hidden;
-    background: var(--Theme6, #47624f);
-  }
+  width: 100%;
+  height: 150%;
+  overflow: hidden;
+  margin: 0;
+  background: var(--Theme6, #47624f);
+  position: absolute;
+}
 
 .white-frame {
     width: 1100px;
@@ -13,108 +15,127 @@
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;
-    top: 38px;
-    left: 410px;
+    margin : 1%;
   }
-
-.k-u-people {
-    width: 448px;
-    height: 129px;
-    overflow: visible;
-    text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
-    font-family: "Inter", sans-serif;
-    color: var(--Theme4, #447604);
-    font-size: 91px;
-    letter-spacing: 0px;
-    line-height: 1.2;
-    position: absolute;
-    top: 47px;
-    left: 326px;
-  }
-
-.descb-text {
-    width: 654px;
-    height: 110px;
-    overflow: visible;
-    font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
-    font-size: 38px;
-    letter-spacing: 0px;
-    line-height: 1.2;
-    position: absolute;
-    top: 193px;
-    left: 223px;
-  }
-
-.accountName { 
-    width: 390px;
-    height: 138px;
-    overflow: visible;
-    font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
-    font-size: 46px;
-    letter-spacing: 3px;
-    line-height: 3;  
-    position: absolute;
-    top: 281px;
-    left: 53px;
-  }
-
-.Input_account {
-    background-color: rgb(221, 221, 227);
-    font-size: 22;
-    color: "#333333";
-    border: rgba(0,0,0,0);
-    border-width: 1;
-    /*focusColor=#09F*/
-    /*focused:false*/
-    font: false;
-    font-family: "";
-    /*keyboard:""*/
-    /*multiLine:false*/
-    padding: 20;
-    /*password:false*/
-    border-radius: 10;
-    width: 411px;
-    position: absolute;    
-    top: 50px;
-    left: 380px;
-}
-.email-text {
-    width: 163px;
-    height: 138px;
-    overflow: visible;
-    font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
-    font-size: 46px;
-    letter-spacing: 3px;
-    line-height: 3;
-    position: absolute;
-    top: 397px;
-    left: 53px;
-  }
-
-.user_email {
-    background-color: rgb(221, 221, 227);
-    font-size: 22;
-    color: "#333333";
-    border: rgba(0,0,0,0);
-    border-width: 1;
-    /*focusColor=#09F*/
-    /*focused:false*/
-    font: false;
-    font-family: "";
-    /*keyboard:""*/
-    /*multiLine:false*/
-    padding: 12;
-    /*password:false*/
-    border-radius: 10;
-    position: absolute;
-    top: 41px;
-    left: 180px;
+.signup-bigframe {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--Theme6, #47624f);
 }
 
-.addku {
+.signup-whiteframe {
+  width: 1242px;
+  height: 996px;
+  overflow: visible;
+  background: var(--Theme1, #ffffff);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
+  border-radius: 66px;
+  position: absolute;
+  top: 38px;
+  left: 429px;
+}
+
+.signup-k-u-people {
+  width: 448px;
+  height: 128px;
+  overflow: visible;
+  text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
+  font-family: "Inter", sans-serif;
+  color: var(--Theme4, #447604);
+  font-size: 91px;
+  letter-spacing: 0px;
+  line-height: 1.2;
+  position: absolute;
+  top: 47px;
+  left: 397px;
+}
+
+.signup-plz-text {
+  width: 654px;
+  height: 109px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme3, #0f0508);
+  font-size: 38px;
+  letter-spacing: 0px;
+  line-height: 1.2;
+  position: absolute;
+  top: 211px;
+  left: 294px;
+}
+
+.signup-account-name_ {
+  width: 390px;
+  height: 138px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme3, #0f0508);
+  font-size: 46px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: absolute;
+  top: 281px;
+  left: 53px;
+}
+
+.signup-Input_account {
+  background-color: rgb(221, 221, 227);
+  font-size: 22;
+  color: "#333333";
+  border: rgba(0,0,0,0);
+  border-width: 1;
+  /*focusColor=#09F*/
+  /*focused:false*/
+  font: false;
+  font-family: "";
+  /*keyboard:""*/
+  /*multiLine:false*/
+  padding: 12;
+  /*password:false*/
+  border-radius: 10;
+  width: 411px;
+  position: absolute;    
+  top: 50px;
+  left: 380px;
+}
+
+.signup-email_ {
+  width: 163px;
+  height: 138px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme3, #0f0508);
+  font-size: 46px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: absolute;
+  top: 397px;
+  left: 53px;
+}
+
+.signup-Input_email {
+  background-color: rgb(221, 221, 227);
+  font-size: 22;
+  color: "#333333";
+  border: rgba(0,0,0,0);
+  border-width: 1;
+  /*focusColor=#09F*/
+  /*focused:false*/
+  font: false;
+  font-family: "";
+  /*keyboard:""*/
+  /*multiLine:false*/
+  padding: 12;
+  /*password:false*/
+  border-radius: 10;
+  width: 411px;
+  position: absolute;    
+  top: 40px;
+  left: 190px;
+}
+
+.signup-_ku-th {
   width: 158px;
   height: 126px;
   overflow: visible;
@@ -123,12 +144,12 @@
   font-size: 42px;
   letter-spacing: 3px;
   line-height: 3;
-  position: absolute;
-  top: 5px;
-  left: 800px;
+  position: absolute;    
+  top: 397px;
+  left: 1021px;
 }
 
-.pass {
+.signup-password_ {
   width: 269px;
   height: 138px;
   overflow: visible;
@@ -137,12 +158,12 @@
   font-size: 46px;
   letter-spacing: 3px;
   line-height: 3;
-  position: absolute;
+  position: absolute;    
   top: 502px;
   left: 53px;
 }
 
-.user_password {
+.signup-Input_password {
   background-color: rgb(221, 221, 227);
   font-size: 22;
   color: "#333333";
@@ -157,26 +178,29 @@
   padding: 12;
   /*password:false*/
   border-radius: 10;
+  width: 411px;
   position: absolute;    
   top: 50px;
-  left: 260px;
+  left: 300px;
 }
 
-.conpassword {
-  width: 500px;  
+.signup-cf-password {
+  
+  width: 479px;
   height: 138px;
   overflow: visible;
   font-family: "Inter", sans-serif;
   color: var(--Theme3, #0f0508);
   font-size: 46px;
   letter-spacing: 3px;
-  line-height: 3;  
-  position: absolute;
+  line-height: 3;
+  position: absolute;    
   top: 608px;
   left: 53px;
+  
 }
 
-.user_conpassword {
+.signup-Input-cf-password {
   background-color: rgb(221, 221, 227);
   font-size: 22;
   color: "#333333";
@@ -191,12 +215,13 @@
   padding: 12;
   /*password:false*/
   border-radius: 10;
+  width: 411px;
   position: absolute;    
   top: 50px;
-  left: 470px;
+  left: 480px;
 }
 
-.accept {
+.signup-accept-text {
   width: 402px;
   height: 69px;
   overflow: visible;
@@ -207,10 +232,10 @@
   line-height: 3;
   position: absolute;    
   top: 737px;
-  left: 649px;
+  left: 797px;
 }
 
-.term {
+.signup-term-text {
   width: 323px;
   height: 69px;
   overflow: visible;
@@ -221,27 +246,27 @@
   line-height: 3;
   text-decoration: underline;
   position: absolute;    
-  top: 775px;
-  left: 685px;
+  top: 790px;
+  left: 827px;
+  background: var(--Theme5, #ffffff); 
+  border: 0px;
 }
 
-.button {
-  background: var(--Theme5, #6cc551); /* Green */
-  border-radius: 19px;
-  color: white;
+.signup-gb-frame {
   width: 215px;
   height: 82px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 30px;
+  overflow: visible;
+  color: var(--Theme1, #ffffff);
+  background: var(--Theme5, #6cc551);
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+  border-radius: 19px;
   position: absolute;    
   top: 859px;
   left: 154px;
-  border-width: 0px;
+  text-align: center;
 }
-._go-back {
+
+.signup_go-back {
   width: 186px;
   height: 90px;
   overflow: visible;
@@ -252,24 +277,21 @@
   line-height: 3;
 }
 
-.button2 {
-  background: var(--Theme5, #6cc551); /* Green */
-  border-radius: 19px;
-  color: white;
-  width: 215px;
+.signup-su-frame {
+  width: 317px;
   height: 82px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 30px;
+  overflow: visible;
+  background: var(--Theme5, #6cc551);
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+  border-radius: 19px;
+  color: var(--Theme1, #ffffff);
   position: absolute;    
   top: 859px;
-  left: 720px;
-  border-width: 0px;
+  left: 827px;
+  text-align: center;
 }
 
-.sign-up {
+.signup-sign-up {
   width: 145px;
   height: 90px;
   overflow: visible;
@@ -280,11 +302,10 @@
   line-height: 3;
 }
 
-.square {
+.signup-square {
   background-color: rgb(255, 255, 255);
   border-width: 0px;
   width: 40px;
   height: 40px;
+  border-radius: 5px;
 }
-
-
