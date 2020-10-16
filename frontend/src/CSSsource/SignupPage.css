@@ -16,7 +16,8 @@
   border-radius: 66px;
   transform: scale(0.6, 0.6);
   position: absolute;
-  top: 0%;
+  top: -20%;
+  left: 10%;
   align-content: center;
   margin : 2.5%;
   
@@ -248,7 +249,7 @@
   border-radius: 19px;
   position: absolute;    
   top: 859px;
-  left: 154px;
+  left: 53px;
   text-align: center;
 }
 
@@ -260,7 +261,7 @@
   color: var(--Theme1, #ffffff);
   font-size: 30px;
   letter-spacing: 3px;
-  line-height: 3;
+  line-height: 2.5;
 }
 
 .signup-su-frame {

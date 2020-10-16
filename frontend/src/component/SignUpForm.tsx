@@ -36,11 +36,11 @@ export const SignUp = (props: AccountProps) => {
                     </div>
                     <div className="signup-password_">
                         Password :
-                    <Field type="password" name="password" placeholder="Type your password..." style={{ width: "820px", height: "50px" }} className="signup-Input_password" />
+                    <Field type="password" name="password" placeholder="Type your password..." style={{ width: "855px", height: "50px" }} className="signup-Input_password" />
                     </div>
                     <div className="signup-cf-password">
                         Confirm Password :
-                    <Field type="password" name="conPass" placeholder="Confirm your password..." style={{ width: "640px", height: "50px" }} className="signup-Input-cf-password" />
+                    <Field type="password" name="conPass" placeholder="Confirm your password..." style={{ width: "675px", height: "50px" }} className="signup-Input-cf-password" />
                     </div>
                     <div aria-disabled={ isSubmitting } className="signup-sign-up">
                         <Link to="/SignUp/AuthenSignup" className="signup-su-frame">

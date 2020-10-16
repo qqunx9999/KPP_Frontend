@@ -11,7 +11,7 @@ export class CreateCommentDto {
     @IsString()
     content:string;
     @IsArray()
-    image_arr:[string, number][];
+    image_arr:{URL: string, pos:number}[];
     @IsInt()
     reply_to:number;
     @IsInt()

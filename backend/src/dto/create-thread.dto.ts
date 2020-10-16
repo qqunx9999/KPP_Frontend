@@ -14,9 +14,9 @@ export class CreateThreadDto {
     @IsArray()
     image_arr: {URL: string, pos: number}[]; 
     @IsArray()
-    up_vote_arr: ObjectID[];
+    up_vote_arr: {userID:ObjectID}[];
     @IsArray()
-    down_vote_arr: ObjectID[];
+    down_vote_arr: {userID:ObjectID}[];
     @IsInt()
     up_vote_count: number;
     @IsInt()
@@ -28,9 +28,9 @@ export class CreateThreadDto {
     @IsDate()
     date_create: Date;
     @IsDate()
-    date_lastedit?: Date;
+    date_lastedit: Date;
     @IsDate()
-    date_delete?: Date;
+    date_delete: Date;
     @IsBoolean()
     isanonymous: boolean;
 }
