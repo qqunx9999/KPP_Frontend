@@ -8,7 +8,7 @@ export class Chatroom{
     @Column()
     room_name:string;
     @Column()
-    member_arr: [ObjectID, Date, Date][]; //userID, date_join, date_leave
+    member_arr: {userID:ObjectID,date_join: Date, date_leave: Date}[]; //userID, date_join, date_leave
     @Column()
     totalmember:number;
     @Column()
