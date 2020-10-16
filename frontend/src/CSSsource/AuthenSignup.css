@@ -1,8 +1,10 @@
 .AuthenSU-outer-frame {
-    width: 1920px;
-    height: 1080px;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     background: var(--Theme6, #47624f);
+    margin: 0;
+    position: absolute;
 }
 
 .AuthenSU-whiteframe {
@@ -13,8 +15,9 @@
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;
-    top: 206px;
-    left: 444px;
+    top: 0%;
+    left: 20%;
+    transform: scale(0.8, 0.8);
   }
 
 .AuthenSU-k-u-people {

@@ -12,7 +12,7 @@ export class Commentation {
     @Column()
     content:string;
     @Column()
-    image_arr:[string, number ][];//URL ,pos
+    image_arr:{URL:string, pos:number}[];//URL ,pos
     @Column()
     reply_to:number;
     @Column()
