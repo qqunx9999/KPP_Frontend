@@ -36,6 +36,11 @@ const CreateComment = () => {
             </Link>
           </div>
         )) }
+        <div className="createcm_goback">
+          <button className="createcm_goback_button">
+          &lt; Go back
+          </button>
+        </div>
         <div className="createcm-whiteframe">          
           <div className="createcm-give-comment">
             Give Comment
