@@ -5,8 +5,7 @@
   margin: 0;
   background: var(--Theme6, #47624f);
   position: absolute;
-  top: 100;
-  left: 100;
+  
   }
 
 .btn-success:hover{
@@ -18,13 +17,15 @@
 
 .CenterFrameLogin1 {
     width: 1032px;
-    height: 762px;
+    height: 782px;
     overflow: visible;
     background: var(--Theme1, #ffffff);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
-    position: absolute;
     margin : 2.5%;
+    transform: scale(0.7, 0.7);
+    position: absolute;
+    top: -125px;
   }
 
 .KUPeopleLogin1 {

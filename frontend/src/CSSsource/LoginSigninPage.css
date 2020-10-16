@@ -16,6 +16,9 @@
     border-radius: 66px;
     position: relative;
     margin : 7.5%;
+    transform: scale(0.7, 0.7);
+    position: absolute;
+    top: -125px;
   }
 
 .KUPeopleLoginSignin {
