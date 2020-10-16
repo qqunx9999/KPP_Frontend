@@ -1,8 +1,10 @@
 .Threads-bigframe {
-    width: 1920px;
+    width: 100%;
     height: 1274px;
     overflow: hidden;
     background: var(--Theme6, #47624f);
+    margin: 0;
+    position: absolute;
   }
 
 .thread_goback_button {
@@ -17,8 +19,9 @@
     font-size: 30px;
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     position: absolute;    
-    top: 32px;
-    left: 42px;
+    top: 1%;
+    left: 1%;
+    transform: scale(0.7, 0.7);
     border-width: 0px;
   }
 
@@ -42,8 +45,9 @@
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     position: absolute;    
-    top: 182px;
-    left: 42px;
+    top: 8%;
+    left: -0.5%;
+    transform: scale(0.7, 0.7);
   }
 
 .threads_tags_tags {
@@ -152,8 +156,9 @@
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     position: absolute;    
-    top: 66px;
-    left: 1563px;
+    top: -0.5%;
+    left: 77%;
+    transform: scale(0.7, 0.7);
   }
 
 .thread-upvote-no {
@@ -206,8 +211,9 @@
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 29px;
     position: absolute;    
-    top: 66px;
-    left: 1769px;
+    top: 2.5%;
+    left: 88%;
+    transform: scale(0.7, 0.7);
   }
 
 .thread-downvote-frame {
@@ -218,8 +224,9 @@
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 29px;
     position: absolute;    
-    top: 186px;
-    left: 1769px;
+    top: 9%;
+    left: 88%;
+    transform: scale(0.7, 0.7);
   }
 
 .thread-comment-frame {
@@ -230,8 +237,9 @@
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 29px;
     position: absolute;    
-    top: 304px;
-    left: 1769px;
+    top: 15.5%;
+    left: 88%;
+    transform: scale(0.7, 0.7);
   }
 
 .thread-givecm-button {
@@ -245,6 +253,9 @@
     top: 890px;
     left: 1563px;
     color: white;
+    top: 54%;
+    left: 77%;
+    transform: scale(0.8, 0.8);
   }
 
 .thread-givecomment-txt {
@@ -267,8 +278,9 @@
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;    
-    top: 61px;
-    left: 527px;
+    top: -2%;
+    left: 20%;
+    transform: scale(0.8, 0.8);
   }
 
 .thread-topicname-frame {
@@ -387,8 +399,9 @@
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;    
-    top: 786px;
-    left: 527px;
+    top: 47.5%;
+    left: 20%;
+    transform: scale(0.8, 0.8);
   }
 
 .thread-reply1-blackframe {
@@ -481,8 +494,9 @@
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;    
-    top: 1042px;
-    left: 527px;
+    top: 64%;
+    left: 20%;
+    transform: scale(0.8, 0.8);
   }  
 
   .thread-reply2-blackframe {

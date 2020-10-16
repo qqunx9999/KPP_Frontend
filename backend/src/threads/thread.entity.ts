@@ -14,7 +14,7 @@ export class Thread{
     @Column()
     content: string;
     @Column()
-    image_arr: {URL:string, pos:number}[]; //Url, pos
+    image_arr: {URL:string,pos:number}[]; //Url, pos
     @Column()
     up_vote_arr: {userID:ObjectID}[]; //userID
     @Column()

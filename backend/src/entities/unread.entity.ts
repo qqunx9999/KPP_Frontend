@@ -2,11 +2,15 @@ import {Entity , Column , ObjectIdColumn } from 'typeorm';
 import {ObjectID} from 'mongodb';
 
 @Entity()
-export class Admin{
+export class Unread{
     @ObjectIdColumn()
-    adminID?:ObjectID;
+    unreadID?:ObjectID;
     @Column()
     userID:ObjectID;
+    @Column()
+    object_unreadID:ObjectID;
+    @Column()
+    object_type:string;
 }
 
-export default Admin;
+export default Unread;

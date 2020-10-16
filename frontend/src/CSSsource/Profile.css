@@ -1,8 +1,9 @@
 .backgroundUserProfile{
-    width: 1920px;
-    height: 1080px;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     background: var(--Theme6, #47624f);
+    position: absolute;
   }
 
   .frameWhiteUserProfile {
@@ -12,9 +13,10 @@
     background: var(--Theme1, #ffffff);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
+    transform: scale(0.6, 0.6);
     position: absolute;
-    top: 50px;
-    left: 250px;
+    top: -25%;
+    left: 0%;
   }
 
   .frameBlackUserProfile {
@@ -129,8 +131,8 @@
   }
 
   .usernameUserProfile {
-    width: 433px;
-    height: 216px;
+    width: 533px;
+    height: 516px;
     overflow: visible;
     font-family: "Inter", sans-serif;
     color: #ffffff;
@@ -234,8 +236,8 @@
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
-    top: 880px;
-    left: 300px;
+    top: 830px;
+    left: 40px;
   }
 
   .textGobackUserProfile {
@@ -260,8 +262,8 @@
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
-    top: 880px;
-    left: 1380px;
+    top: 830px;
+    left: 1130px;
   }
 
   .textAddFriendUserProfile {
