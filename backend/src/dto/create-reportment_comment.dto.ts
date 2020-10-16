@@ -9,7 +9,7 @@ export class CreateReportment_commentDto{
     @IsString()
     description:string;
     @IsArray()
-    image_arr: [string, number][]; 
+    image_arr: {URL: string, pos: number}[]; 
     @IsDate()
     date_create:Date;
     @IsDate()

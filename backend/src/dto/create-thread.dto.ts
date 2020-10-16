@@ -12,11 +12,11 @@ export class CreateThreadDto {
     @IsString()
     content: string;
     @IsArray()
-    image_arr: [string, number][]; 
+    image_arr: {URL: string, pos: number}[];  
     @IsArray()
-    up_vote_arr: ObjectID[];
+    up_vote_arr: {userID: ObjectID,}[];
     @IsArray()
-    down_vote_arr: ObjectID[];
+    down_vote_arr: {userID: ObjectID,}[];
     @IsInt()
     up_vote_count: number;
     @IsInt()
