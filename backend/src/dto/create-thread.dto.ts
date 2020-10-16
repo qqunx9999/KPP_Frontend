@@ -28,9 +28,9 @@ export class CreateThreadDto {
     @IsDate()
     date_create: Date;
     @IsDate()
-    date_lastedit?: Date;
+    date_lastedit: Date;
     @IsDate()
-    date_delete?: Date;
+    date_delete: Date;
     @IsBoolean()
     isanonymous: boolean;
 }

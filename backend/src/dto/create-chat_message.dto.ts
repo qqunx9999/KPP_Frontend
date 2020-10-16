@@ -7,6 +7,8 @@ export class CreateChat_messageDto{
     @IsString()
     message:string;
 
+    
+    
     @IsInt()
     readnum:number;
     @IsDate()

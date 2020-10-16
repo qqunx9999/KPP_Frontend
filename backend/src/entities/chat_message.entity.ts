@@ -4,7 +4,7 @@ import {ObjectID} from 'mongodb';
 @Entity()
 export class Chat_message{
     @ObjectIdColumn()
-    chatID?:ObjectID;
+    messageID?:ObjectID;
     @Column()
     userID:ObjectID;
     @Column()

@@ -18,7 +18,7 @@ export class Thread{
     @Column()
     up_vote_arr: {userID:ObjectID}[]; //userID
     @Column()
-    down_vote_arr: ObjectID[]; //userID
+    down_vote_arr: {userID:ObjectID}[]; //userID
     @Column()
     up_vote_count: number;
     @Column()
