@@ -27,7 +27,19 @@
     <li>In backend part we use <a href="https://nestjs.com/">Nestjs</a> (server-side application framework) for building application, this is how to use
       <ul>
         <li>go to backend project and type <code>npm rum start</code> in command line</li>
-        <li>must install <a href="https://typeorm.io/#/">typeorm</a> and nest mongodb : <code>npm install --save @nestjs/typeorm typeorm mongodb</code></li>
+        <li>List of additional library that you need to install
+          <ul>
+            <li><a href="https://typeorm.io/#/">typeorm</a> : <code>npm install --save @nestjs/typeorm typeorm</code></li>
+            <li>nest mongodb : <code>npm install -save-dev @types/mongodb mongdb</code></li>
+            <li>class-validator and class-transformer : <code>npm i --save class-validator class-transformer</code></li>
+            <li>nest passport <br>
+              <code>npm install --save @nestjs/passport passport passport-local</code> <br>
+              <code>npm install --save-dev @types/passport-local</code> <br>
+              <code>npm install --save @nestjs/jwt passport-jwt</code> <br>
+              <code>npm install --save-dev @types/passport-jwt</code>
+            </li>
+          </uL>
+        </li>
       </ul>
     </li><br>
   </ol>
