@@ -27,6 +27,12 @@
     margin : 2.5%;
   }
 
+/* @media only screen and (min-height: 700px) {
+  .CenterFrameLogin1 {
+    height: 762px;
+  }
+} */
+
 .KUPeopleLogin1 {
     width: 448px;
     height: 129px;
