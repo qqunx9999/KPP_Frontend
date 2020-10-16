@@ -66,17 +66,18 @@ const Profile = () => {
                 </div>
               </div>   
             </div>
-          </div>
+          
 
-          <div className="frameGobackUserProfile">
-            <div className="textGobackUserProfile">
-              &lt; Go Back
+            <div className="frameGobackUserProfile">
+              <div className="textGobackUserProfile">
+                &lt; Go Back
+              </div>
             </div>
-          </div>
 
-          <div className="frameAddFriendUserProfile">
-            <div className="textAddFriendUserProfile">
-              Add Friend
+            <div className="frameAddFriendUserProfile">
+              <div className="textAddFriendUserProfile">
+                Add Friend
+              </div>
             </div>
           </div>
         </div>
