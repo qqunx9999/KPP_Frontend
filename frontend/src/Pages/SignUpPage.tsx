@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { AccountName, ConPass, EmailID, PassID } from '../component/SignUpForm';
+import { SignUp } from '../component/SignUpForm';
 import '../CSSsource/SignupPage.css';
 
 
