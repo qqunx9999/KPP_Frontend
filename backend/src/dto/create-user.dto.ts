@@ -15,7 +15,7 @@ export class CreateUserDto {
     @IsString()
     rank: string;
     @IsArray()
-    friend_arr: {user: ObjectID, sender: boolean, isaccepted: boolean, date_request_friend: Date, date_add_friend: Date, date_delete_friend: Date}[];
+    friend_arr: {user: ObjectID, sender: boolean, isaccepted: boolean, date_add: Date, date_accept: Date, date_delete: Date}[];
     @IsDate()
     numberfriends: number;
     @IsString()
