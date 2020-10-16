@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import '../CSSsource/AuthenSignup.css';
-
+import logo from '../Pages/image/nong_plub.png'
 const AuthenSignup = () => {
   
 
@@ -17,6 +17,9 @@ const AuthenSignup = () => {
                  <div className="AuthenSU-k-u-people">
                      KU People
                  </div>
+                 <div className="rotate">
+                <img src={logo} alt ="React is stupid"/>
+              </div>
                  <div className="AuthenSU-in_progess">
                      Signing up in progess...
                  </div>

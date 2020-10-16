@@ -12,12 +12,14 @@ import AuthenLogIn from './AuthenLogIn';
 import Account from '../interfaces/accountEntity';
 import { EmailID } from '../component/loginForm';
 import { stringify } from 'querystring';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const LoginPage = () => {
 
   return (
     <div className="LogInPage1">
-      <div className="container">
+      <div className="container-md">
       <div className="CenterFrameLogin1">
         
           <div className="KUPeopleLogin1">
@@ -33,10 +35,13 @@ const LoginPage = () => {
           <a className="ClickHereLogIn1" href="/ForgetPwd">
                   click here!
           </a>
-          <Link to="/" className="FrameGoBackLogIn1" >
+          <Link to="/" >
+          <button  type="button" className="FrameGoBackLogIn1 btn btn-success">
+
             <div className="GoBackButtonLogIn1">
               &lt; Go Back
             </div>
+            </button>
           </Link>
           <div className="TextDontLogIn1">
                   Don't have an account?

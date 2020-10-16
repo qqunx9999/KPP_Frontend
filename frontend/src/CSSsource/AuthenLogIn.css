@@ -1,8 +1,10 @@
 .greenBackgroungAuth {
-    width: 1920px;
-    height: 1080px;
+    width: 100%;
+    height: 110%;
     overflow: hidden;
     background: var(--Theme6, #47624f);
+    margin: 0;
+    position: absolute;
   }
 
 .frameAuth {
@@ -13,8 +15,7 @@
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;
-    top: 159px;
-    left: 444px;
+    margin: 2%
   }
 
 .KUpeopleAuth {
@@ -43,5 +44,26 @@
     line-height: 3;
     position: absolute;
     top: 500px;
-    left: 150px;
+    left: 140px;
   }
+.spin-me-right-round {
+    overflow: visible;
+    font-size: 200px;
+    position: relative;
+    top: 150px;
+    left: 425px;
+  }
+  .rotate {
+    animation: rotation 2s infinite linear;
+    position: absolute;
+    top: 185px;
+    left: 400px;
+  }
+  @keyframes rotation {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}

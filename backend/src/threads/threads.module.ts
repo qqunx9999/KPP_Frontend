@@ -7,12 +7,13 @@ import { ThreadsService } from './threads.service';
 import { ThreadsController } from './threads.controller';
 import Commentation from 'src/threads/comentation.entity';
 import Reportment_thread from 'src/entities/reportment_thread.entity';
+import Reportment_comment from 'src/entities/reportment_comment.entity';
 
 
 
 
 @Module({
-    imports: [TypeOrmModule.forFeature([Thread, Commentation, Reportment_thread])],
+    imports: [TypeOrmModule.forFeature([Thread, Commentation, Reportment_thread,Reportment_comment])],
     controllers: [ThreadsController],
     providers: [ThreadsService],
 })

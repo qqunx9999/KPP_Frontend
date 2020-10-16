@@ -1,9 +1,18 @@
 .LogInPage1 {
-    width: 1920px;
-    height: 1080px;
-    overflow: hidden;
-    background: var(--Theme6, #47624f);
+  width: 100%;
+  height: 110%;
+  overflow: hidden;
+  margin: 0;
+  background: var(--Theme6, #47624f);
+  position: absolute;
   }
+
+.btn-success:hover{
+    background: var(--Theme5, #4FD237)!important;
+  }
+.form-control:focus,.form-control:hover {
+  background: rgba(0, 0, 0, 0.2)
+}
 
 .CenterFrameLogin1 {
     width: 1032px;
@@ -13,8 +22,7 @@
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;
-    top: 159px;
-    left: 444px;
+    margin : 2.5%;
   }
 
 .KUPeopleLogin1 {
@@ -23,7 +31,7 @@
     overflow: visible;
     text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
     font-family: "Inter", sans-serif;
-    color: var(--Theme4, #447604);
+    color: var(--Theme4, #4FD237);
     font-size: 91px;
     letter-spacing: 0px;
     line-height: 1.2;

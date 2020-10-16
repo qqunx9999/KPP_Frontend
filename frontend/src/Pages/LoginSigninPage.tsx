@@ -7,12 +7,15 @@ import {
 } from "react-router-dom";
 import '../CSSsource/LoginSigninPage.css';
 import LogInPage from './LoginPage'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const LoginSigninPage = () => {
   
 
   return (
+    
     <div className="backgroundLoginSignin">
+      <div className = "container-sm">
       <div className="centerFrameLoginSignin">
           <div className="KUPeopleLoginSignin">
                 KU people
@@ -20,18 +23,23 @@ const LoginSigninPage = () => {
           <div className="DesbTextLoginSignin">
                 Please sign up or log in before use. 
           </div>
-          <Link to="/SignUp" className="SignupFrameLoginSignin">
+          <Link to="/SignUp">
+          <button  type="button" className="SignupFrameLoginSignin btn btn-success">
             <div className="SignUpLoginSignin">
-                Sign Up
+            Sign Up
             </div>
+          </button>
           </Link>
-          <Link to="/LogIn" className="LoginFrameLoginSignin">
+          <Link to="/LogIn" >
+          <button  type="button" className="LoginFrameLoginSignin btn btn-success">
             <div className="LogInLoginSignin ">
                 Log In
-            </div>    
+            </div>   
+            </button>
           </Link>
-      </div>
     </div>
+      </div>
+      </div>
   );
 }
 
