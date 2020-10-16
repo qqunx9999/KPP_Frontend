@@ -1,8 +1,10 @@
 .forgetpwd-frame {
-    width: 1920px;
-    height: 1080px;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     background: var(--Theme6, #47624f);
+    margin: 0;
+    position: absolute;
   }
 
 .forgetpwd-whiteframe {
@@ -13,8 +15,9 @@
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;
-    top: 135px;
-    left: 448px;
+    top: -5%;
+    left: 20%;
+    transform: scale(0.8, 0.8);
   }
 
 .forgetpwd-k-u-people {
@@ -254,7 +257,7 @@
     color: var(--Theme1, #ffffff);
     font-size: 30px;
     letter-spacing: 3px;
-    line-height: 3;
+    line-height: 2.8;
   }
 
 .fgpwd_confirm_button {
