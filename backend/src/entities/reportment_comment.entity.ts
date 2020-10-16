@@ -12,7 +12,7 @@ export class Reportment_comment{
     @Column()
     description:string;
     @Column()
-    image_arr: [string, number][];  // URL, pos
+    image_arr: {URL:string, pos:number}[];  // URL, pos
     @Column()
     date_create:Date;
     @Column()
