@@ -16,7 +16,7 @@ export class UsersService {
     }
 
     async findOne(username: string): Promise<User | undefined> {
-        this.userRepository.find()
+        await this.userRepository.find()
             .then(setuser => {
                 this.newusers = setuser;
             }); 
