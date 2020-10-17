@@ -10,13 +10,15 @@ async function LoginUser(username: string, password: string): Promise<any | null
         }),
     });
     const result = await res.json();
+    console.log(result);
+    console.log(result.accessToken);
     if (result.accessToken) {
         localStorage.setItem("token", result.accessToken);
         localStorage.setItem("username", result.username);
         return result;
     } else {
         return null;
-    }
+    };
 };
 
 function isUserLoggedIn(): boolean {

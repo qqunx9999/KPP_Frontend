@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../CSSsource/LoginPage.css';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import AuthService from '../service/AuthService';
+import { Button } from 'react-bootstrap/lib/InputGroup';
 
 type LoginFormProps = {
     loginCallBack?: () => void,
@@ -41,13 +42,14 @@ export const EmailID = (props: LoginFormProps) => {
                     if (props.loginCallBack) {
                         props.loginCallBack();
                     }
-                    history.push('/');
+                    history.push('/LogIn/AuthenLogIn');
                 }
                 actions.setSubmitting(false);
             }}
         >
             {({ isSubmitting }) => (
                 <Form>
+                    { loginErrorMessage && (<div>{ loginErrorMessage }</div>) }
                     <div className="EmailLogIn1">
                         Email :
                     <Field type="input" name="email" placeholder="Type your Email..." style={ inputStyle } className="InputEmailLogIn1" />
@@ -61,13 +63,11 @@ export const EmailID = (props: LoginFormProps) => {
                         Password :
                     <Field type="password" name="password" placeholder="Type your password..." style={ inputStyle } className="InputPasswordLogIn1" />
                     </div>
-                    <Link to="/LogIn/AuthenLogIn">
-                        <div aria-disabled={ isSubmitting } className="FrameLogIn1">
-                            <div className="LogInButtonLogIn1">
-                                Log In
-                            </div>
+                    <button disabled={ isSubmitting } className="FrameLogIn1">
+                        <div className="LogInButtonLogIn1">
+                            Log In
                         </div>
-                    </Link>
+                    </button>
                 </Form>
             )}
         </Formik>

@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import '../CSSsource/LoginPage.css';
@@ -14,8 +15,14 @@ import { EmailID } from '../component/loginForm';
 import { stringify } from 'querystring';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+type LoginFormProps = {
+  loginCallBack?: () => void,
+};
 
-const LoginPage = () => {
+const LoginPage = (props: LoginFormProps) => {
+  // const [redirected, setRedirected] = useState('');
+
+  // // const 
 
   return (
     <div className="LogInPage1">

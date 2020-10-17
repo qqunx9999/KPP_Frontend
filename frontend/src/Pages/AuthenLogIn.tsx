@@ -10,8 +10,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../Pages/image/nong_plub.png'
 
 const AuthenLogIn = () => {
-  
-
   return (
       <div className="greenBackgroungAuth">
         <div className="container-md">
