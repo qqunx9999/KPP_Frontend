@@ -1,9 +1,9 @@
 import { IsInt , IsNotEmpty , IsBoolean , IsDate , IsString , IsArray} from "class-validator";
 import {ObjectID} from 'mongodb';
 
-export class CreateUnreadDto {
+export class NotificationDto {
 
-    userID: ObjectID; 
-    object_unreadID: ObjectID; 
-    object_type: string;
+    userID:ObjectID;
+    type: string;
+    chatroomID:ObjectID;
 }

@@ -12,8 +12,6 @@ export class Chat_message{
     @Column()
     message:string;
     @Column()
-    readnum:number;
-    @Column()
     date_create:Date;
     @Column()
     date_delete:Date;
