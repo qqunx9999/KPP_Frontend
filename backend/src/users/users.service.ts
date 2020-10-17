@@ -8,7 +8,7 @@ import { User_info } from 'src/common/user_info';
 @Injectable()
 export class UsersService {
     private user_info: User[] = [];
-    private info: User_info={userID: null,username:null,avatar_URL:null, exp:null, rank:null,date_join: null,isLoggedIn:null };
+    private info: User_info={userID: null,username:null,avatar_URL:null, exp:null, rank:null ,isLoggedIn:null };
     
     // {not Modify
     private newusers = [];
@@ -40,8 +40,7 @@ export class UsersService {
         this.info.avatar_URL = this.user_info[0].avatar_URL;
         this.info.exp = this.user_info[0].exp;
         this.info.rank = this.user_info[0].rank;
-        this.info.date_join = this.user_info[0].date_join;
-        this.info.isLoggedIn = this.user_info[0].isloggedin;
+        this.info.isLoggedIn = this.user_info[0].isLoggedIn;
         return this.info;
 
     }

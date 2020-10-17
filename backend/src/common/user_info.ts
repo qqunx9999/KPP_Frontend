@@ -6,6 +6,5 @@ export class User_info{
     avatar_URL: string;
     exp: number;
     rank: string;
-    date_join: Date;
     isLoggedIn: boolean;
 }

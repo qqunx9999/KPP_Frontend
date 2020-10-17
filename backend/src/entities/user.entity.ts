@@ -17,16 +17,18 @@ export class User{
     @Column()
     rank: string;
     @Column()
-    friend_arr: {userID:ObjectID,sender:boolean, isaccepted:boolean, date_request:Date, date_add:Date, date_delete:Date}[];// userID, sender, isaccepted, date_add, date_delete
+    friend_arr: {userID:ObjectID,sender:boolean, isAccepted:boolean, date_add:Date, date_accepted:Date, date_delete:Date}[];// userID, sender, isaccepted, date_add, date_delete
     @Column()
     numberfriends: number;
     @Column()
     description: string;
     @Column()
-    ischatmember_arr: {chatroomID:ObjectID}[]; //chatroomID
+    isChatMember_arr: {chatroomID:ObjectID}[]; //chatroomID
     @Column()
     date_join: Date;
     @Column()
-    isloggedin: boolean;
+    isAdmin: boolean;
+    @Column()
+    isLoggedIn: boolean;
 }
 export default User;

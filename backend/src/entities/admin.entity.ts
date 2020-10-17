@@ -7,6 +7,10 @@ export class Admin{
     adminID?:ObjectID;
     @Column()
     userID:ObjectID;
+    @Column()
+    reportC_read_arr :{reportCID :ObjectID};
+    @Column()
+    reportT_read_arr: {reportTID: ObjectID};
 }
 
 export default Admin;

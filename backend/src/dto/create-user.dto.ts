@@ -15,16 +15,18 @@ export class CreateUserDto {
     @IsString()
     rank: string;
     @IsArray()
-    friend_arr: {userID: ObjectID, sender: boolean, isaccepted: boolean, date_add: Date, date_accept: Date, date_delete: Date}[];
+    friend_arr: {userID: ObjectID, sender: boolean, isAccepted: boolean, date_add: Date, date_accepted: Date, date_delete: Date}[];
     @IsDate()
     numberfriends: number;
     @IsString()
     description: string;
     @IsArray()
-    ischatmember_arr: {chatroomID: ObjectID}[]; 
+    isChatMember_arr: {chatroomID: ObjectID}[]; 
     @IsDate()
     date_join: Date;
     @IsBoolean()
-    isloggedin: boolean;
+    isAdmin: boolean;
+    @IsBoolean()
+    isLoggedIn: boolean;
     
 }
