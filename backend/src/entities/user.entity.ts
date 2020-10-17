@@ -17,7 +17,7 @@ export class User{
     @Column()
     rank: string;
     @Column()
-    friend_arr: {user:ObjectID,sender:boolean, isaccepted:boolean, date_request:Date, date_add:Date, date_delete:Date}[];// userID, sender, isaccepted, date_add, date_delete
+    friend_arr: {user:ObjectID,sender:boolean, isaccepted:boolean, date_add:Date, date_accepted:Date, date_delete:Date}[];
     @Column()
     numberfriends: number;
     @Column()

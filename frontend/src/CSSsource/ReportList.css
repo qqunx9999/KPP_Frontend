@@ -1,16 +1,22 @@
 .rpList-bigframe {
-    width: 1920px;
-    height: 2530px;
+    width: 100%;
+    height: 1500px;
     overflow: hidden;
     background: var(--Theme6, #47624f);
+    margin: 0;
+    position: absolute;
   }
 
 .rpList-blackframe {
-    width: 1920px;
+    width: 2180px;
     height: 150px;
     overflow: visible;
     background: var(--Theme3, #0f0508);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    position: absolute;
+    top: -1%;
+    left: -22%;
+    transform: scale(0.7, 0.7);  
   }
 
 .rpList-kuppl2 {
@@ -38,7 +44,7 @@
     line-height: 3;
     position: absolute;    
     top: 0px;
-    left: 1718px;
+    left: 1790px;
   }
 
 .rpList-thread-whiteframe {
@@ -49,8 +55,9 @@
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;    
-    top: 182px;
-    left: 223px;
+    top: 1%;
+    left: 2.5%;
+    transform: scale(0.7, 0.7);
   }
 
 .rpList-thread-report-list {
@@ -182,6 +189,7 @@
     top: 679px;
     left: 790px;
     border-width: 0px;
+    color:  #000000;
   }
 
 .rpList-thread-pre-frame {
@@ -365,9 +373,10 @@
     background: var(--Theme1, #ffffff);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
-    position: absolute;    
-    top: 1143px;
-    left: 223px;
+    position: absolute;   
+    top: 40%;
+    left: 2.5%;
+    transform: scale(0.7, 0.7);
   }
 
 .rpList-cm-report-list {
@@ -681,8 +690,9 @@
     overflow: visible;
     background-color: rgba(255, 255, 255, 0.83);
     position: absolute; 
-    top: 2042px;
-    left: 1580px;
+    top: 76.5%;
+    left: 81%;
+    transform: scale(0.7, 0.7);
     border-width: 0px;
   }
 
@@ -703,8 +713,9 @@
     overflow: visible;
     background: var(--Theme1_50_, rgba(255, 255, 255, 0.5));
     position: absolute; 
-    top: 2117px;
-    left: 1580px;
+    top: 76.5%;
+    left: 81%;
+    transform: scale(0.7, 0.7);
   }
 
 .rpList-us1-frame {
