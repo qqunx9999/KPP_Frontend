@@ -32,14 +32,7 @@ export class ThreadsController {
 
   @Post()
   async createThread(@Body() createThreadDto: CreateThreadDto){
-    createThreadDto.up_vote_arr = [];
-    createThreadDto.down_vote_arr = [];
-    createThreadDto.up_vote_count = 0;
-    createThreadDto.down_vote_count = 0;
-    createThreadDto.total_comment = 0;
-    createThreadDto.number_of_all_comment = 0;
-    createThreadDto.date_lastedit = null;
-    createThreadDto.date_delete = null;
+    
     return this.threadsService.createThread(createThreadDto);
   }
 

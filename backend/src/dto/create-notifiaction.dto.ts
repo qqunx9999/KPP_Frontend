@@ -4,6 +4,6 @@ import {ObjectID} from 'mongodb';
 export class NotificationDto {
 
     userID:ObjectID;
-    type: string;
-    chatroomID:ObjectID;
+    object_type: string;
+    object_typeID:ObjectID;
 }
