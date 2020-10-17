@@ -1,8 +1,10 @@
 .createrp-bigframe {
-    width: 1920px;
-    height: 1274px;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     background: var(--Theme6, #47624f);
+    margin: 0;
+    position: absolute;
   }
 
 .createrp_goback_button {
@@ -17,8 +19,9 @@
     font-size: 30px;
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     position: absolute;    
-    top: 36px;
-    left: 27px;
+    top: 3%;
+    left: 3%;
+    transform: scale(0.7, 0.7);
     border-width: 0px;
   }
 
@@ -41,8 +44,9 @@
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;    
-    top: 35px;
-    left: 286px;
+    top: -17.5%;
+    left: 10%;
+    transform: scale(0.7, 0.7);
   }
 
 .createrp-report {

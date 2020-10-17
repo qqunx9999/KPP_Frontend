@@ -15,6 +15,7 @@ import { CreateReportment_threadDto } from 'src/dto/create-reportment_thread.dto
 import Reportment_comment from 'src/entities/reportment_comment.entity';
 import { CreateReportment_commentDto } from 'src/dto/create-reportment_comment.dto';
 
+
 @Controller('threads')
 export class ThreadsController {
   constructor(private threadsService: ThreadsService) {}
@@ -25,8 +26,8 @@ export class ThreadsController {
   }
 
   @Get(':threadID')
-  async findOne(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<Thread[]> {
-    return this.threadsService.findOne(threadID);
+  async findOneThread(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<any> {
+    return this.threadsService.findOneThread(threadID);
   }
 
   @Post()

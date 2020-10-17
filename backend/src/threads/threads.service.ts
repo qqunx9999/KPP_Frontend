@@ -12,6 +12,7 @@ import { CreateReportment_threadDto } from 'src/dto/create-reportment_thread.dto
 import Reportment_thread from 'src/entities/reportment_thread.entity';
 import Reportment_comment from 'src/entities/reportment_comment.entity';
 import { CreateReportment_commentDto } from 'src/dto/create-reportment_comment.dto';
+import { UsersService } from 'src/users/users.service';
 
 @Injectable()
 export class ThreadsService {
@@ -23,16 +24,27 @@ export class ThreadsService {
     @InjectRepository(Reportment_thread)
     private reportment_threadsRepository: Repository<Reportment_thread>,
     @InjectRepository(Reportment_comment)
-    private reportment_commentRepository: Repository<Reportment_thread>
+    private reportment_commentRepository: Repository<Reportment_thread>,
+    private usersService: UsersService,
+      
   ) {}
 
+  private th = [];
   async findAll(): Promise<Thread[]> {
     return this.threadsRepository.find();
   }
-
-  async findOne(threadID: ObjectID): Promise<Thread[]>{
-    return this.threadsRepository.find({where:{ _id: threadID}});
+  
+  async findOneThread(threadID: ObjectID): Promise<any>{
+    await this.threadsRepository.find({where:{ _id: threadID}})
+      .then(setthread => {
+        this.th = setthread;
+      }); 
+    //console.log(this.th[0].userID);
+    var own_thread:ObjectID = this.th[0].userID
+    const info_own_thread = this.usersService.findUserInfo(own_thread);
+    return [this.th, await(info_own_thread)];
   }
+  
 
   async createThread(createThreadDto: CreateThreadDto) {
     return this.threadsRepository.save(createThreadDto);

@@ -6,14 +6,13 @@ export class CreateChatroomDto{
     @IsString()
     room_name:string;
     
-    member_arr: [ObjectID, Date, Date][]; //userID, date_join, date_leave
+    member_arr: {user: ObjectID, date_join_chat: Date, date_leave_chat: Date}[];
     @IsInt()
     totalmember:number;
     @IsDate()
     date_create:Date;
     @IsDate()
+    date_lastactive:Date;
+    @IsDate()
     date_delete:Date;
-    @IsArray()
-    members: ObjectID[];
-    
 }
