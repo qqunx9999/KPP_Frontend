@@ -10,10 +10,8 @@ async function LoginUser(username: string, password: string): Promise<any | null
         }),
     });
     const result = await res.json();
-    console.log(result);
-    console.log(result.accessToken);
-    if (result.accessToken) {
-        localStorage.setItem("token", result.accessToken);
+    if (result.access_token) {
+        localStorage.setItem("token", result.access_token);
         localStorage.setItem("username", result.username);
         return result;
     } else {

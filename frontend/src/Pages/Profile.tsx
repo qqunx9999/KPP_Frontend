@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Navigtion from '../component/navBar';
 import '../CSSsource/Profile.css';
+
 const Profile = () => {
   return (
       <div>

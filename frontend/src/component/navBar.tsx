@@ -1,7 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import AuthService from '../service/AuthService';
 
 const Navigtion = () => {
+  const logOut = () => {
+    AuthService.logOutUser();
+  };
+
     return(
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <Link to={ `/Home` }><a className="navbar-brand" href="#">KU People</a></Link>
@@ -20,7 +25,7 @@ const Navigtion = () => {
             </li>
             
             <li className="nav-item">
-              <a className="nav-link disabled" href="#">By KUTheWeeb</a>
+              <a className="nav-link disabled" href="#">By KU The Weeb</a>
             </li>
 
             <li className="nav-item active">
@@ -32,9 +37,9 @@ const Navigtion = () => {
                 Dropdown link
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a className="dropdown-item" href="#">Action</a>
-                <a className="dropdown-item" href="#">Another action</a>
-                <a className="dropdown-item" href="#">Something else here</a>
+                <Link to={ `/Profile` }><a className="dropdown-item" href="#">Profile</a></Link>
+                <Link to={ `/Setting` }><a className="dropdown-item" href="#">Setting</a></Link>
+                <button onClick={ logOut }><a className="dropdown-item" href="#">Log out</a></button>
               </div>
             </li>
 
