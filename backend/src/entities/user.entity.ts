@@ -29,6 +29,6 @@ export class User{
     @Column()
     isAdmin: boolean;
     @Column()
-    isLoggedNn: boolean;
+    isLoggedIn: boolean;
 }
 export default User;

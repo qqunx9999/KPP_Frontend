@@ -40,7 +40,7 @@ export class UsersService {
         this.info.avatar_URL = this.user_info[0].avatar_URL;
         this.info.exp = this.user_info[0].exp;
         this.info.rank = this.user_info[0].rank;
-        this.info.isLoggedIn = this.user_info[0].isloggedin;
+        this.info.isLoggedIn = this.user_info[0].isLoggedIn;
         return this.info;
 
     }
