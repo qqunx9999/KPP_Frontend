@@ -10,8 +10,42 @@ async function LoginUser(username: string, password: string): Promise<any | null
         }),
     });
     const result = await res.json();
+    if (result.accessToken) {
+        localStorage.setItem("token", result.accessToken);
+        localStorage.setItem("username", result.username);
+        return result;
+    } else {
+        return null;
+    }
 };
+
+function isUserLoggedIn(): boolean {
+    return localStorage.accessToken !== undefined;
+}
+
+function getUserName(): string | null {
+    if (isUserLoggedIn()) {
+        return localStorage.username;
+    } else {
+        return null;
+    }
+}
+
+function logOutUser(): void {
+    if (isUserLoggedIn()) {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("username");
+    }
+}
+
+function getAccessToken(): string {
+    return localStorage.accessToken;
+}
 
 export default {
     LoginUser,
+    isUserLoggedIn,
+    getUserName,
+    logOutUser,
+    getAccessToken,
 };

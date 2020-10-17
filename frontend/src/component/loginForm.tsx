@@ -1,26 +1,48 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-// import Account from '../interfaces/accountEntity';
+import { Link, useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../CSSsource/LoginPage.css';
-import { Field, Form, Formik } from 'formik';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import AuthService from '../service/AuthService';
 
-type AccountProps = {
-    // account: Account;
-};
+type LoginFormProps = {
+    loginCallBack?: () => void,
+}
 
-export const EmailID = (props: AccountProps) => {
+const inputStyle = {
+    width: "500px",
+    height: "50px",
+}
+
+export const EmailID = (props: LoginFormProps) => {
+    const [loginErrorMessage, setLoginErrorMessage] = useState('');
+    const history = useHistory();
     
     return(
         <div>
         <Formik
             initialValues = {{ email: '', password: '' }}
-            onSubmit = {(values, actions) => {
-                const login = {
-                    email: values.email,
-                    password: values.password,
+            validate = {values => {
+                const errors: any = {}
+                if (values.email === '') {
+                    errors.email = 'Login required.';
                 };
+                if (values.password === '') {
+                    errors.password = 'Password required';
+                };
+                return errors;
+            }}
+            onSubmit = { async (values, actions) => {
+                const res = await AuthService.LoginUser(values.email, values.password);
+                if (!res) {
+                    setLoginErrorMessage('Login error: Wrong username or password');
+                } else {
+                    setLoginErrorMessage('');
+                    if (props.loginCallBack) {
+                        props.loginCallBack();
+                    }
+                    history.push('/');
+                }
                 actions.setSubmitting(false);
             }}
         >
@@ -28,14 +50,16 @@ export const EmailID = (props: AccountProps) => {
                 <Form>
                     <div className="EmailLogIn1">
                         Email :
-                    <Field type="input" name="email" placeholder="Type your Email..." style={{ width: "500px", height: "50px" }} className="InputEmailLogIn1" />
+                    <Field type="input" name="email" placeholder="Type your Email..." style={ inputStyle } className="InputEmailLogIn1" />
+                    
                     <div className="kuthLogIn1">
                         @ku.th
                     </div>
+                    
                     </div>
                     <div className="PasswordLogIn1">
                         Password :
-                    <Field type="password" name="password" placeholder="Type your password..." style={{ width: "480px", height: "50px" }} className="InputPasswordLogIn1" />
+                    <Field type="password" name="password" placeholder="Type your password..." style={ inputStyle } className="InputPasswordLogIn1" />
                     </div>
                     <Link to="/LogIn/AuthenLogIn">
                         <div aria-disabled={ isSubmitting } className="FrameLogIn1">
