@@ -32,7 +32,7 @@ const SearchThread = () => {
           <div className="searchTextSearchAndTopicSearchThread">
             Search :
           </div>
-          <input placeholder="Enter Your Keyword..." style={{ width:"850px" , height:"60px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="inputKeywordSearchThread"/>
+          <input placeholder="Enter Your Keyword..." style={{ width:"850px" , height:"60px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="form-control inputKeywordSearchThread"/>
           <div className="frameSubmitSearchThread">
             <div className="textSubmitSearchThread">
               Submit

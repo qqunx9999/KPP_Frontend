@@ -44,7 +44,7 @@ export const SignUp = () => {
                     </div>
                     <div className="signup-sign-up">
                         <button disabled={ isSubmitting } className="signup-su-frame">
-                            <button className="signup-square"></button>
+                            <button className="signup-square "></button>
                             &nbsp; &nbsp; Sign Up
                         </button>
                     </div>
