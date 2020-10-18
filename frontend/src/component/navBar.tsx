@@ -35,12 +35,11 @@ const Navigtion = () => {
               </div>
               </Link>
             </li>
-
             <li className="nav-item active px-2">
               
               <div className="searchCSS">
               <Link to={ `/CreateThread` }>
-                <img src={createBlog} alt="React is hell !!!" width = "52" height="50" title="Create Blog"/>
+                <img src={createBlog} alt="React is hell !!!" width = "57" height="53" title="Create Blog"/>
                 </Link>
               </div>
             </li>

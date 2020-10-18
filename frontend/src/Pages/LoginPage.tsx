@@ -1,17 +1,30 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../CSSsource/LoginPage.css';
+import SignUpPage from "./SignUpPage"
+import AuthenLogIn from './AuthenLogIn';
+import Account from '../interfaces/accountEntity';
 import { EmailID } from '../component/loginForm';
+import { stringify } from 'querystring';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthService from '../service/AuthService';
 
-const LoginPage = () => {
-  const [user, setUser] = useState<any>('');
+type LoginFormProps = {
+  loginCallBack?: () => void,
+};
 
-  const handleUserLogin = () => {
-    setUser(AuthService.getUserInfo());
-  }
+const LoginPage = (props: LoginFormProps) => {
+  // const [redirected, setRedirected] = useState('');
+
+  // // const 
 
   return (
     <div className="LogInPage1">
@@ -24,7 +37,7 @@ const LoginPage = () => {
           <p className="TextPleaseLogIn1">
             Please sign up or log in before use.
           </p>
-          <EmailID loginCallBack={ handleUserLogin }/>
+          <EmailID />
           <div className="TextForgetLogIn1">
             Forget your password?
           </div>
@@ -42,9 +55,6 @@ const LoginPage = () => {
           <div className="TextDontLogIn1">
             Don't have an account?
           </div>
-          <a className="GoToSignUpLogIn1" href="/Signup">
-            Go to Sign Up
-          </a>
         </div>
       </div>
     </div>

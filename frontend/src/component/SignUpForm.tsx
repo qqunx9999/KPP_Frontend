@@ -3,6 +3,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import '../CSSsource/SignupPage.css';
 import AuthService from '../service/AuthService';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const SignUp = () => {
     const history = useHistory();
@@ -43,11 +44,12 @@ export const SignUp = () => {
                     <Field type="password" required name="conPass" placeholder="Confirm your password..." style={{ width: "675px", height: "50px" }} className="signup-Input-cf-password" />
                     </div>
                     <div className="signup-sign-up">
-                        <button disabled={ isSubmitting } className="signup-su-frame btn btn-success">
+                        <button disabled={ isSubmitting } id="signup-su-frame" className="btn btn-success">
                             <button className="signup-square "></button>
                             &nbsp; &nbsp; Sign Up
                         </button>
                     </div>
+                    
                 </Form>
             )}
         </Formik>

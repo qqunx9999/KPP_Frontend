@@ -6,6 +6,13 @@
   background: var(--Theme6, #47624f);
   position: absolute;
 }
+.btn-success:hover{
+  background: var(--Theme5, #4FD237)!important;
+}
+.form-control:focus,.form-control:hover {
+background: rgba(0, 0, 0, 0.2)
+}
+
 
 .signup-whiteframe {
   width: 1242px;
@@ -263,13 +270,16 @@
   height: 90px;
   overflow: visible;
   font-family: "Inter", sans-serif;
-  color: var(--Theme1, #ffffff);
-  font-size: 30px;
+  color: #ffffff;
+  font-size: px;
   letter-spacing: 3px;
-  line-height: 2.5;
+  line-height: 3;
+  position: absolute;
+  top: 0px;
+  left: 20px;
 }
 
-.signup-su-frame {
+#signup-su-frame {
   width: 317px;
   height: 82px;
   overflow: visible;
@@ -281,9 +291,10 @@
   top: 859px;
   left: 827px;
   text-align: center;
+  
 }
 
-.signup-sign-up {
+.goBackBtn {
   width: 145px;
   height: 90px;
   overflow: visible;
@@ -300,4 +311,28 @@
   width: 40px;
   height: 40px;
   border-radius: 5px;
+}
+#goBack {
+  width: 215px;
+  height: 90px;
+  overflow: visible;
+  background: var(--Theme5, #6cc551);
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+  border-radius: 19px;
+  position: absolute;
+  top: 850px;
+  left: 80px;
+}
+.eHere {
+  width: 186px;
+  height: 90px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  font-size: 30px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: absolute;
+  top: 10px;
+  left: 20px;
 }

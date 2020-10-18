@@ -26,15 +26,21 @@ const SignUpPage = () => {
             Term of Use Agreement
             </Link>
         </button>
-        <Link to="/">
-        <button id="success" className="signup-gb-frame btn btn-success">
-          <div className="signup_go-back">
-            &lt; Go Back
+
+  
+           <Link to="/" >
+            <button type="button" className="btn btn-success" id ="goBack">
+
+              <div className="eHere">
+                &lt; Go Back
+            </div>
+            </button>
+          </Link>
+
+
         </div>
-        </button>
-        </Link>
       </div>
-    </div>
+
 
 
   );
