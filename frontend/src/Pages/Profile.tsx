@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Navigtion from '../component/navBar';
 import '../CSSsource/Profile.css';
+import profilePic from '../Pages/image/Patrick.png'
 
 const Profile = () => {
   return (
@@ -24,6 +25,7 @@ const Profile = () => {
                   JoinedDate
                 </div>
                 <div className="picUserProfile">
+                  <img src={profilePic} className="rounded-circle z-depth-0" alt="avatar image" width="230" height="230"/>
                 </div>
                 <div className="userRankUserProfile">
                   Beginner
