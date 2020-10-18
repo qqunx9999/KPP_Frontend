@@ -260,6 +260,11 @@ background: rgba(0, 0, 0, 0.2)
   text-align: center;
 }
 
+#success {
+  background: #6cc551;
+  border-radius: 19px;
+}
+
 .signup_go-back {
   width: 186px;
   height: 90px;

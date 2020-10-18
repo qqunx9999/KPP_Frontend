@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { SignUp } from '../component/SignUpForm';
 import '../CSSsource/SignupPage.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const SignUpPage = () => {
@@ -38,6 +39,8 @@ const SignUpPage = () => {
 
 
         </div>
+        </button>
+        </Link>
       </div>
 
 

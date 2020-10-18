@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AuthService from '../service/AuthService';
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
-import { Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
+import { NavDropdown } from 'react-bootstrap';
 import logoPic from '../Pages/image/kuppl2.png'
 import searchBlog from '../Pages/image/createSearchSymbol.png'
 import createBlog from '../Pages/image/createBlogSymbol.png'

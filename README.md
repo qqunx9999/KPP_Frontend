@@ -26,7 +26,7 @@
     </li><br>
     <li>In backend part we use <a href="https://nestjs.com/">Nestjs</a> (server-side application framework) for building application, this is how to use
       <ul>
-        <li>go to backend project and type <code>npm rum start</code> in command line</li>
+        <li>go to backend project and type <code>npm run start</code> in command line</li>
         <li>List of additional library that you need to install
           <ul>
             <li><a href="https://typeorm.io/#/">typeorm</a> : <code>npm install --save @nestjs/typeorm typeorm</code></li>

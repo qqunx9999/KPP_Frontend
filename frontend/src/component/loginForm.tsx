@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../CSSsource/LoginPage.css';
 import { Field, Form, Formik } from 'formik';
 import AuthService from '../service/AuthService';
@@ -33,6 +34,8 @@ export const EmailID = (props: LoginFormProps) => {
             }}
             onSubmit = { async (values, actions) => {
                 const result = await AuthService.LoginUser((values.email).concat('@ku.th'), values.password);
+                // console.log((values.email).concat('@ku.th'), values.password);
+                // console.log(result);
                 if (!result) {
                     setLoginErrorMessage('Login error: Wrong username or password');
                 } else {

@@ -1,20 +1,14 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import '../CSSsource/ReportList.css';
-
+import Navigtion from '../component/navBar';
 const ReportList = () => {
   
 
   return (
-      <div className="rpList-bigframe">
-        <div className="rpList-blackframe">
-          <div className="rpList-kuppl2">
-            <Link to={ `/Home` }></Link>
-          </div>
-          <div className="rpList-admin">
-            Admin
-          </div>
-        </div>
+      <div>
+      <Navigtion />
+      <div className="rpList-bigframe">        
 
         <div className="rpList-thread-whiteframe">
           <div className="rpList-thread-report-list">
@@ -182,6 +176,7 @@ const ReportList = () => {
             </button>
           </div>
         </div>
+      </div>
       </div>
   );
 }

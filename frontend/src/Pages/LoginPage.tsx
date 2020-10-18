@@ -7,6 +7,7 @@ import {
   Redirect
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../CSSsource/LoginPage.css';
 import SignUpPage from "./SignUpPage"
 import AuthenLogIn from './AuthenLogIn';
@@ -14,6 +15,7 @@ import Account from '../interfaces/accountEntity';
 import { EmailID } from '../component/loginForm';
 import { stringify } from 'querystring';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AuthService from '../service/AuthService';
 
 type LoginFormProps = {
   loginCallBack?: () => void,
