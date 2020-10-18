@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigtion from '../component/navBar';
 import '../CSSsource/CreateThread.css';
+import { Link } from "react-router-dom";
 
 const CreateThread = () => {
   
@@ -9,12 +10,12 @@ const CreateThread = () => {
     <div>
       <Navigtion />
         <div className="backgroundCreateThread">
-          <div className="frameGoBackCreateThread">
+          <Link to="/Home" className="frameGoBackCreateThread">
             <div className="textGoBackCreateThread"> 
             &lt; Go Back
             </div>
 
-          </div>
+          </Link>
           <div className="whiteFrameCreateThread">
             <div className="createNewThreadTextCreateThread">
               Create New Thread
