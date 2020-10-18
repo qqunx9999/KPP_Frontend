@@ -11,6 +11,21 @@ import threadService from '../service/threadService';
 
 const CreateComment = () => {
   const [thread, setThread] = useState<Thread[]>([]);
+  const [commentNO, setCommentNO] = useState<string>('');
+  const [size, setSize] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
+
+  const handleCommentNo = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCommentNO(event.target.value);
+  };
+
+  const handleSize = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSize(event.target.value);
+  };
+
+  const handleNewDescription = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setDescription(event.target.value);
+  };
 
   const fetchThread = () => {
     threadService.fetchThread()
@@ -61,7 +76,7 @@ const CreateComment = () => {
             <div className="createcm-replyto">
                 <form>
                     Reply to :
-                    <input placeholder=" Comment numbers" style={{ width:"250px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="createcm_replyto_input"/>                    
+                    <input placeholder=" Comment numbers" style={{ width:"250px" , height:"50px" }} onChange={ handleCommentNo } value={ commentNO } className="createcm_replyto_input"/>                    
                 </form>
             </div>
           </div>
@@ -94,7 +109,7 @@ const CreateComment = () => {
                 <div className="createcm-size">
                   <form>
                     Size
-                    <input placeholder="" style={{ width:"75px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="createcm_size_input"/>                    
+                    <input placeholder="" style={{ width:"75px" , height:"50px" }} onChange={ handleSize } value={ size } className="createcm_size_input"/>                    
                   </form>
                 </div>
               </div>
@@ -137,7 +152,7 @@ const CreateComment = () => {
             </div>
 
             <form>                    
-              <input placeholder="" style={{ width:"1140px" , height:"250px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="createcm_cm_input"/>                    
+              <input placeholder="" style={{ width:"1140px" , height:"250px" }} onChange={ handleNewDescription } value={ description } className="createcm_cm_input"/>                    
             </form>
           </div>
 

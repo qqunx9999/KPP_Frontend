@@ -3,12 +3,17 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 import '../CSSsource/AuthenResetPwd.css';
 
 const AuthenResetPwd = () => {
+const [time, setRedirect] = useState<boolean>(false);
 
+function delay() {
+  setRedirect(true);
+}
 
   return (
     <div className="backgroundFinishLoadAuthenResetPwd">
@@ -20,6 +25,8 @@ const AuthenResetPwd = () => {
           Password changed! Back to log in...
           </div>
       </div>
+      { setInterval(delay, 3000) }
+      { time && (<Redirect to="/" />) }
     </div>
   );
 }

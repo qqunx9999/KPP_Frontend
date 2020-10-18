@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, InputHTMLAttributes } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,17 +6,48 @@ import {
   Link
 } from "react-router-dom";
 import '../CSSsource/CreateReport.css';
+import { Thread } from '../interfaces/threadEntity';
+import threadService from '../service/threadService';
 
 const CreateReport = () => {
-  
+  const [thread, setThread] = useState<Thread[]>([]);
+  const [commentNO, setCommentNO] = useState<string>('');
+  const [size, setSize] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
 
+  const handleCommentNo = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCommentNO(event.target.value);
+  };
+
+  const handleSize = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSize(event.target.value);
+  };
+
+  const handleNewDescription = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setDescription(event.target.value);
+  };
+
+  const fetchThread = () => {
+    threadService.fetchThread()
+      .then(obj => {
+        setThread(obj);
+      })
+  };
+
+  useEffect(() => {
+    fetchThread();
+  }, []);
   return (
       <div className="createrp-bigframe">
-        <div className="createrp_goback">
+        { thread.map(item => (
+          <Link to={ `/Threads/${ item.userID }/` }>
+            <div className="createrp_goback">
           <button className="createrp_goback_button">
             &lt; Go back
           </button>
         </div>
+          </Link>
+        )) }
 
         <div className="createrp_whiteframe">
           <div className="createrp-report">
@@ -38,7 +69,7 @@ const CreateReport = () => {
                 <form>
                  <button className="createrp_selcm_square"></button>                  
                 &nbsp; Comment &nbsp;
-                  <input placeholder="Comment NO." style={{ width:"200px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="createcm_cm_no"/>                    
+                  <input placeholder="Comment NO." style={{ width:"200px" , height:"50px" }} onChange={ handleCommentNo } value={ commentNO } className="createcm_cm_no"/>                    
                 </form>
               </div>
             </div>
@@ -72,7 +103,7 @@ const CreateReport = () => {
                 <div className="createrp-size">
                   <form>
                     Size
-                    <input placeholder="" style={{ width:"75px" , height:"50px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="createrp_size_input"/>                    
+                    <input placeholder="" style={{ width:"75px" , height:"50px" }} onChange={ handleSize } value={ size } className="createrp_size_input"/>                    
                   </form>
                 </div>
               </div>
@@ -115,7 +146,7 @@ const CreateReport = () => {
             </div>
 
             <form>                    
-              <input placeholder="" style={{ width:"1140px" , height:"250px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="createrp_reason_input"/>                    
+              <input placeholder="" style={{ width:"1140px" , height:"250px" }} onChange={ handleNewDescription } value={ description }  className="createrp_reason_input"/>                    
             </form>
           </div>  
 

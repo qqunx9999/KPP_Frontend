@@ -16,9 +16,9 @@ const AuthenLogIn = () => {
         <div className="frameAuth">
           <div className="KUpeopleAuth">
             KU People
-            </div>
+          </div>
           <div className="rotate">
-            <img src={logo} alt="React is stupid" />
+            <img src={ logo } alt="React is stupid" />
           </div>
           {/* <div className=" spinner-border text-success" role="status">
               <span className="sr-only">Loading...</span>
@@ -26,7 +26,7 @@ const AuthenLogIn = () => {
           {/* </div> */}
           <div className="textAuth">
             Checking your verification code...
-              </div>
+          </div>
         </div>
       </div>
     </div>

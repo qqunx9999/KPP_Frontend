@@ -17,12 +17,12 @@ export const SignUp = (props: AccountProps) => {
             initialValues = {{ account: '', email: '', password: '', conPass: '' }}
             onSubmit = { async (values, actions) => {
                 const result = await AuthService.SignupUser(values.account, (values.email).concat('@ku.th'), values.password, values.conPass);
-                if (!result) {
-                    setSignUpErrorMessage('Sign up error: please type all requirement');
-                } else {
-                    setSignUpErrorMessage('');
+                // if (!result) {
+                //     setSignUpErrorMessage('Sign up error: please type all requirement');
+                // } else {
+                //     setSignUpErrorMessage('');
                     history.push('/SignUp/AuthenSignup');
-                };
+                // };
                 actions.setSubmitting(false);
             }} 
         >
