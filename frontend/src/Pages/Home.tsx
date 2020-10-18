@@ -8,7 +8,11 @@ import '../CSSsource/Home.css';
 import threadService from '../service/threadService';
 import Navigtion from '../component/navBar';
 
-const Home = () => {
+type LoginFormProps = {
+  loginCallBack?: () => void,
+}
+
+const Home = (props: LoginFormProps) => {
   const [thread, setThread] = useState<Thread[]>([]);
 
   const fetchThread = () => {
