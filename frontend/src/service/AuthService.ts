@@ -6,11 +6,12 @@ async function LoginUser(email: string, password: string): Promise<any | null> {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            email: email,
-            password: password,
+            "username": email,
+            "password": password,
         }),
     });
     const result = await res.json();
+    console.log(result);
     if (result.access_token) {
         localStorage.setItem("user", result);
         localStorage.setItem("token", result.access_token);
