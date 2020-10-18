@@ -38,6 +38,29 @@ async function SignupUser(username: string, email: string, password: string, con
     };
 };
 
+async function ForgetPass(email: string, password: string, conPassword: string, verify: string): Promise<any | null> {
+    const res = await fetch(`${ baseUrl }/auth/forget`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            email: email,
+            password: password,
+            conPassword: conPassword,
+            verify: verify,
+        }),
+    });
+    const result = await res.json();
+    if (result.access_token) {
+        return result;
+    } else {
+        return null;
+    };
+};
+
+function fetchVerifyCode() {
+
+}
+
 function isUserLoggedIn(): boolean {
     return localStorage.accessToken !== undefined;
 }
@@ -64,6 +87,8 @@ function getAccessToken(): string {
 export default {
     LoginUser,
     SignupUser,
+    ForgetPass,
+    fetchVerifyCode,
     isUserLoggedIn,
     getUserName,
     logOutUser,

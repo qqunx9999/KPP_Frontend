@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../CSSsource/LoginPage.css';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import AuthService from '../service/AuthService';
-import { Button } from 'react-bootstrap/lib/InputGroup';
 
 type LoginFormProps = {
     loginCallBack?: () => void,

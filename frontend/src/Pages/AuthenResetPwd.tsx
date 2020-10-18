@@ -8,16 +8,16 @@ import {
 import '../CSSsource/AuthenResetPwd.css';
 
 const AuthenResetPwd = () => {
-  
+
 
   return (
     <div className="backgroundFinishLoadAuthenResetPwd">
       <div className="frameAuthenReset">
-          <div className="KUpeopleAuthenReset">
-            KU People
+        <div className="KUpeopleAuthenReset">
+          KU People
           </div>
-          <div className="textAuthenReset">
-            Password changed! Back to log in...
+        <div className="textAuthenReset">
+          Password changed! Back to log in...
           </div>
       </div>
     </div>
