@@ -18,7 +18,11 @@ import SignUpPage from './Pages/SignUpPage';
 import TermOfUse from './Pages/TermOfUse';
 import Threads from './Pages/Threads';
 
-const App = () => {
+type LoginFormProps = {
+    loginCallBack?: () => void,
+};
+
+const App = (props: LoginFormProps) => {
 
     return (
         <Switch>
@@ -47,7 +51,7 @@ const App = () => {
                 <AuthenSignup />
             </Route>
             <Route path="/Home">
-                <Home />
+                <Home loginCallBack={ props.loginCallBack }/>
             </Route>
             <Route exact path="/Threads/:threadID">
                 <Threads />

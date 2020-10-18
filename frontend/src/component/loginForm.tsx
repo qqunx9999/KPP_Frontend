@@ -34,8 +34,6 @@ export const EmailID = (props: LoginFormProps) => {
             }}
             onSubmit = { async (values, actions) => {
                 const result = await AuthService.LoginUser((values.email).concat('@ku.th'), values.password);
-                // console.log((values.email).concat('@ku.th'), values.password);
-                // console.log(result);
                 if (!result) {
                     setLoginErrorMessage('Login error: Wrong username or password');
                 } else {
@@ -54,11 +52,9 @@ export const EmailID = (props: LoginFormProps) => {
                     <div className="EmailLogIn1">
                         Email :
                     <Field type="input" name="email" placeholder="Type your Email..." style={ inputStyle } className="InputEmailLogIn1" />
-                    
                     <div className="kuthLogIn1">
                         @ku.th
                     </div>
-                    
                     </div>
                     <div className="PasswordLogIn1">
                         Password :
