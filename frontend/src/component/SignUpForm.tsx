@@ -49,7 +49,6 @@ export const SignUp = () => {
                             &nbsp; &nbsp; Sign Up
                         </button>
                     </div>
-                    
                 </Form>
             )}
         </Formik>
