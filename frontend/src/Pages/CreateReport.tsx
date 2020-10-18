@@ -1,10 +1,5 @@
 import React, { useState, useEffect, InputHTMLAttributes } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import '../CSSsource/CreateReport.css';
 import { Thread } from '../interfaces/threadEntity';
 import threadService from '../service/threadService';
