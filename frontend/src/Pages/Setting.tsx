@@ -36,7 +36,7 @@ const Setting = () => {
                 Your Quote :
               </div>
               <div className="userquoteUserProfile">
-                GUSHOPSHARKWOW!!!
+                I Like Ice-cream!!!
               </div>
             </div>
 

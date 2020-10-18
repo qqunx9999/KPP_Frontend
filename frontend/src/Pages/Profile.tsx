@@ -36,7 +36,7 @@ const Profile = () => {
                 UsernameHere
               </div>
               <div className="userQuotationUserProfile">
-                GUSHOPSHARKWOW!!!
+                I Like Ice-cream!!!
               </div>
 
               <div className="favorpartUserProfile">
@@ -50,11 +50,11 @@ const Profile = () => {
               </div>
 
               <div className="userHabitUserProfile">
-                Habit : SHARKWOW
+                Habit : Eating
               </div>
 
               <div className="userTopicUserProfile">
-                Topic : AmateurSexualContent
+                Topic : Dessert
               </div>  
 
               <div className="frameUserNicknameUserProfile">
