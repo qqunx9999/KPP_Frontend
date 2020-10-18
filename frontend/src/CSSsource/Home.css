@@ -140,6 +140,7 @@
     position: absolute;
     top: -6%;
     left: 8%;
+    margin: auto;
   }
 
 .latestGreenFrameHomePage {
@@ -442,6 +443,7 @@
     position: absolute;
     top: 25.5%;
     left: 8%;
+    margin: auto;
   }
 
 .hottestGreenFrameHomePage {
@@ -809,6 +811,7 @@
     position: absolute;
     top: 57%;
     left: 8%;
+    margin: auto;
   }
 
 .newsGreenFrameHomePage {
@@ -821,6 +824,7 @@
     position: absolute;
     top: 80px;
     left: 50px;
+    
   }
 
 .firstNewsTextHomePage {
