@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import '../CSSsource/CreateComment.css';
 import { Thread } from '../interfaces/threadEntity';
 import threadService from '../service/threadService';
+import Navigtion from '../component/navBar';
 
 const CreateComment = () => {
   const [thread, setThread] = useState<Thread[]>([]);
@@ -34,6 +35,8 @@ const CreateComment = () => {
   }, []);
 
   return (
+      <div>
+      <Navigtion />
       <div className="createcm-bigframe">
         { thread.map(item => (
           <div>
@@ -46,6 +49,7 @@ const CreateComment = () => {
             </Link>
           </div>
         )) }
+        
         <div className="createcm_goback">
           <button className="createcm_goback_button">
           &lt; Go back
@@ -152,6 +156,7 @@ const CreateComment = () => {
           </div>
 
         </div>
+      </div>
       </div>
   );
 }
