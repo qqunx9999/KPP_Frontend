@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import '../CSSsource/CreateReport.css';
 import { Thread } from '../interfaces/threadEntity';
 import threadService from '../service/threadService';
+import Navigtion from '../component/navBar';
 
 const CreateReport = () => {
   const [thread, setThread] = useState<Thread[]>([]);
@@ -33,6 +34,8 @@ const CreateReport = () => {
     fetchThread();
   }, []);
   return (
+      <div>
+      <Navigtion />
       <div className="createrp-bigframe">
         { thread.map(item => (
           <Link to={ `/Threads/${ item.userID }/` }>
@@ -149,6 +152,7 @@ const CreateReport = () => {
             Your report will be sent to administator. We will give the consideration about your report within 2-3 days
           </div>       
         </div>
+      </div>
       </div>
   );
 }
