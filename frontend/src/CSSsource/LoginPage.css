@@ -252,3 +252,17 @@
   top: 20px;
   left: 55px;
 }
+
+.errorMessageLogin {
+  width: 2000px;
+  height: 138px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme3, #c2003a);
+  font-size: 23px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: absolute;
+  top: 510px;
+  left: 80px;
+}

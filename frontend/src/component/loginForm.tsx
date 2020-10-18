@@ -50,7 +50,7 @@ export const EmailID = (props: LoginFormProps) => {
         >
             {({ isSubmitting }) => (
                 <Form>
-                    { loginErrorMessage && (<div>{ loginErrorMessage }</div>) }
+                    { loginErrorMessage && (<div className="errorMessageLogin">{ loginErrorMessage }</div>) }
                     <div className="EmailLogIn1">
                         Email :
                     <Field type="input" name="email" placeholder="Type your Email..." style={ inputStyle } className="form-control InputEmailLogIn1" required/>
