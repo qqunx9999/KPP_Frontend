@@ -32,6 +32,7 @@ export class ThreadsController {
 
   @Post()
   async createThread(@Body() createThreadDto: CreateThreadDto){
+    
     return this.threadsService.createThread(createThreadDto);
   }
 

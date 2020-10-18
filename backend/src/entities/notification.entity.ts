@@ -8,9 +8,9 @@ export class Notification{
     @Column()
     userID:ObjectID;
     @Column()
-    type: string;
+    object_type: string;
     @Column()
-    chatroomID:ObjectID;
+    object_typeID: ObjectID;
     
     
 }
