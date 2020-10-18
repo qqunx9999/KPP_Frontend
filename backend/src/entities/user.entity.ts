@@ -11,24 +11,24 @@ export class User{
     @Column()
     password: string;
     @Column()
-    avatar_URL: string;
+    avatar_URL: string ;
     @Column()
     exp: number;
     @Column()
-    rank: string;
+    rank: string ;
     @Column()
-    friend_arr: {userID:ObjectID,sender:boolean, isAccepted:boolean, date_add:Date, date_accepted:Date, date_delete:Date}[];// userID, sender, isaccepted, date_add, date_delete
+    friend_arr: {userID:ObjectID,sender:boolean, isAccepted:boolean, date_add:Date, date_accepted:Date, date_delete:Date}[] ;// userID, sender, isaccepted, date_add, date_delete
     @Column()
-    numberfriends: number;
+    numberfriends: number ;
     @Column()
-    description: string;
+    description: string ;
     @Column()
-    isChatMember_arr: {chatroomID:ObjectID}[]; //chatroomID
+    chatmember_arr: {chatroomID:ObjectID}[] ; //chatroomID
     @Column()
-    date_join: Date;
+    date_join: Date ;
     @Column()
-    isAdmin: boolean;
+    isAdmin: boolean ;
     @Column()
-    isLoggedIn: boolean;
+    isLoggedIn: boolean ;
 }
 export default User;

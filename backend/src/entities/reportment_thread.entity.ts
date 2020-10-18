@@ -12,7 +12,7 @@ export class Reportment_thread{
     @Column()
     description:string;
     @Column()
-    image_arr: {URL:string, pos:number}[]; //Url, pos
+    image_arr: {URL:string, pos:number}[]; 
     @Column()
     date_create:Date;
     @Column()

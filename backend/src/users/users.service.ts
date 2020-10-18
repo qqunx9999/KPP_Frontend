@@ -4,6 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../entities/user.entity'
 import { ObjectID } from 'mongodb';
 import { User_info } from 'src/common/user_info';
+import { CreateUserDto } from 'src/dto/create-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -14,12 +15,12 @@ export class UsersService {
     private newusers = [];
     constructor(
         @InjectRepository(User)
-        private userRepository: Repository<User>,
+        private usersRepository: Repository<User>,
        
     ) { }
 
     async findOne(username: string): Promise<User | undefined> {
-        await this.userRepository.find()
+        await this.usersRepository.find()
             .then(setuser => {
                 this.newusers = setuser;
             }); 
@@ -29,12 +30,12 @@ export class UsersService {
 
     async findUserInfo(userID: ObjectID): Promise<User_info>{
         console.log(userID);
-        await this.userRepository.find({where:{_id: userID}})
+        await this.usersRepository.find({where:{_id: userID}})
             .then(setuser_info => {
             this.user_info = setuser_info;
         }); 
         //var info: User_info;
-        console.log(this.user_info[0].userID);
+        //console.log(this.user_info[0].userID);
         this.info.userID = this.user_info[0].userID;
         this.info.username = this.user_info[0].username;
         this.info.avatar_URL = this.user_info[0].avatar_URL;
@@ -44,4 +45,18 @@ export class UsersService {
         return this.info;
 
     }
+
+    async createUser(createUserDto: CreateUserDto) {
+        createUserDto.avatar_URL = null;
+        createUserDto.exp = 0;
+        createUserDto.rank = "Beginner";
+        createUserDto.friend_arr = [];
+        createUserDto.numberfriends = 0;
+        createUserDto.description = "";
+        createUserDto.chatmember_arr = [];
+        createUserDto.date_join = new Date();
+        createUserDto.isAdmin = false;
+        createUserDto.isLoggedIn = false;
+        return this.usersRepository.save(createUserDto);
+      }
 }

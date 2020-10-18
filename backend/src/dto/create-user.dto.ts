@@ -11,22 +11,22 @@ export class CreateUserDto {
     @IsString()
     avatar_URL: string;
     @IsInt()
-    exp: number;
+    exp: number = 0;
     @IsString()
-    rank: string;
+    rank: string = "Beginner";
     @IsArray()
-    friend_arr: {userID: ObjectID, sender: boolean, isAccepted: boolean, date_add: Date, date_accepted: Date, date_delete: Date}[];
-    @IsDate()
-    numberfriends: number;
+    friend_arr: {userID: ObjectID, sender: boolean, isAccepted: boolean, date_add: Date, date_accepted: Date, date_delete: Date}[] = [];
+    @IsInt()
+    numberfriends: number = 0;
     @IsString()
-    description: string;
+    description: string = '';
     @IsArray()
-    isChatMember_arr: {chatroomID: ObjectID}[]; 
+    chatmember_arr: {chatroomID: ObjectID}[] =[]; 
     @IsDate()
-    date_join: Date;
+    date_join: Date = new Date();
     @IsBoolean()
-    isAdmin: boolean;
+    isAdmin: boolean = false;
     @IsBoolean()
-    isLoggedIn: boolean;
+    isLoggedIn: boolean = false;
     
 }
