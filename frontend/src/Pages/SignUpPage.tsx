@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { SignUp } from '../component/SignUpForm';
 import '../CSSsource/SignupPage.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const SignUpPage = () => {
 
@@ -26,13 +26,20 @@ const SignUpPage = () => {
             </Link>
         </button>
 
-        <div className="signup_go-back">
-          <Link to="/" className="signup-gb-frame">
-            &lt; Go Back
-            </Link>
+  
+           <Link to="/" >
+            <button type="button" className="btn btn-success" id ="goBack">
+
+              <div className="eHere">
+                &lt; Go Back
+            </div>
+            </button>
+          </Link>
+
+
         </div>
       </div>
-    </div>
+
 
 
   );

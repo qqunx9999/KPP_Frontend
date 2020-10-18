@@ -38,7 +38,6 @@ const SearchThread = () => {
               Submit
             </div>
           </div>
-      
           <div className="topicTextSearchThread">
                 Topic :
           </div>

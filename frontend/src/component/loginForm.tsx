@@ -50,7 +50,7 @@ export const EmailID = (props: LoginFormProps) => {
                     { loginErrorMessage && (<div>{ loginErrorMessage }</div>) }
                     <div className="EmailLogIn1">
                         Email :
-                    <Field type="input" name="email" placeholder="Type your Email..." style={ inputStyle } className="InputEmailLogIn1" />
+                    <Field type="input" name="email" placeholder="Type your Email..." style={ inputStyle } className="form-control InputEmailLogIn1" required/>
                     
                     <div className="kuthLogIn1">
                         @ku.th
@@ -59,9 +59,9 @@ export const EmailID = (props: LoginFormProps) => {
                     </div>
                     <div className="PasswordLogIn1">
                         Password :
-                    <Field type="password" name="password" placeholder="Type your password..." style={ inputStyle } className="InputPasswordLogIn1" />
+                    <Field type="password" name="password" placeholder="Type your password..." style={ inputStyle } className="form-group InputPasswordLogIn1" required/>
                     </div>
-                    <button type="submit" disabled={ isSubmitting } className="FrameLogIn1">
+                    <button type="submit" disabled={ isSubmitting } className="FrameLogIn1 btn btn-success">
                         <div className="LogInButtonLogIn1">
                             Log In
                         </div>
