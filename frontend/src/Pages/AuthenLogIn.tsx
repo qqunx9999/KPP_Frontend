@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../CSSsource/AuthenLogIn.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../Pages/image/nong_plub.png'
+import { Redirect } from 'react-router';
 
 const AuthenLogIn = () => {
+  const [time, setRedirect] = useState<boolean>(false);
+
+  const delay = () => {
+    setRedirect(true)
+  };
+
   return (
     <div className="greenBackgroungAuth">
       <div className="container-md">
@@ -23,6 +30,8 @@ const AuthenLogIn = () => {
           </div>
         </div>
       </div>
+      { setInterval(delay, 3000) }
+      { time && (<Redirect to="/Home" />) }
     </div>
   );
 }
