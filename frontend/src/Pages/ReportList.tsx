@@ -1,10 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React from 'react';
+import { Link } from "react-router-dom";
 import '../CSSsource/ReportList.css';
 
 const ReportList = () => {
@@ -14,7 +9,7 @@ const ReportList = () => {
       <div className="rpList-bigframe">
         <div className="rpList-blackframe">
           <div className="rpList-kuppl2">
-            KU PEOPLE
+            <Link to={ `/Home` }></Link>
           </div>
           <div className="rpList-admin">
             Admin
@@ -55,13 +50,13 @@ const ReportList = () => {
 
           <div>
             <button className="rpList-thread-fpre-frame">
-
+              &lt; &lt;
             </button>
           </div>
 
           <div>
             <button className="rpList-thread-pre-frame">
-              
+              &lt;
             </button>
           </div>
 
@@ -82,13 +77,13 @@ const ReportList = () => {
 
           <div>
             <button className="rpList-thread-ffw-frame">
-              
+              &gt;
             </button>
           </div>
 
           <div>
             <button className="rpList-thread-fw-frame">
-              
+            &gt; &gt;
             </button>
           </div>
         </div>
@@ -114,26 +109,26 @@ const ReportList = () => {
 
             <div>
               <button className="rpList-cmcorrect-round1">
-
+             
               </button>
             </div>
 
             <div>
               <button className="rpList-cmincorrect-round1">
-
+               
               </button>
             </div>
           </div>
 
           <div>
             <button className="rpList-cm-fpre-frame">
-
+            &lt; &lt;
             </button>
           </div>
 
           <div>
             <button className="rpList-cm-pre-frame">
-              
+            &lt;
             </button>
           </div>
 
@@ -154,40 +149,39 @@ const ReportList = () => {
 
           <div>
             <button className="rpList-cm-ffw-frame">
-              
+            &gt;
             </button>
           </div>
 
           <div>
             <button className="rpList-cm-fw-frame">
-              
+            &gt; &gt;
             </button>
           </div>
         </div>
 
-        <div className="rpList-contract-detail">
-          <div className="rpList-us1">
-            <button className="rpList-us1-frame">
-              us1 firstName <br></br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; us1 lastName
-            </button>
-          </div>
-          <div className="rpList-us2">
-            <button className="rpList-us2-frame">
-              us2 firstName <br></br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; us2 lastName
-            </button>
-          </div>
-          <div className="rpList-us3">
-            <button className="rpList-us3-frame">
-              us3 firstName <br></br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; us3 lastName
-            </button>
-          </div>
-        </div>
         <div className="rpList-contract">
           <button className="rpList-contact-frame">
             Contract
           </button>
         </div>
-        
+        <div className="rpList-contract-detail">
+          <div className="rpList-us1">
+            <button className="rpList-us1-frame">
+              user1 firstnamek <br></br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; user1 lastname
+            </button>
+          </div>
+          <div className="rpList-us2">
+            <button className="rpList-us2-frame">
+              user2 firstnamek <br></br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; user2 lastname
+            </button>
+          </div>
+          <div className="rpList-us3">
+            <button className="rpList-us3-frame">
+              user3 firstnamek <br></br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; user3 lastname
+            </button>
+          </div>
+        </div>
       </div>
   );
 }

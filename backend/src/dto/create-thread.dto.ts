@@ -12,25 +12,25 @@ export class CreateThreadDto {
     @IsString()
     content: string;
     @IsArray()
-    image_arr: [string, number][]; 
+    image_arr: {URL: string, pos: number}[];  
     @IsArray()
-    up_vote_arr: ObjectID[];
+    up_vote_arr: {userID: ObjectID,}[] =[] ;
     @IsArray()
-    down_vote_arr: ObjectID[];
+    down_vote_arr: {userID: ObjectID,}[] =[];
     @IsInt()
-    up_vote_count: number;
+    up_vote_count: number =0 ;
     @IsInt()
-    down_vote_count: number;
+    down_vote_count: number =0;
     @IsInt()
-    total_comment: number;
+    total_comment: number =0;
     @IsInt()
-    number_of_all_comment: number;
-    @IsDate()
-    date_create: Date;
-    @IsDate()
-    date_lastedit?: Date;
-    @IsDate()
-    date_delete?: Date;
+    number_of_all_comment: number=0;
+    //@IsDate()
+    date_create: Date ;
+    //@IsDate()
+    date_lastedit: Date =null;
+    //@IsDate()
+    date_delete: Date =null;
     @IsBoolean()
     isanonymous: boolean;
 }

@@ -2,14 +2,17 @@ import {Entity , Column , ObjectIdColumn } from 'typeorm';
 import {ObjectID} from 'mongodb';
 
 @Entity()
-export class Chat_read{
+export class Notification{
     @ObjectIdColumn()
-    readID?:ObjectID;
+    notificationID?:ObjectID;
     @Column()
     userID:ObjectID;
     @Column()
-    chatID:ObjectID;
+    object_type: string;
     @Column()
-    date_read:Date;
+    object_typeID: ObjectID;
+    
+    
 }
-export default Chat_read;
+
+export default Notification;

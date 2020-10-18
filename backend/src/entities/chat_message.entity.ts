@@ -4,7 +4,7 @@ import {ObjectID} from 'mongodb';
 @Entity()
 export class Chat_message{
     @ObjectIdColumn()
-    chatID?:ObjectID;
+    messageID?:ObjectID;
     @Column()
     userID:ObjectID;
     @Column()
@@ -12,13 +12,9 @@ export class Chat_message{
     @Column()
     message:string;
     @Column()
-    chat_read_arr: [ObjectID, Date ][]; //userID, date_read 
-    @Column()
-    readnum:number;
-    @Column()
     date_create:Date;
     @Column()
     date_delete:Date;
-    //hello
+    //hello boi
 }
 export default Chat_message;

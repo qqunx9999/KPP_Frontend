@@ -1,19 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React from 'react';
 import '../CSSsource/SearchThread.css';
 import '../CSSsource/Home.css';
+import Navigtion from '../component/navBar';
 
 const SearchThread = () => {
   
 
   return (
+    <div>
+      <Navigtion />
     <div className="backgroundSearchThread">
-      <div className="topBlackFrameHomePage">
+      {/* <div className="topBlackFrameHomePage">
         <div className="topKUPeopleHomePage">
         </div>
         <div className="searchSymbolHomePage">
@@ -28,14 +25,14 @@ const SearchThread = () => {
         <div className="userDisplayNameHomePage">
           Patrick Star
         </div>
-      </div>
+      </div> */}
 
       <div className="frameSearchAndTopicSearchThread">
         <form>
           <div className="searchTextSearchAndTopicSearchThread">
             Search :
           </div>
-          <input placeholder="Enter Your Keyword..." style={{ width:"850px" , height:"60px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="inputKeywordSearchThread"/>
+          <input placeholder="Enter Your Keyword..." style={{ width:"850px" , height:"60px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="form-control inputKeywordSearchThread"/>
           <div className="frameSubmitSearchThread">
             <div className="textSubmitSearchThread">
               Submit
@@ -177,6 +174,7 @@ const SearchThread = () => {
           0
         </div>
       </div>
+    </div>
     </div>
   );
 }

@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React from 'react';
+import Navigtion from '../component/navBar';
 import '../CSSsource/Profile.css';
-const Profile = () => {
-  
+import profilePic from '../Pages/image/Patrick.png'
 
+const Profile = () => {
   return (
       <div>
+        <Navigtion />
         <div className="backgroundUserProfile">
           <div className="frameWhiteUserProfile">
             <div className="frameBlackUserProfile">
@@ -23,6 +19,7 @@ const Profile = () => {
                   JoinedDate
                 </div>
                 <div className="picUserProfile">
+                  <img src={profilePic} className="rounded-circle z-depth-0" alt="avatar image" width="230" height="230"/>
                 </div>
                 <div className="userRankUserProfile">
                   Beginner
@@ -66,17 +63,18 @@ const Profile = () => {
                 </div>
               </div>   
             </div>
-          </div>
+          
 
-          <div className="frameGobackUserProfile">
-            <div className="textGobackUserProfile">
-              &lt; Go Back
+            <div className="frameGobackUserProfile">
+              <div className="textGobackUserProfile">
+                &lt; Go Back
+              </div>
             </div>
-          </div>
 
-          <div className="frameAddFriendUserProfile">
-            <div className="textAddFriendUserProfile">
-              Add Friend
+            <div className="frameAddFriendUserProfile">
+              <div className="textAddFriendUserProfile">
+                Add Friend
+              </div>
             </div>
           </div>
         </div>

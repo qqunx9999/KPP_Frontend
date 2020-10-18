@@ -6,7 +6,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import LoginSigninPage from './Pages/LoginSigninPage';
 import SignUpPage from './Pages/SignUpPage' ;
@@ -63,22 +62,22 @@ ReactDOM.render(
         <Route exact path="/Threads/:threadID/CreateComment">
           <CreateComment/>
         </Route>
-        <Route exact path="/CreateThread">
+        <Route path="/CreateThread">
           <CreateThread/>
         </Route>
-        <Route exact path="/ReportList">
+        <Route path="/ReportList">
           <ReportList/>
         </Route>
-        <Route exact path="/SearchThread">
+        <Route path="/SearchThread">
           <SearchThread/>
         </Route>
-        <Route exact path="/Profile">
+        <Route path="/Profile">
           <Profile/>
         </Route>
         <Route exact path="/Threads/:threadID/CreateReport">
           <CreateReport/>
         </Route>
-        <Route exact path="/Setting">
+        <Route path="/Setting">
           <Setting/>
         </Route>
       </Switch>

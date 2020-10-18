@@ -1,10 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React from 'react';
+import { Link } from "react-router-dom";
 import '../CSSsource/TermOfUse.css';
 
 const TermOfUse = () => {
@@ -13,6 +8,7 @@ const TermOfUse = () => {
   return (
     <div className="backgroundTermOfUse">
         <div className="frameTermOfUse">
+          
           <div className="KUpeopleTermOfUse">
             KU People
           </div>
@@ -42,13 +38,15 @@ const TermOfUse = () => {
                 &nbsp;&nbsp;6. We may modify these Terms from time to time. If we do we will notify you by email to the email address you have provided us with. It is therefore important that you review these terms regularly to ensure you are updated as to any changes.
               </p>
           </div>
-        </div>
-        <Link to="/SignUp" className="frameGoBackTermOfUse">
-          <div className="GoBackButtonTermOfUse">
-          &lt; Go Back
-          </div>
-          
-        </Link>
+          <Link to="/SignUp" className="frameGoBackTermOfUse">
+            <div className="GoBackButtonTermOfUse">
+            &lt; Go Back
+            </div>
+            
+          </Link>
+        
+        
+      </div>
     </div>
   );
 }
