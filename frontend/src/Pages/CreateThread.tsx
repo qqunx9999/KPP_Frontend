@@ -138,7 +138,7 @@ const CreateThread = () => {
                 <div className="frameSendCreateThread">
                 </div>
                 <form>
-                  <input style={{ width:"1140px" , height:"450px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="inputContentCreateThread"/>
+                  <input style={{ width:"1140px" , height:"250px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="inputContentCreateThread"/>
                 </form>
 
               </div>
