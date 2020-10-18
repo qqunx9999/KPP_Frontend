@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { SignUp } from '../component/SignUpForm';
 import '../CSSsource/SignupPage.css';
-
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const SignUpPage = () => {
 
@@ -25,12 +26,13 @@ const SignUpPage = () => {
             Term of Use Agreement
             </Link>
         </button>
-
-        <div className="signup_go-back">
-          <Link to="/" className="signup-gb-frame">
+        <Link to="/">
+        <button id="success" className="signup-gb-frame btn btn-success">
+          <div className="signup_go-back">
             &lt; Go Back
-            </Link>
         </div>
+        </button>
+        </Link>
       </div>
     </div>
 
