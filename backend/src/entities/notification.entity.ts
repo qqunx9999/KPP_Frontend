@@ -2,15 +2,17 @@ import {Entity , Column , ObjectIdColumn } from 'typeorm';
 import {ObjectID} from 'mongodb';
 
 @Entity()
-export class Unread_message{
+export class Notification{
     @ObjectIdColumn()
-    unreadID_msgID?:ObjectID;
+    notificationID?:ObjectID;
     @Column()
     userID:ObjectID;
     @Column()
-    chatroomID:ObjectID;
+    object_type: string;
     @Column()
-    messageID:ObjectID;
+    object_typeID: ObjectID;
+    
+    
 }
 
-export default Unread_message;
+export default Notification;

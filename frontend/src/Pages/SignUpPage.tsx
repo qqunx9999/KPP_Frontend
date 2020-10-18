@@ -12,34 +12,34 @@ import '../CSSsource/SignupPage.css';
 const SignUpPage = () => {
 
   return (
-    
-     <div className="signup-bigframe">
-       <div className="signup-whiteframe">
-         <div className="signup-k-u-people">
-           KU People
+
+    <div className="signup-bigframe">
+      <div className="signup-whiteframe">
+        <div className="signup-k-u-people">
+          KU People
          </div>
-         <div className="signup-plz-text">
-           Please sign up or log in before use.
+        <div className="signup-plz-text">
+          Please sign up or log in before use.
          </div>
-         <SignUp />
-          <div className="signup-accept-text">
-            You already read and accept
+        <SignUp />
+        <div className="signup-accept-text">
+          You already read and accept
           </div>
-          <button className="signup-term-text">
-            <Link to= "/TermOfUse">
+        <button className="signup-term-text">
+          <Link to="/TermOfUse">
             Term of Use Agreement
             </Link>
-          </button>
+        </button>
 
-          <div className="signup_go-back">
-            <Link to= "/" className="signup-gb-frame">
-                &lt; Go Back
+        <div className="signup_go-back">
+          <Link to="/" className="signup-gb-frame">
+            &lt; Go Back
             </Link>
-          </div>
-       </div>
-     </div>
-      
-    
+        </div>
+      </div>
+    </div>
+
+
   );
 }
 

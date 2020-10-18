@@ -5,12 +5,13 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Navigtion from '../component/navBar';
 import '../CSSsource/Profile.css';
-const Profile = () => {
-  
 
+const Profile = () => {
   return (
       <div>
+        <Navigtion />
         <div className="backgroundUserProfile">
           <div className="frameWhiteUserProfile">
             <div className="frameBlackUserProfile">

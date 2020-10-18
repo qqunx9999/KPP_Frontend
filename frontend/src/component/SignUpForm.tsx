@@ -1,22 +1,27 @@
 import { Field, Form, Formik } from 'formik';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import '../CSSsource/SignupPage.css';
+import AuthService from '../service/AuthService';
 
 type AccountProps = {
     // account: Account;
 };
 
 export const SignUp = (props: AccountProps) => {
+    const [signUpErrorMessage, setSignUpErrorMessage] = useState('');
+    const history = useHistory();
+
     return (
         <Formik
             initialValues = {{ account: '', email: '', password: '', conPass: '' }}
-            onSubmit = {(values, actions) => {
-                const login = {
-                    account: values.account,
-                    email: values.email,
-                    password: values.password,
-                    conPass: values.conPass,
+            onSubmit = { async (values, actions) => {
+                const result = await AuthService.SignupUser(values.account, (values.email).concat('@ku.th'), values.password, values.conPass);
+                if (!result) {
+                    setSignUpErrorMessage('Sign up error: please type all requirement');
+                } else {
+                    setSignUpErrorMessage('');
+                    history.push('/SignUp/AuthenSignup');
                 };
                 actions.setSubmitting(false);
             }} 
@@ -42,11 +47,11 @@ export const SignUp = (props: AccountProps) => {
                         Confirm Password :
                     <Field type="password" name="conPass" placeholder="Confirm your password..." style={{ width: "675px", height: "50px" }} className="signup-Input-cf-password" />
                     </div>
-                    <div aria-disabled={ isSubmitting } className="signup-sign-up">
-                        <Link to="/SignUp/AuthenSignup" className="signup-su-frame">
+                    <div className="signup-sign-up">
+                        <button disabled={ isSubmitting } className="signup-su-frame">
                             <button className="signup-square"></button>
                             &nbsp; &nbsp; Sign Up
-                        </Link>
+                        </button>
                     </div>
                 </Form>
             )}
