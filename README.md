@@ -30,7 +30,7 @@
         <li>List of additional library that you need to install
           <ul>
             <li><a href="https://typeorm.io/#/">typeorm</a> : <code>npm install --save @nestjs/typeorm typeorm</code></li>
-            <li>nest mongodb : <code>npm install -save-dev @types/mongodb mongdb</code></li>
+            <li>nest mongodb : <code>npm install -save-dev @types/mongodb mongodb</code></li>
             <li>class-validator and class-transformer : <code>npm i --save class-validator class-transformer</code></li>
             <li>nest passport <br>
               <code>npm install --save @nestjs/passport passport passport-local</code> <br>

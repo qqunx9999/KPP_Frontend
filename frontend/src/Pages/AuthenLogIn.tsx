@@ -1,10 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React from 'react';
 import '../CSSsource/AuthenLogIn.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../Pages/image/nong_plub.png'
@@ -16,9 +10,9 @@ const AuthenLogIn = () => {
         <div className="frameAuth">
           <div className="KUpeopleAuth">
             KU People
-            </div>
+          </div>
           <div className="rotate">
-            <img src={logo} alt="React is stupid" />
+            <img src={ logo } alt="React is stupid" />
           </div>
           {/* <div className=" spinner-border text-success" role="status">
               <span className="sr-only">Loading...</span>
@@ -26,7 +20,7 @@ const AuthenLogIn = () => {
           {/* </div> */}
           <div className="textAuth">
             Checking your verification code...
-              </div>
+          </div>
         </div>
       </div>
     </div>

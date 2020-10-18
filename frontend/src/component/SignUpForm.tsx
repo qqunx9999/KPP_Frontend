@@ -1,15 +1,10 @@
 import { Field, Form, Formik } from 'formik';
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import '../CSSsource/SignupPage.css';
 import AuthService from '../service/AuthService';
 
-type AccountProps = {
-    // account: Account;
-};
-
-export const SignUp = (props: AccountProps) => {
-    const [signUpErrorMessage, setSignUpErrorMessage] = useState('');
+export const SignUp = () => {
     const history = useHistory();
 
     return (
@@ -17,12 +12,12 @@ export const SignUp = (props: AccountProps) => {
             initialValues = {{ account: '', email: '', password: '', conPass: '' }}
             onSubmit = { async (values, actions) => {
                 const result = await AuthService.SignupUser(values.account, (values.email).concat('@ku.th'), values.password, values.conPass);
-                if (!result) {
-                    setSignUpErrorMessage('Sign up error: please type all requirement');
-                } else {
-                    setSignUpErrorMessage('');
+                // if (!result) {
+                //     setSignUpErrorMessage('Sign up error: please type all requirement');
+                // } else {
+                //     setSignUpErrorMessage('');
                     history.push('/SignUp/AuthenSignup');
-                };
+                // };
                 actions.setSubmitting(false);
             }} 
         >
