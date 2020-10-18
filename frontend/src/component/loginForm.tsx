@@ -59,7 +59,7 @@ export const EmailID = (props: LoginFormProps) => {
                     </div>
                     <div className="PasswordLogIn1">
                         Password :
-                    <Field type="password" name="password" placeholder="Type your password..." style={ inputStyle } className="form-group InputPasswordLogIn1" required/>
+                    <Field type="password" name="password" placeholder="Type your password..." style={ inputStyle } className="form-control InputPasswordLogIn1" required/>
                     </div>
                     <button type="submit" disabled={ isSubmitting } className="FrameLogIn1 btn btn-success">
                         <div className="LogInButtonLogIn1">
