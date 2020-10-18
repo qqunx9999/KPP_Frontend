@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../CSSsource/LoginPage.css';
 import { Field, Form, Formik } from 'formik';
 import AuthService from '../service/AuthService';
@@ -62,7 +63,7 @@ export const EmailID = (props: LoginFormProps) => {
                         Password :
                     <Field type="password" name="password" placeholder="Type your password..." style={ inputStyle } className="InputPasswordLogIn1" />
                     </div>
-                    <button type="submit" disabled={ isSubmitting } className="FrameLogIn1">
+                    <button type="submit" disabled={ isSubmitting } className="FrameLogIn1 btn btn-success">
                         <div className="LogInButtonLogIn1">
                             Log In
                         </div>

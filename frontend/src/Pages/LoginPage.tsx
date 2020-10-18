@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../CSSsource/LoginPage.css';
 import { EmailID } from '../component/loginForm';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthService from '../service/AuthService';
 
 const LoginPage = () => {
