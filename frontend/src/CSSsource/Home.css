@@ -1,6 +1,6 @@
 .backgroundHomePage {
     width: 100%;
-    height: 200%;
+    height: 500%;
     overflow: hidden;
     background: var(--Theme6, #47624f);
     position: absolute;
@@ -109,8 +109,8 @@
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     transform: scale(0.6, 0.6) rotate(342deg);
     position: absolute;
-    top: 2.5%;
-    left: 18%;
+    top: 2%;
+    left: 5%;
     
   }
 
@@ -138,9 +138,8 @@
     border-radius: 66px;
     transform: scale(0.6, 0.6);
     position: absolute;
-    top: -6%;
-    left: 8%;
-    margin: auto;
+    top: -3%;
+    left: -10%;
   }
 
 .latestGreenFrameHomePage {
@@ -414,8 +413,8 @@
     background: var(--Theme3, #0f0508);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     position: absolute;
-    top: 34.5%;
-    left: 18%;
+    top: 22%;
+    left: 5%;
   }
 
 .hottestTextHomePage {
@@ -441,9 +440,8 @@
     border-radius: 66px;
     transform: scale(0.6, 0.6);
     position: absolute;
-    top: 25.5%;
-    left: 8%;
-    margin: auto;
+    top: 17%;
+    left: -10%;
   }
 
 .hottestGreenFrameHomePage {
@@ -781,8 +779,8 @@
     background: var(--ThemeSup1, #9beb33);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     position: absolute;
-    top: 66%;
-    left: 18%;
+    top: 42%;
+    left: 5%;
   }
 
 .newsTextHomePage {
@@ -809,9 +807,8 @@
     border-radius: 66px;
     transform: scale(0.6, 0.6);
     position: absolute;
-    top: 57%;
-    left: 8%;
-    margin: auto;
+    top: 37%;
+    left: -10%;
   }
 
 .newsGreenFrameHomePage {
@@ -824,7 +821,6 @@
     position: absolute;
     top: 80px;
     left: 50px;
-    
   }
 
 .firstNewsTextHomePage {
