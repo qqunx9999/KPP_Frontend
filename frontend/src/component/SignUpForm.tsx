@@ -1,15 +1,10 @@
 import { Field, Form, Formik } from 'formik';
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import '../CSSsource/SignupPage.css';
 import AuthService from '../service/AuthService';
 
-type AccountProps = {
-    // account: Account;
-};
-
-export const SignUp = (props: AccountProps) => {
-    const [signUpErrorMessage, setSignUpErrorMessage] = useState('');
+export const SignUp = () => {
     const history = useHistory();
 
     return (

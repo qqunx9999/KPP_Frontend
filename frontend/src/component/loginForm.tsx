@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Link, Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../CSSsource/LoginPage.css';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import AuthService from '../service/AuthService';
 
 type LoginFormProps = {
