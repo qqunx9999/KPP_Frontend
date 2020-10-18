@@ -1,10 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React from 'react';
 import '../CSSsource/Setting.css';
 const Setting = () => {
   
@@ -42,7 +36,7 @@ const Setting = () => {
                 Your Quote :
               </div>
               <div className="userquoteUserProfile">
-                GUSHOPSHARKWOW!!!
+                I Like Ice-cream!!!
               </div>
             </div>
 

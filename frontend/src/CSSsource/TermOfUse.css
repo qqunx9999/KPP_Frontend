@@ -3,6 +3,7 @@
     height: 2000px;
     overflow: hidden;
     background: var(--Theme6, #47624f);
+    position: absolute;
   }
 
   .frameTermOfUse {
@@ -14,7 +15,7 @@
     border-radius: 66px;
     transform: scale(0.7, 0.7);
     position: absolute;
-    top: -50%;
+    top: -10%;
     left: 15%;
   }
 
@@ -81,10 +82,10 @@
     background: var(--Theme5, #6cc551);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
-    transform: scale(0.6, 0.6);
+    
     position: absolute;
-    top: 260%;
-    left: 27.5%;
+    top: 94%;
+    left: 11%;
   }
 
 .GoBackButtonTermOfUse {

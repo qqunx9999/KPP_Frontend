@@ -1,10 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React from 'react';
+import { Link } from "react-router-dom";
 import '../CSSsource/LoginSigninPage.css';
 import LogInPage from './LoginPage'
 import 'bootstrap/dist/css/bootstrap.min.css';

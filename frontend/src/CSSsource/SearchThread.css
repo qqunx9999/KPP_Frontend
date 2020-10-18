@@ -110,8 +110,8 @@
     border-radius: 33px;
     transform: scale(0.6, 0.6);
     position: absolute;
-    top: -5%;
-    left: -5%;
+    top: 0%;
+    left: 10%;
   }
 
   .searchTextSearchAndTopicSearchThread {
@@ -503,7 +503,7 @@
     transform: scale(0.6, 0.6);
     position: absolute;
     top: 25%;
-    left: -15%;
+    left: 2%;
   }
 
   .textFirstThreadResultSearchThread {

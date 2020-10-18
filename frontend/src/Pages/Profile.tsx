@@ -1,12 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React from 'react';
 import Navigtion from '../component/navBar';
 import '../CSSsource/Profile.css';
+import profilePic from '../Pages/image/Patrick.png'
 
 const Profile = () => {
   return (
@@ -24,6 +19,7 @@ const Profile = () => {
                   JoinedDate
                 </div>
                 <div className="picUserProfile">
+                  <img src={profilePic} className="rounded-circle z-depth-0" alt="avatar image" width="230" height="230"/>
                 </div>
                 <div className="userRankUserProfile">
                   Beginner
@@ -40,7 +36,7 @@ const Profile = () => {
                 UsernameHere
               </div>
               <div className="userQuotationUserProfile">
-                GUSHOPSHARKWOW!!!
+                I Like Ice-cream!!!
               </div>
 
               <div className="favorpartUserProfile">
@@ -54,11 +50,11 @@ const Profile = () => {
               </div>
 
               <div className="userHabitUserProfile">
-                Habit : SHARKWOW
+                Habit : Eating
               </div>
 
               <div className="userTopicUserProfile">
-                Topic : AmateurSexualContent
+                Topic : Dessert
               </div>  
 
               <div className="frameUserNicknameUserProfile">

@@ -1,10 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React from 'react';
 import Navigtion from '../component/navBar';
 import '../CSSsource/CreateThread.css';
 
@@ -144,7 +138,7 @@ const CreateThread = () => {
                 <div className="frameSendCreateThread">
                 </div>
                 <form>
-                  <input style={{ width:"1140px" , height:"250px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="inputContentCreateThread"/>
+                  <input style={{ width:"1140px" , height:"450px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="inputContentCreateThread"/>
                 </form>
 
               </div>

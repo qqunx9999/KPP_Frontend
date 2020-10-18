@@ -1,10 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React from 'react';
 import '../CSSsource/SearchThread.css';
 import '../CSSsource/Home.css';
 import Navigtion from '../component/navBar';
@@ -38,7 +32,7 @@ const SearchThread = () => {
           <div className="searchTextSearchAndTopicSearchThread">
             Search :
           </div>
-          <input placeholder="Enter Your Keyword..." style={{ width:"850px" , height:"60px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="inputKeywordSearchThread"/>
+          <input placeholder="Enter Your Keyword..." style={{ width:"850px" , height:"60px" }} onFocus= {undefined} onBlur={undefined} onChange={undefined} onSubmit={undefined} value={""}  className="form-control inputKeywordSearchThread"/>
           <div className="frameSubmitSearchThread">
             <div className="textSubmitSearchThread">
               Submit

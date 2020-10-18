@@ -21,9 +21,7 @@ export const Forgetpass = () => {
             initialValues={{ email: '', newPassword: '', conPass: '', verify: '' }}
             onSubmit={async (values, actions) => {
                 const result = await AuthService.SignupUser((values.email), values.newPassword, values.conPass, values.verify);
-                if(result) {
-                    history.push('/ForgetPwd/AuthenResetPwd');
-                }
+                history.push('/ForgetPwd/AuthenResetPwd');
                 actions.setSubmitting(false);
             }}
         >

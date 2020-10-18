@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link, Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../CSSsource/LoginPage.css';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import AuthService from '../service/AuthService';
 
 type LoginFormProps = {
@@ -33,6 +34,7 @@ export const EmailID = (props: LoginFormProps) => {
             }}
             onSubmit = { async (values, actions) => {
                 const result = await AuthService.LoginUser((values.email).concat('@ku.th'), values.password);
+                console.log(result);
                 if (!result) {
                     setLoginErrorMessage('Login error: Wrong username or password');
                 } else {
@@ -61,7 +63,7 @@ export const EmailID = (props: LoginFormProps) => {
                         Password :
                     <Field type="password" name="password" placeholder="Type your password..." style={ inputStyle } className="InputPasswordLogIn1" />
                     </div>
-                    <button type="submit" disabled={ isSubmitting } className="FrameLogIn1">
+                    <button type="submit" disabled={ isSubmitting } className="FrameLogIn1 btn btn-success">
                         <div className="LogInButtonLogIn1">
                             Log In
                         </div>
