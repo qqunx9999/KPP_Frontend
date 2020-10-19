@@ -214,6 +214,21 @@
   left: 350px;
 }
 
+.go-to-sign-up {
+  width: 191px;
+  height: 69px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme4, #447604);
+  font-size: 23px;
+  letter-spacing: 3px;
+  line-height: 3;
+  text-decoration: underline;
+  position: absolute;
+  bottom: 80px;
+  right: 370px;
+}
+
 .GoToSignUpLogIn1 {
   width: 317px;
   height: 82px;

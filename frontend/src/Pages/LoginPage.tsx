@@ -55,6 +55,11 @@ const LoginPage = (props: LoginFormProps) => {
           <div className="TextDontLogIn1">
             Don't have an account?
           </div>
+          <Link to="/SignUp">
+            <div className="go-to-sign-up">
+              Go to Sign up
+            </div>
+          </Link>
         </div>
       </div>
     </div>
