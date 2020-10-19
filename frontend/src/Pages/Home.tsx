@@ -34,13 +34,16 @@ const Home = (props: LoginFormProps) => {
           <div className="latestGreenFrameHomePage">
             <div className="stackLatestHomePage">
               <div className="firstLatestTextHomePage">
-                {thread.map(item => (
-                  <Link to={{ pathname: `/Threads/${item.threadID}` }}>
+                {thread.map(item => {
+                  return (
+                    <Link to={{ pathname: `/Threads/${item.threadID}` }}>
                     <ul className="content">
+                      { threadService.passThreadNO(item.threadID) }
                       <ThreadItem key={item.threadID} thread={item} />
                     </ul>
                   </Link>
-                ))}
+                  );
+                })}
               </div>
               <div className="firstLatestTimeFrameHomePage">
                 <div className="firstLatestTimeHomePage">

@@ -2,17 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import '../CSSsource/Threads.css';
 import { Thread } from '../interfaces/threadEntity';
+import AuthService from '../service/AuthService';
 import threadService from '../service/threadService';
+import { useHistory, useParams } from 'react-router';
 
 const Threads = () => {
   const [thread, setThread] = useState<Thread[]>([]);
-
+  const history = useHistory();
+  // console.log(props.ThreadID);
   const fetchThread = () => {
     threadService.fetchThread()
       .then(obj => {
         setThread(obj);
       })
   };
+
+  const threadID = threadService.checkThreadNO();
+  console.log(threadID);
 
   useEffect(() => {
     fetchThread();
@@ -21,7 +27,7 @@ const Threads = () => {
   return (
     <div className="Threads-bigframe">
       <Link to="/Home" className="thread_goback">
-        <button className="thread_goback_button">
+        <button onClick={ threadService.clearThreadNO } className="thread_goback_button">
           &lt; Go back
           </button>
       </Link>
@@ -37,12 +43,15 @@ const Threads = () => {
         </div>
         <div className="thread_minitag1">
           <button className="thread_minitag1_frame">
-            {thread.map(item => (
-              <div>
-                {console.log(item)}
-                {item.tag_arr[0]}
-              </div>
-            ))}
+            {thread.map(item => {
+              if (item.threadID === threadID) {
+                return (
+                  <div>
+                    { item.tag_arr[0] }
+                  </div>
+                );
+              }
+            })}
           </button>
         </div>
         <div className="thread_minitag2">
@@ -60,17 +69,23 @@ const Threads = () => {
       <div className="thread-vote-frame">
         <div className="thread-upvote-no">
           {thread.map(item => {
-            return item.up_vote_count
+            if(item.threadID === threadID) {
+              return item.up_vote_count
+            }
           })}
         </div>
         <div className="thread-downvote-no">
           {thread.map(item => {
-            return item.down_vote_count
+            if(item.threadID === threadID) {
+              return item.down_vote_count
+            }
           })}
         </div>
         <div className="thread-comment-no">
           {thread.map(item => {
-            return item.number_of_comment
+            if(item.threadID === threadID) {
+              return item.number_of_comment
+            }
           })}
         </div>
       </div>
@@ -99,7 +114,7 @@ const Threads = () => {
 
       { thread.map(item => (
         <div>
-          <Link to={`/Threads/${item.userID}/CreateComment`}>
+          <Link to={`/Threads/${item.threadID}/CreateComment`}>
             <div className="thread-givecomment-txt">
               <button className="thread-givecm-button">
                 Give Comment
@@ -132,7 +147,7 @@ const Threads = () => {
         <div className="thread-topic-detail-frame">
           <div className="thread-topic-detail-text">
             {thread.map(item => {
-              if (item.userID === item.userID)
+              if (item.threadID === threadID)
                 return item.content
             })} <br />
             {thread.map(item => (

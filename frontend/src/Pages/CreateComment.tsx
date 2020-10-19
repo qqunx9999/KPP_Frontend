@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory, useLocation } from 'react-router';
 import { Link } from "react-router-dom";
 import '../CSSsource/CreateComment.css';
 import { Thread } from '../interfaces/threadEntity';
@@ -23,6 +24,10 @@ const CreateComment = () => {
     setDescription(event.target.value);
   };
 
+  const HandleGoBack = () => {
+    useHistory().goBack();
+  };
+
   const fetchThread = () => {
     threadService.fetchThread()
       .then(obj => {
@@ -40,13 +45,11 @@ const CreateComment = () => {
       <div className="createcm-bigframe">
         { thread.map(item => (
           <div>
-            <Link to={ `/Threads/${ item.userID }/` }>
-              <div className="createcm_goback">
-                <button className="createcm_goback_button">
+            <div className="createcm_goback">
+                <button onClick={ HandleGoBack } className="createcm_goback_button">
                   &lt; Go back
                 </button>
               </div>
-            </Link>
           </div>
         )) }
         

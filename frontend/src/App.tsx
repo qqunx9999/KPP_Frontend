@@ -26,57 +26,25 @@ const App = (props: LoginFormProps) => {
 
     return (
         <Switch>
-            <Route exact path="/">
-                <LoginSigninPage />
-            </Route>
-            <Route exact path="/LogIn">
-                <LoginPage />
-            </Route>
-            <Route exact path="/SignUp">
-                <SignUpPage />
-            </Route>
-            <Route path="/LogIn/AuthenLogIn">
-                <AuthenLogIn />
-            </Route>
-            <Route exact path="/ForgetPwd">
-                <ForgetPwd />
-            </Route>
-            <Route path="/TermOfUse">
-                <TermOfUse />
-            </Route>
-            <Route path="/ForgetPwd/AuthenResetPwd">
-                <AuthenResetPwd />
-            </Route>
-            <Route path="/SignUp/AuthenSignup">
-                <AuthenSignup />
-            </Route>
+            <Route exact path="/" component={ LoginSigninPage } />
+            <Route exact path="/LogIn" component={ LoginPage } />
+            <Route exact path="/SignUp" component={ SignUpPage } />
+            <Route path="/LogIn/AuthenLogIn" component={ AuthenLogIn } />
+            <Route exact path="/ForgetPwd" component={ ForgetPwd } />
+            <Route path="/TermOfUse" component={ TermOfUse } />
+            <Route path="/ForgetPwd/AuthenResetPwd" component={ AuthenResetPwd } />
+            <Route path="/SignUp/AuthenSignup" component={ AuthenSignup } />
             <Route path="/Home">
                 <Home loginCallBack={ props.loginCallBack }/>
             </Route>
-            <Route exact path="/Threads/:threadID">
-                <Threads />
-            </Route>
-            <Route exact path="/Threads/:threadID/CreateComment">
-                <CreateComment />
-            </Route>
-            <Route path="/CreateThread">
-                <CreateThread />
-            </Route>
-            <Route path="/ReportList">
-                <ReportList />
-            </Route>
-            <Route path="/SearchThread">
-                <SearchThread />
-            </Route>
-            <Route path="/Profile">
-                <Profile />
-            </Route>
-            <Route exact path="/Threads/:threadID/CreateReport">
-                <CreateReport />
-            </Route>
-            <Route path="/Setting">
-                <Setting />
-            </Route>
+            <Route exact path="/Threads/:threadID"component={ Threads } />
+            <Route exact path="/Threads/:threadID/CreateComment" component={ CreateComment } />
+            <Route path="/CreateThread" component={ CreateThread } />
+            <Route path="/ReportList" component={ ReportList } />
+            <Route path="/SearchThread" component={ SearchThread } />
+            <Route path="/Profile" component={ Profile } />
+            <Route exact path="/Threads/:threadID/CreateReport" component={ CreateReport } />
+            <Route path="/Setting" component={ Setting } />
         </Switch>
     );
 };

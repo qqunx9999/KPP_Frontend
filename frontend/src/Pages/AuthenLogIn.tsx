@@ -19,12 +19,11 @@ const AuthenLogIn = () => {
             KU People
           </div>
           <div className="rotate">
-            <img src={ logo } alt="React is stupid" />
+            {/* <img src={ logo } alt="React is stupid" /> */}
           </div>
-          {/* <div className=" spinner-border text-success" role="status">
+          <div className=" spinner-border text-success" id="spin" role="status">
               <span className="sr-only">Loading...</span>
-              </div> */}
-          {/* </div> */}
+              </div>
           <div className="textAuth">
             Checking your verification code...
           </div>
