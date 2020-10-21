@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import '../CSSsource/Threads.css';
-import { Thread } from '../interfaces/threadEntity';
-import AuthService from '../service/AuthService';
-import threadService from '../service/threadService';
+import { Thread } from '../../interfaces/threadEntity';
+import AuthService from '../../service/AuthService';
+import threadService from '../../service/threadService';
 import { useHistory, useParams } from 'react-router';
+import { threadId } from 'worker_threads';
 
 const Threads = () => {
   const [thread, setThread] = useState<Thread[]>([]);
-  const history = useHistory();
-  // console.log(props.ThreadID);
+  
   const fetchThread = () => {
     threadService.fetchThread()
       .then(obj => {
@@ -17,8 +17,10 @@ const Threads = () => {
       })
   };
 
-  const threadID = threadService.checkThreadNO();
-  console.log(threadID);
+  const {threadID} = useParams();
+  let itemID: string;
+  thread.map(item => { itemID = item.threadID });
+  thread.map(item => { console.log(item.threadID === itemID) })
 
   useEffect(() => {
     fetchThread();
@@ -29,7 +31,7 @@ const Threads = () => {
       <Link to="/Home" className="thread_goback">
         <button onClick={ threadService.clearThreadNO } className="thread_goback_button">
           &lt; Go back
-          </button>
+        </button>
       </Link>
 
       <div className="thread-givecomment-txt">
@@ -44,7 +46,7 @@ const Threads = () => {
         <div className="thread_minitag1">
           <button className="thread_minitag1_frame">
             {thread.map(item => {
-              if (item.threadID === threadID) {
+              if (item.threadID === itemID) {
                 return (
                   <div>
                     { item.tag_arr[0] }
@@ -56,12 +58,32 @@ const Threads = () => {
         </div>
         <div className="thread_minitag2">
           <button className="thread_minitag2_frame">
-            Tag2
+          {thread.map(item => {
+              if (item.tag_arr.length > 1) {
+                if (item.threadID === itemID) {
+                  return (
+                    <div>
+                      { item.tag_arr[1] }
+                    </div>
+                  );
+                }
+              }
+            })}
           </button>
         </div>
         <div className="thread_minitag3">
           <button className="thread_minitag3_frame">
-            Tag3
+            {thread.map(item => {
+              if (item.tag_arr.length > 2) {
+                if (item.threadID === itemID) {
+                  return (
+                    <div>
+                      { item.tag_arr[2] }
+                    </div>
+                  );
+                }
+              }
+            })}
           </button>
         </div>
       </div>
@@ -69,21 +91,21 @@ const Threads = () => {
       <div className="thread-vote-frame">
         <div className="thread-upvote-no">
           {thread.map(item => {
-            if(item.threadID === threadID) {
+            if(item.threadID === itemID) {
               return item.up_vote_count
             }
           })}
         </div>
         <div className="thread-downvote-no">
           {thread.map(item => {
-            if(item.threadID === threadID) {
+            if(item.threadID === itemID) {
               return item.down_vote_count
             }
           })}
         </div>
         <div className="thread-comment-no">
           {thread.map(item => {
-            if(item.threadID === threadID) {
+            if(item.threadID === itemID) {
               return item.number_of_comment
             }
           })}
@@ -128,7 +150,9 @@ const Threads = () => {
         <div className="thread-topicname-frame">
           <div className="thread-topicname">
             Topic : {thread.map(item => {
-            return item.topic
+              if (item.threadID == itemID) {
+                return item.topic
+              }
           })}
           </div>
           <div className="thread-topiccreater">

@@ -38,7 +38,7 @@ const CreateReport = () => {
       <Navigtion />
       <div className="createrp-bigframe">
         { thread.map(item => (
-          <Link to={ `/Threads/${ item.userID }/` }>
+          <Link to={ `/Threads/${ item.threadID }/` }>
             <div className="createrp_goback">
           <button className="createrp_goback_button">
             &lt; Go back

@@ -30,7 +30,7 @@ const AuthenLogIn = () => {
         </div>
       </div>
       { setInterval(delay, 3000) }
-      { time && (<Redirect to="/Home" />) }
+      { time && (<Redirect to="/Home_new" />) }
     </div>
   );
 }
