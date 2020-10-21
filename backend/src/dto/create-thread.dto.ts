@@ -11,6 +11,8 @@ export class CreateThreadDto {
     tag_arr : string[];
     @IsString()
     content: string;
+
+    text_type: {bold: boolean, italic: boolean, font:string, size:number};
     @IsArray()
     image_arr: {URL: string, pos: number}[];  
     @IsArray()
@@ -31,6 +33,5 @@ export class CreateThreadDto {
     date_lastedit: Date =null;
     //@IsDate()
     date_delete: Date =null;
-    @IsBoolean()
-    isanonymous: boolean;
+    
 }

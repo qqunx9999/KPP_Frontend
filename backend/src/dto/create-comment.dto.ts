@@ -10,6 +10,8 @@ export class CreateCommentDto {
     threadID:ObjectID;
     @IsString()
     content:string;
+
+    text_type: {bold: boolean, italic: boolean, font:string, size:number};
     @IsArray()
     image_arr:{URL: string, pos: number}[];
     @IsInt()
@@ -22,6 +24,5 @@ export class CreateCommentDto {
     date_lastedit:Date;
     @IsDate()
     date_delete:Date;
-    @IsBoolean()
-    isanonymous:boolean;
+    
 }

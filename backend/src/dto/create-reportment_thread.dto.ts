@@ -9,10 +9,16 @@ export class CreateReportment_threadDto{
     threadID:ObjectID;
     @IsString()
     description:string;
+    
+    text_type: {bold: boolean, italic: boolean, font:string, size:number};
     @IsArray()
     image_arr: {URL: string, pos: number}[]; 
+    @IsString()
+    status: string;
     @IsDate()
     date_create:Date;
+    @IsDate()
+    date_considerd: Date;
     @IsDate()
     date_delete:Date;
 }

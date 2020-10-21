@@ -2,7 +2,8 @@ import { ObjectID } from "mongodb";
 
 export class User_info{
     userID?: ObjectID
-    username: string;
+    //username: string;
+    name: string;
     avatar_URL: string;
     exp: number;
     rank: string;

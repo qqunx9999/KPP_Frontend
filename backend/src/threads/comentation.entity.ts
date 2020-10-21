@@ -12,6 +12,8 @@ export class Commentation {
     @Column()
     content:string;
     @Column()
+    text_type: {bold: boolean, italic: boolean, font:string, size:number};
+    @Column()
     image_arr:{URL:string, pos:number}[];//URL ,pos
     @Column()
     reply_to:number;
@@ -23,7 +25,6 @@ export class Commentation {
     date_lastedit:Date;
     @Column()
     date_delete:Date;
-    @Column()
-    isanonymous:boolean;
+    
 }
 export default Commentation;

@@ -9,7 +9,7 @@ import { CreateUserDto } from 'src/dto/create-user.dto';
 @Injectable()
 export class UsersService {
     private user_info: User[] = [];
-    private info: User_info={userID: null,username:null,avatar_URL:null, exp:null, rank:null ,isLoggedIn:null };
+    private info: User_info={userID: null,name:null,avatar_URL:null, exp:null, rank:null ,isLoggedIn:null };
     
     // {not Modify
     private newusers = [];
@@ -37,7 +37,7 @@ export class UsersService {
         //var info: User_info;
         //console.log(this.user_info[0].userID);
         this.info.userID = this.user_info[0].userID;
-        this.info.username = this.user_info[0].username;
+        this.info.name = this.user_info[0].name;
         this.info.avatar_URL = this.user_info[0].avatar_URL;
         this.info.exp = this.user_info[0].exp;
         this.info.rank = this.user_info[0].rank;
@@ -47,14 +47,18 @@ export class UsersService {
     }
 
     async createUser(createUserDto: CreateUserDto) {
+        createUserDto.name = "Guess"
         createUserDto.avatar_URL = null;
         createUserDto.exp = 0;
         createUserDto.rank = "Beginner";
         createUserDto.friend_arr = [];
         createUserDto.numberfriends = 0;
         createUserDto.description = "";
+        createUserDto.text_type = {bold:false, italic: false, font:"Arial", size:10};
         createUserDto.chatmember_arr = [];
-        createUserDto.date_join = new Date();
+        var date = new Date();
+        date.setMinutes(date.getMinutes()+7*60); //Thailand timezone offset
+        createUserDto.date_join = date;
         createUserDto.isAdmin = false;
         createUserDto.isLoggedIn = false;
         return this.usersRepository.save(createUserDto);

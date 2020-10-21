@@ -6,10 +6,13 @@ export class User{
     userID?: ObjectID;
     @Column()
     username: string;
+
     @Column()
     email: string;
     @Column()
     password: string;
+   @Column()
+    name: string
     @Column()
     avatar_URL: string ;
     @Column()
@@ -22,6 +25,8 @@ export class User{
     numberfriends: number ;
     @Column()
     description: string ;
+    @Column()
+    text_type: {bold: boolean, italic: boolean, font:string, size:number};
     @Column()
     chatmember_arr: {chatroomID:ObjectID}[] ; //chatroomID
     @Column()
