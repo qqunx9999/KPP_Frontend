@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, HttpException, HttpStatus } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, HttpException, HttpStatus, Patch } from '@nestjs/common';
 import { ObjectID } from 'mongodb'
 
 import Thread from './thread.entity';
@@ -32,7 +32,6 @@ export class ThreadsController {
 
   @Post()
   async createThread(@Body() createThreadDto: CreateThreadDto){
-    
     return this.threadsService.createThread(createThreadDto);
   }
 
@@ -57,11 +56,21 @@ export class ThreadsController {
     }
   
   @Post(':threadID/comments/:commentID/reportCs')
-  async createReportment_comment(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,@Param('commentID',ParseObjectIdPipe) commentID: ObjectID,
-                @Body() createReportment_commentDto: CreateReportment_commentDto){
-    createReportment_commentDto.commentID = commentID;
-    return this.threadsService.createReportment_comment(createReportment_commentDto);
+  async createReportment_comment(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
+    @Param('commentID',ParseObjectIdPipe) commentID: ObjectID,
+    @Body() createReportment_commentDto: CreateReportment_commentDto){
+      createReportment_commentDto.commentID = commentID;
+      return this.threadsService.createReportment_comment(createReportment_commentDto);
     }
+
+
+  @Patch(':threadID')
+  async updateThread(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
+    @Body() updateThread_dto: CreateThreadDto) {
+    
+      return this.threadsService.updateThread(threadID, updateThread_dto);
+  }
+
   
 
 }
