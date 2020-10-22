@@ -7,8 +7,8 @@ const CreateThread_new = () => {
 
   return(
     <div>
-      <div className="temp">
-
+      <div style={ temp }>
+        <h1>Create Thread</h1>
       </div>
     </div>
   );
