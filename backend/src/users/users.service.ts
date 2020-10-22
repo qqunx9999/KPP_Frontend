@@ -47,7 +47,7 @@ export class UsersService {
     }
 
     async createUser(createUserDto: CreateUserDto) {
-        createUserDto.name = "Guess"
+        createUserDto.name = "Guest"
         createUserDto.avatar_URL = null;
         createUserDto.exp = 0;
         createUserDto.rank = "Beginner";

@@ -17,6 +17,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { ReportsModule } from './reports/reports.module';
 import { ChatroomsModule } from './chatrooms/chatrooms.module';
+import { NotificationModule } from './notification/notification.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { ChatroomsModule } from './chatrooms/chatrooms.module';
     UsersModule,
     ReportsModule,
     ChatroomsModule,
+    NotificationModule,
   ],
 
   controllers: [AppController],
