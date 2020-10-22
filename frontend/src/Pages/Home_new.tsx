@@ -3,7 +3,7 @@ import { Thread } from '../interfaces/threadEntity';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../CSSsource/Home.css';
 import threadService from '../service/threadService';
-import Navigtion from '../component/navBar';
+import Navigtion from '../component/NavBar';
 import { Route, useHistory, useParams } from 'react-router';
 import Threads_new from './Thread_new';
 import AuthService from '../service/AuthService';
@@ -44,11 +44,12 @@ const Home_new = (props: LoginFormProps) => {
 
   return (
     <div>
+      <Navigtion />
       <div style={temp}>
         <h1>Latest</h1>
         {thread.map(item => (
           <div>
-            <Link to={`/Thread_new/${ item.threadID }`} >
+            <Link to={`/Thread/${ item.threadID }`} >
               { item.topic } - { time.getDate() - Number(item.date_create) } Days
             </Link>
           </div>
@@ -56,7 +57,7 @@ const Home_new = (props: LoginFormProps) => {
         <h1>Hottest</h1>
         {thread.map(item => (
           <div>
-            <Link to={`/Thread_new/${ item.threadID }`} >
+            <Link to={`/Thread/${ item.threadID }`} >
               { item.topic } - Like { item.up_vote_count } : Dislike { item.down_vote_count } : Comments { item.number_of_comment }
             </Link>
           </div>
@@ -64,7 +65,7 @@ const Home_new = (props: LoginFormProps) => {
         <h1>News</h1>
         {thread.map(item => (
           <div>
-            <Link to={`/Thread_new/${ item.threadID }`} >
+            <Link to={`/Thread/${ item.threadID }`} >
               { item.topic }
             </Link>
           </div>

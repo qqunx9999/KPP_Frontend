@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigtion from '../component/navBar';
+import Navigtion from '../../component/NavBar';
 import '../CSSsource/CreateThread.css';
 import { Link } from "react-router-dom";
 

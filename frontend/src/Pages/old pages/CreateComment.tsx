@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // import '../CSSsource/CreateComment.css';
 import { Thread } from '../../interfaces/threadEntity';
 import threadService from '../../service/threadService';
-import Navigtion from '../../component/navBar';
+import Navigtion from '../../component/NavBar';
 
 const CreateComment = () => {
   const [thread, setThread] = useState<Thread[]>([]);

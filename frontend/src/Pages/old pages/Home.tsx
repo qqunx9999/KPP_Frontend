@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { Thread } from '../../interfaces/threadEntity';
 import 'bootstrap/dist/css/bootstrap.css';
-import ThreadItem from '../../component/threadItem';
+import ThreadItem from '../../component/ThreadItem';
 import '../CSSsource/Home.css';
 
 import threadService from '../../service/threadService';
-import Navigtion from '../../component/navBar';
+import Navigtion from '../../component/NavBar';
 
 type LoginFormProps = {
   loginCallBack?: () => void,

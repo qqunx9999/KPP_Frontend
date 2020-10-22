@@ -12,7 +12,7 @@ import '../CSSsource/LoginPage.css';
 import SignUpPage from "./SignUpPage"
 import AuthenLogIn from './AuthenLogIn';
 import Account from '../interfaces/accountEntity';
-import { EmailID } from '../component/loginForm';
+import { EmailID } from '../component/LoginForm';
 import { stringify } from 'querystring';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthService from '../service/AuthService';

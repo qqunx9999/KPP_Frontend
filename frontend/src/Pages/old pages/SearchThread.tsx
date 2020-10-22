@@ -1,7 +1,7 @@
 import React from 'react';
 import '../CSSsource/SearchThread.css';
 import '../CSSsource/Home.css';
-import Navigtion from '../component/navBar';
+import Navigtion from '../../component/NavBar';
 
 const SearchThread = () => {
   

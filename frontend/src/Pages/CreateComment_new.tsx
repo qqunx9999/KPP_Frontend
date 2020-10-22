@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router';
-import { Link } from "react-router-dom";
-import '../CSSsource/CreateComment.css';
 import { Thread } from '../interfaces/threadEntity';
 import threadService from '../service/threadService';
-import Navigtion from '../component/navBar';
+import Navigtion from '../component/NavBar';
+import CommentForm from '../component/CommentForm';
 
-const CreateComment_new = ({ ThreadID }) => {
+const CreateComment_new = () => {
   const [thread, setThread] = useState<Thread[]>([]);
   const history = useHistory();
-  console.log({ThreadID});
+  const { ThreadID } = useParams();
+
+  const temp = {
+    "margin": "10px"
+  };
 
   const fetchThread = () => {
     threadService.fetchThread()
@@ -23,9 +26,16 @@ const CreateComment_new = ({ ThreadID }) => {
   }, []);
 
   return (
-    <div>
-      hello
-      <button onClick={ history.goBack }>Go Back</button>
+    <div style={ temp }>
+      <h1>Give Comment</h1>
+      <button onClick={ history.goBack }>Go Back</button> <br />
+      Topic : 
+      { thread.map(item => {
+        if (item.threadID === { ThreadID }.ThreadID) {
+          return " " + item.topic
+        }
+      }) }
+      <CommentForm />
     </div>
   );
 }

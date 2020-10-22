@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import '../CSSsource/ReportList.css';
-import Navigtion from '../component/navBar';
+import Navigtion from '../../component/NavBar';
 const ReportList = () => {
   
 

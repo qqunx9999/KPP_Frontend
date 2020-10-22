@@ -1,9 +1,9 @@
 import React, { useState, useEffect, InputHTMLAttributes } from 'react';
 import { Link } from "react-router-dom";
 import '../CSSsource/CreateReport.css';
-import { Thread } from '../interfaces/threadEntity';
-import threadService from '../service/threadService';
-import Navigtion from '../component/navBar';
+import { Thread } from '../../interfaces/threadEntity';
+import threadService from '../../service/threadService';
+import Navigtion from '../../component/NavBar';
 
 const CreateReport = () => {
   const [thread, setThread] = useState<Thread[]>([]);
