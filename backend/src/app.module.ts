@@ -18,7 +18,7 @@ import { UsersModule } from './users/users.module';
 import { ReportsModule } from './reports/reports.module';
 import { ChatroomsModule } from './chatrooms/chatrooms.module';
 import { NotificationModule } from './notification/notification.module';
-import { Notifications } from './entities/notification.entity';
+import Notifications from './entities/notification.entity';
 
 @Module({
   imports: [
