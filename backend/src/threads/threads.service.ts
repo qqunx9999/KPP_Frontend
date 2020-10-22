@@ -14,6 +14,7 @@ import Reportment_comment from 'src/entities/reportment_comment.entity';
 import { CreateReportment_commentDto } from 'src/dto/create-reportment_comment.dto';
 import { UsersService } from 'src/users/users.service';
 
+
 @Injectable()
 export class ThreadsService {
   constructor(
@@ -53,7 +54,10 @@ export class ThreadsService {
     createThreadDto.down_vote_count = 0;
     createThreadDto.total_comment = 0;
     createThreadDto.number_of_all_comment = 0;
-    createThreadDto.date_lastedit = null;
+    var date = new Date();
+    date.setMinutes(date.getMinutes()+7*60);
+    createThreadDto.date_create = date;
+    createThreadDto.date_lastedit = date;
     createThreadDto.date_delete = null;
     return this.threadsRepository.save(createThreadDto);
   }
@@ -72,5 +76,10 @@ export class ThreadsService {
 
   async createReportment_comment(createReportment_commentDto: CreateReportment_commentDto){
     return this.reportment_commentRepository.save(createReportment_commentDto);
+  }
+
+  async updateThread(threadID: ObjectID, updateThread_dto: CreateThreadDto){
+    console.log(updateThread_dto);
+    return this.threadsRepository.update({threadID: threadID} , updateThread_dto);
   }
 }

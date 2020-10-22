@@ -8,25 +8,28 @@ export class CreateUserDto {
     email: string;
     @IsString()
     password: string;
+    //@IsString()
+    name: string ;//= "Guess";
     @IsString()
     avatar_URL: string;
-    @IsInt()
-    exp: number;
-    @IsString()
-    rank: string;
-    @IsArray()
-    friend_arr: {userID: ObjectID, sender: boolean, isAccepted: boolean, date_add: Date, date_accepted: Date, date_delete: Date}[];
-    @IsDate()
-    numberfriends: number;
-    @IsString()
-    description: string;
-    @IsArray()
-    isChatMember_arr: {chatroomID: ObjectID}[]; 
-    @IsDate()
-    date_join: Date;
-    @IsBoolean()
-    isAdmin: boolean;
-    @IsBoolean()
-    isLoggedIn: boolean;
+    //@IsInt()
+    exp: number //= 0;
+    //@IsString()
+    rank: string ;//= "Beginner";
+    //@IsArray()
+    friend_arr: {userID: ObjectID, sender: boolean, isAccepted: boolean, date_add: Date, date_accepted: Date, date_delete: Date}[];// = [];
+    //@IsInt()
+    numberfriends: number ;//= 0;
+    //@IsString()
+    description: string ;//= '';
+    text_type: {bold: boolean, italic: boolean, font:string, size:number};
+    //@IsArray()
+    chatmember_arr: {chatroomID: ObjectID}[];// =[]; 
+    //@IsDate()
+    date_join: Date ;//= new Date();
+    //@IsBoolean()
+    isAdmin: boolean ;//= false;
+    //@IsBoolean()
+    isLoggedIn: boolean ;//= false;
     
 }

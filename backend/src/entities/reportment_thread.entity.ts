@@ -12,9 +12,15 @@ export class Reportment_thread{
     @Column()
     description:string;
     @Column()
-    image_arr: {URL:string, pos:number}[]; //Url, pos
+    text_type: {bold: boolean, italic: boolean, font:string, size:number};
+    @Column()
+    image_arr: {URL:string, pos:number}[]; 
+    @Column()
+    status:string;
     @Column()
     date_create:Date;
+    @Column()
+    date_considered: Date;
     @Column()
     date_delete:Date;
 }
