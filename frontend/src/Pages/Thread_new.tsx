@@ -33,40 +33,59 @@ function Threads_new(props: LoginFormProps) {
   return (
     <div>
       <Navigtion />
-      <div style={temp}>
-        <h6>Topic :</h6>
-        {thread.map(item => {
-          if (item.threadID === { ThreadID }.ThreadID) {
-            return item.topic;
-          }
-        })}
-        <h6>by :</h6>
-        {thread.map(item => {
-          if (item.threadID === { ThreadID }.ThreadID) {
-            return item.userID;
-          }
-        })}
-        <h6>Content</h6>
-        {thread.map(item => {
-          if (item.threadID === { ThreadID }.ThreadID) {
-            return (
-              <div>
-                {item.content}
+      <div className="Threads-bigframe">
+        <div className="thread-topic-frame">
+          <div style={temp}>
+            <div className="thread-topicname-frame">
+              <div className="thread-topicname">
+                Topic : &nbsp;
+                {thread.map(item => {
+                  if (item.threadID === { ThreadID }.ThreadID) {
+                    return item.topic;
+                  }
+                })}
               </div>
-            );
-          }
-        })}
-        <h6>Tags :</h6>
-        {thread.map(item => {
-          if (item.threadID === { ThreadID }.ThreadID) {
-            return item.tag_arr.map(tag => (<li>{tag}</li>));
-          }
-        })}
-        <button onClick={history.goBack}>Go Back</button>
-        <Link to={`/CreateComment/${{ ThreadID }.ThreadID}`}><button>Give Comment</button></Link>
-        <Link to={`/CreateReport/${{ ThreadID }.ThreadID}`}><button>Report</button></Link>
-        <button>Like</button>
-        <button>Dislike</button>
+              <div className="thread-topiccreater">
+                by : &nbsp;
+                {thread.map(item => {
+                  if (item.threadID === { ThreadID }.ThreadID) {
+                    return item.userID;
+                  }
+                })}
+              </div>
+              <div className="thread-topic-detail-frame">
+                <div className="thread-topic-detail-text">
+                  {thread.map(item => {
+                    if (item.threadID === { ThreadID }.ThreadID) {
+                      return (
+                        <div>
+                          {item.content}
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="thread-tags-frame">
+          <div className="threads_tags_tags">Tags :</div>
+            {thread.map(item => {
+              if (item.threadID === { ThreadID }.ThreadID) {
+                return item.tag_arr.map(tag => (<li>{tag}</li>));
+              }
+            })}
+        </div>
+        
+        <button className="thread_goback_button" onClick={history.goBack}>&lt; Go Back</button>
+        <Link to={`/CreateComment/${{ ThreadID }.ThreadID}`}><button className="thread-givecm-button">Give Comment</button></Link>
+        <Link to={`/CreateReport/${{ ThreadID }.ThreadID}`}><button className="thread-report-frame">Report</button></Link>
+        <button className="thread-upvote-frame">Like</button>
+        <button className="thread-downvote-frame">Dislike</button>
+        
+        
       </div>
     </div>
   );
