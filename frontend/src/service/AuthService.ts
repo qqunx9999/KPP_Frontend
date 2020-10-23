@@ -24,14 +24,14 @@ async function LoginUser(email: string, password: string): Promise<any | null> {
 };
 
 async function SignupUser(username: string, email: string, password: string, conPassword: string): Promise<any | null> {
-    const res = await fetch(`${ baseUrl }/auth/signup`, {
+    const res = await fetch(`${ baseUrl }/users`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            username: username,
-            email: email,
-            password: password,
-            conPassword: conPassword,
+            "username": username,
+            "email": email,
+            "password": password,
+            "conPassword": conPassword,
         }),
     });
     const result = await res.json();

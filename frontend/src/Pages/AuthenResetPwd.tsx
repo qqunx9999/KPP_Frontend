@@ -2,25 +2,25 @@ import React, { useState } from 'react';
 import { Redirect } from "react-router-dom";
 import '../CSSsource/AuthenResetPwd.css';
 
-const AuthenResetPwd = () => {
-const [time, setRedirect] = useState<boolean>(false);
+function AuthenResetPwd() {
+  const [time, setRedirect] = useState<boolean>(false);
 
-function delay() {
-  setRedirect(true);
-}
+  function delay() {
+    setRedirect(true);
+  }
 
   return (
     <div className="backgroundFinishLoadAuthenResetPwd">
       <div className="frameAuthenReset">
         <div className="KUpeopleAuthenReset">
           KU People
-          </div>
+        </div>
         <div className="textAuthenReset">
-          Password changed! Back to log in...
-          </div>
+          Password changed!Back to log in...
+        </div>
       </div>
-      { setInterval(delay, 3000) }
-      { time && (<Redirect to="/" />) }
+      {setInterval(delay, 3000)}
+      {time && (<Redirect to="/" />)}
     </div>
   );
 }

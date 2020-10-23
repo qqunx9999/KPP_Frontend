@@ -1,13 +1,17 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 
-const ReportForm = () => {
+type LoginFormProps = {
+  loginCallBack?: () => void,
+};
+
+function ReportForm(props: LoginFormProps) {
   return (
     <Formik
       initialValues={{ reportThread: '', reportComment: '', commentNO: '', size: '', comment: '' }}
       onSubmit={async (values, actions) => {
         actions.setSubmitting(false);
-      }}
+      } }
     >
       {({ isSubmitting }) => (
         <Form>
@@ -20,11 +24,11 @@ const ReportForm = () => {
           <Field type="input" name="size" />
           <h6>Place your reason :</h6>
           <Field type="input" name="comment" />
-          <button disabled={ isSubmitting }>Send</button>
+          <button disabled={isSubmitting}>Send</button>
         </Form>
       )}
     </Formik>
   );
-};
+}
 
 export default ReportForm;
