@@ -4,6 +4,7 @@ import { Thread } from '../interfaces/threadEntity';
 import ThreadService from '../service/ThreadService';
 import Navigtion from '../component/NavBar';
 import CommentForm from '../component/CommentForm';
+import '../CSSsource/CreateComment.css';
 
 const CreateComment_new = () => {
   const [thread, setThread] = useState<Thread[]>([]);
@@ -27,15 +28,28 @@ const CreateComment_new = () => {
 
   return (
     <div style={ temp }>
-      <h1>Give Comment</h1>
-      <button onClick={ history.goBack }>Go Back</button> <br />
-      Topic : 
-      { thread.map(item => {
-        if (item.threadID === { ThreadID }.ThreadID) {
-          return " " + item.topic
-        }
-      }) }
-      <CommentForm />
+      <Navigtion />
+        <div className="createcm-bigframe">        
+        <button className="createcm_goback_button" onClick={ history.goBack }>&lt; Go Back</button> <br />
+        <div className="createcm-whiteframe">
+          <div className="createcm-give-comment">
+            Give Comment
+          </div>
+          <div className="createcm-topicname-frame">
+            <div className="createcm-in-topic_">
+              In Topic :
+            </div>
+            <div className="createcm-topic-name">              
+              { thread.map(item => {
+                if (item.threadID === { ThreadID }.ThreadID) {
+                  return " " + item.topic
+                }
+              }) }
+            </div>
+          </div>
+          <CommentForm />
+        </div>
+      </div>
     </div>
   );
 }
