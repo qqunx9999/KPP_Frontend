@@ -5,6 +5,8 @@ export class CreateReportment_commentDto{
     
     userID:ObjectID;
     
+    threadID:ObjectID;
+
     commentID:ObjectID;
     @IsString()
     description:string;

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, HttpException, HttpStatus, Patch } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, HttpException, HttpStatus, Patch, ParseArrayPipe } from '@nestjs/common';
 import { ObjectID } from 'mongodb'
 
 import Thread from './thread.entity';
@@ -25,6 +25,17 @@ export class ThreadsController {
     return this.threadsService.findAll();
   }
 
+  // @Get('filter/:tags/:sortby/:pagesize/:pageNo')
+  // async filterThread(@Param('tags', ParseArrayPipe) tags: string[],
+  //   @Param('sortby') sortby: string,
+  //   @Param('pagesize') pagesize: number,
+  //   @Param('pageNo') pageNo: number
+  // ): Promise<any>{
+  //   return this.threadsService.filterThread(tags, sortby, pagesize, pageNo);
+    
+  // }
+
+
   @Get(':threadID')
   async findOneThread(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<any> {
     return this.threadsService.findOneThread(threadID);
@@ -45,6 +56,7 @@ export class ThreadsController {
   async createCommentation(@Param('threadID', ParseObjectIdPipe) threadID:ObjectID, 
                 @Body() createCommentationDto: CreateCommentDto){
     createCommentationDto.threadID = threadID;
+    createCommentationDto.userID  = new ObjectID (createCommentationDto.userID);
     return this.threadsService.createCommentation(createCommentationDto);
     }
 
@@ -52,6 +64,7 @@ export class ThreadsController {
   async createReportment_thread(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
                 @Body() createReportment_threadDto: CreateReportment_threadDto){
     createReportment_threadDto.threadID = threadID;
+    createReportment_threadDto.userID = new ObjectID (createReportment_threadDto.userID);
     return this.threadsService.createReportment_thread(createReportment_threadDto);
     }
   
@@ -59,7 +72,9 @@ export class ThreadsController {
   async createReportment_comment(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
     @Param('commentID',ParseObjectIdPipe) commentID: ObjectID,
     @Body() createReportment_commentDto: CreateReportment_commentDto){
+      createReportment_commentDto.threadID = threadID;
       createReportment_commentDto.commentID = commentID;
+      createReportment_commentDto.userID = new ObjectID (createReportment_commentDto.userID);
       return this.threadsService.createReportment_comment(createReportment_commentDto);
     }
 
@@ -67,7 +82,7 @@ export class ThreadsController {
   @Patch(':threadID')
   async updateThread(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
     @Body() updateThread_dto: CreateThreadDto) {
-    
+      
       return this.threadsService.updateThread(threadID, updateThread_dto);
   }
 

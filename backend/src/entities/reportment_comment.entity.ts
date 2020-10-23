@@ -8,6 +8,8 @@ export class Reportment_comment{
     @Column()
     userID:ObjectID;
     @Column()
+    threadID: ObjectID;
+    @Column()
     commentID:ObjectID;
     @Column()
     description:string;

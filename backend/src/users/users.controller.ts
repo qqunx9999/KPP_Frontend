@@ -9,10 +9,17 @@ import { UsersService } from './users.service';
 @Controller('users')
 export class UsersController {
     constructor(private usersService: UsersService) {}
+  // {not modify
+  @Post()
+  async createUser(@Body() createUserDto: CreateUserDto){
+  return this.usersService.createUser(createUserDto);
+  }
+  // not modify}
 
-    @Post()
-    async createUser(@Body() createUserDto: CreateUserDto){
-    return this.usersService.createUser(createUserDto);
+  @Get(':userID') 
+  async findOneUser(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise<User>{
+    return this.usersService.findOneUser(userID);
   }
     
+
 }

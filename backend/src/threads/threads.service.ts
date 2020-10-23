@@ -30,31 +30,33 @@ export class ThreadsService {
       
   ) {}
 
-  private th = [];
+  
   async findAll(): Promise<Thread[]> {
     return this.threadsRepository.find();
   }
   
   async findOneThread(threadID: ObjectID): Promise<any>{
-    await this.threadsRepository.find({where:{ _id: threadID}})
-      .then(setthread => {
-        this.th = setthread;
+    let th: Thread ;
+    await this.threadsRepository.findOne({where:{ _id: threadID}})
+      .then(setThread => {
+        th = setThread;
       }); 
-    //console.log(this.th[0].userID);
-    var own_thread:ObjectID = this.th[0].userID
+    //console.log(th);
+    let own_thread:ObjectID = th.userID
     const info_own_thread = this.usersService.findUserInfo(own_thread);
-    return [this.th, await(info_own_thread)];
+    return [th, await(info_own_thread)];
   }
   
 
   async createThread(createThreadDto: CreateThreadDto) {
+    createThreadDto.userID = new ObjectID(createThreadDto.userID); // userID: string to Object
     createThreadDto.up_vote_arr = [];
     createThreadDto.down_vote_arr = [];
     createThreadDto.up_vote_count = 0;
     createThreadDto.down_vote_count = 0;
     createThreadDto.total_comment = 0;
     createThreadDto.number_of_all_comment = 0;
-    var date = new Date();
+    let date = new Date();
     date.setMinutes(date.getMinutes()+7*60);
     createThreadDto.date_create = date;
     createThreadDto.date_lastedit = date;
@@ -63,10 +65,12 @@ export class ThreadsService {
   }
 
   async findAllCommentations(threadID: ObjectID): Promise<Commentation[]> {
+    //this.commentationsRepository
     return this.commentationsRepository.find({where:{ threadID: threadID }});
   } 
 
   async createCommentation(createCommentationDto: CreateCommentDto) {
+    
     return this.commentationsRepository.save(createCommentationDto);
   }
 
@@ -79,7 +83,7 @@ export class ThreadsService {
   }
 
   async updateThread(threadID: ObjectID, updateThread_dto: CreateThreadDto){
-    console.log(updateThread_dto);
+    //console.log(updateThread_dto);
     return this.threadsRepository.update({threadID: threadID} , updateThread_dto);
   }
 }
