@@ -34,6 +34,44 @@ export class ThreadsService {
   async findAll(): Promise<Thread[]> {
     return this.threadsRepository.find();
   }
+
+  async filterThread(tags: string[], sortby:string, pagesize: number, pageNo: number): Promise<any>{
+    let threadArr: Thread[];
+    var orderby: object;
+    if(sortby === "Oldest"){  orderby = {date_create: "ASC"};}
+    else if(sortby === "popular"){  orderby = {total_comment: "DESC"};}
+    else if (sortby === "like"){orderby = {up_vote_count: "DESC"};}
+    else if (sortby === "Hottest"){orderby = {total_comment: "DESC", up_vote_count:"DESC", down_vote_count: "DESC"};}
+    else {orderby = {date_create: "DESC"};}
+    //console.log(tags);
+    //console.log(tags[0]);
+    await this.threadsRepository.find({order: orderby})
+      .then(setThread => {
+        threadArr = setThread;
+      });  
+    let threads: Thread[] 
+      if(tags[0] !== ''){
+        threads =  threadArr.filter(eachThread => {
+          var countTag = 0;
+          for(let i = 0; i<tags.length; i++){
+            for(let j = 0; j<eachThread.tag_arr.length; j++){
+              if (tags[i] === eachThread.tag_arr[j]){
+                countTag++;
+                break;
+              }
+            }
+          }
+          if(countTag === tags.length){return true;}
+          else{return false;}
+        });
+      }
+      else{ threads = threadArr;}
+    const totals = Math.ceil(threads.length/pagesize);
+    let begin = pagesize*(pageNo-1);
+    let last = pagesize*pageNo; if(last>threads.length){last = threads.length}
+    threads = threads.slice(begin, last);
+    return  {threads, pageInfo:{pagesize: threads.length, pageNo, total: totals}};
+  }
   
   async findOneThread(threadID: ObjectID): Promise<any>{
     let th: Thread ;
