@@ -35,7 +35,7 @@ export class ThreadsService {
     return this.threadsRepository.find();
   }
 
-  async filterThread(tags: string[], sortby:string, pagesize: number, pageNo: number): Promise<any>{
+  async filterThread(tags: string[], sortby:string, pagesize: number, pageNo: number): Promise<Thread[]>{
     let threadArr: Thread[];
     var orderby: object;
     if(sortby === "Oldest"){  orderby = {date_create: "ASC"};}
@@ -45,32 +45,57 @@ export class ThreadsService {
     else {orderby = {date_create: "DESC"};}
     //console.log(tags);
     //console.log(tags[0]);
-    await this.threadsRepository.find({order: orderby})
+    await this.threadsRepository.find({ where:{date_delete:null} ,order:orderby})
       .then(setThread => {
         threadArr = setThread;
       });  
     let threads: Thread[] 
-      if(tags[0] !== ''){
-        threads =  threadArr.filter(eachThread => {
-          var countTag = 0;
-          for(let i = 0; i<tags.length; i++){
-            for(let j = 0; j<eachThread.tag_arr.length; j++){
-              if (tags[i] === eachThread.tag_arr[j]){
-                countTag++;
-                break;
-              }
+    if(tags[0] !== ''){
+      threads =  threadArr.filter(eachThread => {
+        var countTag = 0;
+        for(let i = 0; i<tags.length; i++){
+          for(let j = 0; j<eachThread.tag_arr.length; j++){
+            if (tags[i] === eachThread.tag_arr[j]){
+              countTag++;
+              break;
             }
           }
-          if(countTag === tags.length){return true;}
-          else{return false;}
-        });
+        }
+        if(countTag === tags.length){return true;}
+        else{return false;}
+      });
+    }
+    else{ threads = threadArr;}
+    // const totals = Math.ceil(threads.length/pagesize);
+    // let begin = pagesize*(pageNo-1);
+    // let last = pagesize*pageNo; if(last>threads.length){last = threads.length}
+    // threads = threads.slice(begin, last);
+    return  threads; //, pageInfo:{pagesize: threads.length, pageNo, total: totals}};
+  }
+
+  async searchThread(keyword: string, tags: string[], sortby:string, pagesize: number, pageNo: number):Promise<any>{
+    let threadArr: Thread[];
+    await this.filterThread(tags, sortby, pagesize, pageNo)
+      .then(setThread => {
+      threadArr = setThread;
+      });
+    let threads: Thread[];
+    threads = threadArr.filter(eachThread => {
+      let stri = 0;
+      for(var i = 0; i<eachThread.topic.length; i++){
+        if(eachThread.topic[i] === keyword[stri]){
+          stri++;
+          if (stri === keyword.length){ return true;}
+        }
+        else{
+          stri = 0;
+        }
       }
-      else{ threads = threadArr;}
-    const totals = Math.ceil(threads.length/pagesize);
-    let begin = pagesize*(pageNo-1);
-    let last = pagesize*pageNo; if(last>threads.length){last = threads.length}
-    threads = threads.slice(begin, last);
-    return  {threads, pageInfo:{pagesize: threads.length, pageNo, total: totals}};
+      return false;
+    });
+
+  
+    return threads;
   }
   
   async findOneThread(threadID: ObjectID): Promise<any>{
