@@ -7,11 +7,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "@types/jest": "^24.9.1",
-<<<<<<< HEAD
-    "@types/node": "^12.19.1",
-=======
     "@types/node": "^12.19.0",
->>>>>>> b864c12f1516fe77b23f2783b46ae253308bd375
     "@types/react": "^16.9.53",
     "@types/react-bootstrap": "^0.32.24",
     "@types/react-dom": "^16.9.8",

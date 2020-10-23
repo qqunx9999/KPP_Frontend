@@ -20,7 +20,7 @@
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     position: absolute;    
     top: 4.5%;
-    left: 7%;
+    left: 2.5%;
     transform: scale(0.7, 0.7);
     border-width: 0px;
   }
@@ -44,8 +44,8 @@
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;    
-    top: -7.5%;
-    left: 17.5%;
+    top: -13.5%;
+    left: 10%;
     transform: scale(0.7, 0.7);
   }
 
@@ -105,6 +105,7 @@
     top: 18px;
     left: 472px;
     border-width: 0px;
+    line-height: 2;
   }
 
 .createrp_selthread_square {    
@@ -115,14 +116,14 @@
 }
 
 .createrp-this-thread {
-    width: 158px;
+    width: 160px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
     color: #ffffff;
     font-size: 23px;
     letter-spacing: 3px;
-    line-height: 2;    
+    line-height: 3;    
   }
 
 .createrp_selcm_button {
@@ -140,6 +141,7 @@
     top: 103px;
     left: 472px;
     border-width: 0px;
+    line-height: 2;
   }
 
 .createrp_selcm_square {    
@@ -245,6 +247,17 @@
     border-width: 0px;
   }
 
+.createrp-cha {
+    width: 108px;
+    height: 105px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #7e7c7c;
+    font-size: 35px;
+    letter-spacing: 3px;
+    line-height: 1;
+  }
+
 .createrp-fonts-frame {    
     width: 117px;
     height: 53px;
@@ -278,8 +291,12 @@
     border-radius: 15px;
     position: absolute;  
     top: 17px;
-    left: 280px;    
+    left: 280px;   
+    text-align: center;
+    line-height: 2;
   }
+
+  
 
 .createrp-size {
     width: 85px;
@@ -312,8 +329,10 @@
     border-radius: 10;
     width: 411px;
     position: absolute;    
-    top: 28px;
-    left: 78px;
+    top: 4px;
+    left: 95px;
+    
+    
 }
 
 .createrp-Clipboard-frame {
