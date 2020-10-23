@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../CSSsource/Threads.css';
 import { Thread } from '../interfaces/threadEntity';
-import threadService from '../service/threadService';
+import ThreadService from '../service/ThreadService';
 import { useHistory, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import CreateComment from './old pages/CreateComment';
 import Navigtion from '../component/NavBar';
 
 const Threads_new = () => {
@@ -13,7 +12,7 @@ const Threads_new = () => {
   const history = useHistory();
 
   const fetchThread = () => {
-    threadService.fetchThread()
+    ThreadService.fetchThread()
       .then(obj => {
         setThread(obj);
       })

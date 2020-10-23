@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import ThreadItem from '../../component/ThreadItem';
 import '../CSSsource/Home.css';
 
-import threadService from '../../service/threadService';
+import ThreadService from '../../service/ThreadService';
 import Navigtion from '../../component/NavBar';
 
 type LoginFormProps = {
@@ -16,7 +16,7 @@ const Home = (props: LoginFormProps) => {
   const [thread, setThread] = useState<Thread[]>([]);
 
   const fetchThread = () => {
-    threadService.fetchThread()
+    ThreadService.fetchThread()
       .then(obj => {
         setThread(obj);
       })
@@ -38,7 +38,7 @@ const Home = (props: LoginFormProps) => {
                   return (
                     <Link to={{ pathname: `/Threads/${item.threadID}` }}>
                     <ul className="content">
-                      { threadService.passThreadNO(item.threadID) }
+                      { ThreadService.passThreadNO(item.threadID) }
                       <ThreadItem key={item.threadID} thread={item} />
                     </ul>
                   </Link>

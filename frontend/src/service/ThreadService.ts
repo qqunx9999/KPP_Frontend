@@ -1,4 +1,3 @@
-import { threadId } from 'worker_threads';
 import { baseUrl } from '../config/constant';
 import { Thread } from '../interfaces/threadEntity';
 

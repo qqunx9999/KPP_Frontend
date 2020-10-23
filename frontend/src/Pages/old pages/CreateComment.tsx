@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router';
 import { Link } from "react-router-dom";
-// import '../CSSsource/CreateComment.css';
 import { Thread } from '../../interfaces/threadEntity';
-import threadService from '../../service/threadService';
+import ThreadService from '../../service/ThreadService';
 import Navigtion from '../../component/NavBar';
 
 const CreateComment = () => {
@@ -30,7 +29,7 @@ const CreateComment = () => {
   };
 
   const fetchThread = () => {
-    threadService.fetchThread()
+    ThreadService.fetchThread()
       .then(obj => {
         setThread(obj);
       })

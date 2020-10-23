@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import '../CSSsource/Threads.css';
 import { Thread } from '../../interfaces/threadEntity';
 import AuthService from '../../service/AuthService';
-import threadService from '../../service/threadService';
+import ThreadService from '../../service/ThreadService';
 import { useHistory, useParams } from 'react-router';
 import { threadId } from 'worker_threads';
 
@@ -11,7 +11,7 @@ const Threads = () => {
   const [thread, setThread] = useState<Thread[]>([]);
   
   const fetchThread = () => {
-    threadService.fetchThread()
+    ThreadService.fetchThread()
       .then(obj => {
         setThread(obj);
       })
@@ -29,7 +29,7 @@ const Threads = () => {
   return (
     <div className="Threads-bigframe">
       <Link to="/Home" className="thread_goback">
-        <button onClick={ threadService.clearThreadNO } className="thread_goback_button">
+        <button onClick={ ThreadService.clearThreadNO } className="thread_goback_button">
           &lt; Go back
         </button>
       </Link>

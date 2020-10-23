@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigtion from '../component/NavBar';
+import Navigtion from '../../component/NavBar';
 import '../CSSsource/Profile.css';
 import profilePic from '../Pages/image/Patrick.png'
 

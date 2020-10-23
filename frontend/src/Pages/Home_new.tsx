@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Thread } from '../interfaces/threadEntity';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../CSSsource/Home.css';
-import threadService from '../service/threadService';
+import ThreadService from '../service/ThreadService';
 import Navigtion from '../component/NavBar';
 import { Route, useHistory, useParams } from 'react-router';
-import Threads_new from './Thread_new';
-import AuthService from '../service/AuthService';
 import { BrowserRouter, Link } from 'react-router-dom';
 import Switch from 'react-bootstrap/esm/Switch';
 
@@ -28,14 +26,14 @@ const Home_new = (props: LoginFormProps) => {
   thread.map(item => (itemThread = item));
 
   const fetchThread = () => {
-    threadService.fetchThread()
+    ThreadService.fetchThread()
       .then(obj => {
         setThread(obj);
       })
   };
 
   const passThread = (item: string) => {
-    threadService.passThreadNO(item);
+    ThreadService.passThreadNO(item);
   };
 
   useEffect(() => {

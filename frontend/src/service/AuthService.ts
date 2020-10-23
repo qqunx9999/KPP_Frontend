@@ -1,5 +1,5 @@
 import { baseUrl } from '../config/constant';
-import { userinfo } from '../interfaces/userInfoEntity';
+import { Userinfo } from '../interfaces/userInfoEntity';
 
 async function LoginUser(email: string, password: string): Promise<any | null> {
     const res = await fetch(`${ baseUrl }/auth/login`, {
@@ -16,6 +16,7 @@ async function LoginUser(email: string, password: string): Promise<any | null> {
         localStorage.setItem("user", result);
         localStorage.setItem("token", result.access_token);
         localStorage.setItem("username", result.username);
+        localStorage.setItem("userID", result.userID);
         return result;
     } else {
         return null;
@@ -87,11 +88,17 @@ function getAccessToken(): string {
     return localStorage.accessToken;
 }
 
-function getUserInfo(): userinfo | null {
+function getUserInfo(): Userinfo | null {
     if (isUserLoggedIn()) {
         return localStorage.user;
     } else {
         return null;
+    }
+}
+
+function getUserID(): any {
+    if (isUserLoggedIn()) {
+        return localStorage.userID;
     }
 }
 
@@ -105,4 +112,5 @@ export default {
     logOutUser,
     getAccessToken,
     getUserInfo,
+    getUserID,
 };

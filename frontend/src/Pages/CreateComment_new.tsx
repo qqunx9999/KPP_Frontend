@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router';
 import { Thread } from '../interfaces/threadEntity';
-import threadService from '../service/threadService';
+import ThreadService from '../service/ThreadService';
 import Navigtion from '../component/NavBar';
 import CommentForm from '../component/CommentForm';
 
@@ -15,7 +15,7 @@ const CreateComment_new = () => {
   };
 
   const fetchThread = () => {
-    threadService.fetchThread()
+    ThreadService.fetchThread()
       .then(obj => {
         setThread(obj);
       })
