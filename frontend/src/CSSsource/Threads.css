@@ -46,7 +46,7 @@
     border-radius: 33px;
     position: absolute;    
     top: 8%;
-    left: -0.5%;
+    left: -2%;
     transform: scale(0.7, 0.7);
   }
 
@@ -229,6 +229,19 @@
     transform: scale(0.7, 0.7);
   }
 
+.thread-report-frame {
+    width: 97px;
+    height: 94px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 29px;
+    position: absolute;    
+    top: 15.5%;
+    left: 88%;
+    transform: scale(0.7, 0.7);
+  }
+
 .thread-comment-frame {
     width: 97px;
     height: 94px;
@@ -278,9 +291,9 @@
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;    
-    top: -2%;
+    top: 5%;
     left: 20%;
-    transform: scale(0.8, 0.8);
+    transform: scale(1, 1);
   }
 
 .thread-topicname-frame {
@@ -296,7 +309,7 @@
   }
 
 .thread-topicname {
-    width: 420px;
+    width: 700px;
     height: 102px;
     overflow: visible;
     font-family: "Inter", sans-serif;
@@ -373,8 +386,8 @@
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 26px;
     position: absolute;    
-    top: 137px;
-    left: 34px;
+    top: 120px;
+    left: 10px;
   }
 
 .thread-topic-detail-text {
