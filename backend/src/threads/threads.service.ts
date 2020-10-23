@@ -30,20 +30,21 @@ export class ThreadsService {
       
   ) {}
 
-  private th = [];
+  
   async findAll(): Promise<Thread[]> {
     return this.threadsRepository.find();
   }
   
   async findOneThread(threadID: ObjectID): Promise<any>{
-    await this.threadsRepository.find({where:{ _id: threadID}})
+    let th: Thread ;
+    await this.threadsRepository.findOne({where:{ _id: threadID}})
       .then(setThread => {
-        this.th = setThread;
+        th = setThread;
       }); 
-    //console.log(this.th[0].userID);
-    let own_thread:ObjectID = this.th[0].userID
+    //console.log(th);
+    let own_thread:ObjectID = th.userID
     const info_own_thread = this.usersService.findUserInfo(own_thread);
-    return [this.th[0], await(info_own_thread)];
+    return [th, await(info_own_thread)];
   }
   
 
@@ -64,6 +65,7 @@ export class ThreadsService {
   }
 
   async findAllCommentations(threadID: ObjectID): Promise<Commentation[]> {
+    //this.commentationsRepository
     return this.commentationsRepository.find({where:{ threadID: threadID }});
   } 
 

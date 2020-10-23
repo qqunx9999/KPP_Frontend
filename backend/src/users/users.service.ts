@@ -28,8 +28,12 @@ export class UsersService {
     }
     // not Modify}
 
+    async findOneUser(userID: ObjectID): Promise<User>{
+        return this.usersRepository.findOne({where:{_id: userID }})
+    }
+
     async findUserInfo(userID: ObjectID): Promise<User_info>{
-        console.log(userID);
+        //console.log(userID);
         await this.usersRepository.find({where:{_id: userID}})
             .then(setuser_info => {
             this.user_info = setuser_info;
