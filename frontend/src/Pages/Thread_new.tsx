@@ -6,7 +6,11 @@ import { useHistory, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import Navigtion from '../component/NavBar';
 
-const Threads_new = () => {
+type LoginFormProps = {
+  loginCallBack?: () => void,
+};
+
+function Threads_new(props: LoginFormProps) {
   const { ThreadID } = useParams();
   const [thread, setThread] = useState<Thread[]>([]);
   const history = useHistory();
@@ -15,7 +19,7 @@ const Threads_new = () => {
     ThreadService.fetchThread()
       .then(obj => {
         setThread(obj);
-      })
+      });
   };
 
   useEffect(() => {
@@ -33,13 +37,13 @@ const Threads_new = () => {
         <h6>Topic :</h6>
         {thread.map(item => {
           if (item.threadID === { ThreadID }.ThreadID) {
-            return item.topic
+            return item.topic;
           }
         })}
         <h6>by :</h6>
         {thread.map(item => {
           if (item.threadID === { ThreadID }.ThreadID) {
-            return item.userID
+            return item.userID;
           }
         })}
         <h6>Content</h6>
@@ -55,12 +59,12 @@ const Threads_new = () => {
         <h6>Tags :</h6>
         {thread.map(item => {
           if (item.threadID === { ThreadID }.ThreadID) {
-            return item.tag_arr.map(tag => (<li>{tag}</li>))
+            return item.tag_arr.map(tag => (<li>{tag}</li>));
           }
         })}
         <button onClick={history.goBack}>Go Back</button>
         <Link to={`/CreateComment/${{ ThreadID }.ThreadID}`}><button>Give Comment</button></Link>
-        <Link to={`/CreateReport/${{ ThreadID }.ThreadID}`}><button >Report</button></Link>
+        <Link to={`/CreateReport/${{ ThreadID }.ThreadID}`}><button>Report</button></Link>
         <button>Like</button>
         <button>Dislike</button>
       </div>

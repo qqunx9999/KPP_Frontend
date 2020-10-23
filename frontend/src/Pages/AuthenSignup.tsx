@@ -5,7 +5,8 @@ import {
 } from "react-router-dom";
 import '../CSSsource/AuthenSignup.css';
 import logo from '../Pages/image/nong_plub.png'
-const AuthenSignup = () => {
+
+function AuthenSignup() {
   const [time, setRedirect] = useState<boolean>(false);
 
   const delay = () => {
@@ -19,19 +20,19 @@ const AuthenSignup = () => {
           <div className="AuthenSU-whiteframe">
             <div className="AuthenSU-k-u-people">
               KU People
-                 </div>
+            </div>
             <div className="rotate">
               <img src={logo} alt="React is stupid" />
             </div>
             <div className="AuthenSU-in_progess">
-              Signing up in progess...
-                 </div>
+                     Signing up in progess...
+            </div>
           </div>
         </div>
 
       </Router>
-      { setInterval(delay, 3000)}
-      { time && (<Redirect to="/" />)}
+      {setInterval(delay, 3000)}
+      {time && (<Redirect to="/" />)}
     </div>
 
   );

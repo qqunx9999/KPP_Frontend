@@ -4,7 +4,7 @@ import '../CSSsource/LoginSigninPage.css';
 import LogInPage from './LoginPage'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const LoginSigninPage = () => {
+function LoginSigninPage() {
 
 
   return (
@@ -22,14 +22,14 @@ const LoginSigninPage = () => {
             <button type="button" className="SignupFrameLoginSignin btn btn-success">
               <div className="SignUpLoginSignin">
                 Sign Up
-            </div>
+              </div>
             </button>
           </Link>
-          <Link to="/LogIn" >
+          <Link to="/LogIn">
             <button type="button" className="LoginFrameLoginSignin btn btn-success">
               <div className="LogInLoginSignin ">
-                Log In
-            </div>
+                          Log In
+              </div>
             </button>
           </Link>
         </div>

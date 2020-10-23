@@ -4,7 +4,7 @@ import ReportForm from '../component/ReportForm';
 import '../CSSsource/CreateReport.css';
 import Navigtion from '../component/NavBar';
 
-const CreateReport_new = () => {
+function CreateReport_new() {
   const history = useHistory();
   const { ThreadID } = useParams();
 
@@ -27,6 +27,6 @@ const CreateReport_new = () => {
       </div>
     </div>
   );
-};
+}
 
 export default CreateReport_new;

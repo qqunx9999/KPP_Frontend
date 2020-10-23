@@ -6,7 +6,7 @@ import Navigtion from '../component/NavBar';
 import CommentForm from '../component/CommentForm';
 import '../CSSsource/CreateComment.css';
 
-const CreateComment_new = () => {
+function CreateComment_new() {
   const [thread, setThread] = useState<Thread[]>([]);
   const history = useHistory();
   const { ThreadID } = useParams();
@@ -19,7 +19,7 @@ const CreateComment_new = () => {
     ThreadService.fetchThread()
       .then(obj => {
         setThread(obj);
-      })
+      });
   };
 
   useEffect(() => {

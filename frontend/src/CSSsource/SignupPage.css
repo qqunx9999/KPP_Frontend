@@ -336,3 +336,7 @@ background: rgba(0, 0, 0, 0.2)
   top: 10px;
   left: 20px;
 }
+
+.bigText {
+  font-size: large;
+}

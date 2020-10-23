@@ -4,11 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../Pages/image/nong_plub.png'
 import { Redirect } from 'react-router';
 
-const AuthenLogIn = () => {
+function AuthenLogIn() {
   const [time, setRedirect] = useState<boolean>(false);
 
   const delay = () => {
-    setRedirect(true)
+    setRedirect(true);
   };
 
   return (
@@ -19,18 +19,18 @@ const AuthenLogIn = () => {
             KU People
           </div>
           <div className="rotate">
-            {/* <img src={ logo } alt="React is stupid" /> */}
+
           </div>
           <div className=" spinner-border text-success" id="spin" role="status">
-              <span className="sr-only">Loading...</span>
-              </div>
+            <span className="sr-only">Loading...</span>
+          </div>
           <div className="textAuth">
             Checking your verification code...
           </div>
         </div>
       </div>
-      { setInterval(delay, 3000) }
-      { time && (<Redirect to="/Home" />) }
+      {setInterval(delay, 3000)}
+      {time && (<Redirect to="/Home" />)}
     </div>
   );
 }

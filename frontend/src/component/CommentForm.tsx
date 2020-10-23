@@ -1,8 +1,13 @@
 import { Formik, Form, Field } from 'formik';
 import React from 'react';
+import '../CSSsource/CreateComment.css';
+type LoginFormProps = {
+    loginCallBack?: () => void,
+  };
 
-const CommentForm = () => {
-    
+
+function CommentForm(props: LoginFormProps) {
+
 
     return(
         <Formik
@@ -51,6 +56,6 @@ const CommentForm = () => {
             )}
         </Formik>
     );
-};
+}
 
 export default CommentForm;

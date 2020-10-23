@@ -2,13 +2,17 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import '../CSSsource/CreateReport.css';
 
-const ReportForm = () => {
+type LoginFormProps = {
+  loginCallBack?: () => void,
+};
+
+function ReportForm(props: LoginFormProps) {
   return (
     <Formik
       initialValues={{ reportThread: '', reportComment: '', commentNO: '', size: '', comment: '' }}
       onSubmit={async (values, actions) => {
         actions.setSubmitting(false);
-      }}
+      } }
     >
       {({ isSubmitting }) => (
         <Form>
@@ -59,6 +63,6 @@ const ReportForm = () => {
       )}
     </Formik>
   );
-};
+}
 
 export default ReportForm;

@@ -46,7 +46,6 @@ const LoginPage = (props: LoginFormProps) => {
           </a>
           <Link to="/" >
             <button type="button" className="FrameGoBackLogIn1 btn btn-success">
-
               <div className="GoBackButtonLogIn1">
                 &lt; Go Back
             </div>

@@ -31,7 +31,7 @@ const Navigtion = () => {
             <li className="nav-item active">
               <Link to={ `/SearchThread` }>
               <div className="searchCSS">
-                <img src={searchBlog} alt="React is hell !!!" width = "52" height="50" title="Search"/>
+                <img src={ searchBlog } alt="React is hell !!!" width = "52" height="50" title="Search"/>
               </div>
               </Link>
             </li>
@@ -39,7 +39,7 @@ const Navigtion = () => {
               
               <div className="searchCSS">
               <Link to={ `/CreateThread` }>
-                <img src={createBlog} alt="React is hell !!!" width = "57" height="53" title="Create Blog"/>
+                <img src={ createBlog } alt="React is hell !!!" width = "57" height="57" title="Create Blog"/>
                 </Link>
               </div>
             </li>
