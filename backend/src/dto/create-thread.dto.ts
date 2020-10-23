@@ -16,9 +16,9 @@ export class CreateThreadDto {
     //temp@IsArray()
     image_arr: {URL: string, pos: number}[];  
     //@IsArray()
-    up_vote_arr: {userID: ObjectID,}[] ;//=[] ;
+    up_vote_arr: {userID: ObjectID}[] ;//=[] ;
     //@IsArray()
-    down_vote_arr: {userID: ObjectID,}[] ;//=[];
+    down_vote_arr: {userID: ObjectID}[] ;//=[];
     //@IsInt()
     up_vote_count: number;// =0 ;
     //@IsInt()

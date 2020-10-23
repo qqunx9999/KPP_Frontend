@@ -45,6 +45,7 @@ export class ThreadsController {
   async createCommentation(@Param('threadID', ParseObjectIdPipe) threadID:ObjectID, 
                 @Body() createCommentationDto: CreateCommentDto){
     createCommentationDto.threadID = threadID;
+    createCommentationDto.userID  = new ObjectID (createCommentationDto.userID);
     return this.threadsService.createCommentation(createCommentationDto);
     }
 
@@ -52,6 +53,7 @@ export class ThreadsController {
   async createReportment_thread(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
                 @Body() createReportment_threadDto: CreateReportment_threadDto){
     createReportment_threadDto.threadID = threadID;
+    createReportment_threadDto.userID = new ObjectID (createReportment_threadDto.userID);
     return this.threadsService.createReportment_thread(createReportment_threadDto);
     }
   
@@ -59,7 +61,9 @@ export class ThreadsController {
   async createReportment_comment(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
     @Param('commentID',ParseObjectIdPipe) commentID: ObjectID,
     @Body() createReportment_commentDto: CreateReportment_commentDto){
+      createReportment_commentDto.threadID = threadID;
       createReportment_commentDto.commentID = commentID;
+      createReportment_commentDto.userID = new ObjectID (createReportment_commentDto.userID);
       return this.threadsService.createReportment_comment(createReportment_commentDto);
     }
 
@@ -67,7 +71,7 @@ export class ThreadsController {
   @Patch(':threadID')
   async updateThread(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
     @Body() updateThread_dto: CreateThreadDto) {
-    
+      
       return this.threadsService.updateThread(threadID, updateThread_dto);
   }
 
