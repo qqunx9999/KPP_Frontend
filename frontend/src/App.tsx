@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Switch, Route, useHistory } from 'react-router';
+import React from 'react';
+import { Switch, Route } from 'react-router';
 import AuthenLogIn from './Pages/AuthenLogIn';
 import AuthenResetPwd from './Pages/AuthenResetPwd';
 import AuthenSignup from './Pages/AuthenSignup';
@@ -22,32 +22,30 @@ import AuthenLogout from './Pages/AuthenLogout';
 import ChangeName from './Pages/ChangeName';
 
 function App() {
-    const history = useHistory();
-
-    return (
-        <Switch>
-            <Route exact path="/" component={LoginSigninPage} />
-            <Route exact path="/LogIn" component={LoginPage} />
-            <Route exact path="/SignUp" component={SignUpPage} />
-            <Route exact path="/ForgetPwd" component={ForgetPwd} />
-            <Route path="/LogIn/AuthenLogIn" component={AuthenLogIn} />
-            <Route path="/TermOfUse" component={TermOfUse} />
-            <Route path="/ForgetPwd/AuthenResetPwd" component={AuthenResetPwd} />
-            <Route path="/SignUp/AuthenSignup" component={AuthenSignup} />
-            <Route path="/Home" component={Home_new} />
-            <Route path="/Thread/:ThreadID" component={Threads_new} />
-            <Route path="/CreateComment/:ThreadID" component={CreateComment_new} />
-            <Route path="/CreateReport/:ThreadID" component={CreateReport_new} />
-            <Route path="/SearchThread" component={SearchThread_new} />
-            <Route path="/CreateThread" component={CreateThread_new} />
-            <Route path="/Profile" component={Profile_new} />
-            <Route exact path="/Setting" component={Setting_new} />
-            <Route path="/ReadReport" component={ReadReport} />
-            <Route path="/ChatRoom" component={ChatRoom} />
-            <Route path="/AuthenLogout" component={AuthenLogout} />
-            <Route exact path="/Setting/ChangeName" component={ChangeName} />
-        </Switch>
-    );
+  return (
+    <Switch>
+      <Route exact path="/" component={LoginSigninPage} />
+      <Route exact path="/LogIn" component={LoginPage} />
+      <Route exact path="/SignUp" component={SignUpPage} />
+      <Route exact path="/ForgetPwd" component={ForgetPwd} />
+      <Route path="/LogIn/AuthenLogIn" component={AuthenLogIn} />
+      <Route path="/TermOfUse" component={TermOfUse} />
+      <Route path="/ForgetPwd/AuthenResetPwd" component={AuthenResetPwd} />
+      <Route path="/SignUp/AuthenSignup" component={AuthenSignup} />
+      <Route path="/Home" component={Home_new} />
+      <Route path="/Thread/:ThreadID" component={Threads_new} />
+      <Route path="/CreateComment/:ThreadID" component={CreateComment_new} />
+      <Route path="/CreateReport/:ThreadID" component={CreateReport_new} />
+      <Route path="/SearchThread" component={SearchThread_new} />
+      <Route path="/CreateThread" component={CreateThread_new} />
+      <Route path="/Profile" component={Profile_new} />
+      <Route exact path="/Setting" component={Setting_new} />
+      <Route path="/ReadReport" component={ReadReport} />
+      <Route path="/ChatRoom" component={ChatRoom} />
+      <Route path="/AuthenLogout" component={AuthenLogout} />
+      <Route exact path="/Setting/ChangeName" component={ChangeName} />
+    </Switch>
+  );
 }
 
 export default App;

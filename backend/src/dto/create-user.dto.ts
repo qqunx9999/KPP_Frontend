@@ -9,8 +9,8 @@ export class CreateUserDto {
     @IsString()
     password: string;
     //@IsString()
-    name: string ;//= "Guess";
-    @IsString()
+    name: string ;//= "Guest";
+    //@IsString()
     avatar_URL: string;
     //@IsInt()
     exp: number //= 0;

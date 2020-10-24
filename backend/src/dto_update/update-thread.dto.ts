@@ -2,18 +2,17 @@ import { IsInt , IsNotEmpty , IsBoolean , IsDate , IsString , IsArray, IsObject}
 import {ObjectID} from 'mongodb';
 
 
-export class CreateThreadDto {
+export class UpdateThreadDto {
 
-    userID: ObjectID; 
-    @IsString()
-    topic: string;
-    @IsArray()
+    //userID: ObjectID; 
+    //@IsString()
+    topic?: string;
+    //temp@IsArray()
     tag_arr: string[];
-    @IsString()
+    
     content: string;
-    @IsObject()
     text_type: {bold: boolean, italic: boolean, font:string, size:number};
-    @IsArray()
+    //@IsArray()
     image_arr: {URL: string, pos: number}[];  
     //@IsArray()
     up_vote_arr: {userID: ObjectID}[] ;//=[] ;
@@ -24,9 +23,10 @@ export class CreateThreadDto {
     //@IsInt()
     down_vote_count: number; //=0;
     //@IsInt()
-    total_comment: number;// =0;
+    //total_comment: number;// =0;
     //@IsInt()
-    number_of_all_comment: number;//=0;
+
+    //number_of_all_comment: number;//=0;
     //@IsDate()
     date_create: Date ;
     //@IsDate()

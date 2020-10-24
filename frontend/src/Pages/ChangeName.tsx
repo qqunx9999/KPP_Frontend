@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../CSSsource/ChangeName.css';
 import { useHistory, useParams } from 'react-router';
 import Navigtion from '../component/NavBar';
 import { Formik, Form, Field } from 'formik';
 import ChangeNameForm from '../component/ChangeNameForm';
+import AuthService from '../service/AuthService';
 
 function ChangeName() {
+  const [login, setLogin] = useState<boolean>(false);
+  const history = useHistory();
 
-    const history = useHistory();
+  function fetchLogin() {
+    const isLoggin = AuthService.isUserLoggedIn();
+    setLogin(isLoggin);
+  }
+
+  useEffect(() => {
+    fetchLogin();
+  }, []);
+
+   
     const temp = {
       "margin": "10px",
     };

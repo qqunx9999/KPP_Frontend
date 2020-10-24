@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../CSSsource/AuthenLogIn.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from '../Pages/image/nong_plub.png'
-import { Redirect } from 'react-router';
+import { Redirect, useHistory } from 'react-router';
+import AuthService from '../service/AuthService';
 
 function AuthenLogIn() {
   const [time, setRedirect] = useState<boolean>(false);
+  const [login, setLogin] = useState<boolean>(false);
+  const history = useHistory();
+
+  function fetchLogin() {
+    const isLoggin = AuthService.isUserLoggedIn();
+    setLogin(isLoggin);
+  }
+
+  useEffect(() => {
+    fetchLogin();
+  }, []);
 
   const delay = () => {
     setRedirect(true);
@@ -13,6 +24,7 @@ function AuthenLogIn() {
 
   return (
     <div className="greenBackgroungAuth">
+      { login ? history.push('/Home') : null }
       <div className="container-md">
         <div className="frameAuth">
           <div className="KUpeopleAuth">

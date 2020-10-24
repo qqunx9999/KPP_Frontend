@@ -1,12 +1,24 @@
 import { Field, Form, Formik } from 'formik';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Dropdown } from 'react-bootstrap';
 import Navigtion from '../component/NavBar';
 import { useHistory } from 'react-router';
+import ThreadService from '../service/ThreadService';
+import AuthService from '../service/AuthService';
 
 const SearchThread_new = () => {
   const history = useHistory();
+  const [login, setLogin] = useState<boolean>(false);
+
+  function fetchLogin() {
+    const isLoggin = AuthService.isUserLoggedIn();
+    setLogin(isLoggin);
+  }
+
+  useEffect(() => {
+    fetchLogin();
+  }, []);
 
   const temp = {
     "margin": "10px",
@@ -14,6 +26,7 @@ const SearchThread_new = () => {
 
   return (
     <div>
+      { login ? null : history.push('/') }
       <Navigtion />
       <div style={ temp }>
         <button onClick={ history.goBack }>Go Back</button>
