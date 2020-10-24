@@ -31,7 +31,9 @@ async function SignupUser(username: string, email: string, password: string, con
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-
+            "username": username,
+            "email": email,
+            "password": password,
         }),
     };
     const res = await fetch(`${ baseUrl }/users`, postOption);
@@ -76,13 +78,15 @@ function getUserName(): string | null {
 
 function logOutUser(): void {
     if (isUserLoggedIn()) {
-        localStorage.removeItem("accessToken");
+        localStorage.removeItem("token");
         localStorage.removeItem("username");
+        localStorage.removeItem("userID");
+        localStorage.removeItem("user");
     }
 }
 
 function getAccessToken(): string {
-    return localStorage.accessToken;
+    return localStorage.token;
 }
 
 async function getUserInfo(): Promise<Userinfo | null> {

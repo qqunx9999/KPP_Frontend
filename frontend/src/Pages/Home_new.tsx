@@ -17,6 +17,16 @@ function Home_new() {
   const time = new Date();
   const history = useHistory();
   let itemThread: any;
+  const [login, setLogin] = useState<boolean>(false);
+
+  function fetchLogin() {
+    const isLoggin = AuthService.isUserLoggedIn();
+    setLogin(isLoggin);
+  }
+
+  useEffect(() => {
+    fetchLogin();
+  }, []);
 
   thread.map(item => (itemThread = item));
 
@@ -31,36 +41,34 @@ function Home_new() {
     fetchThread();
   }, []);
 
+  function redirected(): void {
+    history.push('/')
+  }
+
   return (
     <div>
+      { !login && redirected()}
       <Navigtion />
       <div style={temp}>
         <h1>Latest</h1>
         {thread.map(item => (
-          <div>
-            <Link to={`/Thread/${item.threadID}`}>
-              <li key={ item.threadID }>{item.topic} - {time.getDate() - Number(item.date_create)} Days</li>
-            </Link>
-          </div>
+          <Link to={`/Thread/${item.threadID}`}>
+            <li key={item.threadID}>{item.topic} - {time.getDate() - Number(item.date_create)} Days</li>
+          </Link>
         ))}
         <h1>Hottest</h1>
         {thread.map(item => (
-          <div>
-            <Link to={`/Thread/${item.threadID}`}>
-              <li key={ item.threadID }>{item.topic} - Like {item.up_vote_count}: Dislike {item.down_vote_count}: Comments {item.number_of_comment}</li>
-            </Link>
-          </div>
+          <Link to={`/Thread/${item.threadID}`}>
+            <li key={item.threadID}>{item.topic} - Like {item.up_vote_count}: Dislike {item.down_vote_count}: Comments {item.number_of_comment}</li>
+          </Link>
         ))}
         <h1>News</h1>
         {thread.map(item => (
-          <div>
-            <Link to={`/Thread/${item.threadID}`}>
-              <li key={ item.threadID }>{item.topic}</li>
-            </Link>
-          </div>
+          <Link to={`/Thread/${item.threadID}`}>
+            <li key={item.threadID}>{item.topic}</li>
+          </Link>
         ))}
       </div>
-
     </div>
   );
 }

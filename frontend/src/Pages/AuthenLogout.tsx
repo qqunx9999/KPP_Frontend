@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../CSSsource/AuthenLogout.css';
 import { Redirect } from 'react-router';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AuthService from '../service/AuthService';
 
 function AuthenLogout() {
     const [time, setRedirect] = useState<boolean>(false);
 
+    function fetchLogout() {
+      AuthService.logOutUser();
+    }
+
     const delay = () => {
-        setRedirect(true);
-      };
+      setRedirect(true);
+    };
 
     return (
       <div className="AtLogout_bigframe">
+        { true && fetchLogout() }
           <div className="container-md">
             <div className="AtLogout_whiteframe">
                 <div className="AtLogout_k-u-people">KU People</div>

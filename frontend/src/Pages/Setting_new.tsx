@@ -2,15 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import Navigtion from '../component/NavBar';
 import { Userinfo } from '../interfaces/userInfoEntity';
+import AuthService from '../service/AuthService';
 import UserService from '../service/UserService';
 
-type LoginFormProps = {
-  loginCallBack?: () => void,
-};
-
-function Setting_new(props: LoginFormProps) {
+function Setting_new() {
   const [user, setUser] = useState<Userinfo[]>([]);
   const history = useHistory();
+  const [login, setLogin] = useState<boolean>(false);
+
+  function fetchLogin() {
+    const isLoggin = AuthService.isUserLoggedIn();
+    setLogin(isLoggin);
+  }
+
+  useEffect(() => {
+    fetchLogin();
+  }, []);
 
   const temp = {
     "margin": "10px",
@@ -28,6 +35,7 @@ function Setting_new(props: LoginFormProps) {
 
   return (
     <div>
+      { !login && history.push('/') }
       <Navigtion />
       <div style={temp}>
         <button onClick={history.goBack}>Go Back</button>

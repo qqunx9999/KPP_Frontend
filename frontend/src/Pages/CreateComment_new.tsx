@@ -5,15 +5,22 @@ import ThreadService from '../service/ThreadService';
 import Navigtion from '../component/NavBar';
 import CommentForm from '../component/CommentForm';
 import '../CSSsource/CreateComment.css';
+import AuthService from '../service/AuthService';
 
 function CreateComment_new() {
   const [thread, setThread] = useState<Thread[]>([]);
   const history = useHistory();
   const { ThreadID } = useParams();
+  const [login, setLogin] = useState<boolean>(false);
 
-  const temp = {
-    "margin": "10px"
-  };
+  function fetchLogin() {
+    const isLoggin = AuthService.isUserLoggedIn();
+    setLogin(isLoggin);
+  }
+
+  useEffect(() => {
+    fetchLogin();
+  }, []);
 
   const fetchThread = () => {
     ThreadService.fetchThread()
@@ -27,7 +34,8 @@ function CreateComment_new() {
   }, []);
 
   return (
-    <div style={ temp }>
+    <div>
+      { login ? null : history.push('/') }
       <Navigtion />
         <div className="createcm-bigframe">        
         <button className="createcm_goback_button" onClick={ history.goBack }>&lt; Go Back</button> <br />
