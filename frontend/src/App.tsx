@@ -1,80 +1,45 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router';
+import { Switch, Route, useHistory } from 'react-router';
 import AuthenLogIn from './Pages/AuthenLogIn';
 import AuthenResetPwd from './Pages/AuthenResetPwd';
 import AuthenSignup from './Pages/AuthenSignup';
-import CreateComment from './Pages/CreateComment';
-import CreateReport from './Pages/CreateReport';
-import CreateThread from './Pages/CreateThread';
 import ForgetPwd from './Pages/ForgetPwd';
-import Home from './Pages/Home';
+import Home_new from './Pages/Home_new';
 import LoginPage from './Pages/LoginPage';
 import LoginSigninPage from './Pages/LoginSigninPage';
-import Profile from './Pages/Profile';
-import ReportList from './Pages/ReportList';
-import SearchThread from './Pages/SearchThread';
-import Setting from './Pages/Setting';
 import SignUpPage from './Pages/SignUpPage';
 import TermOfUse from './Pages/TermOfUse';
-import Threads from './Pages/Threads';
+import Threads_new from './Pages/Thread_new';
+import CreateComment_new from './Pages/CreateComment_new';
+import CreateReport_new from './Pages/CreateReport_new';
+import SearchThread_new from './Pages/SearchThread_new';
+import CreateThread_new from './Pages/CreateThread_new';
+import Profile_new from './Pages/Profile_new';
+import Setting_new from './Pages/Setting_new';
 
-const App = () => {
+function App() {
+    const history = useHistory();
 
     return (
         <Switch>
-            <Route exact path="/">
-                <LoginSigninPage />
-            </Route>
-            <Route exact path="/LogIn">
-                <LoginPage />
-            </Route>
-            <Route exact path="/SignUp">
-                <SignUpPage />
-            </Route>
-            <Route path="/LogIn/AuthenLogIn">
-                <AuthenLogIn />
-            </Route>
-            <Route exact path="/ForgetPwd">
-                <ForgetPwd />
-            </Route>
-            <Route path="/TermOfUse">
-                <TermOfUse />
-            </Route>
-            <Route path="/ForgetPwd/AuthenResetPwd">
-                <AuthenResetPwd />
-            </Route>
-            <Route path="/SignUp/AuthenSignup">
-                <AuthenSignup />
-            </Route>
-            <Route path="/Home">
-                <Home />
-            </Route>
-            <Route exact path="/Threads/:threadID">
-                <Threads />
-            </Route>
-            <Route exact path="/Threads/:threadID/CreateComment">
-                <CreateComment />
-            </Route>
-            <Route path="/CreateThread">
-                <CreateThread />
-            </Route>
-            <Route path="/ReportList">
-                <ReportList />
-            </Route>
-            <Route path="/SearchThread">
-                <SearchThread />
-            </Route>
-            <Route path="/Profile">
-                <Profile />
-            </Route>
-            <Route exact path="/Threads/:threadID/CreateReport">
-                <CreateReport />
-            </Route>
-            <Route path="/Setting">
-                <Setting />
-            </Route>
+            <Route exact path="/" component={LoginSigninPage} />
+            <Route exact path="/LogIn" component={LoginPage} />
+            <Route exact path="/SignUp" component={SignUpPage} />
+            <Route exact path="/ForgetPwd" component={ForgetPwd} />
+            <Route path="/LogIn/AuthenLogIn" component={AuthenLogIn} />
+            <Route path="/TermOfUse" component={TermOfUse} />
+            <Route path="/ForgetPwd/AuthenResetPwd" component={AuthenResetPwd} />
+            <Route path="/SignUp/AuthenSignup" component={AuthenSignup} />
+            <Route path="/Home" component={Home_new} />
+            <Route path="/Thread/:ThreadID" component={Threads_new} />
+            <Route path="/CreateComment/:ThreadID" component={CreateComment_new} />
+            <Route path="/CreateReport/:ThreadID" component={CreateReport_new} />
+            <Route path="/SearchThread" component={SearchThread_new} />
+            <Route path="/CreateThread" component={CreateThread_new} />
+            <Route path="/Profile" component={Profile_new} />
+            <Route path="/Setting" component={Setting_new} />
         </Switch>
     );
-};
+}
 
 export default App;

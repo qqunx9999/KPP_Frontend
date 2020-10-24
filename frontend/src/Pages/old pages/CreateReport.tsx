@@ -1,9 +1,9 @@
 import React, { useState, useEffect, InputHTMLAttributes } from 'react';
 import { Link } from "react-router-dom";
 import '../CSSsource/CreateReport.css';
-import { Thread } from '../interfaces/threadEntity';
-import threadService from '../service/threadService';
-import Navigtion from '../component/navBar';
+import { Thread } from '../../interfaces/threadEntity';
+import ThreadService from '../../service/ThreadService';
+import Navigtion from '../../component/NavBar';
 
 const CreateReport = () => {
   const [thread, setThread] = useState<Thread[]>([]);
@@ -24,7 +24,7 @@ const CreateReport = () => {
   };
 
   const fetchThread = () => {
-    threadService.fetchThread()
+    ThreadService.fetchThread()
       .then(obj => {
         setThread(obj);
       })
@@ -38,7 +38,7 @@ const CreateReport = () => {
       <Navigtion />
       <div className="createrp-bigframe">
         { thread.map(item => (
-          <Link to={ `/Threads/${ item.userID }/` }>
+          <Link to={ `/Threads/${ item.threadID }/` }>
             <div className="createrp_goback">
           <button className="createrp_goback_button">
             &lt; Go back

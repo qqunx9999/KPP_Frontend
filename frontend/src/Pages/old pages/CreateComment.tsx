@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory, useLocation } from 'react-router';
 import { Link } from "react-router-dom";
-import '../CSSsource/CreateComment.css';
-import { Thread } from '../interfaces/threadEntity';
-import threadService from '../service/threadService';
-import Navigtion from '../component/navBar';
+import { Thread } from '../../interfaces/threadEntity';
+import ThreadService from '../../service/ThreadService';
+import Navigtion from '../../component/NavBar';
 
 const CreateComment = () => {
   const [thread, setThread] = useState<Thread[]>([]);
   const [commentNO, setCommentNO] = useState<string>('');
   const [size, setSize] = useState<string>('');
   const [description, setDescription] = useState<string>('');
+  const history = useHistory();
 
   const handleCommentNo = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCommentNO(event.target.value);
@@ -23,8 +24,12 @@ const CreateComment = () => {
     setDescription(event.target.value);
   };
 
+  const HandleGoBack = () => {
+    history.goBack();
+  };
+
   const fetchThread = () => {
-    threadService.fetchThread()
+    ThreadService.fetchThread()
       .then(obj => {
         setThread(obj);
       })
@@ -39,15 +44,13 @@ const CreateComment = () => {
       <Navigtion />
       <div className="createcm-bigframe">
         { thread.map(item => (
-          <div>
-            <Link to={ `/Threads/${ item.userID }/` }>
-              <div className="createcm_goback">
+          <Link to={ `/Threads/${ item.threadID }/` }>
+            <div className="createcm_goback">
                 <button className="createcm_goback_button">
                   &lt; Go back
                 </button>
               </div>
-            </Link>
-          </div>
+          </Link>
         )) }
         
         <div className="createcm_goback">

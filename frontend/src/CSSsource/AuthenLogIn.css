@@ -71,3 +71,11 @@
         transform:rotate(360deg);
     }
 }
+
+#spin {
+  width: 17rem;
+  height: 17rem;
+  position: absolute;
+  top: 32%;
+  left: 36%;
+}

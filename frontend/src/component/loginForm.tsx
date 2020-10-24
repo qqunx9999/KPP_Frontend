@@ -34,8 +34,6 @@ export const EmailID = (props: LoginFormProps) => {
             }}
             onSubmit = { async (values, actions) => {
                 const result = await AuthService.LoginUser((values.email).concat('@ku.th'), values.password);
-                // console.log((values.email).concat('@ku.th'), values.password);
-                // console.log(result);
                 if (!result) {
                     setLoginErrorMessage('Login error: Wrong username or password');
                 } else {
@@ -50,19 +48,18 @@ export const EmailID = (props: LoginFormProps) => {
         >
             {({ isSubmitting }) => (
                 <Form>
-                    { loginErrorMessage && (<div>{ loginErrorMessage }</div>) }
+                    { loginErrorMessage && (<div className="errorMessageLogin">{ loginErrorMessage }</div>) }
                     <div className="EmailLogIn1">
                         Email :
-                    <Field type="input" name="email" placeholder="Type your Email..." style={ inputStyle } className="InputEmailLogIn1" />
+                    <Field type="input" name="email" placeholder="Type your Email..." style={ inputStyle } className="form-control InputEmailLogIn1" required/>
                     
                     <div className="kuthLogIn1">
                         @ku.th
                     </div>
-                    
                     </div>
                     <div className="PasswordLogIn1">
                         Password :
-                    <Field type="password" name="password" placeholder="Type your password..." style={ inputStyle } className="InputPasswordLogIn1" />
+                    <Field type="password" name="password" placeholder="Type your password..." style={ inputStyle } className="form-control InputPasswordLogIn1" required/>
                     </div>
                     <button type="submit" disabled={ isSubmitting } className="FrameLogIn1 btn btn-success">
                         <div className="LogInButtonLogIn1">

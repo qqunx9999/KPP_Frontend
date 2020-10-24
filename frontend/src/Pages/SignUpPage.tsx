@@ -5,7 +5,7 @@ import '../CSSsource/SignupPage.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const SignUpPage = () => {
+function SignUpPage() {
 
   return (
 
@@ -13,28 +13,34 @@ const SignUpPage = () => {
       <div className="signup-whiteframe">
         <div className="signup-k-u-people">
           KU People
-         </div>
+        </div>
         <div className="signup-plz-text">
           Please sign up or log in before use.
-         </div>
+        </div>
         <SignUp />
         <div className="signup-accept-text">
-          You already read and accept
-          </div>
+              You already read and accept
+        </div>
         <button className="signup-term-text">
           <Link to="/TermOfUse">
             Term of Use Agreement
-            </Link>
+          </Link>
         </button>
+
+
         <Link to="/">
-        <button id="success" className="signup-gb-frame btn btn-success">
-          <div className="signup_go-back">
-            &lt; Go Back
-        </div>
-        </button>
+          <button type="button" className="btn btn-success" id="goBack">
+
+            <div className="eHere">
+                     &lt; Go Back
+            </div>
+          </button>
         </Link>
+
+
       </div>
     </div>
+
 
 
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import '../CSSsource/ForgetPwd.css';
 import { Forgetpass } from '../component/ForgetpwdForm';
 
-const ForgetPwd = () => {
+function ForgetPwd() {
 
 
     return (
@@ -15,7 +15,7 @@ const ForgetPwd = () => {
                     Password reset
                 </div>
                 <div className="verification">
-                    verification code will send to you. It expired after 5 minutes.
+                    verification code will send to you.It expired after 5 minutes.
                 </div>
                 <Forgetpass />
             </div>

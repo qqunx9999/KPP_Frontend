@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import '../CSSsource/Threads.css';
-import { Thread } from '../interfaces/threadEntity';
-import threadService from '../service/threadService';
+import { Thread } from '../../interfaces/threadEntity';
+import AuthService from '../../service/AuthService';
+import ThreadService from '../../service/ThreadService';
+import { useHistory, useParams } from 'react-router';
+import { threadId } from 'worker_threads';
 
 const Threads = () => {
   const [thread, setThread] = useState<Thread[]>([]);
-
+  
   const fetchThread = () => {
-    threadService.fetchThread()
+    ThreadService.fetchThread()
       .then(obj => {
         setThread(obj);
       })
   };
+
+  const {threadID} = useParams();
+  let itemID: string;
+  thread.map(item => { itemID = item.threadID });
+  thread.map(item => { console.log(item.threadID === itemID) })
 
   useEffect(() => {
     fetchThread();
@@ -21,9 +29,9 @@ const Threads = () => {
   return (
     <div className="Threads-bigframe">
       <Link to="/Home" className="thread_goback">
-        <button className="thread_goback_button">
+        <button onClick={ ThreadService.clearThreadNO } className="thread_goback_button">
           &lt; Go back
-          </button>
+        </button>
       </Link>
 
       <div className="thread-givecomment-txt">
@@ -37,22 +45,45 @@ const Threads = () => {
         </div>
         <div className="thread_minitag1">
           <button className="thread_minitag1_frame">
-            {thread.map(item => (
-              <div>
-                {console.log(item)}
-                {item.tag_arr[0]}
-              </div>
-            ))}
+            {thread.map(item => {
+              if (item.threadID === itemID) {
+                return (
+                  <div>
+                    { item.tag_arr[0] }
+                  </div>
+                );
+              }
+            })}
           </button>
         </div>
         <div className="thread_minitag2">
           <button className="thread_minitag2_frame">
-            Tag2
+          {thread.map(item => {
+              if (item.tag_arr.length > 1) {
+                if (item.threadID === itemID) {
+                  return (
+                    <div>
+                      { item.tag_arr[1] }
+                    </div>
+                  );
+                }
+              }
+            })}
           </button>
         </div>
         <div className="thread_minitag3">
           <button className="thread_minitag3_frame">
-            Tag3
+            {thread.map(item => {
+              if (item.tag_arr.length > 2) {
+                if (item.threadID === itemID) {
+                  return (
+                    <div>
+                      { item.tag_arr[2] }
+                    </div>
+                  );
+                }
+              }
+            })}
           </button>
         </div>
       </div>
@@ -60,17 +91,23 @@ const Threads = () => {
       <div className="thread-vote-frame">
         <div className="thread-upvote-no">
           {thread.map(item => {
-            return item.up_vote_count
+            if(item.threadID === itemID) {
+              return item.up_vote_count
+            }
           })}
         </div>
         <div className="thread-downvote-no">
           {thread.map(item => {
-            return item.down_vote_count
+            if(item.threadID === itemID) {
+              return item.down_vote_count
+            }
           })}
         </div>
         <div className="thread-comment-no">
           {thread.map(item => {
-            return item.number_of_comment
+            if(item.threadID === itemID) {
+              return item.number_of_comment
+            }
           })}
         </div>
       </div>
@@ -99,7 +136,7 @@ const Threads = () => {
 
       { thread.map(item => (
         <div>
-          <Link to={`/Threads/${item.userID}/CreateComment`}>
+          <Link to={`/Threads/${item.threadID}/CreateComment`}>
             <div className="thread-givecomment-txt">
               <button className="thread-givecm-button">
                 Give Comment
@@ -113,7 +150,9 @@ const Threads = () => {
         <div className="thread-topicname-frame">
           <div className="thread-topicname">
             Topic : {thread.map(item => {
-            return item.topic
+              if (item.threadID == itemID) {
+                return item.topic
+              }
           })}
           </div>
           <div className="thread-topiccreater">
@@ -132,7 +171,7 @@ const Threads = () => {
         <div className="thread-topic-detail-frame">
           <div className="thread-topic-detail-text">
             {thread.map(item => {
-              if (item.userID === item.userID)
+              if (item.threadID === threadID)
                 return item.content
             })} <br />
             {thread.map(item => (

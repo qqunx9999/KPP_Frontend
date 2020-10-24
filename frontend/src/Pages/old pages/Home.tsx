@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { Thread } from '../interfaces/threadEntity';
+import { Thread } from '../../interfaces/threadEntity';
 import 'bootstrap/dist/css/bootstrap.css';
-import ThreadItem from '../component/threadItem';
+import ThreadItem from '../../component/ThreadItem';
 import '../CSSsource/Home.css';
 
-import threadService from '../service/threadService';
-import Navigtion from '../component/navBar';
+import ThreadService from '../../service/ThreadService';
+import Navigtion from '../../component/NavBar';
 
 type LoginFormProps = {
   loginCallBack?: () => void,
@@ -16,7 +16,7 @@ const Home = (props: LoginFormProps) => {
   const [thread, setThread] = useState<Thread[]>([]);
 
   const fetchThread = () => {
-    threadService.fetchThread()
+    ThreadService.fetchThread()
       .then(obj => {
         setThread(obj);
       })
@@ -34,13 +34,16 @@ const Home = (props: LoginFormProps) => {
           <div className="latestGreenFrameHomePage">
             <div className="stackLatestHomePage">
               <div className="firstLatestTextHomePage">
-                {thread.map(item => (
-                  <Link to={{ pathname: `/Threads/${item.threadID}` }}>
+                {thread.map(item => {
+                  return (
+                    <Link to={{ pathname: `/Threads/${item.threadID}` }}>
                     <ul className="content">
+                      { ThreadService.passThreadNO(item.threadID) }
                       <ThreadItem key={item.threadID} thread={item} />
                     </ul>
                   </Link>
-                ))}
+                  );
+                })}
               </div>
               <div className="firstLatestTimeFrameHomePage">
                 <div className="firstLatestTimeHomePage">

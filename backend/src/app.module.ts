@@ -17,6 +17,8 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { ReportsModule } from './reports/reports.module';
 import { ChatroomsModule } from './chatrooms/chatrooms.module';
+import { NotificationModule } from './notification/notification.module';
+import Notifications from './entities/notification.entity';
 
 @Module({
   imports: [
@@ -25,7 +27,7 @@ import { ChatroomsModule } from './chatrooms/chatrooms.module';
       host: 'localhost',
       database: 'test_kuPeople',
       entities: [Admin, Chat_message, Chatroom, Commentation,
-          Reportment_comment, Reportment_thread, Thread, User],
+          Reportment_comment, Reportment_thread, Thread, User, Notifications],
       synchronize: true,
     }),
     ThreadsModule,
@@ -33,6 +35,7 @@ import { ChatroomsModule } from './chatrooms/chatrooms.module';
     UsersModule,
     ReportsModule,
     ChatroomsModule,
+    NotificationModule,
   ],
 
   controllers: [AppController],

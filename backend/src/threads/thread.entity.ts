@@ -14,6 +14,8 @@ export class Thread{
     @Column()
     content: string;
     @Column()
+    text_type: {bold: boolean, italic: boolean, font:string, size:number};
+    @Column()
     image_arr: {URL:string,pos:number}[]; //Url, pos
     @Column()
     up_vote_arr: {userID:ObjectID}[]; //userID
@@ -33,8 +35,7 @@ export class Thread{
     date_lastedit: Date;
     @Column()
     date_delete: Date;
-    @Column()
-    isanonymous: boolean;
+    
 }
 
 export default Thread;
