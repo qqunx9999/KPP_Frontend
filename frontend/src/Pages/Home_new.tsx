@@ -41,13 +41,9 @@ function Home_new() {
     fetchThread();
   }, []);
 
-  function redirected(): void {
-    history.push('/')
-  }
-
   return (
     <div>
-      { !login && redirected()}
+      { !login && (() => history.push('/'))}
       <Navigtion />
         <div className="backgroundHomePage">
           <div style={temp}>
