@@ -1,4 +1,4 @@
-import { IsInt , IsNotEmpty , IsBoolean , IsDate , IsString , IsArray} from "class-validator";
+import { IsInt , IsNotEmpty , IsBoolean , IsDate , IsString , IsArray, IsObject} from "class-validator";
 import {ObjectID} from 'mongodb';
 
 
@@ -11,7 +11,7 @@ export class CreateThreadDto {
     tag_arr: string[];
     @IsString()
     content: string;
-
+    @IsObject()
     text_type: {bold: boolean, italic: boolean, font:string, size:number};
     //temp@IsArray()
     image_arr: {URL: string, pos: number}[];  

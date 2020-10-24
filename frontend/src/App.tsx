@@ -18,6 +18,8 @@ import Profile_new from './Pages/Profile_new';
 import Setting_new from './Pages/Setting_new';
 import ReadReport from './Pages/ReadReport';
 import ChatRoom from './Pages/ChatRoom';
+import AuthenLogout from './Pages/AuthenLogout';
+import ChangeName from './Pages/ChangeName';
 
 function App() {
     const history = useHistory();
@@ -39,9 +41,11 @@ function App() {
             <Route path="/SearchThread" component={SearchThread_new} />
             <Route path="/CreateThread" component={CreateThread_new} />
             <Route path="/Profile" component={Profile_new} />
-            <Route path="/Setting" component={Setting_new} />
+            <Route exact path="/Setting" component={Setting_new} />
             <Route path="/ReadReport" component={ReadReport} />
             <Route path="/ChatRoom" component={ChatRoom} />
+            <Route path="/AuthenLogout" component={AuthenLogout} />
+            <Route exact path="/Setting/ChangeName" component={ChangeName} />
         </Switch>
     );
 }
