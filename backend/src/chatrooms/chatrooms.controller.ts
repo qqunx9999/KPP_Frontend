@@ -40,8 +40,10 @@ export class ChatroomsController {
     }
 
     @Post(':chatroomID/user/:userID/messages')
-        async createMessages(@Param('chatroomID', ParseObjectIdPipe)  chatroomID: ObjectID ,@Param('userID', ParseObjectIdPipe)  userID: ObjectID,
+        async createMessages(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID ,@Param('userID', ParseObjectIdPipe) userID: ObjectID,
               @Body() CreateChat_messageDto:CreateChat_messageDto){
+        CreateChat_messageDto.chatroomID = chatroomID;
+        CreateChat_messageDto.userID = userID ;
         return  this.chatroomsService.createMessages(CreateChat_messageDto)
     }
 
