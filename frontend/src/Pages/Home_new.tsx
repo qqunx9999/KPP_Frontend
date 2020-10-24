@@ -4,18 +4,15 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../CSSsource/Home.css';
 import ThreadService from '../service/ThreadService';
 import Navigtion from '../component/NavBar';
-import { Route, useHistory, useParams } from 'react-router';
-import { BrowserRouter, Link } from 'react-router-dom';
-
-type LoginFormProps = {
-  loginCallBack?: () => void,
-}
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
+import AuthService from '../service/AuthService';
 
 const temp = {
   margin: "10px",
 };
 
-function Home_new(props: LoginFormProps) {
+function Home_new() {
   const [thread, setThread] = useState<Thread[]>([]);
   const time = new Date();
   const history = useHistory();
@@ -42,7 +39,7 @@ function Home_new(props: LoginFormProps) {
         {thread.map(item => (
           <div>
             <Link to={`/Thread/${item.threadID}`}>
-              {item.topic} - {time.getDate() - Number(item.date_create)} Days
+              <li key={ item.threadID }>{item.topic} - {time.getDate() - Number(item.date_create)} Days</li>
             </Link>
           </div>
         ))}
@@ -50,7 +47,7 @@ function Home_new(props: LoginFormProps) {
         {thread.map(item => (
           <div>
             <Link to={`/Thread/${item.threadID}`}>
-              {item.topic} - Like {item.up_vote_count}: Dislike {item.down_vote_count}: Comments {item.number_of_comment}
+              <li key={ item.threadID }>{item.topic} - Like {item.up_vote_count}: Dislike {item.down_vote_count}: Comments {item.number_of_comment}</li>
             </Link>
           </div>
         ))}
@@ -58,7 +55,7 @@ function Home_new(props: LoginFormProps) {
         {thread.map(item => (
           <div>
             <Link to={`/Thread/${item.threadID}`}>
-              {item.topic}
+              <li key={ item.threadID }>{item.topic}</li>
             </Link>
           </div>
         ))}

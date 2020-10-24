@@ -15,7 +15,6 @@ async function LoginUser(email: string, password: string): Promise<any | null> {
         }),
     });
     const result = await res.json();
-    console.log(result);
     if (result.access_token) {
         localStorage.setItem("user", result);
         localStorage.setItem("token", result.access_token);
@@ -64,7 +63,7 @@ function fetchVerifyCode() {
 }
 
 function isUserLoggedIn(): boolean {
-    return localStorage.accessToken !== undefined;
+    return localStorage.token !== undefined;
 }
 
 function getUserName(): string | null {
