@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
+import Navigtion from '../component/NavBar';
 import { Userinfo } from '../interfaces/userInfoEntity';
 import UserService from '../service/UserService';
 
@@ -24,6 +25,7 @@ function Profile_new() {
 
   return (
     <div>
+      <Navigtion />
       <div style={temp}>
         <h1>Profile</h1>
         <button onClick={history.goBack}>Go Back</button>
