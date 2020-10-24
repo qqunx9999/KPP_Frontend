@@ -23,9 +23,13 @@ function ReadReport() {
     "margin": "10px",
   };
 
+  function redirected(): void {
+    history.push('/')
+  }
+
   return (
     <div style={ temp }>
-      { login ? null : history.push('/') }
+      { login ? null : redirected() }
       <Navigtion />
       <div className="rReport-bigframe">
         <button className="rReport_goback_button" onClick={ history.goBack }>&lt; Go Back</button>

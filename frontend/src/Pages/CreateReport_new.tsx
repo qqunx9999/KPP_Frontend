@@ -19,9 +19,13 @@ function CreateReport_new() {
     fetchLogin();
   }, []);
 
+  function redirected(): void {
+    history.push('/')
+  }
+
   return (
     <div>
-      { login ? null : history.push('/') }
+      { login ? null : redirected() }
       <Navigtion />
       <div className="createrp-bigframe">        
         <button className="createrp_goback_button" onClick={ history.goBack }>&lt; Go Back</button>

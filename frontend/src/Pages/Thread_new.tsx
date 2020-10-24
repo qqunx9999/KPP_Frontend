@@ -37,13 +37,13 @@ function Threads_new(props: LoginFormProps) {
     fetchThread();
   }, []);
 
-  const temp = {
-    margin: "10px",
-  };
+  function redirected(): void {
+    history.push('/')
+  }
 
   return (
     <div>
-      { login ? null : history.push('/') }
+      { login ? null : redirected() }
       <Navigtion />
       <div className="Threads-bigframe">
         <div className="thread-topic-frame">

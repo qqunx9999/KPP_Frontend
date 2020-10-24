@@ -20,12 +20,13 @@ function ChangeName() {
   }, []);
 
    
-    const temp = {
-      "margin": "10px",
-    };
+  function redirected(): void {
+    history.push('/')
+  }
 
     return (
-      <div style={ temp }>
+      <div>
+        { login ? null : redirected() }
         <Navigtion />
         <div className="cName-bigframe">
           <button className="cName_goback_button" onClick={ history.goBack }>&lt; Go Back</button>

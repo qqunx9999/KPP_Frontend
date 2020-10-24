@@ -21,9 +21,13 @@ function CreateThread_new() {
     "margin": "10px",
   };
 
+  function redirected(): void {
+    history.push('/')
+  }
+
   return (
     <div>
-      { login ? null : history.push('/') }
+      { login ? null : redirected() }
       <Navigtion />
       <div style={temp}>
         <button onClick={history.goBack}>Go back</button>

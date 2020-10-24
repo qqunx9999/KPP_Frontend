@@ -33,9 +33,13 @@ function Profile_new() {
     fetchUser();
   }, []);
 
+  function redirected(): void {
+    history.push('/')
+  }
+
   return (
     <div>
-      { login ? null : history.push('/') }
+      { login ? null : redirected() }
       <div style={temp}>
         <h1>Profile</h1>
         <button onClick={history.goBack}>Go Back</button>

@@ -33,9 +33,13 @@ function CreateComment_new() {
     fetchThread();
   }, []);
 
+  function redirected(): void {
+    history.push('/')
+  }
+
   return (
     <div>
-      { login ? null : history.push('/') }
+      { login ? null : redirected() }
       <Navigtion />
         <div className="createcm-bigframe">        
         <button className="createcm_goback_button" onClick={ history.goBack }>&lt; Go Back</button> <br />

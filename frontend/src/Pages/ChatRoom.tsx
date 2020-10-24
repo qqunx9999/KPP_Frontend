@@ -17,9 +17,13 @@ function ChatRoom() {
     fetchLogin();
   }, []);
 
+  function redirected(): void {
+    history.push('/')
+  }
+
   return(
     <div>
-      { login ? null : history.push('/') }
+      { login ? null : redirected() }
       <div className="backgroundChatRoom">
         <div className="frameContractChatRoom">
           <div className="textContractChatRoom">
