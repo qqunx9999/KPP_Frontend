@@ -1,0 +1,207 @@
+.rReport-bigframe {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--Theme6, #47624f);
+    margin: 0;
+    position: absolute;
+  }
+
+.rReport_goback_button {
+    background: var(--Theme5, #6cc551); /* Green */
+    border-radius: 19px;
+    color: white;
+    width: 207px;
+    height: 90px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    position: absolute;    
+    top: 4.5%;
+    left: 2.5%;
+    transform: scale(0.7, 0.7);
+    border-width: 0px;
+  }
+
+.rReport_whiteframe {
+    width: 1348px;
+    height: 1010px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;    
+    top: -10.5%;
+    left: 15%;
+    transform: scale(0.7, 0.7);
+  }
+
+.rReport_report-id_ {
+    width: 777px;
+    height: 129px;
+    overflow: visible;
+    text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 91px;
+    letter-spacing: 0px;
+    line-height: 1.2;
+    position: absolute;    
+    top: 18px;
+    left: 289px;
+  }
+
+.rReport_sel-frame {
+    width: 1233px;
+    height: 200px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 33px;
+    position: absolute;    
+    top: 171px;
+    left: 57px;
+  }
+
+.rReport_report_ {
+    width: 230px;
+    height: 138px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 46px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 31px;
+    left: 50px;
+  }
+
+.rReport_threadname {
+    width: 380px;
+    height: 184px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 46px;
+    letter-spacing: 3px;
+    line-height: 2;
+    position: absolute;    
+    top: 0px;
+    left: 674px;
+  }
+
+.rReport_selthread_button {
+    width: 317px;
+    height: 70px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;    
+    top: 22px;
+    left: 267px;
+    border-width: 0px;
+    border-radius: 19px;
+    text-align: center;
+    font-size: 30px;
+    line-height: 2;
+    color: white;
+  }
+
+.rReport_selthread_square {    
+    background-color: rgb(255, 255, 255);
+    border-width: 0px;
+    width: 30px;
+    height: 30px;          
+}
+
+.rReport_selcm_button {
+    width: 317px;
+    height: 66px;
+    overflow: visible;
+    background: var(--Theme4, #447604);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    position: absolute;    
+    top: 112px;
+    left: 267px;
+    border-width: 0px;
+    line-height: 2;
+    font-size: 30px;
+  }
+
+.rReport_selcm_square {    
+    background-color: rgb(255, 255, 255);
+    border-width: 0px;
+    width: 30px;
+    height: 30px;          
+}
+
+.rReport_reasonframe {
+    width: 1232px;
+    height: 455px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 33px;
+    position: absolute;    
+    top: 406px;
+    left: 58px;
+  }
+
+.rReport_your-reason_ {
+    width: 341px;
+    height: 138px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 46px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 28px;
+    left: 45px;
+  }
+
+.rReport_reason_input {
+    background-color: rgb(221, 221, 227);
+    font-size: 22;
+    color: "#333333";
+    border: rgba(0,0,0,0);
+    border-width: 1;
+    /*focusColor=#09F*/
+    /*focused:false*/
+    font: false;
+    font-family: "";
+    /*keyboard:""*/
+    /*multiLine:false*/
+    padding: 12;
+    /*password:false*/
+    border-radius: 10px;
+    width: 411px;
+    position: absolute;    
+    top: 178px;
+    left: 45px;
+} 
+
+.rReport_status {
+    width: 642px;
+    height: 86px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 43px;
+    letter-spacing: 3px;
+    line-height: 2;
+    position: absolute;    
+    top: 885px;
+    left: 59px;
+  }
+
+ 

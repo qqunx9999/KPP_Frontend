@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, HttpException, HttpStatus, Patch, ParseArrayPipe } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, HttpException, HttpStatus, Patch, ParseArrayPipe, ParseIntPipe } from '@nestjs/common';
 import { ObjectID } from 'mongodb'
 
 import Thread from './thread.entity';
@@ -25,15 +25,35 @@ export class ThreadsController {
     return this.threadsService.findAll();
   }
 
-  // @Get('filter/:tags/:sortby/:pagesize/:pageNo')
-  // async filterThread(@Param('tags', ParseArrayPipe) tags: string[],
-  //   @Param('sortby') sortby: string,
-  //   @Param('pagesize') pagesize: number,
-  //   @Param('pageNo') pageNo: number
-  // ): Promise<any>{
-  //   return this.threadsService.filterThread(tags, sortby, pagesize, pageNo);
-    
-  // }
+  @Get('filter/:tags/:sortby/:pagesize/:pageNo')
+  async filterThread(@Param('tags', ParseArrayPipe) tags: string[],
+    @Param('sortby') sortby: string,
+    @Param('pagesize', ParseIntPipe) pagesize: number,
+    @Param('pageNo', ParseIntPipe) pageNo: number
+  ): Promise<any>{
+    let threads =await  this.threadsService.filterThread(tags, sortby, pagesize, pageNo);
+    const totals = Math.ceil(threads.length/pagesize);
+    let begin = pagesize*(pageNo-1);
+    let last = pagesize*pageNo; if(last>threads.length){last = threads.length}
+    threads = threads.slice(begin, last);
+    return {threads, pageInfo:{pagesize: threads.length, pageNo, total: totals}};
+  }
+
+  @Get('search/:keyword/:tags/:sortby/:pagesize/:pageNo')
+  async searchThread( @Param('keyword') keyword: string,
+    @Param('tags', ParseArrayPipe) tags: string[],
+    @Param('sortby') sortby: string,
+    @Param('pagesize', ParseIntPipe) pagesize: number,
+    @Param('pageNo', ParseIntPipe) pageNo: number
+  ): Promise<any>{
+    let threads =await  this.threadsService.searchThread(keyword, tags, sortby, pagesize, pageNo);
+    const totals = Math.ceil(threads.length/pagesize);
+    let begin = pagesize*(pageNo-1);
+    let last = pagesize*pageNo; if(last>threads.length){last = threads.length}
+    threads = threads.slice(begin, last);
+    return {threads, pageInfo:{pagesize: threads.length, pageNo, total: totals}};
+  }
+
 
 
   @Get(':threadID')
