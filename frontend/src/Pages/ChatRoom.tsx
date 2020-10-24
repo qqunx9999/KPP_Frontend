@@ -6,11 +6,6 @@ import { useHistory } from 'react-router';
 function ChatRoom() {
   const history = useHistory();
 
-const temp = {
-  "margin": "10px",
-};
-
-
   return(
     <div>
       <div className="backgroundChatRoom">
@@ -28,12 +23,10 @@ const temp = {
           </div>
         </div>
         <div className="frameNameListChatRoom">
-          <div style={ temp }>
             <h1>Chat</h1>
             <div className="buttonGobackChatRoom"> 
               <button onClick={ history.goBack }>Go Back</button>
             </div>
-          </div>
         </div>
         <div className="frameChatAndInputChatRoom">
           <div className="frameChatOutputChatRoom">
