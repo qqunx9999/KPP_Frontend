@@ -12,6 +12,8 @@ export class Reportment_comment{
     @Column()
     commentID:ObjectID;
     @Column()
+    commentNO: number;
+    @Column()
     description:string;
     @Column()
     text_type: {bold: boolean, italic: boolean, font:string, size:number};
