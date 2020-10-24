@@ -12,7 +12,7 @@ export class Reportment_comment{
     @Column()
     commentID:ObjectID;
     @Column()
-    commentNO: number;
+    at_comment: number;
     @Column()
     description:string;
     @Column()
@@ -24,7 +24,7 @@ export class Reportment_comment{
     @Column()
     date_create:Date;
     @Column()
-    date_conciderd: Date;
+    date_considered: Date;
     @Column()
     date_delete:Date;
 }

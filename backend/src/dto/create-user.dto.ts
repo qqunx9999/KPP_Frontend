@@ -10,7 +10,7 @@ export class CreateUserDto {
     password: string;
     //@IsString()
     name: string ;//= "Guess";
-    @IsString()
+    //@IsString()
     avatar_URL: string;
     //@IsInt()
     exp: number //= 0;

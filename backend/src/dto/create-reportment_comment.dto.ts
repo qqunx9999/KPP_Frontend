@@ -9,19 +9,19 @@ export class CreateReportment_commentDto{
 
     commentID:ObjectID;
     @IsInt()
-    commentNO: number;
+    at_comment: number;
     @IsString()
     description:string;
     @IsObject()
     text_type: {bold: boolean, italic: boolean, font:string, size:number};
     @IsArray()
     image_arr: {URL: string, pos: number}[]; 
-    @IsString()
+    //@IsString()
     status: string;
-    @IsDate()
+    //@IsDate()
     date_create:Date;
-    @IsDate()
-    date_concidered: Date;
-    @IsDate()
+    //@IsDate()
+    date_considered: Date;
+    //@IsDate()
     date_delete:Date;
 }

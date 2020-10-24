@@ -6,12 +6,11 @@ export class User{
     userID?: ObjectID;
     @Column()
     username: string;
-
     @Column()
     email: string;
     @Column()
     password: string;
-   @Column()
+    @Column()
     name: string
     @Column()
     avatar_URL: string ;
