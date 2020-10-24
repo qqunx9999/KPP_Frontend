@@ -32,7 +32,6 @@ function Home_new() {
 
   return (
     <div>
-      { !login && (() => history.push('/'))}
       <Navigtion />
         <div className="backgroundHomePage">
           <div style={temp}>
