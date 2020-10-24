@@ -13,7 +13,7 @@ export const Forgetpass = () => {
     const style3 = { width: "440px", height: "40px", };
 
     const sendVerify = () => {
-        AuthService.fetchVerifyCode();
+        // AuthService.fetchVerifyCode();
     };
 
     return (

@@ -60,10 +60,6 @@ async function ForgetPass(email: string, password: string, conPassword: string, 
     };
 };
 
-function fetchVerifyCode() {
-
-}
-
 function isUserLoggedIn(): boolean {
     return localStorage.token !== undefined;
 }
@@ -103,7 +99,6 @@ export default {
     LoginUser,
     SignupUser,
     ForgetPass,
-    fetchVerifyCode,
     isUserLoggedIn,
     getUserName,
     logOutUser,
