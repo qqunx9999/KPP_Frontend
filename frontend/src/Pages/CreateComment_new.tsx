@@ -1,26 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useLocation, useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { Thread } from '../interfaces/threadEntity';
 import ThreadService from '../service/ThreadService';
 import Navigtion from '../component/NavBar';
 import CommentForm from '../component/CommentForm';
 import '../CSSsource/CreateComment.css';
-import AuthService from '../service/AuthService';
 
 function CreateComment_new() {
   const [thread, setThread] = useState<Thread[]>([]);
   const history = useHistory();
   const { ThreadID } = useParams();
-  const [login, setLogin] = useState<boolean>(false);
-
-  function fetchLogin() {
-    const isLoggin = AuthService.isUserLoggedIn();
-    setLogin(isLoggin);
-  }
-
-  useEffect(() => {
-    fetchLogin();
-  }, []);
 
   const fetchThread = () => {
     ThreadService.fetchThread()
@@ -33,13 +22,8 @@ function CreateComment_new() {
     fetchThread();
   }, []);
 
-  function redirected(): void {
-    history.push('/')
-  }
-
   return (
     <div>
-      { login ? null : redirected() }
       <Navigtion />
         <div className="createcm-bigframe">        
         <button className="createcm_goback_button" onClick={ history.goBack }>&lt; Go Back</button> <br />

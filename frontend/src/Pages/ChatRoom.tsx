@@ -1,29 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import React from 'react';
 import '../CSSsource/ChatRoom.css';
 import { useHistory } from 'react-router';
-import AuthService from '../service/AuthService';
 
 function ChatRoom() {
   const history = useHistory();
-  const [login, setLogin] = useState<boolean>(false);
-
-  function fetchLogin() {
-    const isLoggin = AuthService.isUserLoggedIn();
-    setLogin(isLoggin);
-  }
-
-  useEffect(() => {
-    fetchLogin();
-  }, []);
-
-  function redirected(): void {
-    history.push('/')
-  }
 
   return(
     <div>
-      { login ? null : redirected() }
       <div className="backgroundChatRoom">
         <div className="frameContractChatRoom">
           <div className="textContractChatRoom">

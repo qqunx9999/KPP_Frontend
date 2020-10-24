@@ -1,35 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router';
-import { Link } from "react-router-dom";
+import React from 'react';
+import { useHistory } from 'react-router';
 import '../CSSsource/ReadReport.css';
 import Navigtion from '../component/NavBar';
 import ReadReportForm from '../component/ReadReportForm';
-import AuthService from '../service/AuthService';
 
 function ReadReport() {
   const history = useHistory();
-  const [login, setLogin] = useState<boolean>(false);
-
-  function fetchLogin() {
-    const isLoggin = AuthService.isUserLoggedIn();
-    setLogin(isLoggin);
-  }
-
-  useEffect(() => {
-    fetchLogin();
-  }, []);
 
   const temp = {
     "margin": "10px",
   };
 
-  function redirected(): void {
-    history.push('/')
-  }
-
   return (
     <div style={ temp }>
-      { login ? null : redirected() }
       <Navigtion />
       <div className="rReport-bigframe">
         <button className="rReport_goback_button" onClick={ history.goBack }>&lt; Go Back</button>

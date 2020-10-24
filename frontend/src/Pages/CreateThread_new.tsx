@@ -6,28 +6,13 @@ import AuthService from '../service/AuthService';
 
 function CreateThread_new() {
   const history = useHistory();
-  const [login, setLogin] = useState<boolean>(false);
-
-  function fetchLogin() {
-    const isLoggin = AuthService.isUserLoggedIn();
-    setLogin(isLoggin);
-  }
-
-  useEffect(() => {
-    fetchLogin();
-  }, []);
 
   const temp = {
     "margin": "10px",
   };
 
-  function redirected(): void {
-    history.push('/')
-  }
-
   return (
     <div>
-      { login ? null : redirected() }
       <Navigtion />
       <div style={temp}>
         <button onClick={history.goBack}>Go back</button>

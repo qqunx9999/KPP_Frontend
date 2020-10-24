@@ -1,31 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useHistory, useParams } from 'react-router';
 import ReportForm from '../component/ReportForm';
 import '../CSSsource/CreateReport.css';
 import Navigtion from '../component/NavBar';
-import AuthService from '../service/AuthService';
 
 function CreateReport_new() {
   const history = useHistory();
   const { ThreadID } = useParams();
-  const [login, setLogin] = useState<boolean>(false);
-
-  function fetchLogin() {
-    const isLoggin = AuthService.isUserLoggedIn();
-    setLogin(isLoggin);
-  }
-
-  useEffect(() => {
-    fetchLogin();
-  }, []);
-
-  function redirected(): void {
-    history.push('/')
-  }
 
   return (
     <div>
-      { login ? null : redirected() }
       <Navigtion />
       <div className="createrp-bigframe">        
         <button className="createrp_goback_button" onClick={ history.goBack }>&lt; Go Back</button>

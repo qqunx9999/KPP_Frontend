@@ -1,32 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import '../CSSsource/ChangeName.css';
-import { useHistory, useParams } from 'react-router';
+import { useHistory } from 'react-router';
 import Navigtion from '../component/NavBar';
-import { Formik, Form, Field } from 'formik';
 import ChangeNameForm from '../component/ChangeNameForm';
-import AuthService from '../service/AuthService';
 
 function ChangeName() {
-  const [login, setLogin] = useState<boolean>(false);
   const history = useHistory();
-
-  function fetchLogin() {
-    const isLoggin = AuthService.isUserLoggedIn();
-    setLogin(isLoggin);
-  }
-
-  useEffect(() => {
-    fetchLogin();
-  }, []);
-
-   
-  function redirected(): void {
-    history.push('/')
-  }
 
     return (
       <div>
-        { login ? null : redirected() }
         <Navigtion />
         <div className="cName-bigframe">
           <button className="cName_goback_button" onClick={ history.goBack }>&lt; Go Back</button>
