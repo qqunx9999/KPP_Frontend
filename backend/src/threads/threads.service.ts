@@ -78,7 +78,7 @@ export class ThreadsService {
     let threadArr: Thread[];
     await this.filterThread(tags, sortby, pagesize, pageNo)
       .then(setThread => {
-      threadArr = setThread;
+        threadArr = setThread;
       });
     let threads: Thread[];
     threads = threadArr.filter(eachThread => {

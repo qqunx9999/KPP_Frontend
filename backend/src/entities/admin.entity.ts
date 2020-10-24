@@ -8,9 +8,9 @@ export class Admin{
     @Column()
     userID:ObjectID;
     @Column()
-    reportC_read_arr :{reportCID :ObjectID};
+    reportC_read_arr :{reportCID:ObjectID}[];
     @Column()
-    reportT_read_arr: {reportTID: ObjectID};
+    reportT_read_arr: {reportTID:ObjectID}[];
 }
 
 export default Admin;

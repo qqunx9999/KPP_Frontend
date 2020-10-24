@@ -22,8 +22,7 @@
     "react-dom": "^16.14.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.4",
-    "typescript": "^3.9.7"
+    "react-scripts": "^3.4.4"
   },
   "scripts": {
     "start": "set PORT=2000 && react-scripts start",
@@ -45,5 +44,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/ws": "^7.2.7",
+    "ts-loader": "^8.0.6",
+    "typescript": "^3.9.7",
+    "ws": "^7.3.1"
   }
 }

@@ -5,19 +5,30 @@ import { User } from '../entities/user.entity'
 import { ObjectID } from 'mongodb';
 import { User_info } from 'src/common/user_info';
 import { CreateUserDto } from 'src/dto/create-user.dto';
+import Thread from 'src/threads/thread.entity';
 
 @Injectable()
 export class UsersService {
+    
     private user_info: User[] = [];
     private info: User_info={userID: null,name:null,avatar_URL:null, exp:null, rank:null ,isLoggedIn:null };
-    
-    // {not Modify
     private newusers = [];
+    private findoneuser = null;
+
     constructor(
         @InjectRepository(User)
         private usersRepository: Repository<User>,
        
-    ) { }
+    ) {}
+
+    async findallchatroom(userID: ObjectID): Promise<any> {
+        
+    }
+
+    async findallUser(): Promise<User[]> {
+        return this.usersRepository.find();
+    }
+
 
     async findOne(username: string): Promise<User | undefined> {
         await this.usersRepository.find()
@@ -29,7 +40,12 @@ export class UsersService {
     // not Modify}
 
     async findOneUser(userID: ObjectID): Promise<User>{
-        return this.usersRepository.findOne({where:{_id: userID }})
+        await this.usersRepository.findOne({where:{_id: userID }})
+            .then(oneuser => {
+                this.findoneuser = oneuser;
+            });
+        this.findoneuser.password = null;
+        return this.findoneuser;
     }
 
     async findUserInfo(userID: ObjectID): Promise<User_info>{

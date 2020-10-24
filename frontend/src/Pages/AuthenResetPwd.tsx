@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
-import { Redirect } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Redirect, useHistory } from "react-router-dom";
 import '../CSSsource/AuthenResetPwd.css';
+import AuthService from '../service/AuthService';
 
 function AuthenResetPwd() {
   const [time, setRedirect] = useState<boolean>(false);
+  const [login, setLogin] = useState<boolean>(false);
+  const history = useHistory();
+
+  function fetchLogin() {
+    const isLoggin = AuthService.isUserLoggedIn();
+    setLogin(isLoggin);
+  }
+
+  useEffect(() => {
+    fetchLogin();
+  }, []);
 
   function delay() {
     setRedirect(true);
@@ -11,6 +23,7 @@ function AuthenResetPwd() {
 
   return (
     <div className="backgroundFinishLoadAuthenResetPwd">
+      { login ? history.push('/Home') : null }
       <div className="frameAuthenReset">
         <div className="KUpeopleAuthenReset">
           KU People

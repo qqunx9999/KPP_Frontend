@@ -1,15 +1,25 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link, useHistory } from "react-router-dom";
 import '../CSSsource/LoginSigninPage.css';
-import LogInPage from './LoginPage'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AuthService from '../service/AuthService';
 
 function LoginSigninPage() {
+  const [login, setLogin] = useState<boolean>(false);
+  const history = useHistory();
 
+  function fetchLogin() {
+    const isLoggin = AuthService.isUserLoggedIn();
+    setLogin(isLoggin);
+  }
+
+  useEffect(() => {
+    fetchLogin();
+  }, []);
 
   return (
-
     <div className="backgroundLoginSignin">
+      { login ? history.push('/Home') : null }
       <div className="container-sm">
         <div className="centerFrameLoginSignin">
           <div className="KUPeopleLoginSignin">
@@ -28,7 +38,7 @@ function LoginSigninPage() {
           <Link to="/LogIn">
             <button type="button" className="LoginFrameLoginSignin btn btn-success">
               <div className="LogInLoginSignin ">
-                          Log In
+                Log In
               </div>
             </button>
           </Link>
