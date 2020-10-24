@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
+import Navigtion from '../component/NavBar';
 import { Userinfo } from '../interfaces/userInfoEntity';
 import UserService from '../service/UserService';
 
@@ -27,6 +28,7 @@ function Setting_new(props: LoginFormProps) {
 
   return (
     <div>
+      <Navigtion />
       <div style={temp}>
         <button onClick={history.goBack}>Go Back</button>
         <h1>Setting</h1>

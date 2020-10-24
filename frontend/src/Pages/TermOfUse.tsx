@@ -1,14 +1,25 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link, useHistory } from "react-router-dom";
 import '../CSSsource/TermOfUse.css';
+import AuthService from '../service/AuthService';
 
 function TermOfUse() {
+  const [login, setLogin] = useState<boolean>(false);
+  const history = useHistory();
 
+  function fetchLogin() {
+    const isLoggin = AuthService.isUserLoggedIn();
+    setLogin(isLoggin);
+  }
+
+  useEffect(() => {
+    fetchLogin();
+  }, []);
 
   return (
     <div className="backgroundTermOfUse">
+      { login ? history.push('/Home') : null}
       <div className="frameTermOfUse">
-
         <div className="KUpeopleTermOfUse">
           KU People
         </div>
@@ -17,7 +28,7 @@ function TermOfUse() {
         </div>
         <div className="frameDetailTermOfUse">
           <p className="detailTermOfUse">
-                &nbsp; &nbsp; This website is owned and operated by KU the WEEB team, user must acceptterms and conditions below before usethis website.
+            &nbsp; &nbsp; This website is owned and operated by KU the WEEB team, user must acceptterms and conditions below before usethis website.
             <br />
             <br />
             &nbsp; &nbsp; 1. Do not against Term Of Use Agreement,if you do, we will prohibit you from using this website
@@ -42,10 +53,7 @@ function TermOfUse() {
           <div className="GoBackButtonTermOfUse">
             &lt; Go Back
           </div>
-
         </Link>
-
-
       </div>
     </div>
   );

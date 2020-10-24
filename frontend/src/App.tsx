@@ -16,6 +16,7 @@ import SearchThread_new from './Pages/SearchThread_new';
 import CreateThread_new from './Pages/CreateThread_new';
 import Profile_new from './Pages/Profile_new';
 import Setting_new from './Pages/Setting_new';
+import ChatRoom from './Pages/ChatRoom';
 
 function App() {
     const history = useHistory();
@@ -38,6 +39,7 @@ function App() {
             <Route path="/CreateThread" component={CreateThread_new} />
             <Route path="/Profile" component={Profile_new} />
             <Route path="/Setting" component={Setting_new} />
+            <Route path="/ChatRoom/:ChatID" component={ChatRoom} />
         </Switch>
     );
 }

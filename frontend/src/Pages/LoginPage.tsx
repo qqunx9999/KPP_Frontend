@@ -1,33 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect
-} from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../CSSsource/LoginPage.css';
-import SignUpPage from "./SignUpPage"
-import AuthenLogIn from './AuthenLogIn';
-import Account from '../interfaces/accountEntity';
 import { EmailID } from '../component/LoginForm';
-import { stringify } from 'querystring';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthService from '../service/AuthService';
 
-type LoginFormProps = {
-  loginCallBack?: () => void,
-};
+const LoginPage = () => {
+  const [login, setLogin] = useState<boolean>(false);
+  const history = useHistory();
 
-const LoginPage = (props: LoginFormProps) => {
-  // const [redirected, setRedirected] = useState('');
+  function fetchLogin() {
+    const isLoggin = AuthService.isUserLoggedIn();
+    setLogin(isLoggin);
+  }
 
-  // // const 
+  useEffect(() => {
+    fetchLogin();
+  }, []);
 
   return (
     <div className="LogInPage1">
+      { login ? history.push('/Home') : null }
       <div className="container-md">
         <div className="CenterFrameLogin1">
 
@@ -48,7 +43,7 @@ const LoginPage = (props: LoginFormProps) => {
             <button type="button" className="FrameGoBackLogIn1 btn btn-success">
               <div className="GoBackButtonLogIn1">
                 &lt; Go Back
-            </div>
+              </div>
             </button>
           </Link>
           <div className="TextDontLogIn1">
