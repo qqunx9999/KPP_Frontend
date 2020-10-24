@@ -4,7 +4,6 @@ import {ObjectID} from 'mongodb';
 
 
 export class CreateCommentDto {
-    
     userID:ObjectID;
     
     threadID:ObjectID;
@@ -16,13 +15,13 @@ export class CreateCommentDto {
     image_arr:{URL: string, pos: number}[];
     @IsInt()
     reply_to:number;
-    @IsInt()
+    //@IsInt()
     commentNO:number;
-    @IsDate()
+    //@IsDate()
     date_create:Date;
-    @IsDate()
+    //@IsDate()
     date_lastedit:Date;
-    @IsDate()
+    //@IsDate()
     date_delete:Date;
     
 }

@@ -49,27 +49,52 @@ function Home_new() {
     <div>
       { !login && redirected()}
       <Navigtion />
-      <div style={temp}>
-        <h1>Latest</h1>
-        {thread.map(item => (
-          <Link to={`/Thread/${item.threadID}`}>
-            <li key={item.threadID}>{item.topic} - {time.getDate() - Number(item.date_create)} Days</li>
-          </Link>
-        ))}
-        <h1>Hottest</h1>
-        {thread.map(item => (
-          <Link to={`/Thread/${item.threadID}`}>
-            <li key={item.threadID}>{item.topic} - Like {item.up_vote_count}: Dislike {item.down_vote_count}: Comments {item.number_of_comment}</li>
-          </Link>
-        ))}
-        <h1>News</h1>
-        {thread.map(item => (
-          <Link to={`/Thread/${item.threadID}`}>
-            <li key={item.threadID}>{item.topic}</li>
-          </Link>
-        ))}
-      </div>
-    </div>
+        <div className="backgroundHomePage">
+          <div style={temp}>
+            <div className="latestWhiteFrameHomePage">
+              <div className="latestGreenFrameHomePage">
+                <div className="stackLatestHomePage">
+                  <h1>Latest</h1>
+                    {thread.map(item => (
+                      <div>
+                        <Link to={`/Thread/${item.threadID}`}>
+                          {item.topic} - {time.getDate() - Number(item.date_create)} Days
+                        </Link>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            </div>
+            <div className="hottestWhiteFrameHomePage">
+              <div className="hottestGreenFrameHomePage">
+                <div className="stackHottestHomePage"></div>
+                  <h1>Hottest</h1>
+                  {thread.map(item => (
+                    <div>
+                      <Link to={`/Thread/${item.threadID}`}>
+                        {item.topic} - Like {item.up_vote_count}: Dislike {item.down_vote_count}: Comments {item.number_of_comment}
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="newsWhiteFrameHomePage">
+              <div className="newsGreenFrameHomePage">
+                <div className="stackNewsHomePage">
+                  <h1>News</h1>
+                  {thread.map(item => (
+                    <div>
+                      <Link to={`/Thread/${item.threadID}`}>
+                        {item.topic}
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
   );
 }
 

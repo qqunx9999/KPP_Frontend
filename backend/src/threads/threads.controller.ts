@@ -14,6 +14,7 @@ import Reportment_thread from 'src/entities/reportment_thread.entity';
 import { CreateReportment_threadDto } from 'src/dto/create-reportment_thread.dto';
 import Reportment_comment from 'src/entities/reportment_comment.entity';
 import { CreateReportment_commentDto } from 'src/dto/create-reportment_comment.dto';
+import { UpdateThreadDto } from 'src/dto_update/update-thread.dto';
 
 
 @Controller('threads')
@@ -46,6 +47,7 @@ export class ThreadsController {
     @Param('pagesize', ParseIntPipe) pagesize: number,
     @Param('pageNo', ParseIntPipe) pageNo: number
   ): Promise<any>{
+    console.log(pagesize, pageNo);
     let threads =await  this.threadsService.searchThread(keyword, tags, sortby, pagesize, pageNo);
     const totals = Math.ceil(threads.length/pagesize);
     let begin = pagesize*(pageNo-1);
@@ -54,7 +56,7 @@ export class ThreadsController {
     return {threads, pageInfo:{pagesize: threads.length, pageNo, total: totals}};
   }
 
-
+  
 
   @Get(':threadID')
   async findOneThread(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<any> {
@@ -66,10 +68,21 @@ export class ThreadsController {
     return this.threadsService.createThread(createThreadDto);
   }
 
-  @Get(':threadID/comments')
-  async findAllCommentations(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<Commentation[]>{
-    return this.threadsService.findAllCommentations(threadID);
+  // @Get(':threadID/comments')
+  // async findAllCommentations(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<Commentation[]>{
+  //   return this.threadsService.findAllCommentations(threadID);
+  // }
+
+  @Get(':threadID/comments/:pagesize/:pageNo')
+  async findPageCommentations(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
+    @Param('pagesize', ParseIntPipe) pagesize: number,
+    @Param('pageNo', ParseIntPipe) pageNo: number
+    ): Promise<any>{
+    //console.log(pagesize);
+    return this.threadsService.findPageCommentations(threadID, pagesize, pageNo);
   }
+  
+
   
   
   @Post(':threadID/comments')
@@ -101,9 +114,9 @@ export class ThreadsController {
 
   @Patch(':threadID')
   async updateThread(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
-    @Body() updateThread_dto: CreateThreadDto) {
+    @Body() updateThreadDto: UpdateThreadDto) {
       
-      return this.threadsService.updateThread(threadID, updateThread_dto);
+      return this.threadsService.updateThread(threadID, updateThreadDto);
   }
 
   

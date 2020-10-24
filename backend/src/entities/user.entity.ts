@@ -6,7 +6,6 @@ export class User{
     userID?: ObjectID;
     @Column()
     username: string;
-
     @Column()
     email: string;
     @Column()

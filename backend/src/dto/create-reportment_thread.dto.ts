@@ -13,12 +13,12 @@ export class CreateReportment_threadDto{
     text_type: {bold: boolean, italic: boolean, font:string, size:number};
     @IsArray()
     image_arr: {URL: string, pos: number}[]; 
-    @IsString()
+    //@IsString()
     status: string;
-    @IsDate()
+    //@IsDate()
     date_create:Date;
-    @IsDate()
-    date_considerd: Date;
-    @IsDate()
+    //@IsDate()
+    date_considered: Date;
+    //@IsDate()
     date_delete:Date;
 }
