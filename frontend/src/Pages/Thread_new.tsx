@@ -5,6 +5,7 @@ import ThreadService from '../service/ThreadService';
 import { useHistory, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import Navigtion from '../component/NavBar';
+import AuthService from '../service/AuthService';
 
 type LoginFormProps = {
   loginCallBack?: () => void,
@@ -14,6 +15,16 @@ function Threads_new(props: LoginFormProps) {
   const { ThreadID } = useParams();
   const [thread, setThread] = useState<Thread[]>([]);
   const history = useHistory();
+  const [login, setLogin] = useState<boolean>(false);
+
+  function fetchLogin() {
+    const isLoggin = AuthService.isUserLoggedIn();
+    setLogin(isLoggin);
+  }
+
+  useEffect(() => {
+    fetchLogin();
+  }, []);
 
   const fetchThread = () => {
     ThreadService.fetchThread()
@@ -32,6 +43,7 @@ function Threads_new(props: LoginFormProps) {
 
   return (
     <div>
+      { login ? null : history.push('/') }
       <Navigtion />
       <div className="Threads-bigframe">
         <div className="thread-topic-frame">

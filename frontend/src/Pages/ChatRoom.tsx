@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import '../CSSsource/ChatRoom.css';
 import { useHistory } from 'react-router';
@@ -19,6 +19,7 @@ function ChatRoom() {
 
   return(
     <div>
+      { login ? null : history.push('/') }
       <div className="backgroundChatRoom">
         <div className="frameContractChatRoom">
           <div className="textContractChatRoom">
