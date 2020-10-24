@@ -41,11 +41,11 @@ function App() {
             <Route path="/SearchThread" component={SearchThread_new} />
             <Route path="/CreateThread" component={CreateThread_new} />
             <Route path="/Profile" component={Profile_new} />
-            <Route path="/Setting" component={Setting_new} />
+            <Route exact path="/Setting" component={Setting_new} />
             <Route path="/ReadReport" component={ReadReport} />
             <Route path="/ChatRoom" component={ChatRoom} />
             <Route path="/AuthenLogout" component={AuthenLogout} />
-            <Route path="/Setting/ChangeName" component={ChangeName} />
+            <Route exact path="/Setting/ChangeName" component={ChangeName} />
         </Switch>
     );
 }
