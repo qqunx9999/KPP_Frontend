@@ -1,0 +1,119 @@
+.cName-bigframe {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--Theme6, #47624f);
+    margin: 0;
+    position: absolute;
+  }
+
+.cName_goback_button {
+    background: var(--Theme5, #6cc551); /* Green */
+    border-radius: 19px;
+    color: white;
+    width: 207px;
+    height: 90px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    position: absolute;    
+    top: 4.5%;
+    left: 2.5%;
+    transform: scale(0.7, 0.7);
+    border-width: 0px;
+  }
+
+.cName-whiteframe {
+    width: 1348px;
+    height: 556px;
+    overflow: visible;
+    background: var(--Theme1, #ffffff);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 66px;
+    position: absolute;    
+    top: 15.5%;
+    left: 15%;
+    transform: scale(0.7, 0.7);
+  }
+
+.cName-change-name {
+    width: 612px;
+    height: 129px;
+    overflow: visible;
+    text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
+    font-family: "Inter", sans-serif;
+    color: var(--Theme3, #0f0508);
+    font-size: 91px;
+    letter-spacing: 0px;
+    line-height: 1.2;
+    position: absolute;    
+    top: 48px;
+    left: 388px;
+  }
+
+.cName-blackframe {
+    width: 1149px;
+    height: 153px;
+    overflow: visible;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 42px;
+    position: absolute;    
+    top: 200px;
+    left: 105px;
+  }
+
+.cName-new-name_ {
+    width: 503px;
+    height: 138px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 46px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 6px;
+    left: 30px;
+  }
+
+.cName-confirmbutton {
+    width: 222px;
+    height: 90px;
+    overflow: visible;
+    background: var(--Theme5, #6cc551);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 30px;
+    position: absolute;    
+    top: 397px;
+    left: 1032px;
+  }
+
+  .cName_newname_input {
+    background-color: rgb(221, 221, 227);
+    font-size: 20;
+    color: "#333333";
+    border: rgba(0,0,0,0.29);
+    border-width: 3;
+    /*focusColor=#09F*/
+    /*focused:false*/
+    font: false;
+    font-family: "";
+    /*keyboard:""*/
+    /*multiLine:false*/
+    padding: 12;
+    /*password:false*/
+    border-radius: 10px;
+    width: 411px;
+    position: absolute;    
+    top: 47px;
+    left: 330px;
+    
+    
+}  
