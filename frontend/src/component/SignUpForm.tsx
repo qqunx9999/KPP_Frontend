@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import '../CSSsource/SignupPage.css';
 import AuthService from '../service/AuthService';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { baseUrl } from '../config/constant';
 
 export const SignUp = () => {
   const [signUpErrorMessage, setSignUpErrorMessage] = useState('');
@@ -22,9 +23,19 @@ export const SignUp = () => {
         return errors;
       }}
       onSubmit={async (values, actions) => {
-        const result = await AuthService.SignupUser(values.account, (values.email).concat('@ku.th'), values.password, values.conPass);
+        const result = await fetch(`${ baseUrl }/users`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            "username": values.account,
+            "email": (values.email).concat('@ku.th'),
+            "password": values.password
+          })
+        });
+        console.log(result);
         if (!result) {
           setSignUpErrorMessage('Sign up error: please type all requirement');
+          console.log('Sign up error: please type all requirement');
         } else {
           setSignUpErrorMessage('');
           history.push('/SignUp/AuthenSignup');
@@ -55,7 +66,11 @@ export const SignUp = () => {
             <ErrorMessage name="password" component="div" />
           </div>
           <div className="signup-sign-up">
+<<<<<<< HEAD
             <button disabled={isSubmitting} id="signup-su-frame" className="btn btn-success">
+=======
+            <button type="submit" id="signup-su-frame" className="btn btn-success" disabled={ isSubmitting }>
+>>>>>>> 7446848bb2029d3ee253fd4b3e16fc3b5dab943c
               <span id="bigText">Sign Up</span>
             </button>
           </div>

@@ -1,15 +1,17 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
-import ThreadService from '../service/ThreadService';
 import AuthService from '../service/AuthService';
 import { baseUrl } from '../config/constant';
 import '../CSSsource/CreateThread.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import { Dropdown } from 'react-bootstrap';
 
 const ThreadForm = () => {
   return (
     <div>
       <Formik
-        initialValues={{ tag: [], topic: '', content: '', size: '', text_type: [] }}
+        initialValues={{ tag: [], topic: '', content: '', size: '', text_type: [] , veterinary: '', vettechs: '' , engineering: '' , agriculture: '', fisheries: '' , education: '', humanities: '', business: '' , economics: '', forestry: '' ,
+        agindustry: '' , social: '' , science: '' , enviroment: '' , architecture: ''}}
         onSubmit={ async (values, actions) => {
           const text = { 'bold': values.text_type[0], 'italic': values.text_type[1], 'font': 'Arial', 'size': Number(values.size) }
           const sendOption = {
@@ -58,8 +60,30 @@ const ThreadForm = () => {
                 </label>
                 <label>
                 <button className="facultyFrameCreateThread">
-                  <Field type="checkbox" name="tag" value="faculty" className="facultyClickBoxCreateThread" />
-                  <div className="facultyTextCreateThread"> Faculty </div>
+                  {/* <Field type="checkbox" name="tag" value="faculty" className="facultyClickBoxCreateThread" /> */}
+                  {/* <div className="facultyTextCreateThread"> Faculty </div> */}
+                  <Dropdown>
+                  <Dropdown.Toggle variant="green">Faculty</Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item><Field type="checkbox" name="veterinary" /> Veterinary</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="vettechs" /> Vet-techs</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="engineering" /> Engineering</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="agriculture" /> Agriculture</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="fisheries" /> Fisheries</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="education" /> Education</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="humanities" /> Humanities</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="business" /> Business</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="economics" /> Economics</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="forestry" /> Forestry</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="agindustry" /> Ag-industry</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="social" /> Social</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="science" /> Science</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="enviroment" /> Enviroment</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="architecture" /> Architecture</Dropdown.Item>
+
+                  </Dropdown.Menu>
+                </Dropdown>
+
                 </button>
                 </label>
                 <label>
