@@ -27,7 +27,7 @@ export class ReportsService {
     return this.reportment_threadsRepository.find();
   }
 
-  async findAllReporteds(): Promise<Reportment_comment[]> {
+  async findAllReportedCs(): Promise<Reportment_comment[]> {
     return this.reportment_commentsRepository.find();
   }
 }

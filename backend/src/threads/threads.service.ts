@@ -26,7 +26,7 @@ export class ThreadsService {
     @InjectRepository(Reportment_thread)
     private reportment_threadsRepository: Repository<Reportment_thread>,
     @InjectRepository(Reportment_comment)
-    private reportment_commentRepository: Repository<Reportment_thread>,
+    private reportment_commentRepository: Repository<Reportment_comment>,
     private usersService: UsersService,
       
   ) {}
