@@ -39,7 +39,7 @@ const Navigtion = () => {
               
               <div className="searchCSS">
               <Link to={ `/CreateThread` }>
-                <img src={ createBlog } alt="React is hell !!!" width = "57" height="57" title="Create Blog"/>
+                <img src={ createBlog } alt="React is hell !!!" width = "57" height="57" title="Create Thread"/>
                 </Link>
               </div>
             </li>

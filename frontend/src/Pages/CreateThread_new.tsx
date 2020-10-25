@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import Navigtion from '../component/NavBar';
 import ThreadForm from '../component/ThreadForm';
-import AuthService from '../service/AuthService';
 
 function CreateThread_new() {
   const history = useHistory();
