@@ -29,7 +29,9 @@ const SearchThread_new = () => {
               <div className="frameSearchAndTopicSearchThread">
               <div className="searchTextSearchAndTopicSearchThread">Search :</div>
               <Field type="input" name="keyword" className="inputKeywordSearchThread" placeholder="Enter your keyword" style={{ width:"800px" , height:"60px" }} />
-              <button  disabled={ isSubmitting }>Submit</button>
+              <button  disabled={ isSubmitting  } className="frameSubmitSearchThread">
+                <div className="textSubmitSearchThread"> Submit </div>
+              </button>             
               <div className="topicTextSearchThread">Topic :</div>
               <button className="needHelpFrameSearchThread">
                  <Field type="checkbox" name="help" className="needHelpClickBoxSearchThread" /> 
@@ -69,6 +71,7 @@ const SearchThread_new = () => {
                 <Field type="checkbox" name="nonsense" className="nonsenseClickBoxSearchThread" />
                 <div className="nonsenseTextSearchThread">Nonsense</div>
               </button>
+              <button className="frameSortBySearchThread">
               <Dropdown>
                 <Dropdown.Toggle variant="dark">Sort</Dropdown.Toggle>
                 <Dropdown.Menu>
@@ -77,6 +80,7 @@ const SearchThread_new = () => {
                   <Dropdown.Item><Field type="checkbox" name="like" /> Like</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
+              </button>
               </div>
             </Form>
           )}

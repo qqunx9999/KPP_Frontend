@@ -44,7 +44,10 @@ export class ChatroomsController {
               @Body() CreateChat_messageDto:CreateChat_messageDto){
         CreateChat_messageDto.chatroomID = chatroomID;
         CreateChat_messageDto.userID = userID ;
-        return  this.chatroomsService.createMessages(CreateChat_messageDto)
+        let date = new Date() ;
+        date.setMinutes(date.getMinutes()+7*60);
+        CreateChat_messageDto.date_create = date;
+        return  this.chatroomsService.createMessages(CreateChat_messageDto);
     }
 
 }
