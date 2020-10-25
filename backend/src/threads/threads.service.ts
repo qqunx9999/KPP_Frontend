@@ -300,6 +300,11 @@ export class ThreadsService {
     else if( updateThreadDto.date_delete !=undefined){
       let dateDel = new Date(); dateDel.setMinutes(dateDel.getMinutes()+7*60);
       updateThreadDto.date_delete = dateDel;
+      let th: Thread ;
+      await this.threadsRepository.findOne({where:{ _id: threadID}})
+      .then(setThread => {
+        th = setThread;
+      }); 
     }
     else{
       let dateLastEdit = new Date(); dateLastEdit.setMinutes(dateLastEdit.getMinutes()+7*60);
@@ -312,15 +317,19 @@ export class ThreadsService {
   }
 
 
-  async updateComment(commentID: ObjectID, updateCommentDto: UpdateCommentDto){
+  async updateComment(threadID: ObjectID, commentID: ObjectID, updateCommentDto: UpdateCommentDto){
     if(updateCommentDto.date_delete !== undefined){
-      console.log("yes");
       let dateDel = new Date(); dateDel.setMinutes(dateDel.getMinutes()+7*60);
       updateCommentDto.date_delete = dateDel;
-
+      let thread: Thread ;
+      await this.threadsRepository.findOne({where:{ _id: threadID}})
+      .then(setThread => {
+        thread = setThread;
+      }); 
+      thread.total_comment = thread.total_comment-1;
+      this.threadsRepository.update({threadID: threadID},thread);
     }
     else{
-      
       let dateLastEdit = new Date(); dateLastEdit.setMinutes(dateLastEdit.getMinutes()+7*60);
       updateCommentDto.date_lastedit = dateLastEdit;
     }

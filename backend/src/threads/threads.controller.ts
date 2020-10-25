@@ -125,7 +125,7 @@ export class ThreadsController {
     @Param('commentID', ParseObjectIdPipe) commentID: ObjectID,
     @Body() updateCommentDto: UpdateCommentDto
     ){
-      return this.threadsService.updateComment(commentID, updateCommentDto);
+      return this.threadsService.updateComment(threadID, commentID, updateCommentDto);
     }
   
 
