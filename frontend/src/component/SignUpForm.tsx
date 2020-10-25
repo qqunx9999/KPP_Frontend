@@ -66,11 +66,7 @@ export const SignUp = () => {
             <ErrorMessage name="password" component="div" />
           </div>
           <div className="signup-sign-up">
-<<<<<<< HEAD
-            <button disabled={isSubmitting} id="signup-su-frame" className="btn btn-success">
-=======
             <button type="submit" id="signup-su-frame" className="btn btn-success" disabled={ isSubmitting }>
->>>>>>> 7446848bb2029d3ee253fd4b3e16fc3b5dab943c
               <span id="bigText">Sign Up</span>
             </button>
           </div>
