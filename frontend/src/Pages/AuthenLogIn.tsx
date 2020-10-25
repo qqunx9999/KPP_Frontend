@@ -30,9 +30,7 @@ function AuthenLogIn() {
           <div className="KUpeopleAuth">
             KU People
           </div>
-          <div className="rotate">
-
-          </div>
+          <div className="rotate" />
           <div className=" spinner-border text-success" id="spin" role="status">
             <span className="sr-only">Loading...</span>
           </div>
