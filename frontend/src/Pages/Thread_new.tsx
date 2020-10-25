@@ -14,6 +14,7 @@ function Threads_new(props: LoginFormProps) {
   const { ThreadID } = useParams();
   const [thread, setThread] = useState<Thread[]>([]);
   const history = useHistory();
+  console.log(thread);
 
   const fetchThread = () => {
     ThreadService.fetchThread()
@@ -79,7 +80,17 @@ function Threads_new(props: LoginFormProps) {
         <button className="thread-upvote-frame">Like</button>
         <button className="thread-downvote-frame">Dislike</button>
 
-
+        { thread.map(item => {
+          if(item.threadID === { ThreadID }.ThreadID) {
+            return(
+              <div>
+                Topic : { item.topic } <br />
+                When : { item.date_create } <br />
+                Last edit : { item.date_last_edit } <br />
+              </div>
+            );
+          }
+        }) }
       </div>
     </div>
   );

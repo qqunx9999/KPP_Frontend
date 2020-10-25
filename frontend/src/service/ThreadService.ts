@@ -7,22 +7,8 @@ export async function fetchThread(): Promise<Thread[]> {
       return courses
 }
 
-export async function saveThread(topic: string, userID: any, tag_arr: string[], content: string, text_type: {bold: boolean, italic: boolean, font: string, size: number}, image_arr: {URL: string, pos: number}) {
-    const newThread = {
-        "topic": topic,
-        "userID": userID,
-        "tag_arr": tag_arr,
-        "content": content,
-        "text_type": text_type,
-        "image_arr": image_arr,
-    }
-
-    const saveOption = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newThread),
-    }
-    const res = await fetch(`${ baseUrl }/threads`, saveOption);
+export async function checkComment() {
+    const res = await fetch(`${ baseUrl }/`);
 }
 
 export function passThreadNO(threadNO: string): void {
@@ -44,5 +30,5 @@ export default {
     passThreadNO,
     checkThreadNO,
     clearThreadNO,
-    saveThread,
+    checkComment,
 }; 
