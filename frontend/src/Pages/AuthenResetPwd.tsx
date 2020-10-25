@@ -28,6 +28,10 @@ function AuthenResetPwd() {
         <div className="KUpeopleAuthenReset">
           KU People
         </div>
+        
+        <div className=" spinner-border text-success" id="spin" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
         <div className="textAuthenReset">
           Password changed!Back to log in...
         </div>

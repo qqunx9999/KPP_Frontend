@@ -74,7 +74,7 @@
     /*multiLine:false*/
     padding: 12;
     /*password:false*/
-    border-radius: 10;
+    border-radius: 10px;
     position: absolute;
     top: 20px;
     left: 230px;
@@ -120,6 +120,8 @@
 
 .needHelpClickBoxCreateThread{
     /*activeBackground*/
+    width: 30px;
+    height: 30px;
     border-width: 1;
     color: white;
     position: absolute;
@@ -128,17 +130,18 @@
 }
 
 .needHelpTextCreateThread {
-    width: 500px;
+    width: 150px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
     color: #ffffff;
     font-size: 23px;
     letter-spacing: 3px;
-    line-height: 3;
+    line-height: 2.5;
     position: absolute;
     top: -3px;
     left: 60px;
+    
   }
 
   .foodFrameCreateThread {
@@ -155,6 +158,8 @@
 
 .foodClickBoxCreateThread{
     /*activeBackground*/
+    width: 30px;
+    height: 30px;
     border-width: 1;
     color: white;
     position: absolute;
@@ -163,14 +168,14 @@
 }
 
 .foodTextCreateThread {
-    width: 500px;
+    width: 50px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
     color: #ffffff;
     font-size: 23px;
     letter-spacing: 3px;
-    line-height: 3;
+    line-height: 2.5;
     position: absolute;
     top: -3px;
     left: 80px;
@@ -190,6 +195,8 @@
 
 .newsClickBoxCreateThread{
     /*activeBackground*/
+    width: 30px;
+    height: 30px;
     border-width: 1;
     color: white;
     position: absolute;
@@ -198,14 +205,14 @@
 }
 
 .newsTextCreateThread {
-    width: 500px;
+    width: 75px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
     color: #ffffff;
     font-size: 23px;
     letter-spacing: 3px;
-    line-height: 3;
+    line-height: 2.5;
     position: absolute;
     top: -3px;
     left: 80px;
@@ -225,6 +232,8 @@
 
 .facultyClickBoxCreateThread{
     /*activeBackground*/
+    width: 30px;
+    height: 30px;
     border-width: 1;
     color: white;
     position: absolute;
@@ -233,14 +242,14 @@
 }
 
 .facultyTextCreateThread {
-    width: 500px;
+    width: 50px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
     color: #ffffff;
     font-size: 23px;
     letter-spacing: 3px;
-    line-height: 3;
+    line-height: 2.5;
     position: absolute;
     top: -3px;
     left: 80px;
@@ -260,6 +269,8 @@
 
 .questionClickBoxCreateThread{
     /*activeBackground*/
+    width: 30px;
+    height: 30px;
     border-width: 1;
     color: white;
     position: absolute;
@@ -268,14 +279,14 @@
 }
 
 .questionTextCreateThread {
-    width: 500px;
+    width: 50px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
     color: #ffffff;
     font-size: 23px;
     letter-spacing: 3px;
-    line-height: 3;
+    line-height: 2.5;
     position: absolute;
     top: -3px;
     left: 60px;
@@ -295,6 +306,8 @@
 
 .sharingClickBoxCreateThread{
     /*activeBackground*/
+    width: 30px;
+    height: 30px;
     border-width: 1;
     color: white;
     position: absolute;
@@ -303,14 +316,14 @@
 }
 
 .sharingTextCreateThread {
-    width: 500px;
+    width: 50px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
     color: #ffffff;
     font-size: 23px;
     letter-spacing: 3px;
-    line-height: 3;
+    line-height: 2.5;
     position: absolute;
     top: -3px;
     left: 80px;
@@ -330,6 +343,8 @@
 
 .complainClickBoxCreateThread{
     /*activeBackground*/
+    width: 30px;
+    height: 30px;
     border-width: 1;
     color: white;
     position: absolute;
@@ -338,14 +353,14 @@
 }
 
 .complainTextCreateThread {
-    width: 500px;
+    width: 50px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
     color: #ffffff;
     font-size: 23px;
     letter-spacing: 3px;
-    line-height: 3;
+    line-height: 2.5;
     position: absolute;
     top: -3px;
     left: 80px;
@@ -365,6 +380,8 @@
 
 .nonsenseClickBoxCreateThread{
     /*activeBackground*/
+    width: 30px;
+    height: 30px;
     border-width: 1;
     color: white;
     position: absolute;
@@ -373,14 +390,14 @@
 }
 
 .nonsenseTextCreateThread {
-    width: 500px;
+    width: 50px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
     color: #ffffff;
     font-size: 23px;
     letter-spacing: 3px;
-    line-height: 3;
+    line-height: 2.5;
     position: absolute;
     top: -3px;
     left: 80px;
@@ -422,6 +439,16 @@
     position: absolute;
     top: 20px;
     left: 700px;
+  }
+
+.createthread-cha {
+    
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #7e7c7c;
+    font-size: 35px;
+    letter-spacing: 3px;
+    line-height: 1;
   }
 
 .frameBoldLettersToolsPlaceYourContentCreateThread {
@@ -484,11 +511,11 @@
     position: absolute;
     top: 15px;
     left: 290px;
+    text-align: center;
+    
   }
 
-.textSizeToolsPlaceYourContentCreateThread {
-    width: 85px;
-    height: 213px;
+.textSizeToolsPlaceYourContentCreateThread {    
     overflow: visible;
     font-family: "Inter", sans-serif;
     color: #7e7c7c;
@@ -498,6 +525,7 @@
     position: absolute;
     top: -25px;
     left: 10px;
+    line-height: 2.5;
   }
 
   .inputSizeCreateThread {
@@ -606,10 +634,10 @@
     /*multiLine:false*/
     padding: 12;
     /*password:false*/
-    border-radius: 10;
+    border-radius: 10px;
     position: absolute;
-    top: 170px;
-    left: -650px;
+    top: 178px;
+    left: 45px;
 }
 
 .frameGoBackCreateThread {

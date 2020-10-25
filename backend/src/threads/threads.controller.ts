@@ -15,6 +15,7 @@ import { CreateReportment_threadDto } from 'src/dto/create-reportment_thread.dto
 import Reportment_comment from 'src/entities/reportment_comment.entity';
 import { CreateReportment_commentDto } from 'src/dto/create-reportment_comment.dto';
 import { UpdateThreadDto } from 'src/dto_update/update-thread.dto';
+import { UpdateCommentDto } from 'src/dto_update/update-comment.dto';
 
 
 @Controller('threads')
@@ -47,7 +48,7 @@ export class ThreadsController {
     @Param('pagesize', ParseIntPipe) pagesize: number,
     @Param('pageNo', ParseIntPipe) pageNo: number
   ): Promise<any>{
-    console.log(pagesize, pageNo);
+    //console.log(pagesize, pageNo);
     let threads =await  this.threadsService.searchThread(keyword, tags, sortby, pagesize, pageNo);
     const totals = Math.ceil(threads.length/pagesize);
     let begin = pagesize*(pageNo-1);
@@ -68,10 +69,10 @@ export class ThreadsController {
     return this.threadsService.createThread(createThreadDto);
   }
 
-  // @Get(':threadID/comments')
-  // async findAllCommentations(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<Commentation[]>{
-  //   return this.threadsService.findAllCommentations(threadID);
-  // }
+  @Get(':threadID/comments')
+  async findAllCommentations(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<Commentation[]>{
+    return this.threadsService.findAllCommentations(threadID);
+  }
 
   @Get(':threadID/comments/:pagesize/:pageNo')
   async findPageCommentations(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
@@ -119,6 +120,13 @@ export class ThreadsController {
       return this.threadsService.updateThread(threadID, updateThreadDto);
   }
 
+  @Patch(':threadID/comments/:commentID')
+  async updateComment(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
+    @Param('commentID', ParseObjectIdPipe) commentID: ObjectID,
+    @Body() updateCommentDto: UpdateCommentDto
+    ){
+      return this.threadsService.updateComment(commentID, updateCommentDto);
+    }
   
 
 }
