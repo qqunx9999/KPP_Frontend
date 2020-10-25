@@ -41,7 +41,7 @@ export class UsersService {
                 this.iamuser = oneuser;
             });
         let numroom = this.iamuser.chatmember_arr.length;
-        //console.log(numroom);
+        console.log(numroom);
         for (let i = 0; i < numroom; i++) {
             let thisroom = null;
             await this.chatroomRepository.findOne({where:{ _id: this.iamuser.chatmember_arr[i].chatroomID}})
@@ -72,6 +72,10 @@ export class UsersService {
             this.mychatroom.push(this.result);
             this.result = {chatroomInfo: null, membersinfo: [], numnotifiacation: null};
         }
+        this.mychatroom = this.mychatroom.sort((a: any, b: any) => {
+            return a.chatroomInfo.date_lastactive.valueOf() - b.chatroomInfo.date_lastactive.valueOf();
+        });
+        this.mychatroom = this.mychatroom.reverse();
         return this.mychatroom;
     }
 
