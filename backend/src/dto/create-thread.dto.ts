@@ -15,7 +15,7 @@ export class CreateThreadDto {
     text_type: {bold: boolean, italic: boolean, font:string, size:number};
     @IsArray()
     image_arr: {URL: string, pos: number}[];  
-    //@IsArray()
+    // @IsArray()
     up_vote_arr: {userID: ObjectID}[] ;//=[] ;
     //@IsArray()
     down_vote_arr: {userID: ObjectID}[] ;//=[];

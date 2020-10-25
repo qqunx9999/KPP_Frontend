@@ -2,7 +2,7 @@ import {Entity , Column , ObjectIdColumn } from 'typeorm';
 import {ObjectID} from 'mongodb';
 
 @Entity()
-export class Notifications{
+export class Notifications {
     @ObjectIdColumn()
     notificationID?:ObjectID;
     @Column()

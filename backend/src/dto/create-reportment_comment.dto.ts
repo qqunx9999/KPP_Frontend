@@ -8,14 +8,14 @@ export class CreateReportment_commentDto{
     threadID:ObjectID;
 
     commentID:ObjectID;
-    @IsInt()
-    at_comment: number;
     @IsString()
     description:string;
     @IsObject()
     text_type: {bold: boolean, italic: boolean, font:string, size:number};
     @IsArray()
     image_arr: {URL: string, pos: number}[]; 
+    @IsInt()
+    at_comment: number;
     //@IsString()
     status: string;
     //@IsDate()

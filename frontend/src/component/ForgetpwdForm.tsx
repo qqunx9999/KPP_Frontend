@@ -19,6 +19,12 @@ export const Forgetpass = () => {
     return (
         <Formik
             initialValues={{ email: '', newPassword: '', conPass: '', verify: '' }}
+            validate={values => {
+                const errors: any = {};
+                if(values.newPassword !== values.conPass) {
+                    errors.password = ''
+                }
+            }}
             onSubmit={async (values, actions) => {
                 const result = await AuthService.SignupUser((values.email), values.newPassword, values.conPass, values.verify);
                 history.push('/ForgetPwd/AuthenResetPwd');

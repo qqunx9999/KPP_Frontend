@@ -3,14 +3,13 @@ import { useHistory } from 'react-router';
 import Navigtion from '../component/NavBar';
 import { Userinfo } from '../interfaces/userInfoEntity';
 import UserService from '../service/UserService';
+import '../CSSsource/Profile.css';
 
 function Profile_new() {
   const [user, setUser] = useState<Userinfo[]>([]);
   const history = useHistory();
 
-  const temp = {
-    "margin": "10px",
-  };
+  
 
   const fetchUser = () => {
     UserService.fetchUser()
@@ -26,9 +25,18 @@ function Profile_new() {
   return (
     <div>
       <Navigtion />
-      <div style={temp}>
-        <h1>Profile</h1>
-        <button onClick={history.goBack}>Go Back</button>
+      <div className="backgroundUserProfile">
+        <div className="frameWhiteUserProfile">
+          <div className="frameBlackUserProfile">
+            <div className="frameLeftGrayUserProfile">
+              <div className="textJoinUserProfile">Join</div>
+            </div>
+            <div className="textProfileUserProfile">Profile</div>
+            <button className="frameGobackUserProfile" onClick={history.goBack}>
+              <div className="textGobackUserProfile"> Go Back</div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

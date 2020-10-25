@@ -6,11 +6,6 @@ export class CreateChat_messageDto{
     chatroomID:ObjectID;
     @IsString()
     message:string;
-
-    
-    
-    @IsInt()
-    readnum:number;
     @IsDate()
     date_create:Date;
     @IsDate()

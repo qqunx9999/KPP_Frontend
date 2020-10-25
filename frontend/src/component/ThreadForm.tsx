@@ -1,34 +1,93 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
+import ThreadService from '../service/ThreadService';
+import AuthService from '../service/AuthService';
+import { baseUrl } from '../config/constant';
+import '../CSSsource/CreateThread.css';
 
 const ThreadForm = () => {
   return (
     <div>
       <Formik
-        initialValues={{ topic: '', size: '', help: '', food: '', news: '', faculty: '', question: '', share: '', complain: '', nonsense: '', comment: '' }}
+        initialValues={{ tag: [], topic: '', content: '', size: '', text_type: [] }}
         onSubmit={ async (values, actions) => {
+          const text = { 'bold': values.text_type[0], 'italic': values.text_type[1], 'font': 'Arial', 'size': Number(values.size) }
+          const sendOption = {
+            "userID": AuthService.getUserID(),
+            "topic": values.topic,
+            "tag_arr": values.tag,
+            "content": values.content,
+            "text_type": text,
+            "image_arr": []
+          };
+          const res = await fetch(`${ baseUrl }/threads`,{
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(sendOption)
+          });
           actions.setSubmitting(false);
         } }
       >
         {({ isSubmitting }) => (
           <Form>
-            <h6>Topic : </h6>
-            <Field type="input" name="topic" placeholder="Topic name..." />
-            <h6>Tags : </h6>
-            <Field type="checkbox" name="help" /> Need Help &nbsp;
-            <Field type="checkbox" name="food" /> Food &nbsp;
-            <Field type="checkbox" name="news" /> News &nbsp;
-            <Field type="checkbox" name="faculty" /> Faculty <br />
-            <Field type="checkbox" name="question" /> Question &nbsp;
-            <Field type="checkbox" name="share" /> Sharing &nbsp;
-            <Field type="checkbox" name="complain" /> Complain &nbsp;
-            <Field type="checkbox" name="nonsense" /> Nonsense <br />
-            <button><b>B</b></button>
-            <button><i>I</i></button>
-            <h6>Size : </h6>
-            <Field type="size" name="size" />
-            <h6>Place your content : </h6>
-            <Field type="input" name="comment" />
+            <h6>Topic :</h6>
+              <label>
+                <Field type="input" name="topic" />
+              </label>
+              <div>
+                <h6>Tags :</h6>
+                <label>
+                  <Field type="checkbox" name="tag" value="help" />
+                  Need Help
+                </label>
+                <label>
+                  <Field type="checkbox" name="tag" value="food" />
+                  Food
+                </label>
+                <label>
+                  <Field type="checkbox" name="tag" value="news" />
+                  News
+                </label>
+                <label>
+                  <Field type="checkbox" name="tag" value="faculty" />
+                  Faculty
+                </label>
+                <label>
+                  <Field type="checkbox" name="tag" value="question" />
+                  Question
+                </label>
+                <label>
+                  <Field type="checkbox" name="tag" value="sharing" />
+                  Sharing
+                </label>
+                <label>
+                  <Field type="checkbox" name="tag" value="complain" />
+                  Complain
+                </label>
+                <label>
+                  <Field type="checkbox" name="tag" value="nonsense" />
+                  Nonsense
+                </label>
+              </div>
+              <div>
+                <label>
+                  <Field type="checkbox" name="text_type" value="bold" />
+                  <b>B</b>
+                </label>
+                <label>
+                  <Field type="checkbox" name="text_type" value="italic" />
+                  <i>I</i>
+                </label>        
+              </div>
+                <label>
+                  <h6>Size :</h6>
+                  <Field type="input" name="size" />
+                </label> 
+              <h6>Place your content :</h6>
+              <label>
+                <Field type="input" name="content" />
+              </label>
+            <button disabled={ isSubmitting } type="submit">Send</button>
           </Form>
         )}
       </Formik>

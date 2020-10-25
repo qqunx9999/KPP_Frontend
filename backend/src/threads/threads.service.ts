@@ -14,6 +14,7 @@ import Reportment_comment from 'src/entities/reportment_comment.entity';
 import { CreateReportment_commentDto } from 'src/dto/create-reportment_comment.dto';
 import { UsersService } from 'src/users/users.service';
 import { UpdateThreadDto } from 'src/dto_update/update-thread.dto';
+import { UpdateCommentDto } from 'src/dto_update/update-comment.dto';
 
 
 @Injectable()
@@ -97,9 +98,10 @@ export class ThreadsService {
     return threads;
   }
 
+  
 
   
-  async findOneThread(threadID: ObjectID): Promise<any>{
+  async findOneThreadWithOwn(threadID: ObjectID): Promise<any>{
     let th: Thread ;
     await this.threadsRepository.findOne({where:{ _id: threadID}})
       .then(setThread => {
@@ -203,7 +205,126 @@ export class ThreadsService {
   }
 
   async updateThread(threadID: ObjectID, updateThreadDto: UpdateThreadDto){
-    //console.log(updateThread_dto);
+    if(updateThreadDto.up_vote_arr !== undefined){
+      
+      const newVote = updateThreadDto.up_vote_arr[0];
+      //console.log(newVote.userID, typeof(newVote.userID));
+      //newVote.userID = new ObjectID(newVote.userID);
+      //console.log(newVote.userID, typeof(newVote.userID));
+
+      let th: Thread ;
+      await this.threadsRepository.findOne({where:{ _id: threadID}})
+      .then(setThread => {
+        th = setThread;
+      }); 
+      let upvoted: boolean = false;
+      let downvoted: boolean = false;
+      var score = 0;
+      //console.log(typeof(th.up_vote_arr[0].userID));
+      upvoted = th.up_vote_arr.some((eachvotter)=> {return eachvotter.userID===newVote.userID});
+      downvoted = th.down_vote_arr.some((eachvotter)=> {return eachvotter.userID===newVote.userID});
+      //console.log(newVote);
+      //console.log(upvoted, downvoted);
+      //console.log(th.up_vote_arr);
+      if(downvoted){
+        //console.log("new", newVote);
+        //console.log("1",th.down_vote_arr);
+         //filter
+        updateThreadDto.down_vote_arr = th.down_vote_arr.filter((eachvote) => {if (eachvote.userID !==newVote.userID){return true;}});//th.down_vote_arr //filter
+        updateThreadDto.down_vote_count = th.down_vote_count-1;
+        //console.log("2",updateThreadDto.down_vote_arr, th.down_vote_arr.filter((eachvote) => {eachvote.userID!==newVote.userID}));
+        th.up_vote_arr.push(newVote);
+        updateThreadDto.up_vote_arr = th.up_vote_arr;
+        updateThreadDto.up_vote_count = th.up_vote_count+1;
+        score = 10;
+        //console.log("downvoted");
+      }
+      else if (upvoted){
+        updateThreadDto.up_vote_arr = th.up_vote_arr.filter(eachvote => {if (eachvote.userID !==newVote.userID){return true;}});
+        //console.log("upvoted", updateThreadDto.up_vote_arr);
+        updateThreadDto.up_vote_count = th.up_vote_count-1;
+        score = -5;   
+      }
+      else{
+        th.up_vote_arr.push(newVote);
+        updateThreadDto.up_vote_arr = th.up_vote_arr;
+        //console.log(th.up_vote_arr);
+        score = 5;
+        updateThreadDto.up_vote_count = th.up_vote_count+1;
+        //console.log("vote yet");
+      }
+      //patch userscore
+    }// upvoted patch
+
+    else if(updateThreadDto.down_vote_arr !== undefined){
+      const newVote = updateThreadDto.down_vote_arr[0];
+      //newVote.userID = new ObjectID(newVote.userID);
+      let th: Thread ;
+      await this.threadsRepository.findOne({where:{ _id: threadID}})
+      .then(setThread => {
+        th = setThread;
+      }); 
+      let upvoted: boolean = false;
+      let downvoted: boolean = false;
+      var score = 0;
+      upvoted = th.up_vote_arr.some((eachvotter)=> {return eachvotter.userID===newVote.userID});
+      downvoted = th.down_vote_arr.some((eachvotter)=> {return eachvotter.userID===newVote.userID});
+      //console.log(newVote);
+      //console.log(upvoted, downvoted);
+      //console.log(th.up_vote_arr);
+      if(upvoted){
+        updateThreadDto.up_vote_arr = th.up_vote_arr.filter(eachvote => {if (eachvote.userID !==newVote.userID){return true;}}); //filter
+        th.down_vote_arr.push(newVote);
+        updateThreadDto.down_vote_arr = th.down_vote_arr;
+        updateThreadDto.down_vote_count = th.down_vote_count+1;
+        updateThreadDto.up_vote_count = th.up_vote_count-1;
+        score = -10;
+        //console.log("downvoted");
+      }
+      else if (downvoted){
+        updateThreadDto.down_vote_arr = th.down_vote_arr.filter(eachvote => {if (eachvote.userID !==newVote.userID){return true;}});
+        //console.log("upvoted", updateThreadDto.up_vote_arr);
+        updateThreadDto.down_vote_count = th.down_vote_count-1;
+        score = 5;   
+      }
+      else{
+        th.down_vote_arr.push(newVote);
+        updateThreadDto.down_vote_arr = th.down_vote_arr;
+        score = -5;
+        updateThreadDto.down_vote_count = th.down_vote_count+1;
+        //console.log("vote yet");
+      }
+      //patch userscore
+    }// downvoted patch
+
+    else if( updateThreadDto.date_delete !=undefined){
+      let dateDel = new Date(); dateDel.setMinutes(dateDel.getMinutes()+7*60);
+      updateThreadDto.date_delete = dateDel;
+    }
+    else{
+      let dateLastEdit = new Date(); dateLastEdit.setMinutes(dateLastEdit.getMinutes()+7*60);
+      updateThreadDto.date_lastedit = dateLastEdit;
+    }
+    
+
+
     return this.threadsRepository.update({threadID: threadID} , updateThreadDto);
+  }
+
+
+  async updateComment(commentID: ObjectID, updateCommentDto: UpdateCommentDto){
+    if(updateCommentDto.date_delete !== undefined){
+      console.log("yes");
+      let dateDel = new Date(); dateDel.setMinutes(dateDel.getMinutes()+7*60);
+      updateCommentDto.date_delete = dateDel;
+
+    }
+    else{
+      
+      let dateLastEdit = new Date(); dateLastEdit.setMinutes(dateLastEdit.getMinutes()+7*60);
+      updateCommentDto.date_lastedit = dateLastEdit;
+    }
+
+    return this.commentationsRepository.update({commentID:commentID}, updateCommentDto);
   }
 }
