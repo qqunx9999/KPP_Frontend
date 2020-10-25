@@ -35,8 +35,9 @@ function AuthenSignup() {
             <div className="AuthenSU-k-u-people">
               KU People
             </div>
-            <div className="rotate">
-              <img src={logo} alt="React is stupid" />
+            <div className="rotate" />
+            <div className=" spinner-border text-success" id="spin" role="status">
+              <span className="sr-only">Loading...</span>
             </div>
             <div className="AuthenSU-in_progess">
               Signing up in progess...

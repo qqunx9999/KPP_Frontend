@@ -7,12 +7,8 @@ import ReadReportForm from '../component/ReadReportForm';
 function ReadReport() {
   const history = useHistory();
 
-  const temp = {
-    "margin": "10px",
-  };
-
   return (
-    <div style={ temp }>
+    <div>
       <Navigtion />
       <div className="rReport-bigframe">
         <button className="rReport_goback_button" onClick={ history.goBack }>&lt; Go Back</button>

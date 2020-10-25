@@ -12,20 +12,19 @@ const ThreadForm = () => {
         initialValues={{ tag: [], topic: '', content: '', size: '', text_type: [] }}
         onSubmit={ async (values, actions) => {
           const text = { 'bold': values.text_type[0], 'italic': values.text_type[1], 'font': 'Arial', 'size': Number(values.size) }
-          fetch(`${ baseUrl }/threads`,{
+          const sendOption = {
+            "userID": AuthService.getUserID(),
+            "topic": values.topic,
+            "tag_arr": values.tag,
+            "content": values.content,
+            "text_type": text,
+            "image_arr": []
+          };
+          const res = await fetch(`${ baseUrl }/threads`,{
             method: 'POST',
-            headers: {'Contect-Type': 'application/json'},
-            body: JSON.stringify({
-              'topic': values.topic,
-              'userID': AuthService.getUserID(),
-              'tag_arr': values.tag,
-              'content': values.content,
-              'text_type': text,
-              'image_arr': []
-            })
-          }).then(obj => {
-            console.log(obj);
-          })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(sendOption)
+          });
           actions.setSubmitting(false);
         } }
       >
