@@ -14,6 +14,7 @@ import Reportment_comment from 'src/entities/reportment_comment.entity';
 import { CreateReportment_commentDto } from 'src/dto/create-reportment_comment.dto';
 import { UsersService } from 'src/users/users.service';
 import { UpdateThreadDto } from 'src/dto_update/update-thread.dto';
+import { UpdateCommentDto } from 'src/dto_update/update-comment.dto';
 
 
 @Injectable()
@@ -311,4 +312,19 @@ export class ThreadsService {
   }
 
 
+  async updateComment(commentID: ObjectID, updateCommentDto: UpdateCommentDto){
+    if(updateCommentDto.date_delete !== undefined){
+      console.log("yes");
+      let dateDel = new Date(); dateDel.setMinutes(dateDel.getMinutes()+7*60);
+      updateCommentDto.date_delete = dateDel;
+
+    }
+    else{
+      
+      let dateLastEdit = new Date(); dateLastEdit.setMinutes(dateLastEdit.getMinutes()+7*60);
+      updateCommentDto.date_lastedit = dateLastEdit;
+    }
+
+    return this.commentationsRepository.update({commentID:commentID}, updateCommentDto);
+  }
 }
