@@ -32,7 +32,6 @@ export const EmailID = () => {
       }}
       onSubmit={async (values, actions) => {
         const result = await AuthService.LoginUser((values.email).concat('@ku.th'), values.password);
-        console.log(result);
         if (!result) {
           setLoginErrorMessage('Login error: Wrong username or password');
         } else {
