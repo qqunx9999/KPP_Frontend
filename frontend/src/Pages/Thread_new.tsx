@@ -5,6 +5,7 @@ import ThreadService from '../service/ThreadService';
 import { useHistory, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import Navigtion from '../component/NavBar';
+import { baseUrl } from '../config/constant';
 
 type LoginFormProps = {
   loginCallBack?: () => void,
@@ -13,8 +14,8 @@ type LoginFormProps = {
 function Threads_new(props: LoginFormProps) {
   const { ThreadID } = useParams();
   const [thread, setThread] = useState<Thread[]>([]);
+  const [comment, setComment] = useState('');
   const history = useHistory();
-  console.log(thread);
 
   const fetchThread = () => {
     ThreadService.fetchThread()
@@ -23,8 +24,18 @@ function Threads_new(props: LoginFormProps) {
       });
   };
 
+  const fetchComment = () => {
+    const fetchOption = {
+
+    };
+    fetch(`${ baseUrl }/threads/${ ThreadID }/comments/8/1`)
+      .then(res => res.json())
+      .then(obj => setComment(obj));
+  };
+
   useEffect(() => {
     fetchThread();
+    fetchComment();
   }, []);
 
   return (
@@ -87,6 +98,7 @@ function Threads_new(props: LoginFormProps) {
                 Topic : { item.topic } <br />
                 When : { item.date_create } <br />
                 Last edit : { item.date_last_edit } <br />
+                { console.log(comment) }
               </div>
             );
           }

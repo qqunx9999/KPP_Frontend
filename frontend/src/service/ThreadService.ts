@@ -7,10 +7,6 @@ export async function fetchThread(): Promise<Thread[]> {
       return courses
 }
 
-export async function checkComment() {
-    const res = await fetch(`${ baseUrl }/`);
-}
-
 export function passThreadNO(threadNO: string): void {
     localStorage.setItem('threadNO', threadNO);
     // console.log(threadNO);
@@ -30,5 +26,4 @@ export default {
     passThreadNO,
     checkThreadNO,
     clearThreadNO,
-    checkComment,
 }; 
