@@ -9,6 +9,7 @@ import AuthService from '../service/AuthService';
 const inputStyle = {
   width: "500px",
   height: "50px",
+  fontSize: "30px"
 }
 
 export const EmailID = () => {
