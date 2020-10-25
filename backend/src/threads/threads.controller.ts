@@ -59,8 +59,8 @@ export class ThreadsController {
   
 
   @Get(':threadID')
-  async findOneThread(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<any> {
-    return this.threadsService.findOneThread(threadID);
+  async findOneThreadWithOwn(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<any> {
+    return this.threadsService.findOneThreadWithOwn(threadID);
   }
 
   @Post()
