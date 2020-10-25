@@ -3,6 +3,7 @@ import { Formik, Form, Field } from 'formik';
 import ThreadService from '../service/ThreadService';
 import AuthService from '../service/AuthService';
 import { baseUrl } from '../config/constant';
+import '../CSSsource/CreateThread.css';
 
 const ThreadForm = () => {
   return (
