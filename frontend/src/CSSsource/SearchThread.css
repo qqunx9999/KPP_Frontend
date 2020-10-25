@@ -6,6 +6,24 @@
     position: absolute;
   }
 
+.sThread_goback_button {
+    background: var(--Theme5, #6cc551); /* Green */
+    border-radius: 19px;
+    color: white;
+    width: 207px;
+    height: 90px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    position: absolute;    
+    top: 4.5%;
+    left: 2.5%;
+    transform: scale(0.7, 0.7);
+    border-width: 0px;
+  }
+
 .topBlackFrameHomePage {
     width: 1920px;
     height: 150px;
@@ -197,10 +215,14 @@
     position: absolute;
     top: 150px;
     left: 260px;
+    text-align: center;
+    line-height: 2;  
   }
 
 .needHelpClickBoxSearchThread{
     /*activeBackground*/
+    width: 30px;
+    height: 30px;
     border-width: 1;
     color: white;
     position: absolute;
@@ -208,19 +230,18 @@
     left: 10px;
 }
 
-.needHelpTextSearchThread {
-    width: 500px;
+.needHelpTextSearchThread {  
+    width: 200px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
     color: #ffffff;
     font-size: 23px;
     letter-spacing: 3px;
-    line-height: 3;
-    position: absolute;
-    top: -3px;
-    left: 60px;
+    
   }
+
+  
 
   .foodFrameSearchThread {
     width: 235px;
@@ -236,6 +257,8 @@
 
 .foodClickBoxSearchThread{
     /*activeBackground*/
+    width: 30px;
+    height: 30px;
     border-width: 1;
     color: white;
     position: absolute;
@@ -244,17 +267,15 @@
 }
 
 .foodTextSearchThread {
-    width: 500px;
+    width: 200px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
     color: #ffffff;
     font-size: 23px;
     letter-spacing: 3px;
-    line-height: 3;
-    position: absolute;
-    top: -3px;
-    left: 80px;
+    line-height: 2;
+    
   }
 
   .newsFrameSearchThread {
@@ -271,6 +292,8 @@
 
 .newsClickBoxSearchThread{
     /*activeBackground*/
+    width: 30px;
+    height: 30px;
     border-width: 1;
     color: white;
     position: absolute;
@@ -279,7 +302,7 @@
 }
 
 .newsTextSearchThread {
-    width: 500px;
+    width: 50px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
@@ -290,6 +313,7 @@
     position: absolute;
     top: -3px;
     left: 80px;
+    line-height: 2.5;
   }
 
   .facultyFrameSearchThread {
@@ -306,6 +330,8 @@
 
 .facultyClickBoxSearchThread{
     /*activeBackground*/
+    width: 30px;
+    height: 30px;
     border-width: 1;
     color: white;
     position: absolute;
@@ -314,7 +340,7 @@
 }
 
 .facultyTextSearchThread {
-    width: 500px;
+    width: 50px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
@@ -325,6 +351,7 @@
     position: absolute;
     top: -3px;
     left: 80px;
+    line-height: 2.5;
   }
 
   .questionFrameSearchThread {
@@ -341,6 +368,8 @@
 
 .questionClickBoxSearchThread{
     /*activeBackground*/
+    width: 30px;
+    height: 30px;
     border-width: 1;
     color: white;
     position: absolute;
@@ -349,7 +378,7 @@
 }
 
 .questionTextSearchThread {
-    width: 500px;
+    width: 50px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
@@ -360,6 +389,7 @@
     position: absolute;
     top: -3px;
     left: 60px;
+    line-height: 2.5;
   }
 
   .sharingFrameSearchThread {
@@ -376,6 +406,8 @@
 
 .sharingClickBoxSearchThread{
     /*activeBackground*/
+    width: 30px;
+    height: 30px;
     border-width: 1;
     color: white;
     position: absolute;
@@ -384,7 +416,7 @@
 }
 
 .sharingTextSearchThread {
-    width: 500px;
+    width: 50px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
@@ -395,6 +427,7 @@
     position: absolute;
     top: -3px;
     left: 80px;
+    line-height: 2.5;
   }
 
   .complainFrameSearchThread {
@@ -411,6 +444,8 @@
 
 .complainClickBoxSearchThread{
     /*activeBackground*/
+    width: 30px;
+    height: 30px;
     border-width: 1;
     color: white;
     position: absolute;
@@ -419,7 +454,7 @@
 }
 
 .complainTextSearchThread {
-    width: 500px;
+    width: 50px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
@@ -430,6 +465,7 @@
     position: absolute;
     top: -3px;
     left: 80px;
+    line-height: 2.5;
   }
 
   .nonsenseFrameSearchThread {
@@ -446,6 +482,8 @@
 
 .nonsenseClickBoxSearchThread{
     /*activeBackground*/
+    width: 30px;
+    height: 30px;
     border-width: 1;
     color: white;
     position: absolute;
@@ -454,7 +492,7 @@
 }
 
 .nonsenseTextSearchThread {
-    width: 500px;
+    width: 50px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
@@ -465,6 +503,7 @@
     position: absolute;
     top: -3px;
     left: 80px;
+    line-height: 2.5;
   }
 
   .frameSortBySearchThread {
