@@ -1,77 +1,94 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
+import ThreadService from '../service/ThreadService';
+import AuthService from '../service/AuthService';
+import { baseUrl } from '../config/constant';
 import '../CSSsource/CreateThread.css';
 
 const ThreadForm = () => {
   return (
     <div>
       <Formik
-        initialValues={{ topic: '', size: '', help: '', food: '', news: '', faculty: '', question: '', share: '', complain: '', nonsense: '', comment: '' }}
+        initialValues={{ tag: [], topic: '', content: '', size: '', text_type: [] }}
         onSubmit={ async (values, actions) => {
+          const text = { 'bold': values.text_type[0], 'italic': values.text_type[1], 'font': 'Arial', 'size': Number(values.size) }
+          fetch(`${ baseUrl }/threads`,{
+            method: 'POST',
+            headers: {'Contect-Type': 'application/json'},
+            body: JSON.stringify({
+              'topic': values.topic,
+              'userID': AuthService.getUserID(),
+              'tag_arr': values.tag,
+              'content': values.content,
+              'text_type': text,
+              'image_arr': []
+            })
+          }).then(obj => {
+            console.log(obj);
+          })
           actions.setSubmitting(false);
         } }
       >
         {({ isSubmitting }) => (
           <Form>
-            <div className="topicBlackFrameCreateThread">
-              <div className="topicTextCreateThread">Topic : </div>
-              <Field type="input" name="topic" className="inputTopicNameCreateThread" placeholder="Topic name..." style={{ width:"980px" , height:"60px" }} />
-            </div>
-            <div className="tagsBlackFrameCreateThread">
-            <div className="tagsTextCreateThread ">Tags : </div>
-              <button className="needHelpFrameCreateThread">
-                <Field type="checkbox" name="help" className="needHelpClickBoxCreateThread" />
-                <div className="needHelpTextCreateThread">Need Help</div>
-              </button>
-              <button className="foodFrameCreateThread">
-                <Field type="checkbox" name="food" className="foodClickBoxCreateThread" /> 
-                <div className="foodTextCreateThread">Food</div>
-              </button>
-              <button className="newsFrameCreateThread">
-                <Field type="checkbox" name="news" className="newsClickBoxCreateThread" /> 
-                <div className="newsTextCreateThread">News</div>
-              </button>
-              <button className="facultyFrameCreateThread">
-                <Field type="checkbox" name="faculty" className="facultyClickBoxCreateThread" /> 
-                <div className="facultyTextCreateThread">Faculty</div>
-              </button>
-              <button className="questionFrameCreateThread">
-                <Field type="checkbox" name="question" className="questionClickBoxCreateThread" /> 
-                <div className="questionTextCreateThread"> Question</div>
-              </button>
-              <button className="sharingFrameCreateThread">
-                <Field type="checkbox" name="share" className="sharingClickBoxCreateThread" /> 
-                <div className="sharingTextCreateThread">Sharing </div>
-              </button>
-              <button className="complainFrameCreateThread">
-                <Field type="checkbox" name="complain" className="complainClickBoxCreateThread" /> 
-                <div className="complainTextCreateThread">Complain</div>
-              </button>
-              <button className="nonsenseFrameCreateThread">
-                <Field type="checkbox" name="nonsense" className="nonsenseClickBoxCreateThread" /> 
-                <div className="nonsenseTextCreateThread">Nonsense</div>
-              </button>
-            </div>
-            <div className="placeYourContentFrameCreateThread">
-              <div className="toolsPlaceYourContentCreateThread">
-                <button className="frameBoldLettersToolsPlaceYourContentCreateThread">
-                  <div className="createthread-cha">
-                    <b>B</b>
-                  </div>
-                </button>
-                <button className="frameItalicLettersToolsPlaceYourContentCreateThread">
-                  <div className="createthread-cha">
-                    <i>I</i>
-                  </div>
-                </button>
-                <button className="frameSizeToolsPlaceYourContentCreateThread">
-                  <div className="textSizeToolsPlaceYourContentCreateThread">Size </div>
-                  <Field type="size" name="size" className="inputSizeCreateThread" style={{ width:"50px" , height:"35px" }} />
-                </button>
+            <h6>Topic :</h6>
+              <label>
+                <Field type="input" name="topic" />
+              </label>
+              <div>
+                <h6>Tags :</h6>
+                <label>
+                  <Field type="checkbox" name="tag" value="help" />
+                  Need Help
+                </label>
+                <label>
+                  <Field type="checkbox" name="tag" value="food" />
+                  Food
+                </label>
+                <label>
+                  <Field type="checkbox" name="tag" value="news" />
+                  News
+                </label>
+                <label>
+                  <Field type="checkbox" name="tag" value="faculty" />
+                  Faculty
+                </label>
+                <label>
+                  <Field type="checkbox" name="tag" value="question" />
+                  Question
+                </label>
+                <label>
+                  <Field type="checkbox" name="tag" value="sharing" />
+                  Sharing
+                </label>
+                <label>
+                  <Field type="checkbox" name="tag" value="complain" />
+                  Complain
+                </label>
+                <label>
+                  <Field type="checkbox" name="tag" value="nonsense" />
+                  Nonsense
+                </label>
               </div>
-              <div className="placeYourContentTextCreateThread">Place your content : </div>
-              <Field type="input" name="comment" className="inputContentCreateThread" style={{ width:"1140px" , height:"480px" }} />
-            </div>
+              <div>
+                <label>
+                  <Field type="checkbox" name="text_type" value="bold" />
+                  <b>B</b>
+                </label>
+                <label>
+                  <Field type="checkbox" name="text_type" value="italic" />
+                  <i>I</i>
+                </label>        
+              </div>
+                <label>
+                  <h6>Size :</h6>
+                  <Field type="input" name="size" />
+                </label> 
+              <h6>Place your content :</h6>
+              <label>
+                <Field type="input" name="content" />
+              </label>
+            <button disabled={ isSubmitting } type="submit">Send</button>
           </Form>
         )}
       </Formik>
