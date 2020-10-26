@@ -18,6 +18,7 @@ import { UsersModule } from 'src/users/users.module';
         TypeOrmModule.forFeature([Thread, Commentation, Reportment_thread,Reportment_comment]),
         UsersModule
     ],
+    exports: [ThreadsService],
     controllers: [ThreadsController],
     providers: [ThreadsService],
 

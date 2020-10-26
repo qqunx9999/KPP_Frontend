@@ -1,5 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { ParseObjectIdPipe } from '../common/pipes';
+import { ObjectID } from 'typeorm';
 
 import Thread from 'src/threads/thread.entity';
 import Commentation from 'src/threads/comentation.entity';
@@ -16,25 +17,25 @@ import { ReportsService } from './reports.service';
 @Controller('reports')
 export class ReportsController {
     constructor(private reportsService: ReportsService) {}
-/*
-    @Get()
-    async findAll(): Promise<Report[]> {
-        return this.reportsService.findAll();
-    }*/
 
+/*
     @Get('reportTs')
     async findAllReportedTs(): Promise<Reportment_thread[]>{
-        return this.reportsService.findAllReportedTs();
-    }
+        return this.reportsService.findAllReportedTs()
+    ;}
 
     @Get('reportCs')
     async findAllReportedCs(): Promise<Reportment_comment[]>{
-        return this.reportsService.findAllReportedCs();
+        return this.reportsService.findAllReportedCs()
+    ;}*/
+
+    @Get('/reportTs/:reportTID')
+    async findOneReportedThread(@Param('reportTID', ParseObjectIdPipe) reportTID: ObjectID): Promise<Reportment_thread[]>{
+        return this.reportsService.findOneReportedThread(reportTID);
     }
-
-
-
-
-
-
+/*
+    @Get('/reportCs/:reportCID')
+    async findOneReportedComment(@Param('reportCID', ParseObjectIdPipe) reportCID: ObjectID): Promise<Reportment_comment[]>{
+        return this.reportsService.findOneReportedComment(reportCID);
+    }*/
 }
