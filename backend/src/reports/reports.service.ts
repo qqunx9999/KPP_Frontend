@@ -44,7 +44,7 @@ export class ReportsService {
     return [rt, await(info_rt_thread)];
   }
 
-/*
+
   async findOneReportedComment(reportCID: ObjectID): Promise<Reportment_comment[]>{
     let rc: Reportment_comment;
     await this.reportment_commentsRepository.findOne({ where:{ _id: reportCID } })
@@ -53,8 +53,7 @@ export class ReportsService {
       });
     let rc_thread: ObjectID = rc.threadID
     const info_rc_thread = this.threadsService.findOneThreadWithOwn(rc_thread);
-    //wait for /threads/{threadID}/comments/{commentID}
-    
-    return [rc, await(info_rc_thread), await()];
-  }*/
+    const info_rc_comment = this.threadsService.findAllCommentations(rc_thread);
+    return [rc, await(info_rc_thread), await(info_rc_comment)];
+  }
 }

@@ -33,9 +33,9 @@ export class ReportsController {
     async findOneReportedThread(@Param('reportTID', ParseObjectIdPipe) reportTID: ObjectID): Promise<Reportment_thread[]>{
         return this.reportsService.findOneReportedThread(reportTID);
     }
-/*
+
     @Get('/reportCs/:reportCID')
     async findOneReportedComment(@Param('reportCID', ParseObjectIdPipe) reportCID: ObjectID): Promise<Reportment_comment[]>{
         return this.reportsService.findOneReportedComment(reportCID);
-    }*/
+    }
 }
