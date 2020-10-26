@@ -270,7 +270,7 @@ export class ThreadsService {
       //Experience
       //Super
       if(userExp <= 100 ){userRank = "Beginner";}
-      else if (userExp <= 200){userRank = "Experience;"}
+      else if (userExp <= 200){userRank = "Experience";}
       else {userRank = "Super";}
       const userStatus = {
         "exp": userExp,
