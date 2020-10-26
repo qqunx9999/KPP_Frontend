@@ -86,6 +86,118 @@
     top: 0px;
     left: 1600px;
   }
+  .H
+  ol,ul {
+    list-style:none;
+  }
+  p{
+    display:inline-block;
+  }
+  .clockWise{
+    display:inline-block;
+    width: 37px;
+    height: 37px;
+    position : absolute;
+    left: 1050px;
+    top:5px;
+  }
+
+.blog{
+  width: 1400px;
+  height: 25px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  font-size: 36px;
+  letter-spacing: 3px;
+  /* line-height: 3; */
+  position: relative;
+  top: 0px;
+  left: 50px
+}
+.blog{
+  width: 1400px;
+  height: 25px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  font-size: 36px;
+  letter-spacing: 3px;
+  /* line-height: 3; */
+  position: relative;
+  top: 0px;
+  left: 50px
+}
+.dateLatest{
+  position: absolute;
+  left: 1100px;
+}
+.topicLatest{
+  text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
+width: 750px;
+}
+
+div.alphar {
+  display:inline-block;
+  width: 300px;
+  height: 50px;
+  overflow: visible;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  position: absolute;
+  left: 1020px;
+}
+li[ket=item.threadID]:hover{
+  color:red;
+}
+.likePic{
+  display:inline-block ! important;
+  width: 41px;
+  height: 61;
+  position: absolute;
+  left : 85px;
+}
+
+.dislikePic{
+  display:inline-block ! important;
+  width: 41px;
+  height: 61;
+  position: absolute;
+  left : 190px;
+}
+
+div.LDC {
+  display:inline-block;
+  width: 450px;
+  font-size: 32px;
+  height: 50px;
+  overflow: visible;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  position: absolute;
+  left: 920px;
+}
+.likeHottest{
+  position: relative;
+  width: 10px;
+  position: absolute;
+  left : 145px;
+  color:blue;
+}
+.dislikeHottest{
+  position: relative;
+  position: relative;
+  left : 250px;
+  color: red;
+}
+.commentHottest{
+  position: relative;
+  left : 200px;
+}
 
 .userDisplayNameHomePage {
     width: 224px;
