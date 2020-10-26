@@ -1,5 +1,6 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { ObjectID } from 'mongodb';
+import { use } from 'passport';
 import { ParseObjectIdPipe } from 'src/common/pipes';
 import { CreateUserDto } from 'src/dto/create-user.dto';
 import User from 'src/entities/user.entity';
@@ -14,22 +15,24 @@ export class UsersController {
       return this.usersService.findallUser();
     }
 
-    @Get(':userID/contacts')
-    async findallchatroom(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise<any[]> {
-      return this.usersService.findallchatroom(userID);
-    }
-
-
     @Post()
     async createUser(@Body() createUserDto: CreateUserDto){
       return this.usersService.createUser(createUserDto);
     }
     
+    @Patch(':userID')
+    async updateUser(@Body() createUserDto: CreateUserDto, @Param('userID', ParseObjectIdPipe) userID: ObjectID) {
+      return this.usersService.updateUser(createUserDto, userID);
+    }
 
     @Get(':userID') 
     async findOneUser(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise<User>{
       return this.usersService.findOneUser(userID);
     }
     
+    @Get(':userID/contacts')
+    async findallchatroom(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise<any[]> {
+      return this.usersService.findallchatroom(userID);
+    }
 
 }

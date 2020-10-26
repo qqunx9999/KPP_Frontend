@@ -32,6 +32,10 @@ export class UsersService {
         private notificationsRepository: Repository<Notifications>   
     ) {}
 
+    async updateUser(createUserDto: CreateUserDto, userID: ObjectID) {
+        return this.usersRepository.update({userID: userID }, createUserDto);
+    }
+
     async findallchatroom(userID: ObjectID): Promise<any> {
         this.mychatroom = [];
         this.result = {chatroomInfo: null, membersinfo: [], numnotifiacation: null};
