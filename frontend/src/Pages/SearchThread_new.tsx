@@ -60,24 +60,26 @@ const SearchThread_new = () => {
                     <Field type="checkbox" name="faculty" className="newsClickBoxSearchThread"/> 
                     <div>Faculty</div>
                   </Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    <Dropdown.Item><Field type="checkbox" name="veterinary" /> Veterinary</Dropdown.Item>
-                    <Dropdown.Item><Field type="checkbox" name="vettechs" /> Vet-techs</Dropdown.Item>
-                    <Dropdown.Item><Field type="checkbox" name="engineering" /> Engineering</Dropdown.Item>
-                    <Dropdown.Item><Field type="checkbox" name="agriculture" /> Agriculture</Dropdown.Item>
-                    <Dropdown.Item><Field type="checkbox" name="fisheries" /> Fisheries</Dropdown.Item>
-                    <Dropdown.Item><Field type="checkbox" name="education" /> Education</Dropdown.Item>
-                    <Dropdown.Item><Field type="checkbox" name="humanities" /> Humanities</Dropdown.Item>
-                    <Dropdown.Item><Field type="checkbox" name="business" /> Business</Dropdown.Item>
-                    <Dropdown.Item><Field type="checkbox" name="economics" /> Economics</Dropdown.Item>
-                    <Dropdown.Item><Field type="checkbox" name="forestry" /> Forestry</Dropdown.Item>
-                    <Dropdown.Item><Field type="checkbox" name="agindustry" /> Ag-industry</Dropdown.Item>
-                    <Dropdown.Item><Field type="checkbox" name="social" /> Social</Dropdown.Item>
-                    <Dropdown.Item><Field type="checkbox" name="science" /> Science</Dropdown.Item>
-                    <Dropdown.Item><Field type="checkbox" name="enviroment" /> Enviroment</Dropdown.Item>
-                    <Dropdown.Item><Field type="checkbox" name="architecture" /> Architecture</Dropdown.Item>
+                  <div style={{overflow:"hidden"}}>
+                  <Dropdown.Menu className="dropdownframef">
+                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="veterinary" /> Veterinary</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="vettechs" /> Vet-techs</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="engineering" /> Engineering</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="agriculture" /> Agriculture</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="fisheries" /> Fisheries</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="education" /> Education</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="humanities" /> Humanities</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="business" /> Business</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="economics" /> Economics</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="forestry" /> Forestry</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="agindustry" /> Ag-industry</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="social" /> Social</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="science" /> Science</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="enviroment" /> Enviroment</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="architecture" /> Architecture</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
 
                   </Dropdown.Menu>
+                  </div>
                 </Dropdown>
                 {/* <div className="facultyTextSearchThread"></div>                 */}
               </button>
@@ -98,18 +100,22 @@ const SearchThread_new = () => {
                 <div className="nonsenseTextSearchThread">Nonsense</div>
               </button>
               
-              <Dropdown className="btn-group dropdown">
+              <button  className="frameSortBySearchThread">
+              <Dropdown>
               
-                <Dropdown.Toggle className="frameSortBySearchThread" variant="dark">
-                  <div className="sort-by">Sort By</div>
+                <Dropdown.Toggle className="sort-by" variant="dark">
+                  <div >Sort By</div>
                 </Dropdown.Toggle>
-                <Dropdown.Menu >
-                  <Dropdown.Item><Field type="checkbox" name="oldest" /> Oldest</Dropdown.Item>
-                  <Dropdown.Item><Field type="checkbox" name="popular" /> Popular</Dropdown.Item>
-                  <Dropdown.Item><Field type="checkbox" name="like" /> Like</Dropdown.Item>
+                <Dropdown.Menu className="dropdownframe">
+                  <Dropdown.Item className="sortlistframeoldest"><Field type="checkbox" id="increasescale"  name="oldest" /><div> Oldest</div></Dropdown.Item>
+                  <Dropdown.Item className="sortlistframepopular"><Field type="checkbox"  id="increasescale" name="popular" /> Popular</Dropdown.Item>
+                  <Dropdown.Item className="sortlistframelike"><Field type="checkbox"  id="increasescale" name="like" /> Like</Dropdown.Item>
                 </Dropdown.Menu>
               
               </Dropdown>
+              </button>
+              
+
               
               </div>
             </Form>

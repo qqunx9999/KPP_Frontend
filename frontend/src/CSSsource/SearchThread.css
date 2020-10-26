@@ -518,6 +518,18 @@
     left: 1260px;
   }
 
+  #frameSortBySearchThread {
+    width: 200px;
+    height: 139px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 150px;
+    left: 1260px;
+  }
+
   .textSortBySearchThread {
     width: 170px;
     height: 90px;
@@ -770,6 +782,35 @@
   }
 
   .sort-by {
+    width: 200px;
+    height: 139px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 30px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: relative;
+    top: 0px;
+    left: -10px;
+    border-radius: 19px;
+    background: var(--Theme3, #0f0508);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+  }
+
+  .frameSortBySearchThread {
+    width: 200px;
+    height: 139px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 150px;
+    left: 1260px;
+  }
+
+  #sort-by {
     width: 150px;
     height: 90px;
     overflow: visible;
@@ -779,26 +820,94 @@
     letter-spacing: 3px;
     line-height: 3;
     position: absolute;
-    top: 20%;
+    top: 0px;
+  }
+
+
+  .dropdownframe {
+    width: 249px;
+    height: 240px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 26px;
+    position: absolute;
+    top: 60px !important;
   }
 
   .dropdown-toggle::after {
     display:none;
   }
 
-  .dropdownframe {
-    width: 249px;
-    height: 330px;
+  .sortlistframeoldest {
+    width: 235px;
+    height: 66px;
     overflow: visible;
-    background: var(--Theme2, #dddde3);
-    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
-    border-radius: 26px;
+    background: var(--Theme6, #47624f);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
     position: absolute;
-    top: 100px;
-    left: 1000px;
+    top: 10px;
+    left: 5px;
   }
 
-  .invisible{
-    width: 1000px;
-    height: 1000px;
+  .sortlistframepopular {
+    width: 235px;
+    height: 66px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 86px;
+    left: 5px;
   }
+
+  .sortlistframelike {
+    width: 235px;
+    height: 66px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 162px;
+    left: 5px;
+  }
+
+  #increasescale{
+    transform: scale(2.5) !important;
+    position: absolute !important;
+    top: 25px !important;
+  }
+
+  .dropdownframef {
+    width: 255px;
+    height: 500px;
+    overflow-y: scroll;
+    overflow-x: auto;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border:10px;
+    border-radius: 26px;
+    position: absolute;
+    top: 20px !important;
+    left: -10px !important;
+  }
+
+  .dropdownframef::-webkit-scrollbar {display:none;}
+
+  .flistframe {
+    width: 235px;
+    height: 66px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: relative;
+    top: 10px;
+    left: 5px;
+  }
+
+
+
