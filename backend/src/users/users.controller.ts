@@ -3,6 +3,7 @@ import { ObjectID } from 'mongodb';
 import { use } from 'passport';
 import { ParseObjectIdPipe } from 'src/common/pipes';
 import { CreateUserDto } from 'src/dto/create-user.dto';
+import { UpdateUserDto } from 'src/dto_update/update-user.dto';
 import User from 'src/entities/user.entity';
 import { UsersService } from './users.service';
 
@@ -21,7 +22,7 @@ export class UsersController {
     }
     
     @Patch(':userID')
-    async updateUser(@Body() createUserDto: CreateUserDto, @Param('userID', ParseObjectIdPipe) userID: ObjectID) {
+    async updateUser(@Body() createUserDto: UpdateUserDto, @Param('userID', ParseObjectIdPipe) userID: ObjectID) {
       return this.usersService.updateUser(createUserDto, userID);
     }
 
