@@ -17,8 +17,6 @@ function Home_new() {
   const history = useHistory();
   let itemThread: any;
 
-  thread.map(item => (itemThread = item));
-
   const fetchThread = () => {
     ThreadService.fetchThread()
       .then(obj => {
@@ -29,6 +27,9 @@ function Home_new() {
   useEffect(() => {
     fetchThread();
   }, []);
+  console.log(thread)
+
+  thread.map(item => (itemThread = item));
 
   return (
     <div>
@@ -56,7 +57,7 @@ function Home_new() {
                   {thread.map(item => (
                     <div>
                       <Link to={`/Thread/${item.threadID}`}>
-                        <li key={ item.threadID }>{item.topic} - Like {item.up_vote_count}: Dislike {item.down_vote_count}: Comments {item.number_of_comment}</li>
+                        <li key={ item.threadID }>{item.topic} - Like {item.up_vote_count}: Dislike {item.down_vote_count}: Comments {item.number_of_all_comment}</li>
                       </Link>
                     </div>
                   ))}

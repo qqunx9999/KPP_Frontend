@@ -63,13 +63,14 @@ function Threads_new(props: LoginFormProps) {
             <div className="thread-topic-detail-frame">
               <div className="thread-topic-detail-text">
                 {thread.map(item => {
-                  if (item.threadID === { ThreadID }.ThreadID) {
-                    return (
-                      <div>
-                        {item.content}
-                      </div>
-                    );
-                  }
+                  // if (item.threadID === { ThreadID }.ThreadID) {
+                    
+                  // }
+                  return (
+                    <div>
+                      {item.content}
+                    </div>
+                  );
                 })}
               </div>
             </div>
@@ -98,7 +99,7 @@ function Threads_new(props: LoginFormProps) {
                 <div className="thread-reply1-blackframe">
                   <div className="thread-topicname-inreply1"> Topic : { item.topic } </div>
                   <div className="thread-reply1-time"> When : { item.date_create } </div>
-                  <div className="thread-reply1-lastedit"> Last edit : { item.date_last_edit } </ div>
+                  <div className="thread-reply1-lastedit"> Last edit : { item.date_lastedit } </ div>
                 </div>
                 { console.log(comment) }
               </div>
