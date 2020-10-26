@@ -267,7 +267,7 @@
 }
 
 .foodTextSearchThread {
-    width: 200px;
+    width: 250px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
@@ -767,4 +767,38 @@
     position: absolute;
     top: 350px;
     left: 1700px;
+  }
+
+  .sort-by {
+    width: 150px;
+    height: 90px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 30px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 20%;
+  }
+
+  .dropdown-toggle::after {
+    display:none;
+  }
+
+  .dropdownframe {
+    width: 249px;
+    height: 330px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 26px;
+    position: absolute;
+    top: 100px;
+    left: 1000px;
+  }
+
+  .invisible{
+    width: 1000px;
+    height: 1000px;
   }

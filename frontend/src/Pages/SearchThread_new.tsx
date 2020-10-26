@@ -56,7 +56,10 @@ const SearchThread_new = () => {
               <button className="facultyFrameSearchThread">
                 {/* <Field type="checkbox" name="faculty" className="facultyClickBoxSearchThread" />  */}
                 <Dropdown>
-                  <Dropdown.Toggle variant="green">Faculty</Dropdown.Toggle>
+                  <Dropdown.Toggle className="foodTextSearchThread" variant="green">
+                    <Field type="checkbox" name="faculty" className="newsClickBoxSearchThread"/> 
+                    <div>Faculty</div>
+                  </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item><Field type="checkbox" name="veterinary" /> Veterinary</Dropdown.Item>
                     <Dropdown.Item><Field type="checkbox" name="vettechs" /> Vet-techs</Dropdown.Item>
@@ -94,16 +97,20 @@ const SearchThread_new = () => {
                 <Field type="checkbox" name="nonsense" className="nonsenseClickBoxSearchThread" />
                 <div className="nonsenseTextSearchThread">Nonsense</div>
               </button>
-              <button className="frameSortBySearchThread">
-              <Dropdown>
-                <Dropdown.Toggle variant="dark">Sort</Dropdown.Toggle>
-                <Dropdown.Menu>
+              
+              <Dropdown className="btn-group dropdown">
+              
+                <Dropdown.Toggle className="frameSortBySearchThread" variant="dark">
+                  <div className="sort-by">Sort By</div>
+                </Dropdown.Toggle>
+                <Dropdown.Menu >
                   <Dropdown.Item><Field type="checkbox" name="oldest" /> Oldest</Dropdown.Item>
                   <Dropdown.Item><Field type="checkbox" name="popular" /> Popular</Dropdown.Item>
                   <Dropdown.Item><Field type="checkbox" name="like" /> Like</Dropdown.Item>
                 </Dropdown.Menu>
+              
               </Dropdown>
-              </button>
+              
               </div>
             </Form>
           )}
