@@ -1,15 +1,17 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
-import ThreadService from '../service/ThreadService';
 import AuthService from '../service/AuthService';
 import { baseUrl } from '../config/constant';
 import '../CSSsource/CreateThread.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import { Dropdown } from 'react-bootstrap';
 
 const ThreadForm = () => {
   return (
     <div>
       <Formik
-        initialValues={{ tag: [], topic: '', content: '', size: '', text_type: [] }}
+        initialValues={{ tag: [], topic: '', content: '', size: '', text_type: [] , veterinary: '', vettechs: '' , engineering: '' , agriculture: '', fisheries: '' , education: '', humanities: '', business: '' , economics: '', forestry: '' ,
+        agindustry: '' , social: '' , science: '' , enviroment: '' , architecture: ''}}
         onSubmit={ async (values, actions) => {
           const text = { 'bold': values.text_type[0], 'italic': values.text_type[1], 'font': 'Arial', 'size': Number(values.size) }
           const sendOption = {
@@ -30,64 +32,116 @@ const ThreadForm = () => {
       >
         {({ isSubmitting }) => (
           <Form>
-            <h6>Topic :</h6>
+            <div className="topicBlackFrameCreateThread">
+            <div className="topicTextCreateThread">Topic :</div>
               <label>
-                <Field type="input" name="topic" />
+                <Field type="input" name="topic" className="inputTopicNameCreateThread" placeholder="&nbsp; Topic name..." style={{ width: "980px", height: "65px" }} />
               </label>
-              <div>
-                <h6>Tags :</h6>
+            </div>
+              <div className="tagsBlackFrameCreateThread">
+                <div className="tagsTextCreateThread">Tags :</div>
                 <label>
-                  <Field type="checkbox" name="tag" value="help" />
-                  Need Help
+                <button className="needHelpFrameCreateThread">
+                  <Field type="checkbox" name="tag" value="help" className="needHelpClickBoxCreateThread" />
+                  <div className="needHelpTextCreateThread"> Need Help </div>
+                </button>
                 </label>
                 <label>
-                  <Field type="checkbox" name="tag" value="food" />
-                  Food
+                <button className="foodFrameCreateThread">
+                  <Field type="checkbox" name="tag" value="food" className="foodClickBoxCreateThread" />
+                  <div className="foodTextCreateThread"> Food </div>
+                </button>
                 </label>
                 <label>
-                  <Field type="checkbox" name="tag" value="news" />
-                  News
+                <button className="newsFrameCreateThread">
+                  <Field type="checkbox" name="tag" value="news" className="newsClickBoxCreateThread" />
+                  <div className="newsTextCreateThread"> News </div>
+                </button> 
                 </label>
                 <label>
-                  <Field type="checkbox" name="tag" value="faculty" />
-                  Faculty
+                <button className="facultyFrameCreateThread">
+                  {/* <Field type="checkbox" name="tag" value="faculty" className="facultyClickBoxCreateThread" /> */}
+                  {/* <div className="facultyTextCreateThread"> Faculty </div> */}
+                  <Dropdown>
+                  <Dropdown.Toggle variant="green">Faculty</Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item><Field type="checkbox" name="veterinary" /> Veterinary</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="vettechs" /> Vet-techs</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="engineering" /> Engineering</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="agriculture" /> Agriculture</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="fisheries" /> Fisheries</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="education" /> Education</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="humanities" /> Humanities</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="business" /> Business</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="economics" /> Economics</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="forestry" /> Forestry</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="agindustry" /> Ag-industry</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="social" /> Social</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="science" /> Science</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="enviroment" /> Enviroment</Dropdown.Item>
+                    <Dropdown.Item><Field type="checkbox" name="architecture" /> Architecture</Dropdown.Item>
+
+                  </Dropdown.Menu>
+                </Dropdown>
+
+                </button>
                 </label>
                 <label>
-                  <Field type="checkbox" name="tag" value="question" />
-                  Question
+                <button className="questionFrameCreateThread">
+                  <Field type="checkbox" name="tag" value="question" className="questionClickBoxCreateThread" />
+                  <div className="questionTextCreateThread"> Question </div>
+                </button>
                 </label>
                 <label>
-                  <Field type="checkbox" name="tag" value="sharing" />
-                  Sharing
+                <button className="sharingFrameCreateThread">
+                  <Field type="checkbox" name="tag" value="sharing" className="sharingClickBoxCreateThread" />
+                  <div className="sharingTextCreateThread"> Sharing </div>
+                </button>
                 </label>
                 <label>
-                  <Field type="checkbox" name="tag" value="complain" />
-                  Complain
+                <button className="complainFrameCreateThread">
+                  <Field type="checkbox" name="tag" value="complain" className="complainClickBoxCreateThread" />
+                  <div className="complainTextCreateThread"> Complain </div>
+                </button>
                 </label>
                 <label>
-                  <Field type="checkbox" name="tag" value="nonsense" />
-                  Nonsense
+                <button className="nonsenseFrameCreateThread">
+                  <Field type="checkbox" name="tag" value="nonsense" className="nonsenseClickBoxCreateThread" />
+                  <div className="nonsenseTextCreateThread"></div> Nonsense
+                </button>
                 </label>
               </div>
-              <div>
+              <div className="placeYourContentFrameCreateThread">
+                <div className="placeYourContentTextCreateThread">Place your content :</div>
+                <div className="toolsPlaceYourContentCreateThread">
+                    <label>   
+                      <button className="frameBoldLettersToolsPlaceYourContentCreateThread">               
+                        <Field type="checkbox" name="text_type" value="bold" className="cthread-square"   />
+                        <div className="createthread-cha" > &nbsp;  <b>B</b> </div>
+                      </button>                      
+                    </label>
+                    <label>
+                      <button className="frameItalicLettersToolsPlaceYourContentCreateThread" >
+                      <Field type="checkbox" name="text_type" value="italic" className="cthread-square" />
+                      <div className="createthread-cha" > <i>I</i> </div> 
+                      </button>
+                    </label>        
+                  
+                    <label>
+                      <div className="frameSizeToolsPlaceYourContentCreateThread">
+                      <div className="textSizeToolsPlaceYourContentCreateThread">Size</div>
+                      <Field type="input" name="size" className="inputSizeCreateThread" style={{ width: "60px", height: "40px" }} />
+                      </div>
+                    </label>           
+                
+                  <button disabled={ isSubmitting } className="frameSendCreateThread" type="submit">
+                    <div className="textSendToolsPlaceYourContentCreateThread"> Send </div>
+                  </button>
+                </div>
                 <label>
-                  <Field type="checkbox" name="text_type" value="bold" />
-                  <b>B</b>
-                </label>
-                <label>
-                  <Field type="checkbox" name="text_type" value="italic" />
-                  <i>I</i>
-                </label>        
-              </div>
-                <label>
-                  <h6>Size :</h6>
-                  <Field type="input" name="size" />
-                </label> 
-              <h6>Place your content :</h6>
-              <label>
-                <Field type="input" name="content" />
-              </label>
-            <button disabled={ isSubmitting } type="submit">Send</button>
+                    <Field type="input" name="content" className="inputContentCreateThread" style={{ width: "1135px", height: "500px" }} />
+                  </label>
+            </div>
           </Form>
         )}
       </Formik>

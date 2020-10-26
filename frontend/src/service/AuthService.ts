@@ -38,6 +38,7 @@ async function SignupUser(username: string, email: string, password: string, con
     };
     const res = await fetch(`${ baseUrl }/users`, postOption);
     const user = await res.json();
+    console.log(user);
     return user;
 };
 

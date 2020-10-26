@@ -9,6 +9,7 @@ import AuthService from '../service/AuthService';
 const inputStyle = {
   width: "500px",
   height: "50px",
+  fontSize: "30px"
 }
 
 export const EmailID = () => {
@@ -32,7 +33,6 @@ export const EmailID = () => {
       }}
       onSubmit={async (values, actions) => {
         const result = await AuthService.LoginUser((values.email).concat('@ku.th'), values.password);
-        console.log(result);
         if (!result) {
           setLoginErrorMessage('Login error: Wrong username or password');
         } else {

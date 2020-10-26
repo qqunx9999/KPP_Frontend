@@ -40,7 +40,6 @@ function SignUpPage() {
         </button>
         <Link to="/">
           <button type="button" className="btn btn-success" id="goBack">
-
             <div className="eHere">
               &lt; Go Back
             </div>

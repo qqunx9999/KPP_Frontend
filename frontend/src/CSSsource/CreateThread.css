@@ -445,10 +445,11 @@
     
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color: #7e7c7c;
+    color: #000000;
     font-size: 35px;
     letter-spacing: 3px;
-    line-height: 1;
+    line-height: 0;
+    
   }
 
 .frameBoldLettersToolsPlaceYourContentCreateThread {
@@ -461,7 +462,19 @@
     position: absolute;
     top: 15px;
     left: 25px;
+    text-align: center;
+    
   }
+
+.cthread-square{
+    /*activeBackground*/
+    
+    border-width: 1;
+    color: white;
+    position: absolute;
+    top: 17.5px;
+    left: 2px;
+}
 
 .frameItalicLettersToolsPlaceYourContentCreateThread {
     width: 53px;
@@ -542,7 +555,7 @@
     /*multiLine:false*/
     padding: 12;
     /*password:false*/
-    border-radius: 10;
+    border-radius: 10px;
     position: absolute;
     top: 5px;
     left: 100px;
@@ -618,6 +631,19 @@
     position: absolute;
     top: 75px;
     left: 355px;
+  }
+
+  .textSendToolsPlaceYourContentCreateThread {    
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #7e7c7c;
+    font-size: 36px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: -25px;
+    left: 10px;
+    line-height: 2.5;
   }
 
 .inputContentCreateThread {

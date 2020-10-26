@@ -5,6 +5,7 @@ import ThreadService from '../service/ThreadService';
 import { useHistory, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import Navigtion from '../component/NavBar';
+import { baseUrl } from '../config/constant';
 
 type LoginFormProps = {
   loginCallBack?: () => void,
@@ -13,6 +14,7 @@ type LoginFormProps = {
 function Threads_new(props: LoginFormProps) {
   const { ThreadID } = useParams();
   const [thread, setThread] = useState<Thread[]>([]);
+  const [comment, setComment] = useState('');
   const history = useHistory();
 
   const fetchThread = () => {
@@ -22,8 +24,18 @@ function Threads_new(props: LoginFormProps) {
       });
   };
 
+  const fetchComment = () => {
+    const fetchOption = {
+
+    };
+    fetch(`${ baseUrl }/threads/${ ThreadID }/comments/8/1`)
+      .then(res => res.json())
+      .then(obj => setComment(obj));
+  };
+
   useEffect(() => {
     fetchThread();
+    fetchComment();
   }, []);
 
   return (
@@ -79,7 +91,20 @@ function Threads_new(props: LoginFormProps) {
         <button className="thread-upvote-frame">Like</button>
         <button className="thread-downvote-frame">Dislike</button>
 
-
+        { thread.map(item => {
+          if(item.threadID === { ThreadID }.ThreadID) {
+            return(
+              <div className="thread-reply1-whiteframe">
+                <div className="thread-reply1-blackframe">
+                  <div className="thread-topicname-inreply1"> Topic : { item.topic } </div>
+                  <div className="thread-reply1-time"> When : { item.date_create } </div>
+                  <div className="thread-reply1-lastedit"> Last edit : { item.date_last_edit } </ div>
+                </div>
+                { console.log(comment) }
+              </div>
+            );
+          }
+        }) }
       </div>
     </div>
   );

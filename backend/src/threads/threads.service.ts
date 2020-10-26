@@ -4,17 +4,19 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import Thread from './thread.entity';
 import Commentation from './comentation.entity';
+import Reportment_thread from 'src/entities/reportment_thread.entity';
+import Reportment_comment from 'src/entities/reportment_comment.entity';
+import User from 'src/entities/user.entity';
 
 import { ObjectID } from 'mongodb';
 import { CreateThreadDto } from 'src/dto/create-thread.dto';
 import { CreateCommentDto } from 'src/dto/create-comment.dto';
 import { CreateReportment_threadDto } from 'src/dto/create-reportment_thread.dto';
-import Reportment_thread from 'src/entities/reportment_thread.entity';
-import Reportment_comment from 'src/entities/reportment_comment.entity';
 import { CreateReportment_commentDto } from 'src/dto/create-reportment_comment.dto';
 import { UsersService } from 'src/users/users.service';
 import { UpdateThreadDto } from 'src/dto_update/update-thread.dto';
 import { UpdateCommentDto } from 'src/dto_update/update-comment.dto';
+import { User_info } from 'src/common/user_info';
 
 
 @Injectable()
@@ -27,7 +29,10 @@ export class ThreadsService {
     @InjectRepository(Reportment_thread)
     private reportment_threadsRepository: Repository<Reportment_thread>,
     @InjectRepository(Reportment_comment)
-    private reportment_commentRepository: Repository<Reportment_thread>,
+    private reportment_commentRepository: Repository<Reportment_comment>,
+    @InjectRepository(User)
+    private usersRepository: Repository<User>,
+    
     private usersService: UsersService,
       
   ) {}
@@ -254,7 +259,28 @@ export class ThreadsService {
         //console.log("vote yet");
       }
       //patch userscore
+      let user: User_info;
+      await this.usersService.findUserInfo(th.userID)
+        .then(setuser => {
+          user  = setuser;
+        });
+      let userExp = user.exp
+      userExp += score;
+      let userRank: string;
+      //Experience
+      //Super
+      if(userExp <= 100 ){userRank = "Beginner";}
+      else if (userExp <= 200){userRank = "Experience";}
+      else {userRank = "Super";}
+      const userStatus = {
+        "exp": userExp,
+        "rank": userRank
+      }
+      this.usersRepository.update({userID: th.userID}, userStatus);
+
+
     }// upvoted patch
+
 
     else if(updateThreadDto.down_vote_arr !== undefined){
       const newVote = updateThreadDto.down_vote_arr[0];
@@ -295,11 +321,34 @@ export class ThreadsService {
         //console.log("vote yet");
       }
       //patch userscore
+      let user: User_info;
+      await this.usersService.findUserInfo(th.userID)
+        .then(setuser => {
+          user  = setuser;
+        });
+      let userExp = user.exp
+      userExp += score;
+      let userRank: string;
+      //Experience
+      //Super
+      if(userExp <= 100 ){userRank = "Beginner";}
+      else if (userExp <= 200){userRank = "Experience;"}
+      else {userRank = "Super";}
+      const userStatus = {
+        "exp": userExp,
+        "rank": userRank
+      }
+      this.usersRepository.update({userID: th.userID}, userStatus);
     }// downvoted patch
 
     else if( updateThreadDto.date_delete !=undefined){
       let dateDel = new Date(); dateDel.setMinutes(dateDel.getMinutes()+7*60);
       updateThreadDto.date_delete = dateDel;
+      let th: Thread ;
+      await this.threadsRepository.findOne({where:{ _id: threadID}})
+      .then(setThread => {
+        th = setThread;
+      }); 
     }
     else{
       let dateLastEdit = new Date(); dateLastEdit.setMinutes(dateLastEdit.getMinutes()+7*60);
@@ -312,15 +361,19 @@ export class ThreadsService {
   }
 
 
-  async updateComment(commentID: ObjectID, updateCommentDto: UpdateCommentDto){
+  async updateComment(threadID: ObjectID, commentID: ObjectID, updateCommentDto: UpdateCommentDto){
     if(updateCommentDto.date_delete !== undefined){
-      console.log("yes");
       let dateDel = new Date(); dateDel.setMinutes(dateDel.getMinutes()+7*60);
       updateCommentDto.date_delete = dateDel;
-
+      let thread: Thread ;
+      await this.threadsRepository.findOne({where:{ _id: threadID}})
+      .then(setThread => {
+        thread = setThread;
+      }); 
+      thread.total_comment = thread.total_comment-1;
+      this.threadsRepository.update({threadID: threadID},thread);
     }
     else{
-      
       let dateLastEdit = new Date(); dateLastEdit.setMinutes(dateLastEdit.getMinutes()+7*60);
       updateCommentDto.date_lastedit = dateLastEdit;
     }

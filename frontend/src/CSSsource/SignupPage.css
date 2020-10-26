@@ -264,6 +264,13 @@ background: rgba(0, 0, 0, 0.2)
   background: #6cc551;
   border-radius: 19px;
 }
+.Formilk{
+  font-size: 23px;
+  color:red;
+  width: 1000px;
+  position: absolute;
+  top: 120px;
+} 
 
 .signup_go-back {
   width: 186px;
@@ -324,19 +331,24 @@ background: rgba(0, 0, 0, 0.2)
   left: 80px;
 }
 .eHere {
-  width: 186px;
-  height: 90px;
-  overflow: visible;
-  font-family: "Inter", sans-serif;
-  color: #ffffff;
-  font-size: 30px;
-  letter-spacing: 3px;
-  line-height: 3;
-  position: absolute;
+  width: 186px ! important;
+  height: 90px ! important;
+  overflow: visible ! important;
+  font-family: "Inter", sans-serif ! important;
+  color: #ffffff ! important;
+  font-size: 30px ! important;
+  letter-spacing: 3px ! important;
+  line-height: 2.2 ! important;
+  position: absolute ! important;
   top: 10px;
-  left: 20px;
+  left: 2px;
 }
 
-.bigText {
-  font-size: large;
+#bigText {
+  font-size: large ! important;
+  font-size: 30px ! important;
+  font-family: "Inter", sans-serif ! important;
+  color: #ffffff ! important;
+  font-size: 30px ! important;
+  letter-spacing: 3px ! important;
 }
