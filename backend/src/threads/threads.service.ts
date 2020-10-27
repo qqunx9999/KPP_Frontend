@@ -213,10 +213,11 @@ export class ThreadsService {
     if(updateThreadDto.up_vote_arr !== undefined){
       
       const newVote = updateThreadDto.up_vote_arr[0];
-      //console.log(newVote.userID, typeof(newVote.userID));
+      // console.log(newVote);
+      console.log(newVote.userID);
       //newVote.userID = new ObjectID(newVote.userID);
-      //console.log(newVote.userID, typeof(newVote.userID));
-
+      // console.log(updateThreadDto);
+      // console.log("yes",newVote);
       let th: Thread ;
       await this.threadsRepository.findOne({where:{ _id: threadID}})
       .then(setThread => {
@@ -226,7 +227,9 @@ export class ThreadsService {
       let downvoted: boolean = false;
       var score = 0;
       //console.log(typeof(th.up_vote_arr[0].userID));
-      upvoted = th.up_vote_arr.some((eachvotter)=> {return eachvotter.userID===newVote.userID});
+      upvoted = th.up_vote_arr.some((eachvotter)=> {
+        // console.log(th);
+        return eachvotter.userID===newVote.userID});
       downvoted = th.down_vote_arr.some((eachvotter)=> {return eachvotter.userID===newVote.userID});
       //console.log(newVote);
       //console.log(upvoted, downvoted);

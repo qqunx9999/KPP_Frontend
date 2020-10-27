@@ -38,7 +38,7 @@ export class ThreadsController {
     let begin = pagesize*(pageNo-1);
     let last = pagesize*pageNo; if(last>threads.length){last = threads.length}
     threads = threads.slice(begin, last);
-    return {threads, pageInfo:{pagesize: threads.length, pageNo, total: totals}};
+    return [{threads, pageInfo:{pagesize: threads.length, pageNo, total: totals}}];
   }
 
   @Get('search/:keyword/:tags/:sortby/:pagesize/:pageNo')
@@ -116,7 +116,7 @@ export class ThreadsController {
   @Patch(':threadID')
   async updateThread(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
     @Body() updateThreadDto: UpdateThreadDto) {
-      
+      // console.log(updateThreadDto.up_vote_arr[0].userID);
       return this.threadsService.updateThread(threadID, updateThreadDto);
   }
 

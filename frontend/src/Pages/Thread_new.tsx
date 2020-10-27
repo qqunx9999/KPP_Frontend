@@ -6,6 +6,7 @@ import { useHistory, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import Navigtion from '../component/NavBar';
 import { baseUrl } from '../config/constant';
+import { constants } from 'os';
 
 type LoginFormProps = {
   loginCallBack?: () => void,
@@ -14,7 +15,7 @@ type LoginFormProps = {
 function Threads_new(props: LoginFormProps) {
   const { ThreadID } = useParams();
   const [thread, setThread] = useState<Thread[]>([]);
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState<any[]>([]);
   const history = useHistory();
 
   const fetchThread = () => {
@@ -25,18 +26,35 @@ function Threads_new(props: LoginFormProps) {
   };
 
   const fetchComment = () => {
-    const fetchOption = {
-
-    };
     fetch(`${ baseUrl }/threads/${ ThreadID }/comments/8/1`)
       .then(res => res.json())
-      .then(obj => setComment(obj));
+      .then(obj => setComment([obj]));
   };
 
   useEffect(() => {
     fetchThread();
     fetchComment();
   }, []);
+
+  const temp = {
+    "color": "white",
+  };
+
+  const voteUp = () => {
+    thread.map(item => {
+      const threadIdentity = item.threadID
+      return ThreadService.voteUp(threadIdentity)
+    });
+    { window.location.reload() }
+  };
+
+  const voteDown = () => {
+    thread.map(item => {
+      const threadIdentity = item.threadID
+      return ThreadService.voteDown(threadIdentity)
+    });
+    { window.location.reload() }
+  }
 
   return (
     <div>
@@ -68,7 +86,7 @@ function Threads_new(props: LoginFormProps) {
                       <div>
                         {item.content}
                       </div>
-                    );
+                    );                    
                   }
                 })}
               </div>
@@ -88,23 +106,49 @@ function Threads_new(props: LoginFormProps) {
         <button className="thread_goback_button" onClick={history.goBack}>&lt; Go Back</button>
         <Link to={`/CreateComment/${{ ThreadID }.ThreadID}`}><button className="thread-givecm-button">Give Comment</button></Link>
         <Link to={`/CreateReport/${{ ThreadID }.ThreadID}`}><button className="thread-report-frame">Report</button></Link>
-        <button className="thread-upvote-frame">Like</button>
-        <button className="thread-downvote-frame">Dislike</button>
 
         { thread.map(item => {
           if(item.threadID === { ThreadID }.ThreadID) {
-            return(
-              <div className="thread-reply1-whiteframe">
-                <div className="thread-reply1-blackframe">
-                  <div className="thread-topicname-inreply1"> Topic : { item.topic } </div>
-                  <div className="thread-reply1-time"> When : { item.date_create } </div>
-                  <div className="thread-reply1-lastedit"> Last edit : { item.date_last_edit } </ div>
-                </div>
-                { console.log(comment) }
-              </div>
-            );
+          return <div style={ temp }>{ item.up_vote_count }</div>
           }
         }) }
+
+        <button className="thread-upvote-frame" onClick={ voteUp }>Like</button>
+
+        { thread.map(item => {
+          if(item.threadID === { ThreadID }.ThreadID) {
+          return <div style={ temp }>{ item.down_vote_count }</div>
+          }
+        }) }
+        
+        <button className="thread-downvote-frame" onClick={ voteDown }>Dislike</button>
+
+        { thread.map(item => {
+          if(item.threadID === { ThreadID }.ThreadID) {
+          return <div style={ temp }>{ item.number_of_all_comment }</div>
+          }
+        }) }
+
+        {// thread.map(item => {
+        //   if(item.threadID === { ThreadID }.ThreadID) {
+        //     return(
+        //       <div className="thread-reply1-whiteframe">
+        //         <div className="thread-reply1-blackframe">
+        //           <div className="thread-topicname-inreply1"> Topic : { item.topic } </div>
+        //           <div className="thread-reply1-time"> When : { item.date_create } </div>
+        //           <div className="thread-reply1-lastedit"> Last edit : { item.date_lastedit } </ div>
+        //         </div>
+        //         {/* { console.log(comment.map(obj => obj.comments[0].comment)) } */}
+        //         {/* { comment.map(res => {
+        //           if(res.comments[0].comment.content !== undefined) {
+        //             return res.comments[0].comment.content
+        //           }
+        //         }) } */}
+        //       </div>
+        //     );
+        //   }
+        // }) 
+      }
       </div>
     </div>
   );

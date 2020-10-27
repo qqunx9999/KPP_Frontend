@@ -18,8 +18,6 @@ function Home_new() {
   const history = useHistory();
   let itemThread: any;
 
-  thread.map(item => (itemThread = item));
-
   const fetchThread = () => {
     ThreadService.fetchThread()
       .then(obj => {
@@ -30,6 +28,9 @@ function Home_new() {
   useEffect(() => {
     fetchThread();
   }, []);
+  console.log(thread)
+
+  thread.map(item => (itemThread = item));
 
   return (
     <div>
