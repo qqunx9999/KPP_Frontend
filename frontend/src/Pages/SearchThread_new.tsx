@@ -17,7 +17,7 @@ const SearchThread_new = () => {
     <div>
       <Navigtion />
       <div className="backgroundSearchThread">
-        <button className="sThread_goback_button" onClick={ history.goBack }>Go Back</button>
+        <button className="btn btn-success sThread_goback_buttonn" onClick={ history.goBack }>Go Back</button>
         <Formik
           initialValues={{ keyword: '', help: '', food: '', news: '', faculty: '', question: '', share: '', complain: '', nonsense: '', oldest: '', popular: '', like: '' , 
           veterinary: '', vettechs: '' , engineering: '' , agriculture: '', fisheries: '' , education: '', humanities: '', business: '' , economics: '', forestry: '' ,
@@ -31,8 +31,8 @@ const SearchThread_new = () => {
               <div className="frameSearchAndTopicSearchThread">
               <div className="searchTextSearchAndTopicSearchThread">Search :</div>
               <Field type="input" name="keyword" className="inputKeywordSearchThread" placeholder="Enter your keyword" style={{ width:"800px" , height:"60px" }} />
-              <button  disabled={ isSubmitting  } className="frameSubmitSearchThread">
-                <div className="textSubmitSearchThread"> Submit </div>
+              <button  disabled={ isSubmitting  } className="btn btn-success frameSubmitSearchThread">
+                <div className="btn textSubmitSearchThread"> Submit </div>
               </button>             
               <div className="topicTextSearchThread">Topic :</div>
               <button className="needHelpFrameSearchThread">
@@ -61,6 +61,7 @@ const SearchThread_new = () => {
                     <div>Faculty</div>
                   </Dropdown.Toggle>
                   <div style={{overflow:"hidden"}}>
+                  <div onClick={e => e.stopPropagation()}>
                   <Dropdown.Menu className="dropdownframef">
                     <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="veterinary" /> Veterinary</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
                     <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="vettechs" /> Vet-techs</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
@@ -77,8 +78,8 @@ const SearchThread_new = () => {
                     <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="science" /> Science</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
                     <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="enviroment" /> Enviroment</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
                     <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="architecture" /> Architecture</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-
                   </Dropdown.Menu>
+                  </div>
                   </div>
                 </Dropdown>
                 {/* <div className="facultyTextSearchThread"></div>                 */}

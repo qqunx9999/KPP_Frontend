@@ -6,6 +6,7 @@ import ThreadService from '../service/ThreadService';
 import Navigtion from '../component/NavBar';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const temp = {
   margin: "10px",

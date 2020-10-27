@@ -15,7 +15,7 @@ function CreateThread_new() {
       <Navigtion />
       <div className="backgroundCreateThread">
         <div className="textGoBackCreateThread">
-        <button className="frameGoBackCreateThread" onClick={history.goBack}>Go back</button>
+        <button className="btn btn-success sThread_goback_button" onClick={ history.goBack }>Go Back</button>
         </div>
         <div className="whiteFrameCreateThread">
           <div className="createNewThreadTextCreateThread"> Create Thread</div>

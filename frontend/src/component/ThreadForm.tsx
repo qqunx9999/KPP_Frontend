@@ -65,26 +65,25 @@ const ThreadForm = () => {
               </label>
               <label>
                 <button className="facultyFrameCreateThread">
-                  {/* <Field type="checkbox" name="tag" value="faculty" className="facultyClickBoxCreateThread" /> */}
-                  {/* <div className="facultyTextCreateThread"> Faculty </div> */}
+                   <div className="facultyTextCreateThread"> Faculty </div>
                   <Dropdown>
-                    <Dropdown.Toggle variant="green">Faculty</Dropdown.Toggle>
+                    <Dropdown.Toggle variant="green">          </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <Dropdown.Item><Field type="checkbox" name="faculty" value="veterinary" /> Veterinary</Dropdown.Item>
-                      <Dropdown.Item><Field type="checkbox" name="faculty" value="vettechs" /> Vet-techs</Dropdown.Item>
-                      <Dropdown.Item><Field type="checkbox" name="faculty" value="engineering" /> Engineering</Dropdown.Item>
-                      <Dropdown.Item><Field type="checkbox" name="faculty" value="agriculture" /> Agriculture</Dropdown.Item>
-                      <Dropdown.Item><Field type="checkbox" name="faculty" value="fisheries" /> Fisheries</Dropdown.Item>
-                      <Dropdown.Item><Field type="checkbox" name="faculty" value="education" /> Education</Dropdown.Item>
-                      <Dropdown.Item><Field type="checkbox" name="faculty" value="humanities" /> Humanities</Dropdown.Item>
-                      <Dropdown.Item><Field type="checkbox" name="faculty" value="business" /> Business</Dropdown.Item>
-                      <Dropdown.Item><Field type="checkbox" name="faculty" value="economics" /> Economics</Dropdown.Item>
-                      <Dropdown.Item><Field type="checkbox" name="faculty" value="forestry" /> Forestry</Dropdown.Item>
-                      <Dropdown.Item><Field type="checkbox" name="faculty" value="agindustry" /> Ag-industry</Dropdown.Item>
-                      <Dropdown.Item><Field type="checkbox" name="faculty" value="social" /> Social</Dropdown.Item>
-                      <Dropdown.Item><Field type="checkbox" name="faculty" value="science" /> Science</Dropdown.Item>
-                      <Dropdown.Item><Field type="checkbox" name="faculty" value="enviroment" /> Enviroment</Dropdown.Item>
-                      <Dropdown.Item><Field type="checkbox" name="faculty" value="architecture" /> Architecture</Dropdown.Item>
+                      <Dropdown.Item><Field type="checkbox" name="faculty1" value="veterinary" /> Veterinary</Dropdown.Item>
+                      <Dropdown.Item><Field type="checkbox" name="faculty2" value="vettechs" /> Vet-techs</Dropdown.Item>
+                      <Dropdown.Item><Field type="checkbox" name="faculty3" value="engineering" /> Engineering</Dropdown.Item>
+                      <Dropdown.Item><Field type="checkbox" name="faculty4" value="agriculture" /> Agriculture</Dropdown.Item>
+                      <Dropdown.Item><Field type="checkbox" name="faculty5" value="fisheries" /> Fisheries</Dropdown.Item>
+                      <Dropdown.Item><Field type="checkbox" name="faculty6" value="education" /> Education</Dropdown.Item>
+                      <Dropdown.Item><Field type="checkbox" name="faculty7" value="humanities" /> Humanities</Dropdown.Item>
+                      <Dropdown.Item><Field type="checkbox" name="faculty8" value="business" /> Business</Dropdown.Item>
+                      <Dropdown.Item><Field type="checkbox" name="faculty9" value="economics" /> Economics</Dropdown.Item>
+                      <Dropdown.Item><Field type="checkbox" name="faculty10" value="forestry" /> Forestry</Dropdown.Item>
+                      <Dropdown.Item><Field type="checkbox" name="faculty11" value="agindustry" /> Ag-industry</Dropdown.Item>
+                      <Dropdown.Item><Field type="checkbox" name="faculty12" value="social" /> Social</Dropdown.Item>
+                      <Dropdown.Item><Field type="checkbox" name="faculty13" value="science" /> Science</Dropdown.Item>
+                      <Dropdown.Item><Field type="checkbox" name="faculty14" value="enviroment" /> Enviroment</Dropdown.Item>
+                      <Dropdown.Item><Field type="checkbox" name="faculty15" value="architecture" /> Architecture</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                 </button>
@@ -110,7 +109,7 @@ const ThreadForm = () => {
               <label>
                 <button className="nonsenseFrameCreateThread">
                   <Field type="checkbox" name="tag" value="nonsense" className="nonsenseClickBoxCreateThread" />
-                  <div className="nonsenseTextCreateThread"></div> Nonsense
+                  <div className="nonsenseTextCreateThread">Nonsense</div> 
                 </button>
               </label>
             </div>
@@ -137,7 +136,7 @@ const ThreadForm = () => {
                   </div>
                 </label>
 
-                <button disabled={isSubmitting} className="frameSendCreateThread" type="submit">
+                <button disabled={isSubmitting} className="btn btn-success frameSendCreateThread" type="submit">
                   <div className="textSendToolsPlaceYourContentCreateThread"> Send </div>
                 </button>
               </div>
