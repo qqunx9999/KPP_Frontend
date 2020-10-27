@@ -6,6 +6,8 @@ import Chatroom from 'src/entities/chatroom.entity';
 import Chat_message from 'src/entities/chat_message.entity';
 import {CreateChatroomDto}  from 'src/dto/create-chatroom.dto';
 import {CreateChat_messageDto}  from 'src/dto/create-chat_message.dto';
+import { UpdateChatroomDto } from 'src/dto_update/update-chatroom.dto';
+
 
 
 @Injectable()
@@ -26,6 +28,11 @@ export class ChatroomsService {
     }
 
     async createChatroom(createChatroomDto: CreateChatroomDto) {
+        let date = new Date();
+        date.setMinutes(date.getMinutes()+7*60);
+        createChatroomDto.date_create = date ;
+        createChatroomDto.date_delete = null ;
+        createChatroomDto.date_lastactive = date ;
         return this.chatroomsRepository.save(createChatroomDto);
     }
     
@@ -39,6 +46,50 @@ export class ChatroomsService {
     }
 
     async createMessages(createChat_messageDto: CreateChat_messageDto){
+        const chatroomID : ObjectID = createChat_messageDto.chatroomID;
+        let cr : Chatroom ;
+            await this.chatroomsRepository.findOne({where:{ _id: chatroomID}})
+            .then(setChatroom => {
+            cr = setChatroom;
+        });
+        let date = new Date() ;
+        date.setMinutes(date.getMinutes()+7*60);
+        cr.date_lastactive = date;
+        createChat_messageDto.date_create = date;
+        createChat_messageDto.date_delete = null ;
         return this.chat_messagesRepository.save(createChat_messageDto)
+    }
+
+    async updateChatroom(chatroomID:ObjectID, updateChatroomDto:UpdateChatroomDto){
+        if(updateChatroomDto.room_name !== undefined){
+            const newRoomname = updateChatroomDto.room_name ;
+            let cr : Chatroom ;
+            await this.chatroomsRepository.findOne({where:{ _id: chatroomID}})
+            .then(setChatroom => {
+            cr = setChatroom;
+            }); 
+            cr.room_name = newRoomname ;
+        }
+        else if(updateChatroomDto.member_arr !== undefined){
+            const newMember = updateChatroomDto.member_arr[0] ;
+            let cr : Chatroom ;
+            await this.chatroomsRepository.findOne({where:{ _id: chatroomID}})
+            .then(setChatroom => {
+            cr = setChatroom;
+            });
+            //cr.member_arr.push(newMember) ;
+            cr.totalmember = cr.totalmember + 1; 
+        }
+        else if(updateChatroomDto.date_delete !== undefined){
+            let cr : Chatroom ;
+            await this.chatroomsRepository.findOne({where:{ _id: chatroomID}})
+            .then(setChatroom => {
+            cr = setChatroom;
+            });
+            let date = new Date();
+            date.setMinutes(date.getMinutes()+7*60);
+            cr.date_delete = date ;
+        }
+        return this.chatroomsRepository.update
     }
 }
