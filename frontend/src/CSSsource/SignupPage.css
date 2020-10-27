@@ -3,7 +3,7 @@
   height: 100%;
   overflow: hidden;
   margin: 0;
-  background: var(--Theme6, #47624f);
+  background: var(--ฺB5, #d6ce15);
   position: absolute;
 }
 .btn-success:hover{
@@ -18,7 +18,7 @@ background: rgba(0, 0, 0, 0.2)
   width: 1242px;
   height: 996px;
   overflow: visible;
-  background: var(--Theme1, #ffffff);
+  background: var(--B1, #1f2605);
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
   border-radius: 66px;
   transform: scale(0.6, 0.6);
@@ -36,7 +36,7 @@ background: rgba(0, 0, 0, 0.2)
   overflow: visible;
   text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
   font-family: "Inter", sans-serif;
-  color: var(--Theme4, #447604);
+  color: var(--B5, #d6ce15);
   font-size: 91px;
   letter-spacing: 0px;
   line-height: 1.2;
@@ -50,7 +50,7 @@ background: rgba(0, 0, 0, 0.2)
   height: 109px;
   overflow: visible;
   font-family: "Inter", sans-serif;
-  color: var(--Theme3, #0f0508);
+  color: var(--Theme1, #ffffff);
   font-size: 38px;
   letter-spacing: 0px;
   line-height: 1.2;
@@ -64,7 +64,7 @@ background: rgba(0, 0, 0, 0.2)
   height: 138px;
   overflow: visible;
   font-family: "Inter", sans-serif;
-  color: var(--Theme3, #0f0508);
+  color: var(--Theme1, #ffffff);
   font-size: 46px;
   letter-spacing: 3px;
   line-height: 3;
@@ -99,7 +99,7 @@ background: rgba(0, 0, 0, 0.2)
   height: 138px;
   overflow: visible;
   font-family: "Inter", sans-serif;
-  color: var(--Theme3, #0f0508);
+  color: var(--Theme1, #ffffff);
   font-size: 46px;
   letter-spacing: 3px;
   line-height: 3;
@@ -148,7 +148,7 @@ background: rgba(0, 0, 0, 0.2)
   height: 138px;
   overflow: visible;
   font-family: "Inter", sans-serif;
-  color: var(--Theme3, #0f0508);
+  color: var(--Theme1, #ffffff);
   font-size: 46px;
   letter-spacing: 3px;
   line-height: 3;
@@ -184,7 +184,7 @@ background: rgba(0, 0, 0, 0.2)
   height: 138px;
   overflow: visible;
   font-family: "Inter", sans-serif;
-  color: var(--Theme3, #0f0508);
+  color: var(--Theme1, #ffffff);
   font-size: 46px;
   letter-spacing: 3px;
   line-height: 3;
@@ -220,7 +220,7 @@ background: rgba(0, 0, 0, 0.2)
   height: 69px;
   overflow: visible;
   font-family: "Inter", sans-serif;
-  color: var(--Theme3, #0f0508);
+  color: var(--Theme1, #ffffff);
   font-size: 23px;
   letter-spacing: 3px;
   line-height: 3;
@@ -234,7 +234,7 @@ background: rgba(0, 0, 0, 0.2)
   height: 69px;
   overflow: visible;
   font-family: "Inter", sans-serif;
-  color: var(--Theme4, #447604);
+  color: var(--Theme1, #ffffff);
   font-size: 23px;
   letter-spacing: 3px;
   line-height: 3;
@@ -242,7 +242,7 @@ background: rgba(0, 0, 0, 0.2)
   position: absolute;    
   top: 790px;
   left: 827px;
-  background: var(--Theme5, #ffffff); 
+  background: var(--B1, #1f2605); 
   border: 0px;
 }
 
