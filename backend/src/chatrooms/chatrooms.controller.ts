@@ -50,7 +50,6 @@ export class ChatroomsController {
 
     @Patch(':chatroomID')
         async updateChatroom(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID,@Body() updateChatroomDto = UpdateChatroomDto){
-            
         }
 
 

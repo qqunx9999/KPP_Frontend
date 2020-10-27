@@ -42,7 +42,7 @@ export class ChatroomsService {
     }
     */
     async findAllMessages(chatroomID: ObjectID){
-        return this.chat_messagesRepository.find({where:{ chatroomID: chatroomID }});
+        return this.chat_messagesRepository.find({where:{ chatroomID: chatroomID , date_delete:null }});
     }
 
     async createMessages(createChat_messageDto: CreateChat_messageDto){
@@ -71,13 +71,16 @@ export class ChatroomsService {
             cr.room_name = newRoomname ;
         }
         else if(updateChatroomDto.member_arr !== undefined){
-            const newMember = updateChatroomDto.member_arr[0] ;
+            const newMemberID = updateChatroomDto.member_arr[0].user ;
+            let date = new Date();
+            date.setMinutes(date.getMinutes()+7*60);
+            const newMemberdate = date ;
             let cr : Chatroom ;
             await this.chatroomsRepository.findOne({where:{ _id: chatroomID}})
             .then(setChatroom => {
             cr = setChatroom;
             });
-            //cr.member_arr.push(newMember) ;
+            cr.member_arr.push({userID:newMemberID,date_join_chat:newMemberdate,date_leave_chat:null}) ;
             cr.totalmember = cr.totalmember + 1; 
         }
         else if(updateChatroomDto.date_delete !== undefined){
