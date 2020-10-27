@@ -134,7 +134,7 @@ background: rgba(0, 0, 0, 0.2)
   height: 126px;
   overflow: visible;
   font-family: "Inter", sans-serif;
-  color: var(--Theme3, #0f0508);
+  color: var(--Theme3, #ffffff);
   font-size: 42px;
   letter-spacing: 3px;
   line-height: 3;
