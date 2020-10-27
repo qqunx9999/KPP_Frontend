@@ -12,7 +12,7 @@ const temp = {
 };
 
 function Home_new() {
-  const [thread, setThread] = useState<Thread[]>([]);
+  const [thread, setThread] = useState<any>([{}]);
   const time = new Date();
   const history = useHistory();
   let itemThread: any;
@@ -27,84 +27,63 @@ function Home_new() {
   useEffect(() => {
     fetchThread();
   }, []);
-  console.log(thread)
+  
+  if(thread[0].threads != undefined) {
+      const item = thread[0].threads
+      // console.log(item)
+    }
 
-  thread.map(item => (itemThread = item));
+  function latest() {
+    if (thread[0].threads != undefined) {
+      const item = thread;
+      item.map((obj: any) => {
+        console.log(thread);
+        return <li>{obj.threads.topic}</li>;
+      });
+    }
+  }
+
+  function hottest() {
+
+  }
+
+  function news() {
+
+  }
 
   return (
     <div>
       <Navigtion />
-        <div className="backgroundHomePage">
-          <div style={temp}>
-            <div className="latestWhiteFrameHomePage">
-              <div className="latestGreenFrameHomePage">
-                <div className="stackLatestHomePage">
-                  <h1>Latest</h1>
-                    {thread.map(item => (
-                      <div>
-                        <Link to={`/Thread/${item.threadID}`}>
-                          <ul>
-                          <li key={ item.threadID } className = "blog">
-                            <p className="topicLatest">{item.topic}</p>
-                            <div className="alphar"/>
-                            <p className="dateLatest">  {time.getDate() - Number(item.date_create)} Days</p>
-                            <img className ="clockWise" src="https://image.flaticon.com/icons/png/512/3/3811.png" alt=""/>
-                            </li>
-                            </ul>
-                        </Link>
-                      </div>
-                    ))}
-                </div>
+      <div className="backgroundHomePage">
+        <div style={temp}>
+          <div className="latestWhiteFrameHomePage">
+            <div className="latestGreenFrameHomePage">
+              <div className="stackLatestHomePage">
+                <h1>Latest</h1>
+                  { latest }
               </div>
             </div>
-          <div style={temp}></div>
-            <div className="hottestWhiteFrameHomePage">
-              <div className="hottestGreenFrameHomePage">
-                <div className="stackHottestHomePage">
-                  <h1>Hottest</h1>
-                  {thread.map(item => (
-                    <div>
-                      <Link to={`/Thread/${item.threadID}`}>
-                        <ul>
-                          <li key={ item.threadID } className = "blog">
-                            <p className="topicLatest">{item.topic}</p>
-                            <div className="LDC">
-                            <img className="likePic"src="https://www.freeiconspng.com/thumbs/youtube-like-png/youtube-like-button-png-11.png" alt=""/>
-                            <p className="likeHottest">
-                           {item.up_vote_count}</p>
-                           <img className="dislikePic"src="https://pngimg.com/uploads/dislike/dislike_PNG63.png" alt=""/>
-                            <p className="dislikeHottest">  {item.down_vote_count}</p>
-                            {/* <p className="commentHottest"> Comment Mun Mai Oak E sus {item.number_of_comment}</p> */}
-                            </div>
-                          </li>
-                        </ul>
-                      </Link>
-                    </div>
-                  ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="newsWhiteFrameHomePage">
-              <div className="newsGreenFrameHomePage">
-                <div className="stackNewsHomePage">
-                  <h1>News</h1>
-                  {thread.map(item => (
-                    <div>
-                      <Link to={`/Thread/${item.threadID}`}>
-                        <ul>
-                        <li key={ item.threadID } className = "blog">
-                          <p className="topicNews"></p>{item.topic}
-                        </li>
-                        </ul>
-                      </Link>
-                    </div>
-                  ))}
-                </div>
+          </div>
+        <div style={temp}></div>
+          <div className="hottestWhiteFrameHomePage">
+            <div className="hottestGreenFrameHomePage">
+              <div className="stackHottestHomePage">
+                <h1>Hottest</h1>
+                { true && hottest }
               </div>
             </div>
           </div>
         </div>
+        <div className="newsWhiteFrameHomePage">
+          <div className="newsGreenFrameHomePage">
+            <div className="stackNewsHomePage">
+              <h1>News</h1>
+              { news }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

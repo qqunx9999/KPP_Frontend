@@ -41,24 +41,24 @@ function Threads_new(props: LoginFormProps) {
   };
 
   const voteUp = () => {
-    thread.map(item => {
-      const threadIdentity = item.threadID
-      return ThreadService.voteUp(threadIdentity)
-    });
+    // thread.map(item => {
+    //   const threadIdentity = item.threadID
+    //   return ThreadService.voteUp(threadIdentity)
+    // });
     { window.location.reload() }
   };
 
   const voteDown = () => {
-    thread.map(item => {
-      const threadIdentity = item.threadID
-      return ThreadService.voteDown(threadIdentity)
-    });
+    // thread.map(item => {
+    //   const threadIdentity = item.threadID
+    //   return ThreadService.voteDown(threadIdentity)
+    // });
     { window.location.reload() }
   }
 
   return (
     <div>
-      <Navigtion />
+      {/* <Navigtion />
       <div className="Threads-bigframe">
         <div className="thread-topic-frame">
           <div className="thread-topicname-frame">
@@ -127,7 +127,7 @@ function Threads_new(props: LoginFormProps) {
           if(item.threadID === { ThreadID }.ThreadID) {
           return <div style={ temp }>{ item.number_of_all_comment }</div>
           }
-        }) }
+        }) } */}
 
         {// thread.map(item => {
         //   if(item.threadID === { ThreadID }.ThreadID) {
@@ -149,7 +149,7 @@ function Threads_new(props: LoginFormProps) {
         //   }
         // }) 
       }
-      </div>
+      {/* </div> */}
     </div>
   );
 }

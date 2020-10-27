@@ -37,9 +37,10 @@ function CreateComment_new() {
             </div>
             <div className="createcm-topic-name">              
               { thread.map(item => {
-                if (item.threadID === { ThreadID }.ThreadID) {
-                  return " " + item.topic
-                }
+                return <div />
+                // if (item.threadID === { ThreadID }.ThreadID) {
+                //   return " " + item.topic
+                // }
               }) }
             </div>
           </div>

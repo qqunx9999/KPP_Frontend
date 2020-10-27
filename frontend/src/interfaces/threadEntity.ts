@@ -1,5 +1,6 @@
 export interface Thread {
-    threadID?: string;
+    threads: {
+        threadID?: string;
     userID: string; 
     topic: string;
     tag_arr : string[];
@@ -27,4 +28,10 @@ export interface Thread {
     date_create: Date;
     date_lastedit: Date;
     date_delete: Date;
+    },
+    pageInfo: {
+        pagesize: number,
+        pageNo: number,
+        total: number
+    }
 }
