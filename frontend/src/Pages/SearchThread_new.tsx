@@ -61,6 +61,7 @@ const SearchThread_new = () => {
                     <div>Faculty</div>
                   </Dropdown.Toggle>
                   <div style={{overflow:"hidden"}}>
+                  <div onClick={e => e.stopPropagation()}>
                   <Dropdown.Menu className="dropdownframef">
                     <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="veterinary" /> Veterinary</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
                     <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="vettechs" /> Vet-techs</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
@@ -77,8 +78,8 @@ const SearchThread_new = () => {
                     <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="science" /> Science</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
                     <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="enviroment" /> Enviroment</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
                     <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="architecture" /> Architecture</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-
                   </Dropdown.Menu>
+                  </div>
                   </div>
                 </Dropdown>
                 {/* <div className="facultyTextSearchThread"></div>                 */}
