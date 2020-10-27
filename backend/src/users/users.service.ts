@@ -9,6 +9,7 @@ import Thread from 'src/threads/thread.entity';
 import Chatroom from 'src/entities/chatroom.entity';
 import Notifications from 'src/entities/notification.entity';
 import { count } from 'console';
+import { UpdateUserDto } from 'src/dto_update/update-user.dto';
 
 
 
@@ -31,6 +32,10 @@ export class UsersService {
         @InjectRepository(Notifications)
         private notificationsRepository: Repository<Notifications>   
     ) {}
+
+    async updateUser(createUserDto: UpdateUserDto, userID: ObjectID) {
+        return this.usersRepository.update({userID: userID }, createUserDto);
+    }
 
     async findallchatroom(userID: ObjectID): Promise<any> {
         this.mychatroom = [];
