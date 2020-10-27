@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import '../CSSsource/SignupPage.css';
 import AuthService from '../service/AuthService';
+import * as Yup from 'yup';
 
 export const Forgetpass = () => {
     const [signUpErrorMessage, setSignUpErrorMessage] = useState('');
@@ -19,12 +20,12 @@ export const Forgetpass = () => {
     return (
         <Formik
             initialValues={{ email: '', newPassword: '', conPass: '', verify: '' }}
-            validate={values => {
-                const errors: any = {};
-                if(values.newPassword !== values.conPass) {
-                    errors.password = ''
-                }
-            }}
+            validationSchema={Yup.object({
+                email: Yup.string().required('Required'),
+                newPassword: Yup.string().required('Required'),
+                conPass: Yup.string().required('Required'),
+                verify: Yup.string().required('Required')
+            })}
             onSubmit={async (values, actions) => {
                 const result = await AuthService.SignupUser((values.email), values.newPassword, values.conPass, values.verify);
                 history.push('/ForgetPwd/AuthenResetPwd');
