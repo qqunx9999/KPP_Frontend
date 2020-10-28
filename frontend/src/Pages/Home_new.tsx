@@ -18,15 +18,15 @@ function Home_new() {
   const history = useHistory();
   let itemThread: any;
 
-  const fetchThread = () => {
-    ThreadService.fetchThread()
+  const fetchNewThread = () => {
+    ThreadService.fetchNewThread()
       .then(obj => {
         setThread(obj);
       });
   };
 
   useEffect(() => {
-    fetchThread();
+    fetchNewThread();
   }, []);
   
   if(thread[0].threads != undefined) {
@@ -45,11 +45,23 @@ function Home_new() {
   }
 
   function hottest() {
-
+    if (thread[0].threads != undefined) {
+      const item = thread;
+      item.map((obj: any) => {
+        console.log(thread);
+        return <li>{obj.threads.topic}</li>;
+      });
+    }
   }
 
   function news() {
-
+    if (thread[0].threads != undefined) {
+      const item = thread;
+      item.map((obj: any) => {
+        console.log(thread);
+        return <li>{obj.threads.topic}</li>;
+      });
+    }
   }
 
   return (

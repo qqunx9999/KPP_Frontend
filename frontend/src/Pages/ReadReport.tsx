@@ -12,7 +12,7 @@ function ReadReport() {
   const [thread, setThread] = useState<Thread[]>([]);
 
   const fetchThread = () => {
-    ThreadService.fetchThread()
+    ThreadService.fetchNewThread()
       .then(obj => {
         setThread(obj);
       });

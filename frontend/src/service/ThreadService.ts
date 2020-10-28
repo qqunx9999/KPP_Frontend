@@ -2,7 +2,19 @@ import { baseUrl } from '../config/constant';
 import { Thread } from '../interfaces/threadEntity';
 import AuthService from './AuthService';
 
-export async function fetchThread(): Promise<Thread[]> {
+export async function fetchLatestThread(): Promise<Thread[]> {
+    const res = await fetch(`${ baseUrl }/threads/filter/%20/Latest/8/1`)
+    const courses = res.json();
+    return courses
+}
+
+export async function fetchHotThread(): Promise<Thread[]> {
+    const res = await fetch(`${ baseUrl }/threads/filter/%20/Hottest/8/1`)
+    const courses = res.json();
+    return courses
+}
+
+export async function fetchNewThread(): Promise<Thread[]> {
     const res = await fetch(`${ baseUrl }/threads/filter/%20/Newest/8/1`)
     const courses = res.json();
     return courses
@@ -10,7 +22,6 @@ export async function fetchThread(): Promise<Thread[]> {
 
 export function passThreadNO(threadNO: string): void {
     localStorage.setItem('threadNO', threadNO);
-    // console.log(threadNO);
 }
 
 export function checkThreadNO(): string {
@@ -43,7 +54,9 @@ export async function voteDown(threadID: string | undefined) {
 }
 
 export default {
-    fetchThread,
+    fetchLatestThread,
+    fetchHotThread,
+    fetchNewThread,
     passThreadNO,
     checkThreadNO,
     clearThreadNO,

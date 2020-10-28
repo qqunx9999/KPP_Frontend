@@ -12,7 +12,7 @@ function CreateComment_new() {
   const { ThreadID } = useParams();
 
   const fetchThread = () => {
-    ThreadService.fetchThread()
+    ThreadService.fetchNewThread()
       .then(obj => {
         setThread(obj);
       });

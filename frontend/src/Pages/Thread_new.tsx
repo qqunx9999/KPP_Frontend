@@ -19,7 +19,7 @@ function Threads_new(props: LoginFormProps) {
   const history = useHistory();
 
   const fetchThread = () => {
-    ThreadService.fetchThread()
+    ThreadService.fetchNewThread()
       .then(obj => {
         setThread(obj);
       });
