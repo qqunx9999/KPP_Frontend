@@ -79,6 +79,7 @@ export class ChatroomsService {
             cr.room_name = newRoomname ;
         }
         else if(updateChatroomDto.member_arr !== undefined){
+            /*
             const newMemberID = updateChatroomDto.member_arr[0].userID;
             let date = new Date();
             date.setMinutes(date.getMinutes()+7*60);
@@ -94,6 +95,22 @@ export class ChatroomsService {
             memberArr.push(newMem) ;
             console.log(memberArr);
             updateChatroomDto.totalmember=cr.totalmember + 1;
+            updateChatroomDto.member_arr=memberArr;
+            */
+            let date = new Date();
+            date.setMinutes(date.getMinutes()+7*60);
+            let cr : Chatroom ;
+            await this.chatroomsRepository.findOne({where:{ _id: chatroomID}})
+            .then(setChatroom => {
+            cr = setChatroom;
+            });
+            let memberArr = cr.member_arr;
+            updateChatroomDto.totalmember=cr.totalmember;
+            for(let i = 0;i<updateChatroomDto.member_arr.length;i++){
+                var newMem = {userID:updateChatroomDto.member_arr[i].userID,date_join_chat:date,date_leave_chat:null};
+                memberArr.push(newMem) ;
+                updateChatroomDto.totalmember=updateChatroomDto.totalmember + 1;
+            }
             updateChatroomDto.member_arr=memberArr;
         }
         else if(updateChatroomDto.date_delete !== undefined){
