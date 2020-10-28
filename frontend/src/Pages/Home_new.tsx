@@ -19,9 +19,9 @@ function Home_new() {
   let itemThread: any;
 
   const fetchNewThread = () => {
-    ThreadService.fetchNewThread()
+    ThreadService.fetchLatestThread()
       .then(obj => {
-        setThread(obj);
+        obj.map((item: any) => setThread(item.threads))
       });
   };
 
@@ -30,39 +30,9 @@ function Home_new() {
   }, []);
   
   if(thread[0].threads != undefined) {
-      const item = thread[0].threads
-      // console.log(item)
-    }
-
-  function latest() {
-    if (thread[0].threads != undefined) {
       const item = thread;
-      item.map((obj: any) => {
-        console.log(thread);
-        return <li>{obj.threads.topic}</li>;
-      });
+      // console.log(item[0])
     }
-  }
-
-  function hottest() {
-    if (thread[0].threads != undefined) {
-      const item = thread;
-      item.map((obj: any) => {
-        console.log(thread);
-        return <li>{obj.threads.topic}</li>;
-      });
-    }
-  }
-
-  function news() {
-    if (thread[0].threads != undefined) {
-      const item = thread;
-      item.map((obj: any) => {
-        console.log(thread);
-        return <li>{obj.threads.topic}</li>;
-      });
-    }
-  }
 
   return (
     <div>
@@ -73,7 +43,20 @@ function Home_new() {
             <div className="latestGreenFrameHomePage">
               <div className="stackLatestHomePage">
                 <h1>Latest</h1>
-                  { latest }
+                  { thread.map((item: any) => (
+                    <div>
+                      <Link to={`/Thread/${item.threadID}`}>
+                        <ul>
+                        <li key={ item.threadID } className = "blog">
+                          <p className="topicLatest">{item.topic}</p>
+                          <div className="alphar"/>
+                          <p className="dateLatest">  {time.getDate() - Number(item.date_create)} Days</p>
+                          <img className ="clockWise" src="https://image.flaticon.com/icons/png/512/3/3811.png" alt=""/>
+                          </li>
+                          </ul>
+                      </Link>
+                    </div>
+                  )) }
               </div>
             </div>
           </div>
@@ -82,7 +65,25 @@ function Home_new() {
             <div className="hottestGreenFrameHomePage">
               <div className="stackHottestHomePage">
                 <h1>Hottest</h1>
-                { true && hottest }
+                { thread.map((item: any) => (
+                    <div>
+                      <Link to={`/Thread/${item.threadID}`}>
+                        <ul>
+                          <li key={ item.threadID } className = "blog">
+                            <p className="topicLatest">{item.topic}</p>
+                            <div className="LDC">
+                            <img className="likePic"src="https://www.freeiconspng.com/thumbs/youtube-like-png/youtube-like-button-png-11.png" alt=""/>
+                            <p className="likeHottest">
+                           {item.up_vote_count}</p>
+                           <img className="dislikePic"src="https://pngimg.com/uploads/dislike/dislike_PNG63.png" alt=""/>
+                            <p className="dislikeHottest">  {item.down_vote_count}</p>
+                            {/* <p className="commentHottest"> Comment Mun Mai Oak E sus {item.number_of_comment}</p> */}
+                            </div>
+                          </li>
+                        </ul>
+                      </Link>
+                    </div>
+                  )) }
               </div>
             </div>
           </div>
@@ -91,7 +92,17 @@ function Home_new() {
           <div className="newsGreenFrameHomePage">
             <div className="stackNewsHomePage">
               <h1>News</h1>
-              { news }
+              { thread.map((item: any) => (
+                <div>
+                  <Link to={`/Thread/${item.threadID}`}>
+                    <ul>
+                    <li key={ item.threadID } className = "blog">
+                      <p className="topicNews"></p>{item.topic}
+                    </li>
+                    </ul>
+                  </Link>
+                </div>
+              )) }
             </div>
           </div>
         </div>

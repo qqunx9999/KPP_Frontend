@@ -7,12 +7,12 @@ import CommentForm from '../component/CommentForm';
 import '../CSSsource/CreateComment.css';
 
 function CreateComment_new() {
-  const [thread, setThread] = useState<Thread[]>([]);
+  const [thread, setThread] = useState<any>([{}, {}]);
   const history = useHistory();
   const { ThreadID } = useParams();
 
   const fetchThread = () => {
-    ThreadService.fetchNewThread()
+    ThreadService.fetchOneThread({ ThreadID }.ThreadID)
       .then(obj => {
         setThread(obj);
       });
@@ -36,12 +36,7 @@ function CreateComment_new() {
               In Topic :
             </div>
             <div className="createcm-topic-name">              
-              { thread.map(item => {
-                return <div />
-                // if (item.threadID === { ThreadID }.ThreadID) {
-                //   return " " + item.topic
-                // }
-              }) }
+              { thread[0].topic }
             </div>
           </div>
           <CommentForm />

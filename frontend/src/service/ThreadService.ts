@@ -2,22 +2,16 @@ import { baseUrl } from '../config/constant';
 import { Thread } from '../interfaces/threadEntity';
 import AuthService from './AuthService';
 
-export async function fetchLatestThread(): Promise<Thread[]> {
+export async function fetchLatestThread(): Promise<[]> {
     const res = await fetch(`${ baseUrl }/threads/filter/%20/Latest/8/1`)
-    const courses = res.json();
-    return courses
+    const thread = res.json();
+    return thread;
 }
 
-export async function fetchHotThread(): Promise<Thread[]> {
-    const res = await fetch(`${ baseUrl }/threads/filter/%20/Hottest/8/1`)
-    const courses = res.json();
-    return courses
-}
-
-export async function fetchNewThread(): Promise<Thread[]> {
-    const res = await fetch(`${ baseUrl }/threads/filter/%20/Newest/8/1`)
-    const courses = res.json();
-    return courses
+export async function fetchOneThread(threadID: any | undefined): Promise<any> {
+    const res = await fetch(`${ baseUrl }/threads/${ threadID }`);
+    const thread = res.json();
+    return thread;
 }
 
 export function passThreadNO(threadNO: string): void {
@@ -41,6 +35,7 @@ export async function voteUp(threadID: string | undefined) {
             "up_vote_arr": [{ "userID": AuthService.getUserID() }]
         })
     });
+    window.location.reload()
 }
 
 export async function voteDown(threadID: string | undefined) {
@@ -51,12 +46,12 @@ export async function voteDown(threadID: string | undefined) {
             "down_vote_arr": [{ "userID": AuthService.getUserID() }]
         })
     });
+    window.location.reload()
 }
 
 export default {
     fetchLatestThread,
-    fetchHotThread,
-    fetchNewThread,
+    fetchOneThread,
     passThreadNO,
     checkThreadNO,
     clearThreadNO,
