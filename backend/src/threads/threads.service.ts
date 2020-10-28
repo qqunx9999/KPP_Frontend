@@ -103,6 +103,14 @@ export class ThreadsService {
     return threads;
   }
 
+  async findOneComment(commentID: ObjectID): Promise<any>{
+    let cmt: Commentation;
+    await this.commentationsRepository.findOne({where:{_id: commentID}})
+      .then(setCmt =>{
+        cmt = setCmt;
+      });
+    return cmt;
+  }
   
 
   
@@ -115,7 +123,7 @@ export class ThreadsService {
     //console.log(th);
     let own_thread:ObjectID = th.userID
     const info_own_thread = this.usersService.findUserInfo(own_thread);
-    return [th, await(info_own_thread)];
+    return {thread:th, userInfo: await(info_own_thread)};
   }
   
 
