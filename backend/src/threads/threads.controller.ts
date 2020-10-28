@@ -70,7 +70,7 @@ export class ThreadsController {
   }
 
   @Get(':threadID/comments')
-  async findAllCommentations(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<Commentation[]>{
+  async findAllCommentations(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<any>{
     return this.threadsService.findAllCommentations(threadID);
   }
 
