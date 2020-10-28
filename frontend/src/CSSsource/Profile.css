@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: var(--Theme6, #47624f);
+    background: var(--B5, #d6ce15);
     position: absolute;
   }
 
@@ -10,12 +10,12 @@
     width: 1390px;
     height: 947px;
     overflow: visible;
-    background: var(--Theme1, #ffffff);
+    background: var(--B3, #53900f);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     transform: scale(0.6, 0.6);
     position: absolute;
-    top: -10%;
+    /* top: -10%; */
     left: 15%;
   }
 
@@ -23,7 +23,7 @@
     width: 1314px;
     height: 758px;
     overflow: visible;
-    background-color: rgba(0, 0, 0, 0.9);
+    background: var(--B1, #1f2605);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 20px;
     position: absolute;
@@ -231,7 +231,7 @@
     width: 215px;
     height: 90px;
     overflow: visible;
-    background: var(--Theme5, #6cc551);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
