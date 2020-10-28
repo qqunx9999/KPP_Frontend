@@ -2,18 +2,18 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: var(--Theme6, #47624f);
+    background: var(--B5, #d6ce15);
     position: absolute;
   }
 
   .sThread_goback_button:hover{
-    background: var(--Theme5, #9beb33) ! important; /* Green */
+    background: var(--Theme3, #0f0508) ! important; /* Green */
   }
 
 
 
 .sThread_goback_button {
-    background: rgb(40, 167, 69) ! important; /* Green */
+    background: var(--Theme3, #0f0508) ! important; /* Green */
 
     border-radius: 19px ! important;
     color: white ! important;
@@ -36,7 +36,7 @@
     width: 1348px;
     height: 1300px;
     overflow: visible;
-    background: var(--Theme1, #ffffff);
+    background: var(--B3, #53900f);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     transform: scale(0.6, 0.6);
@@ -51,7 +51,7 @@
     overflow: visible;
     text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
     font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
+    color: var(--Theme1, #ffffff);
     font-size: 91px;
     letter-spacing: 0px;
     line-height: 1.2;
@@ -64,7 +64,7 @@
     width: 1235px;
     height: 101px;
     overflow: visible;
-    background: var(--Theme3, #0f0508);
+    background: var(--B1, #1f2605);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     position: absolute;
@@ -110,7 +110,7 @@
     width: 1233px;
     height: 174px;
     overflow: visible;
-    background: var(--Theme3, #0f0508);
+    background: var(--B1, #1f2605);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     position: absolute;
@@ -433,7 +433,7 @@
     width: 1231px;
     height: 700px;
     overflow: visible;
-    background: var(--Theme3, #0f0508);
+    background: var(--B1, #1f2605);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     position: absolute;
@@ -459,7 +459,7 @@
     width: 488px;
     height: 150px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B4, #a4a71e);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     position: absolute;
