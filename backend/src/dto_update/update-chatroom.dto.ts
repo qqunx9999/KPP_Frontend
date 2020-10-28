@@ -2,10 +2,10 @@ import { IsInt , IsNotEmpty , IsBoolean , IsDate , IsString , IsArray} from "cla
 import {ObjectID} from 'mongodb';
 
 
-export class CreateChatroomDto{
-    @IsString()
+export class UpdateChatroomDto{
+    //@IsString()
     room_name:string;
-    @IsArray()
+    
     member_arr: {userID: ObjectID, date_join_chat: Date, date_leave_chat: Date}[];
     //@IsInt()
     totalmember:number;

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, HttpException, HttpStatus } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, HttpException, HttpStatus, Patch } from '@nestjs/common';
 import { ObjectID } from 'mongodb'
 import { ParseObjectIdPipe } from '../common/pipes';
 import { ChatroomsService } from './chatrooms.service'
@@ -7,6 +7,7 @@ import Chat_message from 'src/entities/chat_message.entity';
 import {CreateChatroomDto}  from 'src/dto/create-chatroom.dto';
 import {CreateChat_messageDto}  from 'src/dto/create-chat_message.dto';
 import User from 'src/entities/user.entity';
+import { UpdateChatroomDto } from 'src/dto_update/update-chatroom.dto';
 
 
 @Controller('chatrooms')
@@ -44,10 +45,14 @@ export class ChatroomsController {
               @Body() CreateChat_messageDto:CreateChat_messageDto){
         CreateChat_messageDto.chatroomID = chatroomID;
         CreateChat_messageDto.userID = userID ;
-        let date = new Date() ;
-        date.setMinutes(date.getMinutes()+7*60);
-        CreateChat_messageDto.date_create = date;
         return  this.chatroomsService.createMessages(CreateChat_messageDto);
     }
+
+    @Patch(':chatroomID')
+        async updateChatroom(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID,
+        @Body() updateChatroomDto:UpdateChatroomDto){
+            return this.chatroomsService.updateChatroom(chatroomID ,updateChatroomDto);
+        }
+
 
 }
