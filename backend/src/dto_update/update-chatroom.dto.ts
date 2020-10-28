@@ -6,7 +6,7 @@ export class UpdateChatroomDto{
     //@IsString()
     room_name:string;
     
-    member_arr: {user: ObjectID, date_join_chat: Date, date_leave_chat: Date}[];
+    member_arr: {userID: ObjectID, date_join_chat: Date, date_leave_chat: Date}[];
     //@IsInt()
     totalmember:number;
     //@IsDate()
