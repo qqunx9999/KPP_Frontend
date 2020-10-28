@@ -7,6 +7,7 @@ import Chat_message from 'src/entities/chat_message.entity';
 import {CreateChatroomDto}  from 'src/dto/create-chatroom.dto';
 import {CreateChat_messageDto}  from 'src/dto/create-chat_message.dto';
 import { UpdateChatroomDto } from 'src/dto_update/update-chatroom.dto';
+import { CreateUserDto } from 'src/dto/create-user.dto';
 
 
 
@@ -32,7 +33,14 @@ export class ChatroomsService {
         date.setMinutes(date.getMinutes()+7*60);
         createChatroomDto.date_create = date ;
         createChatroomDto.date_delete = null ;
-        createChatroomDto.date_lastactive = date ;
+        createChatroomDto.date_lastactive = date;
+        createChatroomDto.totalmember = 0;
+        let Arraymember = [];
+        for(let i = 0; i < createChatroomDto.member_arr.length;i++){
+            let newmember = {userID:createChatroomDto.member_arr[i].userID,date_join_chat:date,date_leave_chat:null} ;
+            Arraymember.push(newmember);
+        }
+        createChatroomDto.member_arr = Arraymember;
         return this.chatroomsRepository.save(createChatroomDto);
     }
     
@@ -71,7 +79,7 @@ export class ChatroomsService {
             cr.room_name = newRoomname ;
         }
         else if(updateChatroomDto.member_arr !== undefined){
-            const newMemberID = updateChatroomDto.member_arr[0].user ;
+            const newMemberID = updateChatroomDto.member_arr[0].userID;
             let date = new Date();
             date.setMinutes(date.getMinutes()+7*60);
             const newMemberdate = date ;
@@ -80,8 +88,13 @@ export class ChatroomsService {
             .then(setChatroom => {
             cr = setChatroom;
             });
-            cr.member_arr.push({userID:newMemberID,date_join_chat:newMemberdate,date_leave_chat:null}) ;
-            cr.totalmember = cr.totalmember + 1; 
+            console.log(cr.member_arr);
+            let memberArr = cr.member_arr;
+            var newMem = {userID:newMemberID,date_join_chat:newMemberdate,date_leave_chat:null};
+            memberArr.push(newMem) ;
+            console.log(memberArr);
+            updateChatroomDto.totalmember=cr.totalmember + 1;
+            updateChatroomDto.member_arr=memberArr;
         }
         else if(updateChatroomDto.date_delete !== undefined){
             let cr : Chatroom ;

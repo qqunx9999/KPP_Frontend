@@ -5,14 +5,14 @@ import {ObjectID} from 'mongodb';
 export class CreateChatroomDto{
     @IsString()
     room_name:string;
-    
-    member_arr: {user: ObjectID, date_join_chat: Date, date_leave_chat: Date}[];
-    @IsInt()
+    @IsArray()
+    member_arr: {userID: ObjectID, date_join_chat: Date, date_leave_chat: Date}[];
+    //@IsInt()
     totalmember:number;
-    @IsDate()
+    //@IsDate()
     date_create:Date;
-    @IsDate()
+    //@IsDate()
     date_lastactive:Date;
-    @IsDate()
+    //@IsDate()
     date_delete:Date;
 }
