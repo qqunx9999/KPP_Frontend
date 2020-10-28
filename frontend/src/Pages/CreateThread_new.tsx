@@ -18,7 +18,7 @@ function CreateThread_new() {
         <button className="btn btn-success sThread_goback_button" onClick={ history.goBack }>Go Back</button>
         </div>
         <div className="whiteFrameCreateThread">
-          <div className="createNewThreadTextCreateThread"> Create Thread</div>
+          <div className="createNewThreadTextCreateThread"> Create New Thread</div>
           <ThreadForm />
         </div>
       </div>

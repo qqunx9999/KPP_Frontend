@@ -57,6 +57,12 @@ export class ThreadsController {
     return {threads, pageInfo:{pagesize: threads.length, pageNo, total: totals}};
   }
 
+  @Get( ':threadID/comments/:commentID')
+  async findOneComment(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
+    @Param('commentID', ParseObjectIdPipe) commentID: ObjectID,
+  ): Promise<any>{
+    return this.threadsService.findOneComment(commentID);
+  }
   
 
   @Get(':threadID')
@@ -70,7 +76,7 @@ export class ThreadsController {
   }
 
   @Get(':threadID/comments')
-  async findAllCommentations(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<Commentation[]>{
+  async findAllCommentations(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<any>{
     return this.threadsService.findAllCommentations(threadID);
   }
 

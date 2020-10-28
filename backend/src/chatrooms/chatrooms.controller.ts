@@ -17,7 +17,6 @@ export class ChatroomsController {
         async findAll(): Promise<Chatroom[]> {
         return this.chatroomsService.findAll();
     }
-
     @Get(':chatroomID')
         async findOne(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID): Promise<Chatroom[]> {
         return this.chatroomsService.findOne(chatroomID);

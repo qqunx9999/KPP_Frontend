@@ -11,7 +11,7 @@ export class AppController {
     ) {}
 
     @Get()
-    getHello(): Promise<void> {
+    getHello(): Promise<void> { //void
       return this.appService.getHello();
     }
 

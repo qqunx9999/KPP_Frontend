@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: #47624f;
+    background: var(--B5, #d6ce15);
     position: absolute;
   }
   sThread_goback_buttonn:hover{
@@ -129,7 +129,7 @@
     width: 1487px;
     height: 317px;
     overflow: visible;
-    background: var(--Theme1, #ffffff);
+    background: var(--B4, #a4a71e);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     transform: scale(0.6, 0.6);
@@ -143,7 +143,7 @@
     height: 138px;
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
+    color: var(--Theme1, #ffffff);
     font-size: 46px;
     letter-spacing: 3px;
     line-height: 3;
@@ -172,7 +172,7 @@
     left: 260px;
 }
 .frameSubmitSearchThread:hover{
-  background: var(--ThemeSup1, #a0f241) ! important;
+  background: var(--B2, #1f6521) ! important;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.4) ! important;
 }
 
@@ -180,7 +180,7 @@
     width: 187px ! important;
     height: 70px ! important;
     overflow: visible ! important;
-    background: rgb(40, 167, 69) ! important;
+    background: var(--B2, #1f6521) ! important;
 
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25) ! important;
     border-radius: 15px ! important;
@@ -211,7 +211,7 @@
     height: 138px;
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
+    color: var(--Theme1, #ffffff);
     font-size: 46px;
     letter-spacing: 3px;
     line-height: 3;
@@ -224,7 +224,7 @@
     width: 235px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
@@ -262,7 +262,7 @@
     width: 235px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
@@ -297,7 +297,7 @@
     width: 235px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
@@ -335,7 +335,7 @@
     width: 235px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
@@ -373,7 +373,7 @@
     width: 235px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
@@ -411,7 +411,7 @@
     width: 235px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
@@ -449,7 +449,7 @@
     width: 235px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
@@ -487,7 +487,7 @@
     width: 235px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
@@ -563,7 +563,7 @@
     width: 1772px;
     height: 480px;
     overflow: visible;
-    background: var(--Theme2, #dddde3);
+    background: var(--B1, #1f2605);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     transform: scale(0.6, 0.6);
