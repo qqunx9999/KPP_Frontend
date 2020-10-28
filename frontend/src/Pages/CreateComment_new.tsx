@@ -7,7 +7,7 @@ import CommentForm from '../component/CommentForm';
 import '../CSSsource/CreateComment.css';
 
 function CreateComment_new() {
-  const [thread, setThread] = useState<any>([{}, {}]);
+  const [thread, setThread] = useState<any>({thread:{}, userInfo:{}});
   const history = useHistory();
   const { ThreadID } = useParams();
 
@@ -36,7 +36,7 @@ function CreateComment_new() {
               In Topic :
             </div>
             <div className="createcm-topic-name">              
-              { thread[0].topic }
+              { thread.thread.topic }
             </div>
           </div>
           <CommentForm />

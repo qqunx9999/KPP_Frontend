@@ -9,7 +9,7 @@ import { baseUrl } from '../config/constant';
 
 function Threads_new() {
   const { ThreadID } = useParams();
-  const [thread, setThread] = useState<any>([{}, {}]);
+  const [thread, setThread] = useState<any>({thread:{}, userInfo:{}});
   const history = useHistory();
 
   const fetchThread = () => {
@@ -24,14 +24,14 @@ function Threads_new() {
   }, []);
 
   const voteUp = () => {
-    const threadIdentity = thread[0].threadID;
+    const threadIdentity = thread.thread.threadID;
     return ThreadService.voteUp(threadIdentity)
   };
 
   const voteDown = () => {
-    const threadIdentity = thread[0].threadID;
+    const threadIdentity = thread.thread.threadID;
     return ThreadService.voteDown(threadIdentity)
-  };console.log(thread[0])
+  };console.log(thread.thread.threadID)
 
   return (
     <div>
@@ -41,15 +41,15 @@ function Threads_new() {
           <div className="thread-topicname-frame">
             <div className="thread-topicname">
               Topic : &nbsp;
-                { thread[0].topic }
+                { thread.thread.topic }
             </div>
             <div className="thread-topiccreater">
               by : &nbsp;
-                { thread[1].name }
+                { thread.userInfo.name }
             </div>
             <div className="thread-topic-detail-frame">
               <div className="thread-topic-detail-text">
-                { thread[0].content }
+                { thread.thread.content }
               </div>
             </div>
           </div>
@@ -57,22 +57,22 @@ function Threads_new() {
 
         <div className="thread-tags-frame">
           <div className="threads_tags_tags">Tags :</div>
-          {/* { thread[0].tags_arr == 0 ? null : thread[0].tags_arr[0] } */}
+          { thread.thread.tagg_arr }
         </div>
 
         <button className="thread_goback_button" onClick={history.goBack}>&lt; Go Back</button>
         <Link to={`/CreateComment/${{ ThreadID }.ThreadID}`}><button className="thread-givecm-button">Give Comment</button></Link>
         <Link to={`/CreateReport/${{ ThreadID }.ThreadID}`}><button className="thread-report-frame">Report</button></Link>
 
-        { thread[0].up_vote_count }
+        { thread.thread.up_vote_count }
 
         <button className="thread-upvote-frame" onClick={ voteUp }>Like</button>
 
-        { thread[0].down_vote_count }
+        { thread.thread.down_vote_count }
         
         <button className="thread-downvote-frame" onClick={ voteDown }>Dislike</button>
 
-        { thread[0].number_of_all_comment }
+        { thread.thread.number_of_all_comment }
 
         {// thread.map(item => {
         //   if(item.threadID === { ThreadID }.ThreadID) {
