@@ -93,6 +93,6 @@ export class ChatroomsService {
             date.setMinutes(date.getMinutes()+7*60);
             cr.date_delete = date ;
         }
-        return this.chatroomsRepository.update
+        return this.chatroomsRepository.update({chatroomID: chatroomID} , updateChatroomDto);
     }
 }

@@ -3,9 +3,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  async getHello(): Promise<void> {//void
-    //return 'Hello World!';    
-
+  async getHello(): Promise<void> {
     // let gmailService = new GMailService(); 
     
     // return gmailService.sendMail( 
