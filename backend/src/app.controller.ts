@@ -11,11 +11,7 @@ export class AppController {
     ) {}
 
     @Get()
-<<<<<<< HEAD
     getHello(): string {
-=======
-    getHello(): Promise<void> { //void
->>>>>>> 30919489f8d44dec1e67a087eafef30be1717b2d
       return this.appService.getHello();
     }
 
