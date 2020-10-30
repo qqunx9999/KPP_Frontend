@@ -60,28 +60,27 @@ const SearchThread_new = () => {
                     <div>Faculty</div>
                   </Dropdown.Toggle>
                   <div style={{overflow:"hidden"}}>
-                  <div onClick={e => e.stopPropagation()}>
-                  <Dropdown.Menu className="dropdownframef">
-                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="veterianry" /> Veterinary</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="vet-techs" /> Vet-techs</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="engineering" /> Engineering</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="agriculture" /> Agriculture</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="fisheries" /> Fisheries</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="education" /> Education</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="humanities" /> Humanities</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="business" /> Business</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="economics" /> Economics</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="forestry" /> Forestry</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="ag-industry" /> Ag-industry</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="social" /> Social</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="science" /> Science</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="environment" /> Enviroment</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-                    <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="architecture" /> Architecture</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
-                  </Dropdown.Menu>
-                  </div>
+                    <div onClick={e => e.stopPropagation()}>
+                      <Dropdown.Menu className="dropdownframef">
+                        <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="veterianry" /> Veterinary</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                        <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="vet-techs" /> Vet-techs</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                        <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="engineering" /> Engineering</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                        <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="agriculture" /> Agriculture</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                        <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="fisheries" /> Fisheries</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                        <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="education" /> Education</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                        <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="humanities" /> Humanities</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                        <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="business" /> Business</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                        <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="economics" /> Economics</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                        <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="forestry" /> Forestry</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                        <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="ag-industry" /> Ag-industry</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                        <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="social" /> Social</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                        <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="science" /> Science</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                        <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="environment" /> Enviroment</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                        <Dropdown.Item className="flistframe"><Field type="checkbox" id="increasescale" name="faculty" value="architecture" /> Architecture</Dropdown.Item><div style={{height:"10px",position:"relative"}}></div>
+                      </Dropdown.Menu>
+                    </div>
                   </div>
                 </Dropdown>
-                {/* <div className="facultyTextSearchThread"></div>                 */}
               </button>
               <button className="questionFrameSearchThread">
                 <Field type="checkbox" name="tags" value="question" className="questionClickBoxSearchThread" /> 
