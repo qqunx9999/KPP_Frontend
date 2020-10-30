@@ -10,13 +10,15 @@ import Reportment_thread from 'src/entities/reportment_thread.entity';
 import Reportment_comment from 'src/entities/reportment_comment.entity';
 import { UsersModule } from 'src/users/users.module';
 import User from 'src/entities/user.entity';
+import { Threadnogen } from 'src/entities/threadnogen.entity';
 
 
 
 
 @Module({
     imports: [
-        TypeOrmModule.forFeature([Thread, Commentation, Reportment_thread,Reportment_comment, User]),
+        TypeOrmModule.forFeature([Thread, Commentation, Reportment_thread,
+            Reportment_comment, User, Threadnogen]),
         UsersModule
     ],
     controllers: [ThreadsController],

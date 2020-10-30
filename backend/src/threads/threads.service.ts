@@ -17,6 +17,7 @@ import { UsersService } from 'src/users/users.service';
 import { UpdateThreadDto } from 'src/dto_update/update-thread.dto';
 import { UpdateCommentDto } from 'src/dto_update/update-comment.dto';
 import { User_info } from 'src/common/user_info';
+import { Threadnogen } from 'src/entities/threadnogen.entity';
 
 
 @Injectable()
@@ -32,6 +33,8 @@ export class ThreadsService {
     private reportment_commentRepository: Repository<Reportment_comment>,
     @InjectRepository(User)
     private usersRepository: Repository<User>,
+    @InjectRepository(Threadnogen)
+    private threadNOGenRepository: Repository<Threadnogen>,
     
     private usersService: UsersService,
       
@@ -133,6 +136,13 @@ export class ThreadsService {
 
   async createThread(createThreadDto: CreateThreadDto) {
     createThreadDto.userID = new ObjectID(createThreadDto.userID); // userID: string to Object
+    let NO:Threadnogen;
+    await this.threadNOGenRepository.find()
+      .then(setNO =>{NO=setNO[0]});
+    console.log(NO);
+    createThreadDto.threadNO = NO.threadNO +1 ;
+    await this.threadNOGenRepository.update({id: NO.id}, {threadNO:NO.threadNO+1} );
+
     createThreadDto.up_vote_arr = [];
     createThreadDto.down_vote_arr = [];
     createThreadDto.up_vote_count = 0;
