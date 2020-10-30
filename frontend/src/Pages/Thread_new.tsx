@@ -43,6 +43,15 @@ function Threads_new() {
     return ThreadService.voteDown(threadIdentity)
   };
 
+  function toDate(timeString: string) {
+    const day = new Date(timeString);
+    const date = String(day.getDate());
+    const month = String(day.getMonth());
+    const year = String(day.getFullYear());
+    const time = date + '/' + month + '/' + year;
+    return time;
+  }
+
   return (
     <div>
       <Navigtion />
@@ -59,7 +68,7 @@ function Threads_new() {
             </div>
             <div>
               When : &nbsp;
-                { thread.thread.date_create }
+                { toDate(thread.thread.date_create) }
             </div>
             <div>
               Last edit : &nbsp;
@@ -90,7 +99,7 @@ function Threads_new() {
             <li key={ item.userInfo.userID }>
               Topic : &nbsp; { thread.thread.topic } <br />
               by : &nbsp; { item.userInfo.name } <br />
-              When : &nbsp; { item.comment.date_create }
+              When : &nbsp; { toDate(item.comment.date_create) }
             </li>
           </ul>
         )) }
