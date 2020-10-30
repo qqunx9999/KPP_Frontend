@@ -20,6 +20,7 @@
           <ul>
             <li>react bootstrap : <code>npm install react-bootstrap bootstrap</code></li>
             <li>formik form : <code>npm install --save formik</code></li>
+            <li>Yup validate : <code>npm install --save yup</code></li>
           </ul>
         </li>
       </ul>
