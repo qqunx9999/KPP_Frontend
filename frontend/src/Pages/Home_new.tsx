@@ -6,7 +6,6 @@ import Navigtion from '../component/NavBar';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { date } from 'yup';
 
 const temp = {
   margin: "10px",
@@ -16,6 +15,7 @@ function Home_new() {
   const [thread, setThread] = useState<any>([{}]);
   const time = new Date();
   const history = useHistory();
+  const [page, changePage] = useState(1);
 
   const fetchNewThread = () => {
     ThreadService.fetchLatestThread()
@@ -25,11 +25,11 @@ function Home_new() {
   };
 
   function dateCount(timeString: string) {
-    let day = new Date(timeString);
-    console.log(day, <br />, time)
-    let postTime = day.getTime();
-    let currentTime = time.getTime();
-    let diffTime = Math.floor((currentTime - postTime) / (1000 * 3600 * 24)) ;
+    const day = new Date(timeString);
+    const postTime = day.getTime();
+    const currentTime = time.getTime();
+    const convertToDay = 1000 * 3600 * 24;
+    const diffTime = Math.floor((currentTime - postTime) / convertToDay) ;
     return Math.abs(diffTime);
   }
 

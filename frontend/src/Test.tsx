@@ -1,32 +1,39 @@
-import React from "react";
-import RichTextEditor from "react-rte";
-
+import React, { useState } from "react";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 class Test extends React.Component {
-  // static propTypes = {
-  //   onChange: PropTypes.func
-  // };
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      text: "",
+    }
+  }
 
-  // state = {
-  //   value: RichTextEditor.createEmptyValue()
-  // }
+  modules = {
+    toolbar: [
+      [{ 'header': [1, 2, false] }],
+      ['bold', 'italic', 'underline','strike', 'blockquote'],
+      [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+      ['link', 'image'],
+      ['clean']
+    ],
+  }
 
-  // onChange = (value: any) => {
-  //   this.setState({value});
-  //   if (this.props.onChange) {
-  //     this.props.onChange(
-  //       value.toString('html')
-  //     );
-  //   }
-  // };
+  formats = [
+    'header',
+    'bold', 'italic', 'underline', 'strike', 'blockquote',
+    'list', 'bullet', 'indent',
+    'link', 'image'
+  ]
 
-  render () {
+  render() {
+    console.log(this)
     return (
-      <div>
-        {/* <RichTextEditor
-          value={this.state.value}
-          onChange={this.onChange}
-        /> */}
+      <div className="text-editor">
+        <ReactQuill theme="snow"
+                    modules={this.modules}
+                    formats={this.formats} />
       </div>
     );
   }
