@@ -34,6 +34,11 @@ function Setting_new() {
             <div className="textEmailUserProfile"> Email: </div>
             <div className="textYourquoteUserProfile"> Your Quote: </div>
           </div>
+          <div className="frameChangePasswordUserProfile">
+            <div className="textChangePasswordUserProfile">
+              Change Password
+            </div>
+          </div>
         </div>
       </div>
     </div>

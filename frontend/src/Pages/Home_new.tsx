@@ -6,62 +6,66 @@ import ThreadService from '../service/ThreadService';
 import Navigtion from '../component/NavBar';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const temp = {
   margin: "10px",
 };
 
 function Home_new() {
-  const [thread, setThread] = useState<Thread[]>([]);
+  const [thread, setThread] = useState<any>([{}]);
   const time = new Date();
   const history = useHistory();
   let itemThread: any;
 
-  thread.map(item => (itemThread = item));
-
-  const fetchThread = () => {
-    ThreadService.fetchThread()
+  const fetchNewThread = () => {
+    ThreadService.fetchLatestThread()
       .then(obj => {
-        setThread(obj);
+        obj.map((item: any) => setThread(item.threads))
       });
   };
 
   useEffect(() => {
-    fetchThread();
+    fetchNewThread();
   }, []);
+  
+  if(thread[0].threads != undefined) {
+      const item = thread;
+      // console.log(item[0])
+    }
 
   return (
     <div>
       <Navigtion />
-        <div className="backgroundHomePage">
-          <div style={temp}>
-            <div className="latestWhiteFrameHomePage">
-              <div className="latestGreenFrameHomePage">
-                <div className="stackLatestHomePage">
-                  <h1>Latest</h1>
-                    {thread.map(item => (
-                      <div>
-                        <Link to={`/Thread/${item.threadID}`}>
-                          <ul>
-                          <li key={ item.threadID } className = "blog">
-                            <p className="topicLatest">{item.topic}</p>
-                            <div className="alphar"/>
-                            <p className="dateLatest">  {time.getDate() - Number(item.date_create)} Days</p>
-                            <img className ="clockWise" src="https://image.flaticon.com/icons/png/512/3/3811.png" alt=""/>
-                            </li>
-                            </ul>
-                        </Link>
-                      </div>
-                    ))}
-                </div>
+      <div className="backgroundHomePage">
+        <div style={temp}>
+          <div className="latestWhiteFrameHomePage">
+            <div className="latestGreenFrameHomePage">
+              <div className="stackLatestHomePage">
+                <h1>Latest</h1>
+                  { thread.map((item: any) => (
+                    <div>
+                      <Link to={`/Thread/${item.threadID}`}>
+                        <ul>
+                        <li key={ item.threadID } className = "blog">
+                          <p className="topicLatest">{item.topic}</p>
+                          <div className="alphar"/>
+                          <p className="dateLatest">  {time.getDate() - Number(item.date_create)} Days</p>
+                          <img className ="clockWise" src="https://image.flaticon.com/icons/png/512/3/3811.png" alt=""/>
+                          </li>
+                          </ul>
+                      </Link>
+                    </div>
+                  )) }
               </div>
             </div>
-          <div style={temp}></div>
-            <div className="hottestWhiteFrameHomePage">
-              <div className="hottestGreenFrameHomePage">
-                <div className="stackHottestHomePage">
-                  <h1>Hottest</h1>
-                  {thread.map(item => (
+          </div>
+        <div style={temp}></div>
+          <div className="hottestWhiteFrameHomePage">
+            <div className="hottestGreenFrameHomePage">
+              <div className="stackHottestHomePage">
+                <h1>Hottest</h1>
+                { thread.map((item: any) => (
                     <div>
                       <Link to={`/Thread/${item.threadID}`}>
                         <ul>
@@ -79,31 +83,31 @@ function Home_new() {
                         </ul>
                       </Link>
                     </div>
-                  ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="newsWhiteFrameHomePage">
-              <div className="newsGreenFrameHomePage">
-                <div className="stackNewsHomePage">
-                  <h1>News</h1>
-                  {thread.map(item => (
-                    <div>
-                      <Link to={`/Thread/${item.threadID}`}>
-                        <ul>
-                        <li key={ item.threadID } className = "blog">
-                          <p className="topicNews"></p>{item.topic}
-                        </li>
-                        </ul>
-                      </Link>
-                    </div>
-                  ))}
-                </div>
+                  )) }
               </div>
             </div>
           </div>
         </div>
+        <div className="newsWhiteFrameHomePage">
+          <div className="newsGreenFrameHomePage">
+            <div className="stackNewsHomePage">
+              <h1>News</h1>
+              { thread.map((item: any) => (
+                <div>
+                  <Link to={`/Thread/${item.threadID}`}>
+                    <ul>
+                    <li key={ item.threadID } className = "blog">
+                      <p className="topicNews"></p>{item.topic}
+                    </li>
+                    </ul>
+                  </Link>
+                </div>
+              )) }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

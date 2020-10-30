@@ -1,12 +1,13 @@
 import { Formik, Form, Field } from 'formik';
 import React from 'react';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { baseUrl } from '../config/constant';
 import '../CSSsource/CreateComment.css';
 import AuthService from '../service/AuthService';
 
 function CommentForm() {
   const { ThreadID } = useParams();
+  const history = useHistory();
 
   return (
     <Formik
@@ -31,7 +32,7 @@ function CommentForm() {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(createOption)
-        }).then(obj => console.log(obj));
+        }).then(history.goBack);
         actions.setSubmitting(false);
       }}
     >

@@ -2,26 +2,32 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: #47624f;
+    background: var(--B5, #d6ce15);
     position: absolute;
   }
+  sThread_goback_buttonn:hover{
+    background: var(--Theme5, #9beb33) ! important; /* Green */
+  }
 
-.sThread_goback_button {
-    background: var(--Theme5, #6cc551); /* Green */
-    border-radius: 19px;
-    color: white;
-    width: 207px;
-    height: 90px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 30px;
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
-    position: absolute;    
-    top: 4.5%;
-    left: 2.5%;
-    transform: scale(0.7, 0.7);
-    border-width: 0px;
+
+
+.sThread_goback_buttonn {
+  background: rgb(40, 167, 69) ! important; /* Green */
+
+  border-radius: 19px ! important;
+  color: white ! important;
+  width: 207px ! important;
+  height: 90px ! important;
+  text-align: center ! important;
+  text-decoration: none ! important;
+  display: inline-block ! important;
+  font-size: 30px ! important;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25) ! important;
+  position: absolute ! important;    
+  top: 40px ! important;
+  left: 35px ! important;
+  transform: scale(0.7, 0.7) ! important;
+  border-width: 0px ! important;
   }
 
 .topBlackFrameHomePage {
@@ -123,7 +129,7 @@
     width: 1487px;
     height: 317px;
     overflow: visible;
-    background: var(--Theme1, #ffffff);
+    background: var(--B4, #a4a71e);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     transform: scale(0.6, 0.6);
@@ -137,7 +143,7 @@
     height: 138px;
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
+    color: var(--Theme1, #ffffff);
     font-size: 46px;
     letter-spacing: 3px;
     line-height: 3;
@@ -165,18 +171,26 @@
     top: 50px;
     left: 260px;
 }
+.frameSubmitSearchThread:hover{
+  background: var(--B2, #1f6521) ! important;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.4) ! important;
+}
 
 .frameSubmitSearchThread {
-    width: 167px;
-    height: 70px;
-    overflow: visible;
-    background: var(--ThemeSup1, #9beb33);
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
-    border-radius: 15px;
-    position: absolute;
-    top: 45px;
-    left: 1170px;
+    width: 187px ! important;
+    height: 70px ! important;
+    overflow: visible ! important;
+    background: var(--B2, #1f6521) ! important;
+
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25) ! important;
+    border-radius: 15px ! important;
+    position: absolute ! important;
+    top: 45px ! important;
+    left: 1170px ! important;
   }
+.textSubmitSearchThread:hover{
+    
+}
 
   .textSubmitSearchThread {
     width: 135px;
@@ -184,6 +198,7 @@
     overflow: visible;
     font-family: "Inter", sans-serif;
     color: #ffffff;
+    line-height: 2.6 ! important;
     font-size: 36px;
     letter-spacing: 3px;
     line-height: 3;
@@ -196,7 +211,7 @@
     height: 138px;
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
+    color: var(--Theme1, #ffffff);
     font-size: 46px;
     letter-spacing: 3px;
     line-height: 3;
@@ -209,7 +224,7 @@
     width: 235px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
@@ -247,7 +262,7 @@
     width: 235px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
@@ -267,7 +282,7 @@
 }
 
 .foodTextSearchThread {
-    width: 200px;
+    width: 250px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
@@ -282,7 +297,7 @@
     width: 235px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
@@ -320,7 +335,7 @@
     width: 235px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
@@ -358,7 +373,7 @@
     width: 235px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
@@ -396,7 +411,7 @@
     width: 235px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
@@ -434,7 +449,7 @@
     width: 235px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
@@ -472,7 +487,7 @@
     width: 235px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B2, #1f6521);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;
@@ -518,6 +533,18 @@
     left: 1260px;
   }
 
+  #frameSortBySearchThread {
+    width: 200px;
+    height: 139px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 150px;
+    left: 1260px;
+  }
+
   .textSortBySearchThread {
     width: 170px;
     height: 90px;
@@ -536,7 +563,7 @@
     width: 1772px;
     height: 480px;
     overflow: visible;
-    background: var(--Theme2, #dddde3);
+    background: var(--B1, #1f2605);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     transform: scale(0.6, 0.6);
@@ -768,3 +795,138 @@
     top: 350px;
     left: 1700px;
   }
+  /* .sort-by:hover{
+    background: var(--Theme3, #ffffff);
+    box-shadow: 5px 5px 5px 0px rgba(255, 255, 255, 0.25), inset -5px -5px 5px 0px rgba(255,255,255,0.25) ! important;
+    color:#0f0508;
+  } */
+  .sort-by {
+    width: 200px;
+    height: 139px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 30px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: relative;
+    top: 0px;
+    left: -10px;
+    border-radius: 19px;
+    background: var(--Theme3, #0f0508);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+  }
+
+  .frameSortBySearchThread {
+    width: 200px;
+    height: 139px;
+    overflow: visible;
+    background: var(--Theme3, #0f0508);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 150px;
+    left: 1260px;
+  }
+
+  #sort-by {
+    width: 150px;
+    height: 90px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 30px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;
+    top: 0px;
+  }
+
+
+  .dropdownframe {
+    width: 249px;
+    height: 240px;
+    overflow: visible;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 26px;
+    position: absolute;
+    top: 60px !important;
+  }
+
+  .dropdown-toggle::after {
+    display:none;
+  }
+
+  .sortlistframeoldest {
+    width: 235px;
+    height: 66px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+  }
+
+  .sortlistframepopular {
+    width: 235px;
+    height: 66px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 86px;
+    left: 5px;
+  }
+
+  .sortlistframelike {
+    width: 235px;
+    height: 66px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: absolute;
+    top: 162px;
+    left: 5px;
+  }
+
+  #increasescale{
+    transform: scale(2.5) !important;
+    position: absolute !important;
+    top: 25px !important;
+  }
+
+  .dropdownframef {
+    width: 255px;
+    height: 500px;
+    overflow-y: scroll;
+    overflow-x: auto;
+    background: var(--Theme2, #dddde3);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    border:10px;
+    border-radius: 26px;
+    position: absolute;
+    top: 20px !important;
+    left: -10px !important;
+  }
+
+  .dropdownframef::-webkit-scrollbar {display:none;}
+
+  .flistframe {
+    width: 235px;
+    height: 66px;
+    overflow: visible;
+    background: var(--Theme6, #47624f);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 19px;
+    position: relative;
+    top: 10px;
+    left: 5px;
+  }
+
+
+

@@ -30,6 +30,7 @@ function Profile_new() {
           <div className="frameBlackUserProfile">
             <div className="frameLeftGrayUserProfile">
               <div className="textJoinUserProfile">Join</div>
+              <div className="textJoinedDateUserProfile">20/2/2020</div>
             </div>
             <div className="textProfileUserProfile">Profile</div>
             <button className="frameGobackUserProfile" onClick={history.goBack}>

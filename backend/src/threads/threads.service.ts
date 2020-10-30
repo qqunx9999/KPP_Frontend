@@ -103,6 +103,18 @@ export class ThreadsService {
     return threads;
   }
 
+  async findOneComment(commentID: ObjectID): Promise<any>{ // comment with UserInfo
+    let cmt: Commentation;
+    await this.commentationsRepository.findOne({where:{_id: commentID}})
+      .then(setCmt =>{
+        cmt = setCmt;
+      });
+
+    let ownCmt:ObjectID = cmt.userID
+    const infoOwnCmt = await this.usersService.findUserInfo(ownCmt);
+    const fromThread = await this.findOneThreadWithOwn(cmt.threadID) ;
+    return {comment: cmt, threadInfo: fromThread, userInfo: infoOwnCmt};
+  }
   
 
   
@@ -115,7 +127,7 @@ export class ThreadsService {
     //console.log(th);
     let own_thread:ObjectID = th.userID
     const info_own_thread = this.usersService.findUserInfo(own_thread);
-    return [th, await(info_own_thread)];
+    return {thread:th, userInfo: await(info_own_thread)};
   }
   
 
@@ -135,18 +147,36 @@ export class ThreadsService {
     return this.threadsRepository.save(createThreadDto);
   }
 
-  async findAllCommentations(threadID: ObjectID): Promise<Commentation[]> {
-    return this.commentationsRepository.find({where:{ threadID: threadID }});
-  } 
-
-  async findPageCommentations(threadID: ObjectID, pagesize: number, pageNo: number): Promise<any>{
+  async findAllCommentations(threadID: ObjectID): Promise<any> {
     let commentArr: Commentation[];
     console.log(threadID);
     await this.commentationsRepository.find({where:{threadID: threadID}, order:{commentNO:"ASC"}})
       .then(setcomment =>{
         commentArr = setcomment;
       });
-    console.log(commentArr);
+    //console.log(commentArr);
+    //console.log(pagesize);
+    var comments: Array<any> = [];
+    //console.log(commentArr);
+    //console.log(commentArr.length);
+    for (let i = 0 ; i< commentArr.length; i++){
+      let userInfo =  await this.usersService.findUserInfo(commentArr[i].userID);
+      //console.log(userInfo);
+      //console.log("He");
+      comments.push({comment:commentArr[i], userInfo});
+      
+    }
+    return comments;
+  } 
+
+  async findPageCommentations(threadID: ObjectID, pagesize: number, pageNo: number): Promise<any>{
+    let commentArr: Commentation[];
+    //console.log(threadID);
+    await this.commentationsRepository.find({where:{threadID: threadID}, order:{commentNO:"ASC"}})
+      .then(setcomment =>{
+        commentArr = setcomment;
+      });
+    //console.log(commentArr);
     const totals = Math.ceil(commentArr.length/pagesize);
     let begin = pagesize*(pageNo-1);
     let last = pagesize*pageNo; if(last>commentArr.length){last = commentArr.length}
@@ -213,10 +243,11 @@ export class ThreadsService {
     if(updateThreadDto.up_vote_arr !== undefined){
       
       const newVote = updateThreadDto.up_vote_arr[0];
-      //console.log(newVote.userID, typeof(newVote.userID));
+      // console.log(newVote);
+      console.log(newVote.userID);
       //newVote.userID = new ObjectID(newVote.userID);
-      //console.log(newVote.userID, typeof(newVote.userID));
-
+      // console.log(updateThreadDto);
+      // console.log("yes",newVote);
       let th: Thread ;
       await this.threadsRepository.findOne({where:{ _id: threadID}})
       .then(setThread => {
@@ -226,7 +257,9 @@ export class ThreadsService {
       let downvoted: boolean = false;
       var score = 0;
       //console.log(typeof(th.up_vote_arr[0].userID));
-      upvoted = th.up_vote_arr.some((eachvotter)=> {return eachvotter.userID===newVote.userID});
+      upvoted = th.up_vote_arr.some((eachvotter)=> {
+        // console.log(th);
+        return eachvotter.userID===newVote.userID});
       downvoted = th.down_vote_arr.some((eachvotter)=> {return eachvotter.userID===newVote.userID});
       //console.log(newVote);
       //console.log(upvoted, downvoted);

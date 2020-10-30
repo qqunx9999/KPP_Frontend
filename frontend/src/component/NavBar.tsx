@@ -14,7 +14,7 @@ const Navigtion = () => {
   };
 
     return(
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark navbar-color">
         <Link to={ `/Home` }>
         <div className="logoCSS">
           <img src={logoPic} alt="React is hell !!!" width = "220" height="46.2"/>
