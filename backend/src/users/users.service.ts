@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../entities/user.entity'
 import { ObjectID } from 'mongodb';
@@ -10,6 +10,9 @@ import Chatroom from 'src/entities/chatroom.entity';
 import Notifications from 'src/entities/notification.entity';
 import { count } from 'console';
 import { UpdateUserDto } from 'src/dto_update/update-user.dto';
+import Commentation from 'src/threads/comentation.entity';
+import Reportment_comment from 'src/entities/reportment_comment.entity';
+import Reportment_thread from 'src/entities/reportment_thread.entity';
 
 
 
@@ -30,11 +33,232 @@ export class UsersService {
         @InjectRepository(Chatroom)
         private chatroomRepository: Repository<Chatroom>,
         @InjectRepository(Notifications)
-        private notificationsRepository: Repository<Notifications>   
+        private notificationsRepository: Repository<Notifications>,
+        @InjectRepository(Thread)
+        private threadRepository: Repository<Thread>,
+        @InjectRepository(Commentation)
+        private commentRepository: Repository<Commentation>,
+        @InjectRepository(Reportment_comment)
+        private reportCRepository: Repository<Reportment_comment>,
+        @InjectRepository(Reportment_thread)
+        private reportTRepository: Repository<Reportment_thread>
+
     ) {}
+
+    async chatroomaction(userID: ObjectID, chatroomID: ObjectID,act: string): Promise<any> {
+        if (act === 'add') {
+            let obj = { chatmember_arr: [] };
+            let obj2 = { member_arr: [], totalmember: null};
+            let newuser = null;
+            await this.usersRepository.findOne({where:{ _id: userID}})
+                .then(oneuser => {
+                    newuser = oneuser;
+                });
+            let newchatroom = null;
+            await this.chatroomRepository.findOne({where:{ _id: chatroomID}})
+                .then(onechatroom => {
+                    newchatroom = onechatroom;
+                });
+            let newroom = newuser.chatmember_arr;
+            let newroom2 = newchatroom.member_arr;
+            let date = new Date();
+            date.setMinutes(date.getMinutes()+7*60);
+            let result = {
+                chatroomID: chatroomID
+            };
+            let result2 = {
+                userID: userID,
+                date_join_chat: date,
+                date_leave_chat: null
+            };
+            newroom.push(result);
+            newroom2.push(result2);
+            obj.chatmember_arr = newroom;
+            obj2.member_arr = newroom2;
+            obj2.totalmember = newchatroom.totalmember + 1;
+            this.usersRepository.update({userID: userID}, obj);
+            this.chatroomRepository.update({chatroomID: chatroomID}, obj2);
+        }
+        else if (act === 'delete') {
+            let obj = { chatmember_arr: [] };
+            let obj2 = { member_arr: [], totalmember: null };
+            let newuser = null;
+            await this.usersRepository.findOne({where:{ _id: userID}})
+                .then(oneuser => {
+                    newuser = oneuser;
+                });
+            let newchatroom = null;
+            await this.chatroomRepository.findOne({where:{ _id: chatroomID}})
+                .then(onechatroom => {
+                    newchatroom = onechatroom;
+                });
+            let newroom = newuser.chatmember_arr;
+            let newroom2 = newchatroom.member_arr;
+            newroom = newroom.filter((obj3) => {if (obj3.chatroomID.toString() !== chatroomID.toString()) { return true; }});
+            let date = new Date();
+            date.setMinutes(date.getMinutes()+7*60);
+            for (let i = 0; i < newroom2.length; i++) {
+                if (newroom2[i].userID.toString() === userID.toString()) {
+                    newroom2[i].date_leave_chat = date;
+                }
+            }
+            obj.chatmember_arr = newroom;
+            obj2.member_arr = newroom2;
+            obj2.totalmember = newchatroom.totalmember - 1;
+            this.usersRepository.update({userID: userID}, obj);
+            this.chatroomRepository.update({chatroomID: chatroomID}, obj2);
+        }
+    }
+
+    async friendaction(userID: ObjectID, userID2: ObjectID,act: string): Promise<any> {
+        if (act === "add") {
+            let obj = { friend_arr: []};
+            let obj2 = { friend_arr: []};
+            let send = null;
+            await this.usersRepository.findOne({where:{ _id: userID}})
+                .then(senduser => {
+                    send = senduser;
+                });
+            let recieve = null;
+            await this.usersRepository.findOne({where:{ _id: userID2}})
+                .then(recieveuser => {
+                    recieve = recieveuser;
+                });
+            let Sendfriend = send.friend_arr;
+            let Recievefriend = recieve.friend_arr;
+            let date = new Date();
+            date.setMinutes(date.getMinutes()+7*60);
+            let result = {
+                userID: userID, 
+                sender: true,
+                isAccepted: false,
+                date_add: date,
+                date_accepted: null,
+                date_delete: null
+            };
+            let result2 = {
+                userID: userID2, 
+                sender: false,
+                isAccepted: false,
+                date_add: date,
+                date_accepted: null,
+                date_delete: null
+            };
+            Sendfriend.push(result2);
+            Recievefriend.push(result);
+            obj.friend_arr = Sendfriend;
+            obj2.friend_arr = Recievefriend;
+            this.usersRepository.update({userID: userID}, obj);
+            this.usersRepository.update({userID: userID2}, obj2);
+        }
+        else if (act === "reject") {
+            let obj = { friend_arr: []};
+            let obj2 = { friend_arr: []};
+            let send = null;
+            await this.usersRepository.findOne({where:{ _id: userID}})
+                .then(senduser => {
+                    send = senduser;
+                });
+            let recieve = null;
+            await this.usersRepository.findOne({where:{ _id: userID2}})
+                .then(recieveuser => {
+                    recieve = recieveuser;
+                });
+            let Sendfriend = send.friend_arr;
+            let Recievefriend = recieve.friend_arr;
+            Sendfriend = Sendfriend.filter((obj3) => {if (obj3.userID.toString() !== userID2.toString()) { return true; }});
+            Recievefriend = Recievefriend.filter((obj4) => {if (obj4.userID.toString() !== userID.toString()) { return true; }});
+            obj.friend_arr = Sendfriend;
+            obj2.friend_arr = Recievefriend;
+            this.usersRepository.update({userID: userID}, obj);
+            this.usersRepository.update({userID: userID2}, obj2);
+        }
+        else if (act === "accept") {
+            let obj = { friend_arr: []};
+            let obj2 = { friend_arr: []};
+            let send = null;
+            await this.usersRepository.findOne({where:{ _id: userID}})
+                .then(senduser => {
+                    send = senduser;
+                });
+            let recieve = null;
+            await this.usersRepository.findOne({where:{ _id: userID2}})
+                .then(recieveuser => {
+                    recieve = recieveuser;
+                });
+            let Sendfriend = send.friend_arr;
+            let Recievefriend = recieve.friend_arr;
+            let date = new Date();
+            date.setMinutes(date.getMinutes()+7*60);
+            for (let i = 0; i < Sendfriend.length; i++) {
+                if (Sendfriend[i].userID.toString() === userID2.toString()) {
+                    Sendfriend[i].isAccepted = true;
+                    Sendfriend[i].date_accepted = date;
+                }
+            }
+            for (let j = 0; j < Recievefriend.length; j++) {
+               if (Recievefriend[j].userID.toString() === userID.toString()) {
+                    Recievefriend[j].isAccepted = true;
+                    Recievefriend[j].date_accepted = date;
+               }
+            }
+            obj.friend_arr = Sendfriend;
+            obj2.friend_arr = Recievefriend;
+            this.usersRepository.update({userID: userID}, obj);
+            this.usersRepository.update({userID: userID2}, obj2);
+        }
+        else if (act === "delete") {
+            let obj = { friend_arr: []};
+            let obj2 = { friend_arr: []};
+            let send = null;
+            await this.usersRepository.findOne({where:{ _id: userID}})
+                .then(senduser => {
+                    send = senduser;
+                });
+            let recieve = null;
+            await this.usersRepository.findOne({where:{ _id: userID2}})
+                .then(recieveuser => {
+                    recieve = recieveuser;
+                });
+            let Sendfriend = send.friend_arr;
+            let Recievefriend = recieve.friend_arr;
+            let date = new Date();
+            date.setMinutes(date.getMinutes()+7*60);
+            for (let i = 0; i < Sendfriend.length; i++) {
+                if (Sendfriend[i].userID.toString() === userID2.toString()) {
+                    Sendfriend[i].date_delete = date;
+                }
+            }
+            for (let j = 0; j < Recievefriend.length; j++) {
+               if (Recievefriend[j].userID.toString() === userID.toString()) {
+                    Recievefriend[j].date_delete = date;
+               }
+            }
+            obj.friend_arr = Sendfriend;
+            obj2.friend_arr = Recievefriend;
+            this.usersRepository.update({userID: userID}, obj);
+            this.usersRepository.update({userID: userID2}, obj2);
+        }
+    }
 
     async updateUser(createUserDto: UpdateUserDto, userID: ObjectID) {
         return this.usersRepository.update({userID: userID }, createUserDto);
+    }
+
+    async findownthreads(userID: ObjectID): Promise<any> {
+        return this.threadRepository.find({where:{ userID: userID}});
+    }
+
+    async findowncomments(userID: ObjectID): Promise<any> {
+        return this.commentRepository.find({where:{ userID: userID}});
+    }
+
+    async findownReportC(userID: ObjectID): Promise<any> {
+        return this.reportCRepository.find({where:{ userID: userID}});
+    }
+
+    async findownReportT(userID: ObjectID): Promise<any> {
+        return this.reportTRepository.find({where:{ userID: userID}});
     }
 
     async findallchatroom(userID: ObjectID): Promise<any> {
@@ -46,7 +270,7 @@ export class UsersService {
                 this.iamuser = oneuser;
             });
         let numroom = this.iamuser.chatmember_arr.length;
-        console.log(numroom);
+        //console.log(numroom);
         for (let i = 0; i < numroom; i++) {
             let thisroom = null;
             await this.chatroomRepository.findOne({where:{ _id: this.iamuser.chatmember_arr[i].chatroomID}})
@@ -68,7 +292,7 @@ export class UsersService {
             let counter = 0;
             //console.log(totalnotifi)
             for (let k = 0; k < totalnotifi.length; k++) {
-                console.log(totalnotifi[k].object_type);
+                //console.log(totalnotifi[k].object_type);
                 if (totalnotifi[k].object_type === "chat") {
                     counter++;
                 }
