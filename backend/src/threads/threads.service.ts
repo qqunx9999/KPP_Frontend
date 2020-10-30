@@ -103,13 +103,17 @@ export class ThreadsService {
     return threads;
   }
 
-  async findOneComment(commentID: ObjectID): Promise<any>{
+  async findOneComment(commentID: ObjectID): Promise<any>{ // comment with UserInfo
     let cmt: Commentation;
     await this.commentationsRepository.findOne({where:{_id: commentID}})
       .then(setCmt =>{
         cmt = setCmt;
       });
-    return cmt;
+
+    let ownCmt:ObjectID = cmt.userID
+    const infoOwnCmt = await this.usersService.findUserInfo(ownCmt);
+    const fromThread = await this.findOneThreadWithOwn(cmt.threadID) ;
+    return {comment: cmt, threadInfo: fromThread, userInfo: infoOwnCmt};
   }
   
 
