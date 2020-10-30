@@ -49,6 +49,12 @@ export async function voteDown(threadID: string | undefined) {
     window.location.reload()
 }
 
+export async function fetchComment(threadID: string | undefined) {
+    const res = await fetch(`${ baseUrl }/threads/${ threadID }/comments`);
+    const comment = res.json();
+    return comment;
+}
+
 export default {
     fetchLatestThread,
     fetchOneThread,
@@ -56,5 +62,6 @@ export default {
     checkThreadNO,
     clearThreadNO,
     voteUp,
-    voteDown
+    voteDown,
+    fetchComment,
 }; 

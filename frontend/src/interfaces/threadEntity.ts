@@ -34,4 +34,4 @@ export interface Thread {
         pageNo: number,
         total: number
     }
-}
+};

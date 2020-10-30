@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import '../CSSsource/Threads.css';
-import { Thread } from '../interfaces/threadEntity';
 import ThreadService from '../service/ThreadService';
 import { useHistory, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -10,6 +9,7 @@ import { baseUrl } from '../config/constant';
 function Threads_new() {
   const { ThreadID } = useParams();
   const [thread, setThread] = useState<any>({thread:{}, userInfo:{}});
+  const [comment, setComment] = useState<any[]>([{comment:{}, userInfo:{}}]);
   const history = useHistory();
 
   const fetchThread = () => {
@@ -19,9 +19,19 @@ function Threads_new() {
       });
   };
 
+  const fetchComment = () => {
+    ThreadService.fetchComment({ ThreadID }.ThreadID)
+      .then(obj => {
+        setComment(obj);
+      })
+  };
+
   useEffect(() => {
     fetchThread();
+    fetchComment();
   }, []);
+
+  // console.log(thread, comment);
 
   const voteUp = () => {
     const threadIdentity = thread.thread.threadID;
@@ -31,7 +41,7 @@ function Threads_new() {
   const voteDown = () => {
     const threadIdentity = thread.thread.threadID;
     return ThreadService.voteDown(threadIdentity)
-  };console.log(thread.thread.threadID)
+  };
 
   return (
     <div>
@@ -46,6 +56,13 @@ function Threads_new() {
             <div className="thread-topiccreater">
               by : &nbsp;
                 { thread.userInfo.name }
+            </div>
+            <div>
+              When : &nbsp;
+                { thread.thread.date_create }
+            </div>
+            <div>
+              Last edit : &nbsp;
             </div>
             <div className="thread-topic-detail-frame">
               <div className="thread-topic-detail-text">
@@ -64,36 +81,19 @@ function Threads_new() {
         <Link to={`/CreateComment/${{ ThreadID }.ThreadID}`}><button className="thread-givecm-button">Give Comment</button></Link>
         <Link to={`/CreateReport/${{ ThreadID }.ThreadID}`}><button className="thread-report-frame">Report</button></Link>
 
-        { thread.thread.up_vote_count }
+        { thread.thread.up_vote_count } <button className="thread-upvote-frame" onClick={ voteUp }>Like</button>
+        { thread.thread.down_vote_count } <button className="thread-downvote-frame" onClick={ voteDown }>Dislike</button>
+        { thread.thread.number_of_all_comment } <br />
 
-        <button className="thread-upvote-frame" onClick={ voteUp }>Like</button>
-
-        { thread.thread.down_vote_count }
-        
-        <button className="thread-downvote-frame" onClick={ voteDown }>Dislike</button>
-
-        { thread.thread.number_of_all_comment }
-
-        {// thread.map(item => {
-        //   if(item.threadID === { ThreadID }.ThreadID) {
-        //     return(
-        //       <div className="thread-reply1-whiteframe">
-        //         <div className="thread-reply1-blackframe">
-        //           <div className="thread-topicname-inreply1"> Topic : { item.topic } </div>
-        //           <div className="thread-reply1-time"> When : { item.date_create } </div>
-        //           <div className="thread-reply1-lastedit"> Last edit : { item.date_lastedit } </ div>
-        //         </div>
-        //         {/* { console.log(comment.map(obj => obj.comments[0].comment)) } */}
-        //         {/* { comment.map(res => {
-        //           if(res.comments[0].comment.content !== undefined) {
-        //             return res.comments[0].comment.content
-        //           }
-        //         }) } */}
-        //       </div>
-        //     );
-        //   }
-        // }) 
-      }
+        { comment.map((item: any) => (
+          <ul>
+            <li key={ item.userInfo.userID }>
+              Topic : &nbsp; { thread.thread.topic } <br />
+              by : &nbsp; { item.userInfo.name } <br />
+              When : &nbsp; { item.comment.date_create }
+            </li>
+          </ul>
+        )) }
       </div>
     </div>
   );

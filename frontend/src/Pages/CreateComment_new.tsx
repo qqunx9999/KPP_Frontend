@@ -25,7 +25,7 @@ function CreateComment_new() {
   return (
     <div>
       <Navigtion />
-        <div className="createcm-bigframe">        
+      <div className="createcm-bigframe">        
         <button className="createcm_goback_button" onClick={ history.goBack }>&lt; Go Back</button> <br />
         <div className="createcm-whiteframe">
           <div className="createcm-give-comment">
