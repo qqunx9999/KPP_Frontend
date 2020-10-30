@@ -30,7 +30,7 @@ function Home_new() {
     let postTime = day.getTime();
     let currentTime = time.getTime();
     let diffTime = Math.floor((currentTime - postTime) / (1000 * 3600 * 24)) ;
-    return diffTime;
+    return Math.abs(diffTime);
   }
 
   useEffect(() => {
