@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { In, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../entities/user.entity'
@@ -357,6 +357,22 @@ export class UsersService {
     }
 
     async createUser(createUserDto: CreateUserDto) {
+        let allUser:User[];
+        await this.usersRepository.find()
+            .then(setUsers=>{allUser = setUsers});
+        
+        //console.log(allUser.some(eachuser => {console.log(eachuser.email,createUserDto.email, eachuser.email === createUserDto.email);return eachuser.email === createUserDto.email}));
+
+        if(allUser.some(eachuser => {return eachuser.email === createUserDto.email})){
+            //console.log("this email has already used to sign up");
+            //return {"message": "this email has already used to sign up"};
+            throw new HttpException("this email has already used to sign up", HttpStatus.FORBIDDEN);
+        }
+        if(allUser.some(eachuser => { return eachuser.username === createUserDto.username})){
+            //console.log("this username has already used to sign up");
+            throw new HttpException("this username has already used to sign up", HttpStatus.FORBIDDEN);
+        }
+        
         let NO: Threadnogen;
         // Generate GuestNO. but use number from threadnogen entity
         await this.threadnogenRopsitory.find()
