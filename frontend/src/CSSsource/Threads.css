@@ -593,3 +593,55 @@
     top: 41px;
     left: 587px;
   }
+
+.like-button-icon {
+    width: 50px;
+    height: 50px;
+    overflow: visible;
+    background-image: url(./Icons/Like-button.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;    
+    top: 15px;
+    left: 20px;
+  }
+
+.dislike-button-icon {
+  width: 50px;
+  height: 50px;
+  overflow: visible;
+  background-image: url(./Icons/Dislike-button.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;    
+  top: 20px;
+  left: 20px;
+}
+
+.report-button-icon {
+  width: 50px;
+  height: 50px;
+  overflow: visible;
+  background-image: url(./Icons/Report-button.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;    
+  top: 17px;
+  left: 22px;
+}
+
+.comment-button-icon {
+  width: 50px;
+  height: 50px;
+  overflow: visible;
+  background-image: url(./Icons/Comment-button.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;    
+  top: 17px;
+  left: 22px;
+}
