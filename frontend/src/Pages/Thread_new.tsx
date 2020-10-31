@@ -4,7 +4,6 @@ import ThreadService from '../service/ThreadService';
 import { useHistory, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import Navigtion from '../component/NavBar';
-import { baseUrl } from '../config/constant';
 
 function Threads_new() {
   const { ThreadID } = useParams();
@@ -30,8 +29,6 @@ function Threads_new() {
     fetchThread();
     fetchComment();
   }, []);
-
-  // console.log(thread, comment);
 
   const voteUp = () => {
     const threadIdentity = thread.thread.threadID;

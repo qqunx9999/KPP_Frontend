@@ -13,9 +13,9 @@ const temp = {
 
 function Home_new() {
   const [thread, setThread] = useState<any>([{}]);
+  const [page, changePage] = useState(1);
   const time = new Date();
   const history = useHistory();
-  const [page, changePage] = useState(1);
 
   const fetchNewThread = () => {
     ThreadService.fetchLatestThread()
