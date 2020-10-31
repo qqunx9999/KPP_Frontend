@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, HttpException, HttpStatus, Patch, ParseArrayPipe, ParseIntPipe } from '@nestjs/common';
+  import { Body, Controller, Get, Param, Post, HttpException, HttpStatus, Patch, ParseArrayPipe, ParseIntPipe } from '@nestjs/common';
 import { ObjectID } from 'mongodb'
 
 import Thread from './thread.entity';
@@ -38,7 +38,7 @@ export class ThreadsController {
     let begin = pagesize*(pageNo-1);
     let last = pagesize*pageNo; if(last>threads.length){last = threads.length}
     threads = threads.slice(begin, last);
-    return {threads, pageInfo:{pagesize: threads.length, pageNo, total: totals}};
+    return [{threads, pageInfo:{pagesize: threads.length, pageNo, total: totals}}];
   }
 
   @Get('search/:keyword/:tags/:sortby/:pagesize/:pageNo')
@@ -57,6 +57,12 @@ export class ThreadsController {
     return {threads, pageInfo:{pagesize: threads.length, pageNo, total: totals}};
   }
 
+  @Get( ':threadID/comments/:commentID')
+  async findOneComment(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
+    @Param('commentID', ParseObjectIdPipe) commentID: ObjectID,
+  ): Promise<any>{
+    return this.threadsService.findOneComment(commentID);
+  }
   
 
   @Get(':threadID')
@@ -70,7 +76,7 @@ export class ThreadsController {
   }
 
   @Get(':threadID/comments')
-  async findAllCommentations(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<Commentation[]>{
+  async findAllCommentations(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<any>{
     return this.threadsService.findAllCommentations(threadID);
   }
 
@@ -116,7 +122,7 @@ export class ThreadsController {
   @Patch(':threadID')
   async updateThread(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
     @Body() updateThreadDto: UpdateThreadDto) {
-      
+      // console.log(updateThreadDto.up_vote_arr[0].userID);
       return this.threadsService.updateThread(threadID, updateThreadDto);
   }
 
@@ -125,7 +131,7 @@ export class ThreadsController {
     @Param('commentID', ParseObjectIdPipe) commentID: ObjectID,
     @Body() updateCommentDto: UpdateCommentDto
     ){
-      return this.threadsService.updateComment(commentID, updateCommentDto);
+      return this.threadsService.updateComment(threadID, commentID, updateCommentDto);
     }
   
 

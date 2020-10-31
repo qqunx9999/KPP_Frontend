@@ -20,6 +20,7 @@ import ReadReport from './Pages/ReadReport';
 import ChatRoom from './Pages/ChatRoom';
 import AuthenLogout from './Pages/AuthenLogout';
 import ChangeName from './Pages/ChangeName';
+import Test from './Test';
 
 function App() {
   return (
@@ -40,10 +41,11 @@ function App() {
       <Route path="/CreateThread" component={CreateThread_new} />
       <Route path="/Profile" component={Profile_new} />
       <Route exact path="/Setting" component={Setting_new} />
-      <Route path="/ReadReport" component={ReadReport} />
+      <Route path="/ReadReport/:ThreadID" component={ReadReport} />
       <Route path="/ChatRoom" component={ChatRoom} />
       <Route path="/AuthenLogout" component={AuthenLogout} />
       <Route exact path="/Setting/ChangeName" component={ChangeName} />
+      <Route path="/Test" component={Test} />
     </Switch>
   );
 }

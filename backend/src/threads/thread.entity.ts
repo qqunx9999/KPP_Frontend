@@ -18,6 +18,8 @@ export class Thread{
     @Column()
     image_arr: {URL:string,pos:number}[]; //Url, pos
     @Column()
+    threadNO: number;
+    @Column()
     up_vote_arr: {userID:ObjectID}[]; //userID
     @Column()
     down_vote_arr: {userID:ObjectID}[]; //userID

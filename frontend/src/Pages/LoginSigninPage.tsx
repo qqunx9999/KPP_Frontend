@@ -19,29 +19,31 @@ function LoginSigninPage() {
 
   return (
     <div className="backgroundLoginSignin">
-      { login ? history.push('/Home') : null }
-      <div className="container-sm">
-        <div className="centerFrameLoginSignin">
-          <div className="KUPeopleLoginSignin">
-            KU people
+      { login ? history.push('/Home') : null}
+      <div className="container">
+        <div className="row">
+          <div className="centerFrameLoginSignin">
+            <div className="KUPeopleLoginSignin">
+              KU people
           </div>
-          <div className="DesbTextLoginSignin">
-            Please sign up or log in before use.
+            <div className="DesbTextLoginSignin">
+              Please sign up or log in before use.
           </div>
-          <Link to="/SignUp">
-            <button type="button" className="SignupFrameLoginSignin btn btn-success">
-              <div className="SignUpLoginSignin">
-                Sign Up
+            <Link to="/SignUp">
+              <button type="button" className="SignupFrameLoginSignin btn btn-success">
+                <div className="SignUpLoginSignin">
+                  Sign Up
               </div>
-            </button>
-          </Link>
-          <Link to="/LogIn">
-            <button type="button" className="LoginFrameLoginSignin btn btn-success">
-              <div className="LogInLoginSignin ">
-                Log In
+              </button>
+            </Link>
+            <Link to="/LogIn">
+              <button type="button" className="LoginFrameLoginSignin btn btn-success">
+                <div className="LogInLoginSignin ">
+                  Log In
               </div>
-            </button>
-          </Link>
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

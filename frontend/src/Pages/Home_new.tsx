@@ -1,84 +1,117 @@
 import React, { useState, useEffect } from 'react';
-import { Thread } from '../interfaces/threadEntity';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../CSSsource/Home.css';
 import ThreadService from '../service/ThreadService';
 import Navigtion from '../component/NavBar';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const temp = {
   margin: "10px",
 };
 
 function Home_new() {
-  const [thread, setThread] = useState<Thread[]>([]);
+  const [thread, setThread] = useState<any>([{}]);
   const time = new Date();
   const history = useHistory();
-  let itemThread: any;
+  const [page, changePage] = useState(1);
 
-  thread.map(item => (itemThread = item));
-
-  const fetchThread = () => {
-    ThreadService.fetchThread()
+  const fetchNewThread = () => {
+    ThreadService.fetchLatestThread()
       .then(obj => {
-        setThread(obj);
+        obj.map((item: any) => setThread(item.threads))
       });
   };
 
+  function dateCount(timeString: string) {
+    const day = new Date(timeString);
+    const postTime = day.getTime();
+    const currentTime = time.getTime();
+    const convertToDay = 1000 * 3600 * 24;
+    const diffTime = Math.floor((currentTime - postTime) / convertToDay) ;
+    return Math.abs(diffTime);
+  }
+
   useEffect(() => {
-    fetchThread();
+    fetchNewThread();
   }, []);
 
   return (
     <div>
       <Navigtion />
-        <div className="backgroundHomePage">
-          <div style={temp}>
-            <div className="latestWhiteFrameHomePage">
-              <div className="latestGreenFrameHomePage">
-                <div className="stackLatestHomePage">
-                  <h1>Latest</h1>
-                    {thread.map(item => (
+      <div className="backgroundHomePage">
+        <div style={temp}>
+          <div className="latestWhiteFrameHomePage">
+            <div className="latestGreenFrameHomePage">
+              <div className="stackLatestHomePage">
+                <h1>Latest</h1>
+                  { thread.map((item: any) => {
+                    return (
                       <div>
-                        <Link to={`/Thread/${item.threadID}`}>
-                          <li key={ item.threadID }>{item.topic} - {time.getDate() - Number(item.date_create)} Days</li>
-                        </Link>
-                      </div>
-                    ))}
-                </div>
-              </div>
-            </div>
-            <div className="hottestWhiteFrameHomePage">
-              <div className="hottestGreenFrameHomePage">
-                <div className="stackHottestHomePage"></div>
-                  <h1>Hottest</h1>
-                  {thread.map(item => (
-                    <div>
                       <Link to={`/Thread/${item.threadID}`}>
-                        <li key={ item.threadID }>{item.topic} - Like {item.up_vote_count}: Dislike {item.down_vote_count}: Comments {item.number_of_comment}</li>
+                        <ul>
+                        <li key={ item.threadID } className = "blog">
+                          <p className="topicLatest">{item.topic}</p>
+                          <div className="alphar"/>
+                          <p className="dateLatest">  { dateCount(item.date_create) } Days</p>
+                          <img className ="clockWise" src="https://image.flaticon.com/icons/png/512/3/3811.png" alt=""/>
+                          </li>
+                          </ul>
                       </Link>
                     </div>
-                  ))}
-                </div>
+                    );
+                  }) }
               </div>
             </div>
-            <div className="newsWhiteFrameHomePage">
-              <div className="newsGreenFrameHomePage">
-                <div className="stackNewsHomePage">
-                  <h1>News</h1>
-                  {thread.map(item => (
+          </div>
+        <div style={temp}></div>
+          <div className="hottestWhiteFrameHomePage">
+            <div className="hottestGreenFrameHomePage">
+              <div className="stackHottestHomePage">
+                <h1>Hottest</h1>
+                { thread.map((item: any) => (
                     <div>
                       <Link to={`/Thread/${item.threadID}`}>
-                        <li key={ item.threadID }>{item.topic}</li>
+                        <ul>
+                          <li key={ item.threadID } className = "blog">
+                            <p className="topicLatest">{item.topic}</p>
+                            <div className="LDC">
+                            <img className="likePic"src="https://www.freeiconspng.com/thumbs/youtube-like-png/youtube-like-button-png-11.png" alt=""/>
+                            <p className="likeHottest">
+                           {item.up_vote_count}</p>
+                           <img className="dislikePic"src="https://pngimg.com/uploads/dislike/dislike_PNG63.png" alt=""/>
+                            <p className="dislikeHottest">  {item.down_vote_count}</p>
+                            </div>
+                          </li>
+                        </ul>
                       </Link>
                     </div>
-                  ))}
-                </div>
+                  )) }
               </div>
             </div>
           </div>
         </div>
+        <div className="newsWhiteFrameHomePage">
+          <div className="newsGreenFrameHomePage">
+            <div className="stackNewsHomePage">
+              <h1>News</h1>
+              { thread.map((item: any) => (
+                <div>
+                  <Link to={`/Thread/${item.threadID}`}>
+                    <ul>
+                    <li key={ item.threadID } className = "blog">
+                      <p className="topicNews"></p>{item.topic}
+                    </li>
+                    </ul>
+                  </Link>
+                </div>
+              )) }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

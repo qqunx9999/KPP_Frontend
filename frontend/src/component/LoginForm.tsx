@@ -5,10 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../CSSsource/LoginPage.css';
 import { Field, Form, Formik } from 'formik';
 import AuthService from '../service/AuthService';
+import * as Yup from 'yup';
 
 const inputStyle = {
   width: "500px",
   height: "50px",
+  fontSize: "30px"
 }
 
 export const EmailID = () => {
@@ -20,19 +22,12 @@ export const EmailID = () => {
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
-      validate={values => {
-        const errors: any = {}
-        if (values.email === '') {
-          errors.email = 'Login required.';
-        };
-        if (values.password === '') {
-          errors.password = 'Password required';
-        };
-        return errors;
-      }}
+      validationSchema={Yup.object({
+        email: Yup.string().required('Required'),
+        password: Yup.string().required('Required')
+      })}
       onSubmit={async (values, actions) => {
         const result = await AuthService.LoginUser((values.email).concat('@ku.th'), values.password);
-        console.log(result);
         if (!result) {
           setLoginErrorMessage('Login error: Wrong username or password');
         } else {
@@ -48,7 +43,6 @@ export const EmailID = () => {
           <div className="EmailLogIn1">
             Email :
             <Field type="input" name="email" placeholder="Type your Email..." style={inputStyle} className="form-control InputEmailLogIn1" required />
-
             <div className="kuthLogIn1">
               @ku.th
             </div>

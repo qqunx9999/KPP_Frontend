@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: var(--Theme6, #47624f);
+    background: var(--ฺB5, #d6ce15);
     margin: 0;
     position: absolute;
   }
@@ -11,7 +11,7 @@
     width: 1024px;
     height: 810px;
     overflow: visible;
-    background: var(--Theme1, #ffffff);
+    background: var(--B1, #1f2605);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;
@@ -26,7 +26,7 @@
     overflow: visible;
     text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
     font-family: "Inter", sans-serif;
-    color: var(--Theme4, #447604);
+    color: var(--B5, #d6ce15);
     font-size: 91px;
     letter-spacing: 0px;
     line-height: 1.2;
@@ -40,7 +40,7 @@
     height: 109px;
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
+    color: var(--Theme1, #ffffff);
     font-size: 45px;
     letter-spacing: 0px;
     line-height: 0.7;
@@ -54,7 +54,7 @@
     height: 138px;
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
+    color: var(--Theme1, #ffffff);
     font-size: 46px;
     letter-spacing: 3px;
     line-height: 3;
@@ -84,21 +84,22 @@
     left: 190px;
 }
 
+
 .send_button {
-    background: var(--Theme5, #6cc551); /* Green */
-    border-radius: 25px;
-    color: white;
-    width: 156px;
-    height: 64px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 30px;
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
-    position: absolute;    
-    top: 238px;
-    left: 780px;
-    border-width: 0px;
+    background: var(--B2, #1f6521) ! important; /* Green */
+    border-radius: 25px ! important;
+    color: white ! important;
+    width: 156px ! important;
+    height: 64px ! important;
+    text-align: center ! important;
+    text-decoration: none ! important;
+    display: inline-block ! important;
+    font-size: 30px ! important;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25) ! important;
+    position: absolute ! important;    
+    top: 238px ! important;
+    left: 780px ! important;
+    border-width: 0px ! important;
   }
 
 .send {
@@ -118,7 +119,7 @@
     height: 57px;
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
+    color: var(--Theme1, #ffffff);
     font-size: 19px;
     letter-spacing: 3px;
     line-height: 3;
@@ -132,7 +133,7 @@
     height: 138px;
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
+    color: var(--Theme1, #ffffff);
     font-size: 46px;
     letter-spacing: 3px;
     line-height: 3;
@@ -167,7 +168,7 @@
     height: 138px;
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
+    color: var(--Theme1, #ffffff);
     font-size: 46px;
     letter-spacing: 3px;
     line-height: 3;
@@ -202,7 +203,7 @@
     height: 138px;
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
+    color: var(--Theme1, #ffffff);
     font-size: 46px;
     letter-spacing: 3px;
     line-height: 3;
@@ -233,49 +234,52 @@
 }
 
 .fgpwd_goback_button {
-    background: var(--Theme5, #6cc551); /* Green */
-    border-radius: 19px;
-    color: white;
-    width: 215px;
-    height: 82px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 30px;
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
-    position: absolute;    
-    top: 695px;
-    left: 58px;
-    border-width: 0px;
+    line-height: 2.2 ! important;
+    background: var(--B2, #1f6521) ! important; /* Green */
+    border-radius: 19px ! important;
+    color: white ! important;
+    width: 215px ! important;
+    height: 82px ! important;
+    text-align: center ! important;
+    text-decoration: none ! important;
+    display: inline-block ! important;
+    font-size: 30px ! important;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25) ! important;
+    position: absolute ! important;    
+    top: 695px ! important;
+    left: 58px ! important;
+    border-width: 0px ! important;
   }
 
 .fgpwd_go-back {
-    width: 186px;
+    line-height: 1 ! important;
+    width: 186px ;
     height: 90px;
     overflow: visible;
     font-family: "Inter", sans-serif;
     color: var(--Theme1, #ffffff);
     font-size: 30px;
     letter-spacing: 3px;
-    line-height: 2.8;
   }
 
+  
 .fgpwd_confirm_button {
-    background: var(--Theme5, #6cc551); /* Green */
-    border-radius: 25px;
-    color: white;
-    width: 193px;
-    height: 79px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 30px;
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
-    position: absolute;    
+    background: var(--B2, #1f6521) ! important; /* Green */
+    border-radius: 25px ! important;
+    color: white ! important;
+    width: 193px ! important;
+    height: 79px ! important;
+    text-align: center ! important;
+    text-decoration: none ! important;
+    display: inline-block ! important;
+    font-size: 30px ! important;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25) ! important;
+    position: absolute ! important;    
     top: 695px;
     left: 750px;
-    border-width: 0px;
+    border-width: 0px ! important;
   }
+  
 
 .fgpwd_confirm {
     

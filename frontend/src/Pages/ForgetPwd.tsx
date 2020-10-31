@@ -3,6 +3,7 @@ import '../CSSsource/ForgetPwd.css';
 import { Forgetpass } from '../component/ForgetpwdForm';
 import { useHistory } from 'react-router';
 import AuthService from '../service/AuthService';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ForgetPwd() {
   const [login, setLogin] = useState<boolean>(false);
