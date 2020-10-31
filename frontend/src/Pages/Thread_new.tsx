@@ -14,6 +14,7 @@ function Threads_new() {
   const fetchThread = () => {
     ThreadService.fetchOneThread({ ThreadID }.ThreadID)
       .then(obj => {
+        console.log(obj)
         setThread(obj);
       });
   };
@@ -49,6 +50,7 @@ function Threads_new() {
     return time;
   }
 
+  //console.log(thread)
   return (
     <div>
       <Navigtion />
