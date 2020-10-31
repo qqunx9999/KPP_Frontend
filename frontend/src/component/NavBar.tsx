@@ -37,11 +37,13 @@ const Navigtion = () => {
         <span className="navbar-toggler-icon"></span>
       </button>
 
-      { user.isAdmin ? <Link to="/ReportList"><button>Report List</button></Link> : <button>Notification</button> }
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto">
           <div className="container">
+
+          { user.isAdmin ? <Link to="/ReportList"><button>Report List</button></Link> : <button>Notification</button> }
+
           <li className="nav-item active">
             <Link to={ `/SearchThread` }>
             <div className="searchCSS">

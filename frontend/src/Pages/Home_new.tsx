@@ -6,22 +6,44 @@ import Navigtion from '../component/NavBar';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Pagination } from 'react-bootstrap';
 
 const temp = {
   margin: "10px",
 };
 
+let pageNum = 1;
+
 function Home_new() {
-  const [thread, setThread] = useState<any>([{}]);
-  const [page, changePage] = useState(1);
+  const [latestThread, setLatestThread] = useState<any>([{}]);
+  const [hottestThread, setHottestThread] = useState<any>([{}]);
+  const [newsThread, setNewsThread] = useState<any>([{}]);
+  const [info, setInfo] = useState<any>([{}]);
   const time = new Date();
   const history = useHistory();
 
   const fetchNewThread = () => {
-    ThreadService.fetchLatestThread()
+    ThreadService.fetchLatestThread(pageNum)
       .then(obj => {
-        obj.map((item: any) => setThread(item.threads))
+        obj.map((item: any) => {
+          setLatestThread(item.threads);
+          setInfo(item.pageInfo);
+        });
       });
+
+    ThreadService.fetchHottestThread(pageNum)
+      .then(obj => {
+        obj.map((item: any) => {
+          setHottestThread(item.threads);
+        });
+      });
+
+    ThreadService.fetchNewsThread(pageNum)
+    .then(obj => {
+      obj.map((item: any) => {
+        setNewsThread(item.threads);
+      });
+    });
   };
 
   function dateCount(timeString: string) {
@@ -46,7 +68,7 @@ function Home_new() {
             <div className="latestGreenFrameHomePage">
               <div className="stackLatestHomePage">
                 <h1>Latest</h1>
-                  { thread.map((item: any) => {
+                  { latestThread.map((item: any) => {
                     return (
                       <div>
                       <Link to={`/Thread/${item.threadID}`}>
@@ -64,13 +86,14 @@ function Home_new() {
                   }) }
               </div>
             </div>
+            <Page threadSize={ info.total } />
           </div>
         <div style={temp}></div>
           <div className="hottestWhiteFrameHomePage">
             <div className="hottestGreenFrameHomePage">
               <div className="stackHottestHomePage">
                 <h1>Hottest</h1>
-                { thread.map((item: any) => (
+                { hottestThread.map((item: any) => (
                     <div>
                       <Link to={`/Thread/${item.threadID}`}>
                         <ul>
@@ -90,13 +113,14 @@ function Home_new() {
                   )) }
               </div>
             </div>
+            <Page threadSize={ info.total } />
           </div>
         </div>
         <div className="newsWhiteFrameHomePage">
           <div className="newsGreenFrameHomePage">
             <div className="stackNewsHomePage">
               <h1>News</h1>
-              { thread.map((item: any) => (
+              { newsThread.map((item: any) => (
                 <div>
                   <Link to={`/Thread/${item.threadID}`}>
                     <ul>
@@ -109,8 +133,34 @@ function Home_new() {
               )) }
             </div>
           </div>
+          <Page threadSize={ info.total } />
         </div>
       </div>
+    </div>
+  );
+}
+
+type pageProps = {
+  threadSize: number,
+}
+
+function Page(props: pageProps) {
+  let item = [];
+  let active = 1;
+
+  function changePage() {
+
+  }
+
+  for (let number = 1;number <= props.threadSize;number++) {
+    item.push(
+      <Pagination.Item key={ number } active={ number === active }>{ number }</Pagination.Item>
+    );
+  }
+
+  return(
+    <div>
+      <Pagination size="lg" >{ item }</Pagination>
     </div>
   );
 }

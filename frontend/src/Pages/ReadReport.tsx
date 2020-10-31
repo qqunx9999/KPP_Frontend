@@ -12,10 +12,10 @@ function ReadReport() {
   const [thread, setThread] = useState<Thread[]>([]);
 
   const fetchThread = () => {
-    ThreadService.fetchLatestThread()
-      .then(obj => {
-        setThread(obj);
-      });
+    // ThreadService.fetchLatestThread()
+    //   .then(obj => {
+    //     setThread(obj);
+    //   });
   };
 
   useEffect(() => {
