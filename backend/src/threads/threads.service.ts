@@ -139,7 +139,7 @@ export class ThreadsService {
     let NO:Threadnogen;
     await this.threadNOGenRepository.find()
       .then(setNO =>{NO=setNO[0]});
-    console.log(NO);
+    //console.log(NO);
     createThreadDto.threadNO = NO.threadNO +1 ;
     await this.threadNOGenRepository.update({id: NO.id}, {threadNO:NO.threadNO+1} );
 
@@ -159,7 +159,7 @@ export class ThreadsService {
 
   async findAllCommentations(threadID: ObjectID): Promise<any> {
     let commentArr: Commentation[];
-    console.log(threadID);
+    //console.log(threadID);
     await this.commentationsRepository.find({where:{threadID: threadID}, order:{commentNO:"ASC"}})
       .then(setcomment =>{
         commentArr = setcomment;
@@ -254,7 +254,7 @@ export class ThreadsService {
       
       const newVote = updateThreadDto.up_vote_arr[0];
       // console.log(newVote);
-      console.log(newVote.userID);
+     // console.log(newVote.userID);
       //newVote.userID = new ObjectID(newVote.userID);
       // console.log(updateThreadDto);
       // console.log("yes",newVote);

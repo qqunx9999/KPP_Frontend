@@ -13,6 +13,7 @@ import { UpdateUserDto } from 'src/dto_update/update-user.dto';
 import Commentation from 'src/threads/comentation.entity';
 import Reportment_comment from 'src/entities/reportment_comment.entity';
 import Reportment_thread from 'src/entities/reportment_thread.entity';
+import Threadnogen from 'src/entities/threadnogen.entity';
 
 
 
@@ -41,7 +42,9 @@ export class UsersService {
         @InjectRepository(Reportment_comment)
         private reportCRepository: Repository<Reportment_comment>,
         @InjectRepository(Reportment_thread)
-        private reportTRepository: Repository<Reportment_thread>
+        private reportTRepository: Repository<Reportment_thread>,
+        @InjectRepository(Threadnogen)
+        private threadnogenRopsitory: Repository<Threadnogen>
 
     ) {}
 
@@ -354,7 +357,14 @@ export class UsersService {
     }
 
     async createUser(createUserDto: CreateUserDto) {
-        createUserDto.name = "Guest"
+        let NO: Threadnogen;
+        // Generate GuestNO. but use number from threadnogen entity
+        await this.threadnogenRopsitory.find()
+            .then(setNO=>{NO=setNO[1]});
+        let userNO = (NO.threadNO+1).toString();
+        createUserDto.name = "Guest"+ userNO;
+        await this.threadnogenRopsitory.update({id:NO.id}, {threadNO: NO.threadNO+1});
+
         createUserDto.avatar_URL = null;
         createUserDto.exp = 0;
         createUserDto.rank = "Beginner";
