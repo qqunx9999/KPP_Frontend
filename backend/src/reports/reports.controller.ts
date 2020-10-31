@@ -41,25 +41,17 @@ export class ReportsController {
         return this.reportsService.findOneReportedComment(reportCID);
     }
 
-    @Get('/reportTs/list/:adminID:pagesize:pageNO')
+    @Get('/reportTs/list/:adminID/:pagesize/:pageNO')
     async RTlisting(
         @Param('adminID', ParseObjectIdPipe) adminID: ObjectID,
         @Param('pagesize', ParseIntPipe) pagesize: number,
         @Param('pageNO', ParseIntPipe) pageNO: number
     ): Promise<any>{
-        let  RTs = await this.reportsService.RTlisting(adminID);
-        const total = Math.ceil(RTs.length / pagesize);
+        let RTs_page = await this.reportsService.RTlisting(adminID);
+        const total = Math.ceil(RTs_page.length / pagesize);
         let begin = pagesize * (pageNO-1);
-        let last = pagesize * pageNO; if(last > RTs.length){last - RTs.length}
-        RTs = RTs.slice(begin, last);
-        return [{RTs, pageInfo:{pagesize: RTs.length, pageNO, total: total}}];
+        let last = pagesize * pageNO; if(last > RTs_page.length){last = RTs_page.length}
+        RTs_page = RTs_page.slice(begin, last);
+        return {RTs_page, pageInfo:{pagesize: RTs_page.length, pageNO, total: total}};
     }
-/*
-    let threads =await  this.threadsService.filterThread(tags, sortby, pagesize, pageNo);
-    const totals = Math.ceil(threads.length/pagesize);
-    let begin = pagesize*(pageNo-1);
-    let last = pagesize*pageNo; if(last>threads.length){last = threads.length}
-    threads = threads.slice(begin, last);
-    return [{threads, pageInfo:{pagesize: threads.length, pageNo, total: totals}}];*/
-
 }

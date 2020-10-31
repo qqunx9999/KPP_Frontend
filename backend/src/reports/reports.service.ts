@@ -61,43 +61,33 @@ export class ReportsService {
     return [rc,  await(info_rc_comment)];
   }
 
-  async RTlisting(adminID: ObjectID): Promise<Reportment_thread[]>{
+  async RTlisting(adminID: ObjectID): Promise<any[][]>{
     let RTs: Reportment_thread[];
     await this.reportment_threadsRepository.find({ where:{date_delete:null, status: "wait"}, order:{date_create: "DESC"}})
       .then(setRT => {
         RTs = setRT;
       });
-    let admin: Admin
+    let admin: Admin;
     await this.adminRepository.findOne({ where:{ _id: adminID } })
       .then(setAdmin => {
         admin = setAdmin;
       });
-
-    let eiei: any[][];
-/*
-    for(let i = 0; i<tags.length; i++){
-      for(let j = 0; j<eachThread.tag_arr.length; j++){
-        if (tags[i] === eachThread.tag_arr[j]){
-          countTag++;
-          break;
-        }
-      }
-    }*/
-
+    let RTs_page: any[][];
+    RTs_page = [];
     for(let i = 0; i < RTs.length; i++){
-      let kuy: any[];
-      kuy.push(RTs[i]);
+      let RT_and_readcheck: any[];
+      RT_and_readcheck = [];
+      RT_and_readcheck.push(RTs[i]);
         for(let j = 0; j < admin.reportT_read_arr.length; j++){
-          if(admin.reportT_read_arr[j].reportTID === RTs[i].threadID){
-            kuy.push(true);
+          if(admin.reportT_read_arr[j].reportTID === RTs[i].reportTID){
+            RT_and_readcheck.push(true);
             break;
           }
-          kuy.push(false);
+          RT_and_readcheck.push(false);
         }
-      eiei.push(kuy);
+      RTs_page.push(RT_and_readcheck);
     }
-
-    return [];
+    return RTs_page;
   }
 
 
