@@ -54,4 +54,18 @@ export class ReportsController {
         RTs_page = RTs_page.slice(begin, last);
         return {RTs_page, pageInfo:{pagesize: RTs_page.length, pageNO, total: total}};
     }
+
+    @Get('/reportCs/list/:adminID/:pagesize/:pageNO')
+    async RClisting(
+        @Param('adminID', ParseObjectIdPipe) adminID: ObjectID,
+        @Param('pagesize', ParseIntPipe) pagesize: number,
+        @Param('pageNO', ParseIntPipe) pageNO: number
+    ): Promise<any>{
+        let RCs_page = await this.reportsService.RClisting(adminID);
+        const total = Math.ceil(RCs_page.length / pagesize);
+        let begin = pagesize * (pageNO-1);
+        let last = pagesize * pageNO; if(last > RCs_page.length){last = RCs_page.length}
+        RCs_page = RCs_page.slice(begin, last);
+        return {RCs_page, pageInfo:{pagesize: RCs_page.length, pageNO, total: total}};
+    }
 }

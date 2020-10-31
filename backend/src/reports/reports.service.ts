@@ -78,19 +78,52 @@ export class ReportsService {
       let RT_and_readcheck: any[];
       RT_and_readcheck = [];
       RT_and_readcheck.push(RTs[i]);
+      RT_and_readcheck.push(false);
         for(let j = 0; j < admin.reportT_read_arr.length; j++){
-          if(admin.reportT_read_arr[j].reportTID === RTs[i].reportTID){
-            RT_and_readcheck.push(true);
+          let a = admin.reportT_read_arr[j].reportTID.toHexString();
+          let b = RTs[i].reportTID.toHexString();
+          if(a ===b){
+            RT_and_readcheck[1] = true;
             break;
           }
-          RT_and_readcheck.push(false);
+          //RT_and_readcheck.push(false);
         }
       RTs_page.push(RT_and_readcheck);
     }
     return RTs_page;
   }
 
-
+  async RClisting(adminID: ObjectID): Promise<any[][]>{
+    let RCs: Reportment_comment[];
+    await this.reportment_commentsRepository.find({ where:{date_delete:null, status: "wait"}, order:{date_create: "DESC"}})
+      .then(setRC => {
+        RCs = setRC;
+      });
+    let admin: Admin;
+    await this.adminRepository.findOne({ where:{ _id: adminID } })
+      .then(setAdmin => {
+        admin = setAdmin;
+      });
+    let RCs_page: any[][];
+    RCs_page = [];
+    for(let i = 0; i < RCs.length; i++){
+      let RC_and_readcheck: any[];
+      RC_and_readcheck = [];
+      RC_and_readcheck.push(RCs[i]);
+      RC_and_readcheck.push(false);
+        for(let j = 0; j < admin.reportC_read_arr.length; j++){
+          let a = admin.reportC_read_arr[j].reportCID.toHexString();
+          let b = RCs[i].reportCID.toHexString();
+          if(a === b){
+            RC_and_readcheck.push(true);
+            break;
+          }
+          //RC_and_readcheck.push(false);
+        }
+      RCs_page.push(RC_and_readcheck);
+    }
+    return RCs_page;
+  }
 
 
 
