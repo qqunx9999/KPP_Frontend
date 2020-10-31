@@ -39,6 +39,9 @@
               <code>npm install --save @nestjs/jwt passport-jwt</code> <br>
               <code>npm install --save-dev @types/passport-jwt</code>
             </li>
+            <li>encrypt <br>
+              <code>npm install brcypt --save</code>
+            </li>
           </uL>
         </li>
       </ul>

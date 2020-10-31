@@ -380,8 +380,8 @@ export class UsersService {
             throw new HttpException("this username has already used to sign up", HttpStatus.FORBIDDEN);
         }
         
+    
         
-
         let NO: Threadnogen;
         // Generate GuestNO. but use number from threadnogen entity
         await this.threadnogenRopsitory.find()
@@ -389,7 +389,7 @@ export class UsersService {
         let userNO = (NO.threadNO+1).toString();
         createUserDto.name = "Guest"+ userNO;
         await this.threadnogenRopsitory.update({id:NO.id}, {threadNO: NO.threadNO+1});
-
+        
         createUserDto.avatar_URL = null;
         createUserDto.exp = 0;
         createUserDto.rank = "Beginner";
@@ -403,6 +403,17 @@ export class UsersService {
         createUserDto.date_join = date;
         createUserDto.isAdmin = false;
         createUserDto.isLoggedIn = false;
+        
+        
+        // var bcrypt =  require('bcrypt');
+        // const saltRounds = 10;
+        // const hash = bcrypt.hashSync(createUserDto.password, saltRounds);
+        // createUserDto.password = hash;
+        
+        //uncomment above to hashpassword
+        
+        // Store hash in your password DB.
+        //console.log(createUserDto.password);
         return from(this.usersRepository.save(createUserDto)).pipe( // don't show password
             map((user: User)=>{
                 const{password, ...result} = user;
@@ -410,5 +421,9 @@ export class UsersService {
             }),
             catchError(err => throwError(err))
         );
+            
+        
+        
+        
     }
 }
