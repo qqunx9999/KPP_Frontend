@@ -7,7 +7,6 @@ import searchBlog from '../Pages/image/createSearchSymbol.png'
 import createBlog from '../Pages/image/createBlogSymbol.png'
 import profilePic from '../Pages/image/Patrick.png'
 import '../CSSsource/NavBar.css';
-import ReadReport from '../Pages/ReadReport';
 
 const Navigtion = () => {
   const [user, setUser] = useState<any>({});
