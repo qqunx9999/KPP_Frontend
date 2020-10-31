@@ -63,11 +63,11 @@ function Threads_new() {
               by : &nbsp;
                 { thread.userInfo.name }
             </div>
-            <div>
+            <div className="thread-topic-createdate">
               When : &nbsp;
                 { toDate(thread.thread.date_create) }
             </div>
-            <div>
+            <div className="thread-topic-lastedit">
               Last edit : &nbsp;
             </div>
             <div className="thread-topic-detail-frame">
