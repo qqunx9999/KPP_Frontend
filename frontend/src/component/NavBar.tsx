@@ -42,7 +42,7 @@ const Navigtion = () => {
         <ul className="navbar-nav ml-auto">
           <div className="container">
 
-          { user.isAdmin ? <Link to="/ReportList"><button>Report List</button></Link> : <button>Notification</button> }
+          { user.isAdmin ? <Link to="/ReportList">Report List</Link> : Notification }
 
           <li className="nav-item active">
             <Link to={ `/SearchThread` }>

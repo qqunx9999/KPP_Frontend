@@ -47,7 +47,7 @@ function Threads_new() {
     const year = String(day.getFullYear());
     const time = date + '/' + month + '/' + year;
     return time;
-  }
+  }console.log(thread)
 
   return (
     <div>

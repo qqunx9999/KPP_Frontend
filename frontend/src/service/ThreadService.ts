@@ -78,6 +78,10 @@ export async function fetchReportComment(userID: string) {
     return report;
 }
 
+export async function reportThread() {
+    
+}
+
 export default {
     fetchLatestThread,
     fetchHottestThread,
@@ -91,4 +95,5 @@ export default {
     fetchComment,
     fetchReportThread,
     fetchReportComment,
+    reportThread,
 }; 
