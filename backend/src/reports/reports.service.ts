@@ -61,46 +61,69 @@ export class ReportsService {
     return [rc,  await(info_rc_comment)];
   }
 
-  async RTlisting(adminID: ObjectID): Promise<Reportment_thread[]>{
+  async RTlisting(adminID: ObjectID): Promise<any[][]>{
     let RTs: Reportment_thread[];
     await this.reportment_threadsRepository.find({ where:{date_delete:null, status: "wait"}, order:{date_create: "DESC"}})
       .then(setRT => {
         RTs = setRT;
       });
-    let admin: Admin
+    let admin: Admin;
     await this.adminRepository.findOne({ where:{ _id: adminID } })
       .then(setAdmin => {
         admin = setAdmin;
       });
-
-    let eiei: any[][];
-/*
-    for(let i = 0; i<tags.length; i++){
-      for(let j = 0; j<eachThread.tag_arr.length; j++){
-        if (tags[i] === eachThread.tag_arr[j]){
-          countTag++;
-          break;
-        }
-      }
-    }*/
-
+    let RTs_page: any[][];
+    RTs_page = [];
     for(let i = 0; i < RTs.length; i++){
-      let kuy: any[];
-      kuy.push(RTs[i]);
+      let RT_and_readcheck: any[];
+      RT_and_readcheck = [];
+      RT_and_readcheck.push(RTs[i]);
+      RT_and_readcheck.push(false);
         for(let j = 0; j < admin.reportT_read_arr.length; j++){
-          if(admin.reportT_read_arr[j].reportTID === RTs[i].threadID){
-            kuy.push(true);
+          let a = admin.reportT_read_arr[j].reportTID.toHexString();
+          let b = RTs[i].reportTID.toHexString();
+          if(a ===b){
+            RT_and_readcheck[1] = true;
             break;
           }
-          kuy.push(false);
+          //RT_and_readcheck.push(false);
         }
-      eiei.push(kuy);
+      RTs_page.push(RT_and_readcheck);
     }
-
-    return [];
+    return RTs_page;
   }
 
-
+  async RClisting(adminID: ObjectID): Promise<any[][]>{
+    let RCs: Reportment_comment[];
+    await this.reportment_commentsRepository.find({ where:{date_delete:null, status: "wait"}, order:{date_create: "DESC"}})
+      .then(setRC => {
+        RCs = setRC;
+      });
+    let admin: Admin;
+    await this.adminRepository.findOne({ where:{ _id: adminID } })
+      .then(setAdmin => {
+        admin = setAdmin;
+      });
+    let RCs_page: any[][];
+    RCs_page = [];
+    for(let i = 0; i < RCs.length; i++){
+      let RC_and_readcheck: any[];
+      RC_and_readcheck = [];
+      RC_and_readcheck.push(RCs[i]);
+      RC_and_readcheck.push(false);
+        for(let j = 0; j < admin.reportC_read_arr.length; j++){
+          let a = admin.reportC_read_arr[j].reportCID.toHexString();
+          let b = RCs[i].reportCID.toHexString();
+          if(a === b){
+            RC_and_readcheck.push(true);
+            break;
+          }
+          //RC_and_readcheck.push(false);
+        }
+      RCs_page.push(RC_and_readcheck);
+    }
+    return RCs_page;
+  }
 
 
 
