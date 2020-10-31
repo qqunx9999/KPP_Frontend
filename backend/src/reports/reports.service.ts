@@ -9,6 +9,7 @@ import Commentation from 'src/threads/comentation.entity';
 import Thread from 'src/threads/thread.entity';
 
 import { ThreadsService } from 'src/threads/threads.service';
+import Admin from 'src/entities/admin.entity';
 
 @Injectable()
 export class ReportsService {
@@ -21,6 +22,9 @@ export class ReportsService {
     private reportment_threadsRepository: Repository<Reportment_thread>,
     @InjectRepository(Reportment_comment)
     private reportment_commentsRepository: Repository<Reportment_comment>,
+    @InjectRepository(Admin)
+    private adminRepository: Repository<Admin>,
+
     private threadsService: ThreadsService,
       
   ) {}
@@ -44,16 +48,62 @@ export class ReportsService {
     return [rt, await(info_rt_thread)];
   }
 
-
   async findOneReportedComment(reportCID: ObjectID): Promise<Reportment_comment[]>{
     let rc: Reportment_comment;
     await this.reportment_commentsRepository.findOne({ where:{ _id: reportCID } })
       .then(setRC => {
         rc = setRC;
       });
-    let rc_thread: ObjectID = rc.threadID
-    const info_rc_thread = this.threadsService.findOneThreadWithOwn(rc_thread);
-    const info_rc_comment = this.threadsService.findAllCommentations(rc_thread);
-    return [rc, await(info_rc_thread), await(info_rc_comment)];
+    //let rc_thread:ObjectID = rc.threadID
+    let rc_comment:ObjectID = rc.commentID
+    //const info_rc_thread = this.threadsService.findOneThreadWithOwn(rc_thread);
+    const info_rc_comment = this.threadsService.findOneComment(rc_comment);
+    return [rc,  await(info_rc_comment)];
   }
+
+  async RTlisting(adminID: ObjectID): Promise<Reportment_thread[]>{
+    let RTs: Reportment_thread[];
+    await this.reportment_threadsRepository.find({ where:{date_delete:null, status: "wait"}, order:{date_create: "DESC"}})
+      .then(setRT => {
+        RTs = setRT;
+      });
+    let admin: Admin
+    await this.adminRepository.findOne({ where:{ _id: adminID } })
+      .then(setAdmin => {
+        admin = setAdmin;
+      });
+
+    let eiei: any[][];
+/*
+    for(let i = 0; i<tags.length; i++){
+      for(let j = 0; j<eachThread.tag_arr.length; j++){
+        if (tags[i] === eachThread.tag_arr[j]){
+          countTag++;
+          break;
+        }
+      }
+    }*/
+
+    for(let i = 0; i < RTs.length; i++){
+      let kuy: any[];
+      kuy.push(RTs[i]);
+        for(let j = 0; j < admin.reportT_read_arr.length; j++){
+          if(admin.reportT_read_arr[j].reportTID === RTs[i].threadID){
+            kuy.push(true);
+            break;
+          }
+          kuy.push(false);
+        }
+      eiei.push(kuy);
+    }
+
+    return [];
+  }
+
+
+
+
+
+
+  
 }
