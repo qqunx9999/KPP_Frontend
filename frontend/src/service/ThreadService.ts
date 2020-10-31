@@ -1,5 +1,4 @@
 import { baseUrl } from '../config/constant';
-import { Thread } from '../interfaces/threadEntity';
 import AuthService from './AuthService';
 
 export async function fetchLatestThread(): Promise<[]> {
@@ -55,6 +54,12 @@ export async function fetchComment(threadID: string | undefined) {
     return comment;
 }
 
+export async function fetchReportThread(adminID: string) {
+    const res = await fetch(`${ baseUrl }/reports/reportTs/list/${ adminID }/8/1`);
+    const report = res.json();
+    return report;
+}
+
 export default {
     fetchLatestThread,
     fetchOneThread,
@@ -64,4 +69,5 @@ export default {
     voteUp,
     voteDown,
     fetchComment,
+    fetchReportThread,
 }; 
