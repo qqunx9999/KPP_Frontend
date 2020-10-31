@@ -15,6 +15,11 @@ import Reportment_comment from 'src/entities/reportment_comment.entity';
 import Reportment_thread from 'src/entities/reportment_thread.entity';
 import Threadnogen from 'src/entities/threadnogen.entity';
 
+import {map, catchError } from 'rxjs/operators';
+import {from ,throwError} from 'rxjs';
+
+
+
 
 
 @Injectable()
@@ -44,8 +49,9 @@ export class UsersService {
         @InjectRepository(Reportment_thread)
         private reportTRepository: Repository<Reportment_thread>,
         @InjectRepository(Threadnogen)
-        private threadnogenRopsitory: Repository<Threadnogen>
+        private threadnogenRopsitory: Repository<Threadnogen>,
 
+            
     ) {}
 
     async chatroomaction(userID: ObjectID, chatroomID: ObjectID,act: string): Promise<any> {
@@ -357,6 +363,7 @@ export class UsersService {
     }
 
     async createUser(createUserDto: CreateUserDto) {
+        createUserDto.email = createUserDto.email.toLowerCase();
         let allUser:User[];
         await this.usersRepository.find()
             .then(setUsers=>{allUser = setUsers});
@@ -373,6 +380,8 @@ export class UsersService {
             throw new HttpException("this username has already used to sign up", HttpStatus.FORBIDDEN);
         }
         
+        
+
         let NO: Threadnogen;
         // Generate GuestNO. but use number from threadnogen entity
         await this.threadnogenRopsitory.find()
@@ -394,6 +403,12 @@ export class UsersService {
         createUserDto.date_join = date;
         createUserDto.isAdmin = false;
         createUserDto.isLoggedIn = false;
-        return this.usersRepository.save(createUserDto);
+        return from(this.usersRepository.save(createUserDto)).pipe( // don't show password
+            map((user: User)=>{
+                const{password, ...result} = user;
+                return result;
+            }),
+            catchError(err => throwError(err))
+        );
     }
 }

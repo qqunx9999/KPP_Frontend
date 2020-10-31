@@ -6,6 +6,8 @@ import logoPic from '../Pages/image/kuppl2.png'
 import searchBlog from '../Pages/image/createSearchSymbol.png'
 import createBlog from '../Pages/image/createBlogSymbol.png'
 import profilePic from '../Pages/image/Patrick.png'
+import notiButton from '../Pages/image/Notify-button.png'
+import reportButton from '../Pages/image/Report-button.png'
 import '../CSSsource/NavBar.css';
 
 const Navigtion = () => {
@@ -37,11 +39,13 @@ const Navigtion = () => {
         <span className="navbar-toggler-icon"></span>
       </button>
 
-      { user.isAdmin ? <Link to="/ReportList"><button>Report List</button></Link> : <button>Notification</button> }
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto">
           <div className="container">
+          <li>
+          { user.isAdmin ? <Link to="/ReportList"><div className="frame-notification"><img src={ reportButton } alt="React is hell !!!" width = "52" height="50" title="ReportList"/></div></Link> : <div className="frame-notification"><Link to=""><img src={ notiButton } alt="React is hell !!!" width = "52" height="50" title="Notification"/></Link></div> }
+          </li>
           <li className="nav-item active">
             <Link to={ `/SearchThread` }>
             <div className="searchCSS">
