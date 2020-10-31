@@ -8,7 +8,7 @@ import {CreateChatroomDto}  from 'src/dto/create-chatroom.dto';
 import {CreateChat_messageDto}  from 'src/dto/create-chat_message.dto';
 import User from 'src/entities/user.entity';
 import { UpdateChatroomDto } from 'src/dto_update/update-chatroom.dto';
-
+import { UpdateChat_messageDto} from 'src/dto_update/update-message.dto'
 
 @Controller('chatrooms')
 export class ChatroomsController {
@@ -51,6 +51,12 @@ export class ChatroomsController {
         async updateChatroom(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID,
         @Body() updateChatroomDto:UpdateChatroomDto){
             return this.chatroomsService.updateChatroom(chatroomID ,updateChatroomDto);
+        }
+
+    @Patch(':messageID')
+        async updateMessage(@Param('messageID',ParseObjectIdPipe) messageID:ObjectID,
+        @Body() updateChat_messageDto:UpdateChat_messageDto){
+            return this.chatroomsService.updateChat_message(messageID,updateChat_messageDto);
         }
 
 

@@ -8,7 +8,7 @@ import {CreateChatroomDto}  from 'src/dto/create-chatroom.dto';
 import {CreateChat_messageDto}  from 'src/dto/create-chat_message.dto';
 import { UpdateChatroomDto } from 'src/dto_update/update-chatroom.dto';
 import { CreateUserDto } from 'src/dto/create-user.dto';
-
+import { UpdateChat_messageDto} from 'src/dto_update/update-message.dto'
 
 
 @Injectable()
@@ -124,5 +124,14 @@ export class ChatroomsService {
             cr.date_delete = date ;
         }
         return this.chatroomsRepository.update({chatroomID: chatroomID} , updateChatroomDto);
+    }
+
+    async updateChat_message(messageID:ObjectID ,updateChat_messageDto:UpdateChat_messageDto){
+        if(updateChat_messageDto.message !== undefined){
+            
+        }
+        if(updateChat_messageDto.date_delete !== undefined){
+            
+        }
     }
 }

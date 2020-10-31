@@ -4,7 +4,6 @@ import ThreadService from '../service/ThreadService';
 import { useHistory, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import Navigtion from '../component/NavBar';
-import { baseUrl } from '../config/constant';
 
 function Threads_new() {
   const { ThreadID } = useParams();
@@ -30,8 +29,6 @@ function Threads_new() {
     fetchThread();
     fetchComment();
   }, []);
-
-  // console.log(thread, comment);
 
   const voteUp = () => {
     const threadIdentity = thread.thread.threadID;
@@ -87,11 +84,21 @@ function Threads_new() {
         </div>
 
         <button className="thread_goback_button" onClick={history.goBack}>&lt; Go Back</button>
-        <Link to={`/CreateComment/${{ ThreadID }.ThreadID}`}><button className="thread-givecm-button">Give Comment</button></Link>
-        <Link to={`/CreateReport/${{ ThreadID }.ThreadID}`}><button className="thread-report-frame">Report</button></Link>
+        <Link to={`/CreateComment/${{ ThreadID }.ThreadID}`}><button className="thread-givecm-button">
+          <div className="comment-button-icon">
+          </div> 
+          Give Comment
+          </button>
+        </Link>
+        <Link to={`/CreateReport/${{ ThreadID }.ThreadID}`}><button className="thread-report-frame"><div className="report-button-icon">
+          </div></button></Link>
 
-        { thread.thread.up_vote_count } <button className="thread-upvote-frame" onClick={ voteUp }>Like</button>
-        { thread.thread.down_vote_count } <button className="thread-downvote-frame" onClick={ voteDown }>Dislike</button>
+        { thread.thread.up_vote_count } <button className="thread-upvote-frame" onClick={ voteUp }>
+          <div className="like-button-icon"></div>
+          </button>
+        { thread.thread.down_vote_count } <button className="thread-downvote-frame" onClick={ voteDown }>
+          <div className="dislike-button-icon"></div>
+          </button>
         { thread.thread.number_of_all_comment } <br />
 
         { comment.map((item: any) => (
