@@ -12,11 +12,13 @@ import { ThreadsModule } from 'src/threads/threads.module';
 import { ReportsController } from './reports.controller';
 import { ReportsService } from './reports.service';
 import User from 'src/entities/user.entity';
+import { NotificationModule } from 'src/notification/notification.module';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([Thread, Commentation, Reportment_thread,Reportment_comment, Admin, User]),
-    ThreadsModule
+    ThreadsModule,
+    NotificationModule
   ],
   controllers: [ReportsController],
   providers: [ReportsService]

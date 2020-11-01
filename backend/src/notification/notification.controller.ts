@@ -72,11 +72,11 @@ export class NotificationController {
         return this.notificationService.patchChatroom(userID, chatroomID);
     }
 
-    @Patch('/users/:userID/-')
+    @Patch('/users/:userID/')
     async patchAllNoti(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise <any>{
-        const patchFriend_noti = await this.notificationService.patchFriendNoti(userID);
-        const patchReport_noti = await this.notificationService.patchReportNoti(userID);
-        return {patchFriend_noti,patchReport_noti}
+        
+        
+        return this.notificationService.patchAllNoti(userID);
     }
 }
 

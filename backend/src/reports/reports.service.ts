@@ -13,6 +13,7 @@ import Admin from 'src/entities/admin.entity';
 import { UpdateReportment_commentDto } from 'src/dto_update/update-reportc.dto';
 import { UpdateReportment_threadDto } from 'src/dto_update/update-reportT.dto';
 import User from 'src/entities/user.entity';
+import { NotificationsService } from 'src/notification/notification.service';
 
 @Injectable()
 export class ReportsService {
@@ -30,6 +31,7 @@ export class ReportsService {
     @InjectRepository(User)
     private usersRepository: Repository<User>,
 
+    private notificationsService: NotificationsService,
     private threadsService: ThreadsService,
       
   ) {}
@@ -140,6 +142,13 @@ export class ReportsService {
       let dateConsidered = new Date();
       dateConsidered.setMinutes(dateConsidered.getMinutes()+7*60);
       updateReportCDto.date_considered = dateConsidered;
+      //noti
+      let thisRPC: Reportment_comment;
+      await this.reportment_commentsRepository.findOne({where:{_id: reportCID}})
+        .then(setrpc => {thisRPC = setrpc});
+      console.log(thisRPC);
+
+      await this.notificationsService.postReportCCon(new ObjectID(thisRPC.userID),reportCID);
     }
     return this.reportment_commentsRepository.update({reportCID:reportCID}, updateReportCDto);
   }
@@ -154,6 +163,13 @@ export class ReportsService {
       let dateConsidered = new Date();
       dateConsidered.setMinutes(dateConsidered.getMinutes()+7*60);
       updateReportTDto.date_considered = dateConsidered;
+      //noti
+      let thisRPT: Reportment_thread;
+      await this.reportment_threadsRepository.findOne({where:{_id: reportTID}})
+        .then(setrpt => {thisRPT = setrpt});
+      
+
+      await this.notificationsService.postReportTCon(new ObjectID(thisRPT.userID),reportTID);
     }
     return this.reportment_threadsRepository.update({reportTID:reportTID}, updateReportTDto);
   }
