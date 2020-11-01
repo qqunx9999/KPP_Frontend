@@ -8,7 +8,7 @@
   }
 
 .cName_goback_button {
-    background: var(--Theme5, #6cc551); /* Green */
+    background: var(--Theme5, #000000); /* Green */
     border-radius: 19px;
     color: white;
     width: 207px;
