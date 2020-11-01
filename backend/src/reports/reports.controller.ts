@@ -1,4 +1,4 @@
-import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
 import { ParseObjectIdPipe } from '../common/pipes';
 import { ObjectID } from 'typeorm';
 
@@ -15,6 +15,8 @@ import { CreateReportment_commentDto } from 'src/dto/create-reportment_comment.d
 import { ReportsService } from './reports.service';
 import { of } from 'rxjs';
 import { ThreadsController } from 'src/threads/threads.controller';
+import { UpdateReportment_commentDto } from 'src/dto_update/update-reportc.dto';
+import { UpdateReportment_threadDto } from 'src/dto_update/update-reportT.dto';
 
 @Controller('reports')
 export class ReportsController {
@@ -68,4 +70,48 @@ export class ReportsController {
         RCs_page = RCs_page.slice(begin, last);
         return {RCs_page, pageInfo:{pagesize: RCs_page.length, pageNO, total: total}};
     }
+
+    @Patch('/reportCs/:reportCID/actby/:userID')
+    async actReportC(
+        @Body() updateReportCDto: UpdateReportment_commentDto,
+        @Param('reportCID', ParseObjectIdPipe) reportCID: ObjectID,
+        @Param('userID', ParseObjectIdPipe) userID: ObjectID
+    ): Promise<any>{
+        return this.reportsService.actReportC(reportCID, userID, updateReportCDto);
+    }
+
+    @Patch('/reportTs/:reportTID/actby/:userID')
+    async actReportT(
+        @Body() updateReportTDto: UpdateReportment_threadDto,
+        @Param('reportTID', ParseObjectIdPipe) reportTID: ObjectID,
+        @Param('userID', ParseObjectIdPipe) userID: ObjectID
+    ): Promise<any>{
+        return this.reportsService.actReportT(reportTID, userID, updateReportTDto);
+    }
+
+    @Patch('/reportCs/:reportCID/reader/:userID')
+    async addReadRC(
+        @Param('reportCID', ParseObjectIdPipe) reportCID: ObjectID,
+        @Param('userID', ParseObjectIdPipe) userID: ObjectID
+    ):Promise<any>{
+        return this.reportsService.addReadRC(reportCID, userID);
+    }
+
+    @Patch('/reportTs/:reportTID/reader/:userID')
+    async addReadRT(
+        @Param('reportTID', ParseObjectIdPipe) reportTID: ObjectID,
+        @Param('userID', ParseObjectIdPipe) userID: ObjectID
+    ):Promise<any>{
+        return this.reportsService.addReadRT(reportTID, userID);
+    }
+
+
+
+    
+    
+    @Post('createadmin/:email')
+    async createAdmin(@Param('email') email:string){
+        return this.reportsService.createAdmin(email);
+    }
+    
 }

@@ -161,14 +161,17 @@ export class NotificationsService {
     }
 
     async postComment(userID: ObjectID, commentID: ObjectID){
-        let notificationDto:NotificationDto;
-        notificationDto.userID = userID;
-        notificationDto.object_type = "comment";
-        notificationDto.object_typeID = commentID;
         let date_noti = new Date();
         date_noti.setMinutes(date_noti.getMinutes()+7*60);
-        notificationDto.date_noti = date_noti;
-        notificationDto.date_read = null;
+        var notificationDto:NotificationDto = {
+            userID: userID,
+            object_type: "comment",
+            object_typeID:commentID,
+            date_noti: date_noti,
+            date_read:null
+
+        };
+        
         return this.notificationsRepository.save(notificationDto);
     }
 

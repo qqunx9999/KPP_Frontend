@@ -10,6 +10,9 @@ import Thread from 'src/threads/thread.entity';
 
 import { ThreadsService } from 'src/threads/threads.service';
 import Admin from 'src/entities/admin.entity';
+import { UpdateReportment_commentDto } from 'src/dto_update/update-reportc.dto';
+import { UpdateReportment_threadDto } from 'src/dto_update/update-reportT.dto';
+import User from 'src/entities/user.entity';
 
 @Injectable()
 export class ReportsService {
@@ -24,6 +27,8 @@ export class ReportsService {
     private reportment_commentsRepository: Repository<Reportment_comment>,
     @InjectRepository(Admin)
     private adminRepository: Repository<Admin>,
+    @InjectRepository(User)
+    private usersRepository: Repository<User>,
 
     private threadsService: ThreadsService,
       
@@ -125,8 +130,70 @@ export class ReportsService {
     return RCs_page;
   }
 
+  async actReportC(reportCID: ObjectID, userID:ObjectID, updateReportCDto: UpdateReportment_commentDto):Promise<any>{
+    if(updateReportCDto.date_delete !== undefined){
+      let dateDel = new Date();
+      dateDel.setMinutes(dateDel.getMinutes()+7*60);
+    }
+    else{
+      updateReportCDto.considered_by = {"userID":userID};
+      let dateConsidered = new Date();
+      dateConsidered.setMinutes(dateConsidered.getMinutes()+7*60);
+      updateReportCDto.date_considered = dateConsidered;
+    }
+    return this.reportment_commentsRepository.update({reportCID:reportCID}, updateReportCDto);
+  }
+
+  async actReportT(reportTID: ObjectID, userID:ObjectID, updateReportTDto: UpdateReportment_threadDto):Promise<any>{
+    if(updateReportTDto.date_delete !== undefined){
+      let dateDel = new Date();
+      dateDel.setMinutes(dateDel.getMinutes()+7*60);
+    }
+    else{
+      updateReportTDto.considered_by = {"userID":userID};
+      let dateConsidered = new Date();
+      dateConsidered.setMinutes(dateConsidered.getMinutes()+7*60);
+      updateReportTDto.date_considered = dateConsidered;
+    }
+    return this.reportment_threadsRepository.update({reportTID:reportTID}, updateReportTDto);
+  }
+
+  async addReadRC(reportCID:ObjectID, userID:ObjectID){
+    let admin: Admin;
+    await this.adminRepository.findOne({where:{userID:userID}})
+      .then(setAdmin => {admin = setAdmin});
+    if(!admin.reportC_read_arr.some(eachr =>{if(eachr.reportCID.toHexString === reportCID.toHexString){return true;}})){
+      admin.reportC_read_arr.push({reportCID: reportCID});
+    }
+
+    return this.adminRepository.update({userID:userID}, admin);
+  }
+
+  async addReadRT(reportTID:ObjectID, userID:ObjectID){
+    let admin: Admin;
+    await this.adminRepository.findOne({where:{userID:userID}})
+      .then(setAdmin => {admin = setAdmin});
+    if(!admin.reportT_read_arr.some(eachr =>{if(eachr.reportTID.toHexString === reportTID.toHexString){return true;}})){
+      admin.reportT_read_arr.push({reportTID: reportTID});
+    }
+
+    return this.adminRepository.update({userID:userID}, admin);
+  }
 
 
 
-  
+  async createAdmin(email: string){
+    let user: User;
+    await this.usersRepository.findOne({where:{email: email}})
+      .then(setUser => {user = setUser});
+    var isadmin = {isAdmin: true}
+    this.usersRepository.update({userID: user.userID},isadmin)
+    var createAdminDto = {
+      userID: new ObjectID(user.userID),
+      reportC_read_arr: [],
+      reportT_read_arr: []
+    }
+    return this.adminRepository.save(createAdminDto);
+
+  }
 }
