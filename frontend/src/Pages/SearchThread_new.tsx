@@ -56,7 +56,7 @@ const SearchThread_new = () => {
                 {/* <Field type="checkbox" name="faculty" className="facultyClickBoxSearchThread" />  */}
                 <Dropdown>
                   <Dropdown.Toggle className="foodTextSearchThread" variant="green">
-                    <Field type="checkbox" name="faculty" className="newsClickBoxSearchThread"/> 
+                    {/* <Field type="checkbox" name="faculty" className="newsClickBoxSearchThread"/>  */}
                     <div>Faculty</div>
                   </Dropdown.Toggle>
                   <div style={{overflow:"hidden"}}>
