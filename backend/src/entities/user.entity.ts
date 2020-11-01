@@ -23,6 +23,8 @@ export class User{
     @Column()
     numberfriends: number ;
     @Column()
+    quote: string;
+    @Column()
     description: string ;
     @Column()
     text_type: {bold: boolean, italic: boolean, font:string, size:number};
