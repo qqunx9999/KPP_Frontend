@@ -1,8 +1,8 @@
 .rpList-bigframe {
     width: 100%;
-    height: 1500px;
+    height: 200%;
     overflow: hidden;
-    background: var(--Theme6, #47624f);
+    background: var(--B5, #d6ce15);
     margin: 0;
     position: absolute;
   }
@@ -51,13 +51,13 @@
     width: 1474px;
     height: 779px;
     overflow: visible;
-    background: var(--Theme1, #ffffff);
+    background: var(--B3, #53900f);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;    
-    top: 1%;
-    left: 12.5%;
-    transform: scale(0.7, 0.7);
+    top: 5%;
+    left: 11%;
+    transform: scale(1, 1);
   }
 
 .rpList-thread-report-list {
@@ -65,7 +65,7 @@
     height: 186px;
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
+    color: var(--Theme1, #ffffff);
     font-size: 62px;
     letter-spacing: 3px;
     line-height: 3;
@@ -78,7 +78,7 @@
     width: 1357px;
     height: 519px;
     overflow: visible;
-    background: var(--Theme5, #6cc551);
+    background: var(--B1, #1f2605);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;    
@@ -149,7 +149,7 @@
     line-height: 3;
     position: absolute;    
     top: -23px;
-    left: 78px;
+    left: 57.5px;
   }
 
 .rpList-correct-round1 {
@@ -370,13 +370,13 @@
     width: 1474px;
     height: 779px;
     overflow: visible;
-    background: var(--Theme1, #ffffff);
+    background: var(--B3, #53900f);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;   
-    top: 45%;
-    left: 12.5%;
-    transform: scale(0.7, 0.7);
+    top: 50%;
+    left: 11%;
+    transform: scale(1, 1);
   }
 
 .rpList-cm-report-list {
@@ -468,7 +468,7 @@
     line-height: 3;
     position: absolute;    
     top: -23px;
-    left: 78px;
+    left: 57.5px;
   }
 
 .rpList-cmcorrect-round1 {
