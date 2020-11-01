@@ -17,6 +17,7 @@ import Threadnogen from 'src/entities/threadnogen.entity';
 
 import {map, catchError } from 'rxjs/operators';
 import {from ,throwError} from 'rxjs';
+import { NotificationsService } from 'src/notification/notification.service';
 
 
 
@@ -50,6 +51,8 @@ export class UsersService {
         private reportTRepository: Repository<Reportment_thread>,
         @InjectRepository(Threadnogen)
         private threadnogenRopsitory: Repository<Threadnogen>,
+
+        private notificationsService: NotificationsService
 
             
     ) {}
@@ -159,6 +162,8 @@ export class UsersService {
             obj2.friend_arr = Recievefriend;
             this.usersRepository.update({userID: userID}, obj);
             this.usersRepository.update({userID: userID2}, obj2);
+            //noti
+            await this.notificationsService.postFriendRequest(userID2,userID);
         }
         else if (act === "reject") {
             let obj = { friend_arr: []};
@@ -215,6 +220,8 @@ export class UsersService {
             obj2.friend_arr = Recievefriend;
             this.usersRepository.update({userID: userID}, obj);
             this.usersRepository.update({userID: userID2}, obj2);
+            //noti
+            await this.notificationsService.postAcceptFriend(userID,userID2);
         }
         else if (act === "delete") {
             let obj = { friend_arr: []};

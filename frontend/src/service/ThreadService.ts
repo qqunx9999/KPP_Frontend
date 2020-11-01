@@ -112,6 +112,13 @@ export async function fetchOneCommentReport(reportCID: string) {
     return report;
 }
 
+export async function searchThread(keyword: string, tags: string, sortby: string, pagesize: number, pageNO: number) {
+    const res = await fetch(`${ baseUrl }/threads/search/${ keyword }/${ tags }/${ sortby }/${ pagesize }/${ pageNO }`);
+    const search = res.json();
+    console.log(`${ baseUrl }/threads/search/${ keyword }/${ tags }/${ sortby }/${ pagesize }/${ pageNO }`)
+    return search;
+}
+
 export default {
     fetchLatestThread,
     fetchHottestThread,
@@ -129,4 +136,5 @@ export default {
     reportComment,
     fetchOneThreadReport,
     fetchOneCommentReport,
+    searchThread,
 }; 

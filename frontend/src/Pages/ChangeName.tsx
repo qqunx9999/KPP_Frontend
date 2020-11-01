@@ -11,7 +11,7 @@ function ChangeName() {
       <div>
         <Navigtion />
         <div className="cName-bigframe">
-          <button className="cName_goback_button" onClick={ history.goBack }>&lt; Go Back</button>
+          <button className="cName_goback_button" onClick={ history.goBack }>Go Back</button>
           <div className="cName-whiteframe">
             <div className="cName-change-name">Change Name</div>
             <div className="cName-blackframe">

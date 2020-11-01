@@ -7,7 +7,7 @@ import Navigtion from '../component/NavBar';
 
 function Threads_new() {
   const { ThreadID } = useParams();
-  const [thread, setThread] = useState<any>({thread:{}, userInfo:{}});
+  const [thread, setThread] = useState<any>({thread:{ tag_arr:[] }, userInfo:{}});
   const [comment, setComment] = useState<any[]>([{comment:{}, userInfo:{}}]);
   const history = useHistory();
 
@@ -43,7 +43,7 @@ function Threads_new() {
     const year = String(day.getFullYear());
     const time = date + '/' + month + '/' + year;
     return time;
-  }
+  } console.log(thread.thread.tag_arr);
 
   return (
     <div>
@@ -76,10 +76,10 @@ function Threads_new() {
 
         <div className="thread-tags-frame">
           <div className="threads_tags_tags">Tags :</div>
-          { thread.thread.tagg_arr }
+          { thread.thread.tag_arr }
         </div>
 
-        <button className="thread_goback_button" onClick={history.goBack}>&lt; Go Back</button>
+        <button className="thread_goback_button" onClick={history.goBack}> Go Back</button>
         <Link to={`/CreateComment/${{ ThreadID }.ThreadID}`}><button className="thread-givecm-button">
           <div className="comment-button-icon">
           </div> 
@@ -88,14 +88,21 @@ function Threads_new() {
         </Link>
         <Link to={`/CreateReport/${{ ThreadID }.ThreadID}`}><button className="thread-report-frame"><div className="report-button-icon">
           </div></button></Link>
-
-        { thread.thread.up_vote_count } <button className="thread-upvote-frame" onClick={ voteUp }>
+        <div className="like-dislike-comment-displayframe">
+          <div className="like-display-icon"></div>
+          <div className="dislike-display-icon"></div>
+          <div className="comment-display-icon"></div>
+          <div className="thread-upvote-no">{ thread.thread.up_vote_count }</div>
+          <div className="thread-downvote-no">{ thread.thread.down_vote_count }</div>
+          <div className="thread-comment-no">{ thread.thread.number_of_all_comment }</div>
+        </div>
+        <button className="thread-upvote-frame" onClick={ voteUp }>
           <div className="like-button-icon"></div>
           </button>
-        { thread.thread.down_vote_count } <button className="thread-downvote-frame" onClick={ voteDown }>
+        <button className="thread-downvote-frame" onClick={ voteDown }>
           <div className="dislike-button-icon"></div>
           </button>
-        { thread.thread.number_of_all_comment } <br />
+        <br />
 
         { comment.map((item: any) => (
           <ul>
