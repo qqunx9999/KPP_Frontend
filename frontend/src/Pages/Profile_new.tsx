@@ -1,26 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import Navigtion from '../component/NavBar';
-import { Userinfo } from '../interfaces/userInfoEntity';
 import UserService from '../service/UserService';
 import '../CSSsource/Profile.css';
+import { join } from 'path';
 
 function Profile_new() {
-  const [user, setUser] = useState<Userinfo[]>([]);
+  const [user, setUser] = useState<any>({});
   const history = useHistory();
-
-  
 
   const fetchUser = () => {
     UserService.fetchUser()
-      .then(obj => {
-        setUser(obj);
-      });
+      .then(obj => setUser(obj))
   };
+
+  function dateCount(timeString: string) {
+    const day = new Date(timeString);
+    const date = String(day.getDay());
+    const month = String(day.getMonth());
+    const year = String(day.getFullYear());
+    const joinTime = date + "/" + month + "/" + year;
+    return joinTime;
+  }
 
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, []); console.log(user)
 
   return (
     <div>
@@ -30,9 +35,14 @@ function Profile_new() {
           <div className="frameBlackUserProfile">
             <div className="frameLeftGrayUserProfile">
               <div className="textJoinUserProfile">Join</div>
-              <div className="textJoinedDateUserProfile">20/2/2020</div>
+              <div className="textJoinedDateUserProfile">{ dateCount(user.date_join) }</div>
+  <div>{ user.rank }</div>
+  <div>{ user.exp }</div>
             </div>
             <div className="textProfileUserProfile">Profile</div>
+            { user.name }
+            { user.description }
+            <div>{ user.username }</div>
             <button className="frameGobackUserProfile" onClick={history.goBack}>
               <div className="textGobackUserProfile"> Go Back</div>
             </button>

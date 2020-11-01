@@ -62,7 +62,7 @@ function Home_new() {
     const postTime = day.getTime();
     const currentTime = time.getTime();
     const convertToDay = 1000 * 3600 * 24;
-    const diffTime = Math.floor((currentTime - postTime) / convertToDay);
+    const diffTime = Math.ceil((currentTime - postTime) / convertToDay);
     return Math.abs(diffTime);
   }
 
