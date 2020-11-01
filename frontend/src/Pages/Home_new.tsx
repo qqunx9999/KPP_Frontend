@@ -135,6 +135,11 @@ function Home_new() {
               </div>
             </div>
           </div>
+          <div className="hottestFrameHomePage">
+            <div className="hottestTextHomePage">
+              Hottest
+            </div>
+          </div>
         </div>
         <div className="newsWhiteFrameHomePage">
           <div className="newsGreenFrameHomePage">
@@ -152,6 +157,11 @@ function Home_new() {
                 </div>
               )) }
             </div>
+          </div>
+        </div>
+        <div className="newsFrameHomePage">
+          <div className="newsTextHomePage">
+              News
           </div>
         </div>
       </div>
