@@ -15,9 +15,10 @@
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;    
-    top: 2.5%;    
+    top: 8%;
+    left: 22%;    
     margin: 2%;
-    transform: scale(0.7, 0.7);
+    transform: scale(0.8, 0.8);
   }
 
 .AtLogout_k-u-people {
