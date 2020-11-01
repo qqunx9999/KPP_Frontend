@@ -17,7 +17,9 @@ export class CreateReportment_commentDto{
     @IsInt()
     at_comment: number;
     //@IsString()
-    status: string;
+    reportCNO: number;
+    status:string;
+    considered_by: {userID: ObjectID};
     //@IsDate()
     date_create:Date;
     //@IsDate()
