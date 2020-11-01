@@ -6,35 +6,70 @@ import Navigtion from '../component/NavBar';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { PageItem, Pagination } from 'react-bootstrap';
 
 const temp = {
   margin: "10px",
 };
 
 function Home_new() {
-  const [thread, setThread] = useState<any>([{}]);
+  const [latestThread, setLatestThread] = useState<any>([{}]);
+  const [hottestThread, setHottestThread] = useState<any>([{}]);
+  const [newsThread, setNewsThread] = useState<any>([{}]);
+  const [info, setInfo] = useState<any>([{}]);
+  const [pageNum, setPageNum] = useState<number>(1);
   const time = new Date();
   const history = useHistory();
-  const [page, changePage] = useState(1);
 
   const fetchNewThread = () => {
-    ThreadService.fetchLatestThread()
+    ThreadService.fetchLatestThread(pageNum)
       .then(obj => {
-        obj.map((item: any) => setThread(item.threads))
+        obj.map((item: any) => {
+          setLatestThread(item.threads);
+          setInfo(item.pageInfo);
+        });
       });
+
+    ThreadService.fetchHottestThread(pageNum)
+      .then(obj => {
+        obj.map((item: any) => {
+          setHottestThread(item.threads);
+        });
+      });
+
+    ThreadService.fetchNewsThread(pageNum)
+    .then(obj => {
+      obj.map((item: any) => {
+        setNewsThread(item.threads);
+      });
+    });
   };
+
+  function next() {
+    if(pageNum < info.total_comment) {
+      setPageNum(pageNum + 1);
+    }
+  };
+
+  function previous() {
+    if(pageNum > 0) {
+      setPageNum(pageNum - 1);
+    }
+  }
 
   function dateCount(timeString: string) {
     const day = new Date(timeString);
     const postTime = day.getTime();
     const currentTime = time.getTime();
     const convertToDay = 1000 * 3600 * 24;
-    const diffTime = Math.floor((currentTime - postTime) / convertToDay) ;
+    const diffTime = Math.floor((currentTime - postTime) / convertToDay);
     return Math.abs(diffTime);
   }
 
   useEffect(() => {
     fetchNewThread();
+    next();
+    previous();
   }, []);
 
   return (
@@ -45,8 +80,8 @@ function Home_new() {
           <div className="latestWhiteFrameHomePage">
             <div className="latestGreenFrameHomePage">
               <div className="stackLatestHomePage">
-                <h1>Latest</h1>
-                  { thread.map((item: any) => {
+                {/* <h1>Latest</h1> */}
+                  { latestThread.map((item: any) => {
                     return (
                       <div>
                       <Link to={`/Thread/${item.threadID}`}>
@@ -64,13 +99,20 @@ function Home_new() {
                   }) }
               </div>
             </div>
+            <button onClick={ previous }>Previous</button>
+                <button onClick={ next }>Next</button>
+          </div>
+          <div className="latestFrameHomePage">
+            <div className="latestTextHomePage">
+              Latest
+            </div>
           </div>
         <div style={temp}></div>
           <div className="hottestWhiteFrameHomePage">
             <div className="hottestGreenFrameHomePage">
               <div className="stackHottestHomePage">
-                <h1>Hottest</h1>
-                { thread.map((item: any) => (
+                {/* <h1>Hottest</h1> */}
+                { hottestThread.map((item: any) => (
                     <div>
                       <Link to={`/Thread/${item.threadID}`}>
                         <ul>
@@ -79,9 +121,11 @@ function Home_new() {
                             <div className="LDC">
                             <img className="likePic"src="https://www.freeiconspng.com/thumbs/youtube-like-png/youtube-like-button-png-11.png" alt=""/>
                             <p className="likeHottest">
-                           {item.up_vote_count}</p>
-                           <img className="dislikePic"src="https://pngimg.com/uploads/dislike/dislike_PNG63.png" alt=""/>
+                            {item.up_vote_count}</p>
+                            <img className="dislikePic"src="https://pngimg.com/uploads/dislike/dislike_PNG63.png" alt=""/>
                             <p className="dislikeHottest">  {item.down_vote_count}</p>
+                            <img className="commentPic" src="" alt="" />
+                            <p className="commentHottest">{ item.total_comment }</p>
                             </div>
                           </li>
                         </ul>
@@ -91,12 +135,17 @@ function Home_new() {
               </div>
             </div>
           </div>
+          <div className="hottestFrameHomePage">
+            <div className="hottestTextHomePage">
+              Hottest
+            </div>
+          </div>
         </div>
         <div className="newsWhiteFrameHomePage">
           <div className="newsGreenFrameHomePage">
             <div className="stackNewsHomePage">
-              <h1>News</h1>
-              { thread.map((item: any) => (
+              {/* <h1>News</h1> */}
+              { newsThread.map((item: any) => (
                 <div>
                   <Link to={`/Thread/${item.threadID}`}>
                     <ul>
@@ -110,9 +159,15 @@ function Home_new() {
             </div>
           </div>
         </div>
+        <div className="newsFrameHomePage">
+          <div className="newsTextHomePage">
+              News
+          </div>
+        </div>
       </div>
     </div>
   );
 }
+
 
 export default Home_new;

@@ -17,6 +17,7 @@ export class ChatroomsController {
         async findAll(): Promise<Chatroom[]> {
         return this.chatroomsService.findAll();
     }
+
     @Get(':chatroomID')
         async findOne(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID): Promise<Chatroom[]> {
         return this.chatroomsService.findOne(chatroomID);
@@ -39,12 +40,12 @@ export class ChatroomsController {
         return this.chatroomsService.findAllMessages(chatroomID);
     }
 
-    @Post(':chatroomID/user/:userID/messages')
-        async createMessages(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID ,@Param('userID', ParseObjectIdPipe) userID: ObjectID,
-              @Body() CreateChat_messageDto:CreateChat_messageDto){
-        CreateChat_messageDto.chatroomID = chatroomID;
-        CreateChat_messageDto.userID = userID ;
-        return  this.chatroomsService.createMessages(CreateChat_messageDto);
+    @Post(':chatroomID/messages')
+        async createMessages(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID,
+              @Body() createChat_messageDto:CreateChat_messageDto){
+        createChat_messageDto.chatroomID = chatroomID;
+        createChat_messageDto.userID = new ObjectID(createChat_messageDto.userID) ;
+        return  this.chatroomsService.createMessages(createChat_messageDto);
     }
 
     @Patch(':chatroomID')
@@ -53,7 +54,7 @@ export class ChatroomsController {
             return this.chatroomsService.updateChatroom(chatroomID ,updateChatroomDto);
         }
 
-        @Patch(':chatroomID/messages/:messageID')
+    @Patch(':chatroomID/messages/:messageID')
         async updateMessage(@Param('messageID',ParseObjectIdPipe) messageID:ObjectID,
         @Body() updateChat_messageDto:UpdateChat_messageDto){
             return this.chatroomsService.updateChat_message(messageID,updateChat_messageDto);

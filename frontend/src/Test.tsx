@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+// import ReactQuill from 'react-quill';
+// import 'react-quill/dist/quill.snow.css';
 
 class Test extends React.Component {
   // constructor(props: any) {
@@ -28,7 +28,7 @@ class Test extends React.Component {
   // ]
 
   render() {
-    console.log(this)
+    // console.log(this)
     return (
       // <div className="text-editor">
       //   <ReactQuill theme="snow"

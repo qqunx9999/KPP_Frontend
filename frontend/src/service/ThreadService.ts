@@ -1,9 +1,20 @@
 import { baseUrl } from '../config/constant';
-import { Thread } from '../interfaces/threadEntity';
 import AuthService from './AuthService';
 
-export async function fetchLatestThread(): Promise<[]> {
-    const res = await fetch(`${ baseUrl }/threads/filter/%20/Latest/8/1`)
+export async function fetchLatestThread(pageNum: number): Promise<[]> {
+    const res = await fetch(`${ baseUrl }/threads/filter/%20/Latest/8/${ pageNum }`)
+    const thread = res.json();
+    return thread;
+}
+
+export async function fetchHottestThread(pageNum: number): Promise<[]> {
+    const res = await fetch(`${ baseUrl }/threads/filter/%20/Hottest/8/${ pageNum }`)
+    const thread = res.json();
+    return thread;
+}
+
+export async function fetchNewsThread(pageNum: number): Promise<[]> {
+    const res = await fetch(`${ baseUrl }/threads/filter/%20/Newest/8/${ pageNum }`)
     const thread = res.json();
     return thread;
 }
@@ -55,8 +66,26 @@ export async function fetchComment(threadID: string | undefined) {
     return comment;
 }
 
+export async function fetchReportThread(userID: string) {
+    const res = await fetch(`${ baseUrl }/reports/reportTs/list/${ userID }/8/1`);
+    const report = res.json();
+    return report;
+}
+
+export async function fetchReportComment(userID: string) {
+    const res = await fetch(`${ baseUrl }/reports/reportCs/list/${ userID }/8/1`);
+    const report = res.json();
+    return report;
+}
+
+export async function reportThread() {
+    
+}
+
 export default {
     fetchLatestThread,
+    fetchHottestThread,
+    fetchNewsThread,
     fetchOneThread,
     passThreadNO,
     checkThreadNO,
@@ -64,4 +93,7 @@ export default {
     voteUp,
     voteDown,
     fetchComment,
+    fetchReportThread,
+    fetchReportComment,
+    reportThread,
 }; 

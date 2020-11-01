@@ -9,6 +9,8 @@ import {CreateChat_messageDto}  from 'src/dto/create-chat_message.dto';
 import { UpdateChatroomDto } from 'src/dto_update/update-chatroom.dto';
 import { CreateUserDto } from 'src/dto/create-user.dto';
 import { UpdateChat_messageDto} from 'src/dto_update/update-message.dto'
+import { User_info } from 'src/common/user_info';
+import { UsersService } from 'src/users/users.service';
 
 
 @Injectable()
@@ -18,14 +20,48 @@ export class ChatroomsService {
         private chatroomsRepository: Repository<Chatroom>,
         @InjectRepository(Chat_message)
         private chat_messagesRepository: Repository<Chat_message>,
+
+        private usersService: UsersService
       ) {}
 
     async findAll(): Promise<Chatroom[]> {
         return this.chatroomsRepository.find();
     }
 
-    async findOne(chatroomID: ObjectID): Promise<Chatroom[]>{
-        return this.chatroomsRepository.find({where:{ _id: chatroomID}});
+    async findOne(chatroomID: ObjectID): Promise<any>{
+        let chatroom: Chatroom;
+        
+        await this.chatroomsRepository.findOne({where:{ _id: chatroomID}})
+            .then(setchatroom=>{chatroom = setchatroom});
+        //console.log(chatroom);
+        let memberInfo: User_info[] = [];
+        for(let i = 0; i<chatroom.member_arr.length; i++ ){
+            let thismember = await this.usersService.findUserInfo(new ObjectID(chatroom.member_arr[i].userID));
+            memberInfo.push(thismember);
+        }
+        let allMess: Chat_message[]; 
+        await this.chat_messagesRepository.find({
+            where:{chatroomID: chatroomID, date_delete:null},
+            order:{date_create: "DESC"}
+        }).then(setAllMess=>{allMess = setAllMess});
+        let allMessWithOwn = []
+        for(let i = 0; i<allMess.length; i++){
+            let OwnMess;
+            for(let j =0; j<memberInfo.length; j++){
+                if(allMess[i].userID.toHexString() === memberInfo[j].userID.toString()){
+                    OwnMess = memberInfo[j];
+                }
+            }
+            
+            var messageWithOwn = {
+                "message": allMess[i],
+                "userInfo": OwnMess
+            }
+            allMessWithOwn.push(messageWithOwn);
+        }
+
+
+        return {"chatroomInfo":chatroom, "membersInfo":memberInfo, messagesInfo: allMessWithOwn};
     }
 
     async createChatroom(createChatroomDto: CreateChatroomDto) {
@@ -34,7 +70,7 @@ export class ChatroomsService {
         createChatroomDto.date_create = date ;
         createChatroomDto.date_delete = null ;
         createChatroomDto.date_lastactive = date;
-        createChatroomDto.totalmember = 0;
+        createChatroomDto.totalmember = createChatroomDto.member_arr.length;
         let Arraymember = [];
         for(let i = 0; i < createChatroomDto.member_arr.length;i++){
             let newmember = {userID:createChatroomDto.member_arr[i].userID,date_join_chat:date,date_leave_chat:null} ;
@@ -63,9 +99,10 @@ export class ChatroomsService {
         let date = new Date() ;
         date.setMinutes(date.getMinutes()+7*60);
         cr.date_lastactive = date;
+        await this.chatroomsRepository.update({chatroomID:cr.chatroomID}, {date_lastactive: cr.date_lastactive});
         createChat_messageDto.date_create = date;
         createChat_messageDto.date_delete = null ;
-        return this.chat_messagesRepository.save(createChat_messageDto)
+        return this.chat_messagesRepository.save(createChat_messageDto);
     }
 
     async updateChatroom(chatroomID:ObjectID, updateChatroomDto:UpdateChatroomDto){
@@ -158,5 +195,6 @@ export class ChatroomsService {
             updateChat_messageDto.date_delete = date;
             return this.chat_messagesRepository.update({messageID:messageID},updateChat_messageDto);
         }
+        return this.chat_messagesRepository.update({messageID: messageID}, updateChat_messageDto);
     }
 }
