@@ -21,6 +21,7 @@ export class CreateUserDto {
     //@IsInt()
     numberfriends: number ;//= 0;
     //@IsString()
+    quote:string;
     description: string ;//= '';
     text_type: {bold: boolean, italic: boolean, font:string, size:number};
     //@IsArray()

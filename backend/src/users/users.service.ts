@@ -395,6 +395,7 @@ export class UsersService {
         createUserDto.rank = "Beginner";
         createUserDto.friend_arr = [];
         createUserDto.numberfriends = 0;
+        createUserDto.quote = "";
         createUserDto.description = "";
         createUserDto.text_type = {bold:false, italic: false, font:"Arial", size:10};
         createUserDto.chatmember_arr = [];

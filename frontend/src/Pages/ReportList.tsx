@@ -22,7 +22,7 @@ export default function ReportList() {
   useEffect(() => {
     fetchReportThread();
     fetchReportComment();
-  }, []);
+  }, []);console.log(reportComment, reportThread);
 
   const temp = {
     "margin": "10px"
