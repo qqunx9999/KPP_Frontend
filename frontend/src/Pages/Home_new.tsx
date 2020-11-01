@@ -99,8 +99,6 @@ function Home_new() {
                   }) }
               </div>
             </div>
-            <button onClick={ previous }>Previous</button>
-                <button onClick={ next }>Next</button>
           </div>
           <div className="latestFrameHomePage">
             <div className="latestTextHomePage">

@@ -5,24 +5,21 @@ import ThreadService from '../service/ThreadService';
 
 export default function ReportList() {
   const [reportThread, setReportThread] = useState<any>({});
+  const [reportThreadInfo, setReportThreadInfo] = useState<any>({});
   const [reportComment, setReportComment] = useState<any>({});
+  const [reportCommentInfo, setReportCommentInfo] = useState<any>({});
 
   const fetchReportThread = () => {
     const userID = AuthService.getUserID();
     ThreadService.fetchReportThread(userID)
       .then(obj => setReportThread(obj));
-  };
-
-  const fetchReportComment = () => {
-    const userID = AuthService.getUserID();
     ThreadService.fetchReportComment(userID)
       .then(obj => setReportComment(obj));
   };
 
   useEffect(() => {
     fetchReportThread();
-    fetchReportComment();
-  }, []);console.log(reportComment, reportThread);
+  }, []);console.log(reportThread);
 
   const temp = {
     "margin": "10px"

@@ -68,7 +68,7 @@ export class ReportsService {
         RTs = setRT;
       });
     let admin: Admin;
-    await this.adminRepository.findOne({ where:{ _id: adminID } })
+    await this.adminRepository.findOne({ where:{ userID: adminID } })
       .then(setAdmin => {
         admin = setAdmin;
       });
@@ -100,7 +100,7 @@ export class ReportsService {
         RCs = setRC;
       });
     let admin: Admin;
-    await this.adminRepository.findOne({ where:{ _id: adminID } })
+    await this.adminRepository.findOne({ where:{ userID: adminID } })
       .then(setAdmin => {
         admin = setAdmin;
       });
