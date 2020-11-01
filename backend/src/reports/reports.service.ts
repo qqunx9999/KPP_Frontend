@@ -14,6 +14,7 @@ import { UpdateReportment_commentDto } from 'src/dto_update/update-reportc.dto';
 import { UpdateReportment_threadDto } from 'src/dto_update/update-reportT.dto';
 import User from 'src/entities/user.entity';
 import { NotificationsService } from 'src/notification/notification.service';
+import { UsersService } from 'src/users/users.service';
 
 @Injectable()
 export class ReportsService {
@@ -31,8 +32,10 @@ export class ReportsService {
     @InjectRepository(User)
     private usersRepository: Repository<User>,
 
+    
     private notificationsService: NotificationsService,
     private threadsService: ThreadsService,
+    private usersService: UsersService
       
   ) {}
 /*
@@ -52,7 +55,8 @@ export class ReportsService {
       });
     let rt_thread:ObjectID = rt.threadID
     const info_rt_thread = this.threadsService.findOneThreadWithOwn(rt_thread);
-    return [rt, await(info_rt_thread)];
+    const own = this.usersService.findUserInfo(new ObjectID(rt.userID));
+    return [rt, await(info_rt_thread), await(own)];
   }
 
   async findOneReportedComment(reportCID: ObjectID): Promise<Reportment_comment[]>{
@@ -65,7 +69,8 @@ export class ReportsService {
     let rc_comment:ObjectID = rc.commentID
     //const info_rc_thread = this.threadsService.findOneThreadWithOwn(rc_thread);
     const info_rc_comment = this.threadsService.findOneComment(rc_comment);
-    return [rc,  await(info_rc_comment)];
+    const own = this.usersService.findUserInfo(new ObjectID(rc.userID));
+    return [rc,  await(info_rc_comment), await(own)];
   }
 
   async RTlisting(adminID: ObjectID): Promise<any[][]>{

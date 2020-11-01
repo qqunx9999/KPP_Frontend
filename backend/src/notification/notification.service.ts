@@ -15,34 +15,48 @@ export class NotificationsService {
         private chatroomsRepository: Repository<Chatroom>,
     ){}
 
-    async find_id_chat(userID: ObjectID,chatroomID: ObjectID): Promise <Notifications> {
-        return this.notificationsRepository.findOne({where:{userID: userID, object_type: 'chat',chatroomID: chatroomID}})
-    } // get one id
+    // async find_id_chat(userID: ObjectID,chatroomID: ObjectID): Promise <Notifications> {
+    //     return this.notificationsRepository.findOne({where:{userID: userID, object_type: 'chat',chatroomID: chatroomID}})
+    // } // get one id
     
-    async find_id_friend(userID: ObjectID): Promise <Notifications> {
-        return this.notificationsRepository.findOne({where:{userID: userID, object_type: 'friend_request'}})
-    } // get one id
+    // async find_id_friend(userID: ObjectID): Promise <Notifications> {
+    //     return this.notificationsRepository.findOne({where:{userID: userID, object_type: 'friend_request'}})
+    // } // get one id
 
-    async find_id_report(userID: ObjectID): Promise <Notifications> {
-        return this.notificationsRepository.findOne({where:{userID: userID, object_type: 'report'}})
-    } // get one id
+    // async find_id_report(userID: ObjectID): Promise <Notifications> {
+    //     return this.notificationsRepository.findOne({where:{userID: userID, object_type: 'report'}})
+    // } // get one id
     
-    async allUnread(userID: ObjectID): Promise <Notifications[]> {
-        return this.notificationsRepository.find({where:{userID: userID, object_type: 'chat'}})
+    async allUnread(userID: ObjectID): Promise <any> {
+        let allnoti: Notifications[]
+        await this.notificationsRepository.find({where:{userID: userID, date_read:null}})
+            .then(set => {allnoti = set});
+        // allnoti = allnoti.filter(each =>{if(each.object_type !== "chat"){return true;}})
+        // let allnotiwithInfo = [];
+        // for(let i = 0; i<allnoti.length; i++){
+        //     if(allnoti[i].object_type == "friend_request" || allnoti[i].object_type == "friend_accept"){
+        //         var notiwithinfo = {
+        //             notificationInfo: allnoti[i],
+                    
+        //         }
+        //     }
+
+        // }
+        return allnoti;
     }
 
-    async friendRequest(userID: ObjectID): Promise <Notifications[]> {
-        return this.notificationsRepository.find({userID: userID, object_type: 'friend_request'})
+    async noticontacts(userID: ObjectID): Promise <Notifications[]> {
+        return this.notificationsRepository.find({userID: userID, object_type: 'chat', date_read:null})
     }
 
-    async report(userID: ObjectID): Promise <Notifications[]> {
-        return this.notificationsRepository.find({userID: userID, object_type: 'report'})
-    }
+    // async report(userID: ObjectID): Promise <Notifications[]> {
+    //     return this.notificationsRepository.find({userID: userID, object_type: 'report'})
+    // }
 
-    async findReport(notificationDto: NotificationDto){
-        const admin = this.notificationsRepository.find({object_type: 'report'})
-        return admin;
-    }
+    // async findReport(notificationDto: NotificationDto){
+    //     const admin = this.notificationsRepository.find({object_type: 'report'})
+    //     return admin;
+    // }
 
     async postFriendRequest(userID1: ObjectID, userID2: ObjectID){
         let date_noti = new Date();

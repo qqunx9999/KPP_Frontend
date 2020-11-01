@@ -11,16 +11,14 @@ export class NotificationController {
 
     constructor(private notificationService: NotificationsService) {}
 
-    @Get('/contacts/users/:userID')
-    async allUnread(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise <Notifications[]> {
+    @Get('/any/users/:userID')
+    async allUnread(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise <any> {
         return this.notificationService.allUnread(userID);
     }
 
-    @Get('/any/users/:userID')
-    async friendRequest(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise <any>{
-        const friend_noti = await this.notificationService.friendRequest(userID);
-        const report_noti = await this.notificationService.report(userID);
-        return {friend_noti,report_noti}
+    @Get('/contact/users/:userID')
+    async noticontact(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise <any>{
+        return this.notificationService.noticontacts(userID);
     }
 
     // @Post('/friend_request')
