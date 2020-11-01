@@ -45,7 +45,19 @@ const Navigtion = () => {
           <div className="container">
 
           <li>
-            { user.isAdmin ? <Link to="/ReportList"><div className="frame-notification"><img src={ reportButton } alt="React is hell !!!" width = "52" height="50" title="ReportList"/></div></Link> : <div className="frame-notification"><Link to=""><img src={ notiButton } alt="React is hell !!!" width = "52" height="50" title="Notification"/></Link></div> }
+            { user.isAdmin ? 
+            <Link to="/ReportList"><div className="frame-notification">
+              <img src={ reportButton } alt="React is hell !!!" width = "52" height="50" title="ReportList"/>
+              </div></Link> : <div className="frame-notification">
+              <li className="nav-item dropdown active ml-1">
+          <NavDropdown title={
+          <img src={notiButton} alt="React is hell !!!" width = "52" height="50" className="rounded-circle z-depth-0" />}
+          id="collasible-nav-dropdown">
+              {/* <NavDropdown.Item ><Link to={ `/Profile` }><a className="dropdown-item" >Profile</a></Link> </NavDropdown.Item> */}
+              <NavDropdown.Item ><Link to={ `/Profile` }><a className="dropdown-item" >Get Ready To Use </a></Link> </NavDropdown.Item>
+          </NavDropdown>
+          </li>
+          </div> }
           </li>
 
           <li className="nav-item active">
@@ -67,7 +79,8 @@ const Navigtion = () => {
 
           <li className="nav-item dropdown active ml-1">
           <NavDropdown title={
-          <img src={profilePic} alt="React is hell !!!" width = "52" height="50" className="rounded-circle z-depth-0" />} id="collasible-nav-dropdown">
+          <img src={profilePic} alt="React is hell !!!" width = "52" height="50" className="rounded-circle z-depth-0" />}
+          id="collasible-nav-dropdown">
               <NavDropdown.Item ><Link to={ `/Profile` }><a className="dropdown-item" >Profile</a></Link> </NavDropdown.Item>
               <NavDropdown.Item ><Link to={ `/Setting` }><a className="dropdown-item" >Setting</a></Link></NavDropdown.Item>
               <NavDropdown.Item><Link to={ `/AuthenLogout`}> <a className="dropdown-item" onClick={ logOut }>Log out</a></Link></NavDropdown.Item> 

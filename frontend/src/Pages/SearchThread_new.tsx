@@ -29,7 +29,7 @@ const SearchThread_new = () => {
             <Form>
               <div className="frameSearchAndTopicSearchThread">
               <div className="searchTextSearchAndTopicSearchThread">Search :</div>
-              <Field type="input" name="keyword" className="inputKeywordSearchThread" placeholder="Enter your keyword" style={{ width:"800px" , height:"60px" }} />
+              <Field type="input" name="keyword" className="inputKeywordSearchThread" placeholder="Enter your keyword" style={{ width:"800px" , height:"60px" ,fontSize: "30px"}} />
               <button  disabled={ isSubmitting } className="btn btn-success frameSubmitSearchThread">
                 <div className="btn textSubmitSearchThread"> Submit </div>
               </button>             
