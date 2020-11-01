@@ -6,6 +6,8 @@ import logoPic from '../Pages/image/kuppl2.png'
 import searchBlog from '../Pages/image/createSearchSymbol.png'
 import createBlog from '../Pages/image/createBlogSymbol.png'
 import profilePic from '../Pages/image/Patrick.png'
+import notiButton from '../Pages/image/Notify-button.png'
+import reportButton from '../Pages/image/Report-button.png'
 import '../CSSsource/NavBar.css';
 
 const Navigtion = () => {

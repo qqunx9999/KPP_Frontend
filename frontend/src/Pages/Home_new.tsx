@@ -85,6 +85,7 @@ function Home_new() {
     fetchNewThread();
   }, []);
 
+  //console.log(thread)
   return (
     <div>
       <Navigtion />

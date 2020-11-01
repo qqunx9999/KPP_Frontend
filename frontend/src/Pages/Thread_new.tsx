@@ -14,6 +14,7 @@ function Threads_new() {
   const fetchThread = () => {
     ThreadService.fetchOneThread({ ThreadID }.ThreadID)
       .then(obj => {
+        console.log(obj)
         setThread(obj);
       });
   };
@@ -49,6 +50,7 @@ function Threads_new() {
     return time;
   }console.log(thread)
 
+  //console.log(thread)
   return (
     <div>
       <Navigtion />
@@ -63,11 +65,11 @@ function Threads_new() {
               by : &nbsp;
                 { thread.userInfo.name }
             </div>
-            <div>
+            <div className="thread-topic-createdate">
               When : &nbsp;
                 { toDate(thread.thread.date_create) }
             </div>
-            <div>
+            <div className="thread-topic-lastedit">
               Last edit : &nbsp;
             </div>
             <div className="thread-topic-detail-frame">
