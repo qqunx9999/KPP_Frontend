@@ -253,7 +253,9 @@
     color: #ffffff;
     font-size: 23px;
     letter-spacing: 3px;
-    
+    position: absolute;
+    top: 10%;
+    left: 5%;
   }
 
   
@@ -290,6 +292,9 @@
     font-size: 23px;
     letter-spacing: 3px;
     line-height: 2;
+    position: absolute;
+    top: 10%;
+    left: 0%;
     
   }
 
@@ -324,11 +329,10 @@
     color: #ffffff;
     font-size: 23px;
     letter-spacing: 3px;
-    line-height: 3;
-    position: absolute;
-    top: -3px;
-    left: 80px;
     line-height: 2.5;
+    position: absolute;
+    top: 2%;
+    left: 40%;
   }
 
   .facultyFrameSearchThread {
@@ -348,6 +352,7 @@
     width: 30px;
     height: 30px;
     border-width: 1;
+    text-align: center;
     color: white;
     position: absolute;
     top: 10px;
@@ -362,10 +367,10 @@
     color: #ffffff;
     font-size: 23px;
     letter-spacing: 3px;
-    line-height: 3;
+    line-height: 1;
     position: absolute;
-    top: -3px;
-    left: 80px;
+    top: -36px;
+    left: 60px;
     line-height: 2.5;
   }
 
@@ -402,8 +407,8 @@
     letter-spacing: 3px;
     line-height: 3;
     position: absolute;
-    top: -3px;
-    left: 60px;
+    top: 0%;
+    left: 30%;
     line-height: 2.5;
   }
 
@@ -440,8 +445,8 @@
     letter-spacing: 3px;
     line-height: 3;
     position: absolute;
-    top: -3px;
-    left: 80px;
+    top: 0%;
+    left: 30%;
     line-height: 2.5;
   }
 
@@ -478,8 +483,8 @@
     letter-spacing: 3px;
     line-height: 3;
     position: absolute;
-    top: -3px;
-    left: 80px;
+    top: 0%;
+    left: 30%;
     line-height: 2.5;
   }
 
@@ -516,8 +521,8 @@
     letter-spacing: 3px;
     line-height: 3;
     position: absolute;
-    top: -3px;
-    left: 80px;
+    top: 0%;
+    left: 30%;
     line-height: 2.5;
   }
 
@@ -926,6 +931,21 @@
     position: relative;
     top: 10px;
     left: 5px;
+  }
+
+  .facultySubTextSearchThread {
+    width: 250px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 2;
+    position: absolute;
+    top: 10px;
+    left: 65px;
+    
   }
 
 

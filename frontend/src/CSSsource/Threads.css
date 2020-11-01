@@ -272,14 +272,17 @@
   }
 
 .thread-givecomment-txt {
-    width: 185px;
+    width: 250px;
     height: 63px;
     overflow: visible;
     font-family: "Inter", sans-serif;
     color: var(--Theme1, #ffffff);
-    font-size: 21px;
+    font-size: 23px;
     letter-spacing: 3px;
     line-height: 3;
+    position: absolute;    
+    top: 10%;
+    left: 19%;
     
   }
 
