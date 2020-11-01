@@ -24,7 +24,7 @@ function ChangeNameForm() {
         {({ isSubmitting }) => (
         <Form>
             <Field type="input" name="newName" className="cName_newname_input" placeholder="Type your new name... (Only characters and Numbers allowed.)" style={{ width:"800px" , height:"60px" }}/>
-            <button disabled={ isSubmitting }>Confirm</button>
+            <button className="cName-confirmbutton" disabled={ isSubmitting }>Confirm</button>
         </Form>
         )}
         </Formik>
