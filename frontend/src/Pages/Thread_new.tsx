@@ -79,7 +79,7 @@ function Threads_new() {
           { thread.thread.tagg_arr }
         </div>
 
-        <button className="thread_goback_button" onClick={history.goBack}>&lt; Go Back</button>
+        <button className="thread_goback_button" onClick={history.goBack}> Go Back</button>
         <Link to={`/CreateComment/${{ ThreadID }.ThreadID}`}><button className="thread-givecm-button">
           <div className="comment-button-icon">
           </div> 
