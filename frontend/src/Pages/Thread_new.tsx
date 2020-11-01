@@ -7,7 +7,7 @@ import Navigtion from '../component/NavBar';
 
 function Threads_new() {
   const { ThreadID } = useParams();
-  const [thread, setThread] = useState<any>({thread:{}, userInfo:{}});
+  const [thread, setThread] = useState<any>({thread:{ tag_arr:[] }, userInfo:{}});
   const [comment, setComment] = useState<any[]>([{comment:{}, userInfo:{}}]);
   const history = useHistory();
 
@@ -43,7 +43,7 @@ function Threads_new() {
     const year = String(day.getFullYear());
     const time = date + '/' + month + '/' + year;
     return time;
-  }
+  } console.log(thread.thread.tag_arr);
 
   return (
     <div>
@@ -76,7 +76,7 @@ function Threads_new() {
 
         <div className="thread-tags-frame">
           <div className="threads_tags_tags">Tags :</div>
-          { thread.thread.tagg_arr }
+          { thread.thread.tag_arr }
         </div>
 
         <button className="thread_goback_button" onClick={history.goBack}>&lt; Go Back</button>
