@@ -36,12 +36,12 @@ function Profile_new() {
             <div className="frameLeftGrayUserProfile">
               <div className="textJoinUserProfile">Join</div>
               <div className="textJoinedDateUserProfile">{dateCount(user.date_join)}</div>
-              <div>{user.rank}</div>
-              <div>{user.exp}</div>
+              <div className="userRankUserProfile">{user.rank}</div>
+              <div className="userExpUserProfile">{user.exp}</div>
             </div>
             <div className="textProfileUserProfile">Profile</div>
-            {user.name}
-            {user.description}
+            <div className="usernameUserProfile">{user.name}</div>
+            <div className="userQuotationUserProfile">{user.description}</div>
             <div>{user.username}</div>
             <button className="frameGobackUserProfile" onClick={history.goBack}>
               <div className="textGobackUserProfile"> Go Back</div>

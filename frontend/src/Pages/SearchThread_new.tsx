@@ -29,7 +29,8 @@ const SearchThread_new = () => {
     <div>
       <Navigtion />
       <div className="backgroundSearchThread">
-        <button className="btn btn-success sThread_goback_buttonn" onClick={history.goBack}>Go Back</button>
+        <div className="frameResultSearchThread"></div>
+        <button className="btn btn-success sThread_goback_buttonn" onClick={ history.goBack }> Go Back</button>
         <Formik
           initialValues={{ keyword: '', tags: '', sort: '', faculty: '' }}
           onSubmit={async (values, actions) => {
@@ -132,7 +133,7 @@ const SearchThread_new = () => {
             </Form>
           )}
         </Formik>
-        <div className="frameResultSearchThread"></div>
+        
       </div>
     </div>
   );

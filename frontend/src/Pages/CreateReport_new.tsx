@@ -12,7 +12,7 @@ function CreateReport_new() {
     <div>
       <Navigtion />
       <div className="createrp-bigframe">        
-        <button className="createrp_goback_button" onClick={ history.goBack }>&lt; Go Back</button>
+        <button className="createrp_goback_button" onClick={ history.goBack }>Go Back</button>
         <div className="createrp_whiteframe">
           <div className="createrp-report">Report</div>
           <ReportForm />

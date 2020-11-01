@@ -26,7 +26,7 @@
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25) ! important;
     position: absolute ! important;    
     top: 40px ! important;
-    left: 25px ! important;
+    left: 40px ! important;
     transform: scale(1, 1) ! important;
     border-width: 0px ! important;
   }
@@ -42,7 +42,7 @@
     transform: scale(0.9, 0.9);
     position: absolute;
     top: -2%;
-    left: 20%;
+    left: 16%;
   }
 
 .createNewThreadTextCreateThread {

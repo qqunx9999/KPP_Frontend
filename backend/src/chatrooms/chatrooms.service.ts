@@ -11,6 +11,7 @@ import { CreateUserDto } from 'src/dto/create-user.dto';
 import { UpdateChat_messageDto} from 'src/dto_update/update-message.dto'
 import { User_info } from 'src/common/user_info';
 import { UsersService } from 'src/users/users.service';
+import { NotificationsService } from 'src/notification/notification.service';
 
 
 @Injectable()
@@ -21,7 +22,8 @@ export class ChatroomsService {
         @InjectRepository(Chat_message)
         private chat_messagesRepository: Repository<Chat_message>,
 
-        private usersService: UsersService
+        private usersService: UsersService,
+        private notificationsService: NotificationsService
       ) {}
 
     async findAll(): Promise<Chatroom[]> {
@@ -111,6 +113,12 @@ export class ChatroomsService {
         await this.chatroomsRepository.update({chatroomID:cr.chatroomID}, {date_lastactive: cr.date_lastactive});
         createChat_messageDto.date_create = date;
         createChat_messageDto.date_delete = null ;
+        //noti
+        for(let i = 0; i<cr.member_arr.length;i++){
+            if(cr.member_arr[i].userID.toHexString() !== createChat_messageDto.userID.toHexString()){
+                await this.notificationsService.postChatroom(new ObjectID(cr.member_arr[i].userID), chatroomID);
+            }
+        }
         return this.chat_messagesRepository.save(createChat_messageDto);
     }
 
