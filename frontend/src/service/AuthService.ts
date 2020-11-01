@@ -16,10 +16,9 @@ async function LoginUser(email: string, password: string): Promise<any | null> {
     });
     const result = await res.json();
     if (result.access_token) {
-        localStorage.setItem("user", result);
         localStorage.setItem("token", result.access_token);
-        localStorage.setItem("username", result.username);
         localStorage.setItem("userID", result.userID);
+        localStorage.setItem("isAdmin", result.isAdmin);
         return result;
     } else {
         return null;
@@ -47,10 +46,10 @@ async function ForgetPass(email: string, password: string, conPassword: string, 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            email: email,
-            password: password,
-            conPassword: conPassword,
-            verify: verify,
+            "email": email,
+            "password": password,
+            "conPassword": conPassword,
+            "verify": verify,
         }),
     });
     const result = await res.json();
@@ -59,6 +58,12 @@ async function ForgetPass(email: string, password: string, conPassword: string, 
     } else {
         return null;
     };
+};
+
+async function fetchUser(userID: string): Promise<any | null> {
+    const res = await fetch(`${ baseUrl }/users/${ userID }`);
+    const result = await res.json();
+    return result
 };
 
 function isUserLoggedIn(): boolean {
@@ -75,10 +80,7 @@ function getUserName(): string | null {
 
 function logOutUser(): void {
     if (isUserLoggedIn()) {
-        localStorage.removeItem("token");
-        localStorage.removeItem("username");
-        localStorage.removeItem("userID");
-        localStorage.removeItem("user");
+        localStorage.clear();
     }
 }
 
@@ -96,14 +98,21 @@ function getUserID(): any {
     }
 }
 
+function checkAdmin(): boolean {
+    console.log(localStorage)
+    return localStorage.isAdmin;
+}
+
 export default {
     LoginUser,
     SignupUser,
     ForgetPass,
+    fetchUser,
     isUserLoggedIn,
     getUserName,
     logOutUser,
     getAccessToken,
     getUserInfo,
     getUserID,
+    checkAdmin,
 };

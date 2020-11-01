@@ -7,12 +7,12 @@ import CommentForm from '../component/CommentForm';
 import '../CSSsource/CreateComment.css';
 
 function CreateComment_new() {
-  const [thread, setThread] = useState<Thread[]>([]);
+  const [thread, setThread] = useState<any>({thread:{}, userInfo:{}});
   const history = useHistory();
   const { ThreadID } = useParams();
 
   const fetchThread = () => {
-    ThreadService.fetchThread()
+    ThreadService.fetchOneThread({ ThreadID }.ThreadID)
       .then(obj => {
         setThread(obj);
       });
@@ -25,7 +25,7 @@ function CreateComment_new() {
   return (
     <div>
       <Navigtion />
-        <div className="createcm-bigframe">        
+      <div className="createcm-bigframe">        
         <button className="createcm_goback_button" onClick={ history.goBack }>&lt; Go Back</button> <br />
         <div className="createcm-whiteframe">
           <div className="createcm-give-comment">
@@ -36,11 +36,7 @@ function CreateComment_new() {
               In Topic :
             </div>
             <div className="createcm-topic-name">              
-              { thread.map(item => {
-                if (item.threadID === { ThreadID }.ThreadID) {
-                  return " " + item.topic
-                }
-              }) }
+              { thread.thread.topic }
             </div>
           </div>
           <CommentForm />

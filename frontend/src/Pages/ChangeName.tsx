@@ -18,8 +18,6 @@ function ChangeName() {
               <div className="cName-new-name_">New Name :</div>
               <ChangeNameForm />
             </div>
-            <button className="cName-confirmbutton" onClick={ history.goBack }>&lt; Confirm</button>
-
           </div>
         </div>  
   

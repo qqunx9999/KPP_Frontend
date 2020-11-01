@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, HttpException, HttpStatus } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, HttpException, HttpStatus, Patch } from '@nestjs/common';
 import { ObjectID } from 'mongodb'
 import { ParseObjectIdPipe } from '../common/pipes';
 import { ChatroomsService } from './chatrooms.service'
@@ -7,7 +7,8 @@ import Chat_message from 'src/entities/chat_message.entity';
 import {CreateChatroomDto}  from 'src/dto/create-chatroom.dto';
 import {CreateChat_messageDto}  from 'src/dto/create-chat_message.dto';
 import User from 'src/entities/user.entity';
-
+import { UpdateChatroomDto } from 'src/dto_update/update-chatroom.dto';
+import { UpdateChat_messageDto} from 'src/dto_update/update-message.dto'
 
 @Controller('chatrooms')
 export class ChatroomsController {
@@ -39,15 +40,25 @@ export class ChatroomsController {
         return this.chatroomsService.findAllMessages(chatroomID);
     }
 
-    @Post(':chatroomID/user/:userID/messages')
-        async createMessages(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID ,@Param('userID', ParseObjectIdPipe) userID: ObjectID,
-              @Body() CreateChat_messageDto:CreateChat_messageDto){
-        CreateChat_messageDto.chatroomID = chatroomID;
-        CreateChat_messageDto.userID = userID ;
-        let date = new Date() ;
-        date.setMinutes(date.getMinutes()+7*60);
-        CreateChat_messageDto.date_create = date;
-        return  this.chatroomsService.createMessages(CreateChat_messageDto);
+    @Post(':chatroomID/messages')
+        async createMessages(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID,
+              @Body() createChat_messageDto:CreateChat_messageDto){
+        createChat_messageDto.chatroomID = chatroomID;
+        createChat_messageDto.userID = new ObjectID(createChat_messageDto.userID) ;
+        return  this.chatroomsService.createMessages(createChat_messageDto);
     }
+
+    @Patch(':chatroomID')
+        async updateChatroom(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID,
+        @Body() updateChatroomDto:UpdateChatroomDto){
+            return this.chatroomsService.updateChatroom(chatroomID ,updateChatroomDto);
+        }
+
+    @Patch(':chatroomID/messages/:messageID')
+        async updateMessage(@Param('messageID',ParseObjectIdPipe) messageID:ObjectID,
+        @Body() updateChat_messageDto:UpdateChat_messageDto){
+            return this.chatroomsService.updateChat_message(messageID,updateChat_messageDto);
+        }
+
 
 }

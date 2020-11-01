@@ -1,12 +1,13 @@
 import { Formik, Form, Field } from 'formik';
 import React from 'react';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { baseUrl } from '../config/constant';
 import '../CSSsource/CreateComment.css';
 import AuthService from '../service/AuthService';
 
 function CommentForm() {
   const { ThreadID } = useParams();
+  const history = useHistory();
 
   return (
     <Formik
@@ -31,7 +32,7 @@ function CommentForm() {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(createOption)
-        }).then(obj => console.log(obj));
+        }).then(history.goBack);
         actions.setSubmitting(false);
       }}
     >
@@ -39,8 +40,8 @@ function CommentForm() {
         <Form>
           <div className="createcm-repltyo-frame">
             <label>
-            <div className="createcm-replyto">Reply to:</div>
-            <Field type="input" id="createcm_replyto_input" name="reply" placeholder="Comment numbers" style={{ width: "250px", height: "70px" }} />
+              <div className="createcm-replyto">Reply to:</div>
+              <Field type="input" id="createcm_replyto_input" name="reply" placeholder="Comment numbers" style={{ width: "250px", height: "70px" }} />
             </label>
           </div>
 

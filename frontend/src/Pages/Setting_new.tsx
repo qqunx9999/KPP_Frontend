@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import Navigtion from '../component/NavBar';
-import { Userinfo } from '../interfaces/userInfoEntity';
 import UserService from '../service/UserService';
 import '../CSSsource/Setting.css';
+import { EmailID } from '../component/LoginForm';
+import { Link } from 'react-router-dom';
 
 function Setting_new() {
-  const [user, setUser] = useState<Userinfo[]>([]);
+  const [user, setUser] = useState<any>({});
   const history = useHistory();
 
-  
-
   const fetchUser = () => {
-    UserService.fetchUser();
+    UserService.fetchUser()
+      .then(obj => setUser(obj))
   };
 
   useEffect(() => {
@@ -29,11 +29,18 @@ function Setting_new() {
           </button>
           <div className="textSettingUserSetting">Setting</div>
           <div className="frameBlackUserSetting">
-            <div className="textNameUserProfile">Name :</div>            
-            <div className="textUsernameUserProfile"> Username : </div>
-            <div className="textEmailUserProfile"> Email: </div>
-            <div className="textYourquoteUserProfile"> Your Quote: </div>
+            <div className="textNameUserProfile">Name : {user.name}</div>
+            <div className="textUsernameUserProfile"> Username : {user.username}</div>
+            <div className="textEmailUserProfile"> Email: {user.email}</div>
+            <div className="textYourquoteUserProfile"> Your Quote: {user.description}</div>
           </div>
+          <Link to="/Setting/ChangeName">
+            <div className="frameChangePasswordUserProfile">
+              <div className="textChangePasswordUserProfile">
+                Change Password
+            </div>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

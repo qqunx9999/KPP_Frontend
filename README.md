@@ -20,6 +20,7 @@
           <ul>
             <li>react bootstrap : <code>npm install react-bootstrap bootstrap</code></li>
             <li>formik form : <code>npm install --save formik</code></li>
+            <li>Yup validate : <code>npm install --save yup</code></li>
           </ul>
         </li>
       </ul>
@@ -38,6 +39,7 @@
               <code>npm install --save @nestjs/jwt passport-jwt</code> <br>
               <code>npm install --save-dev @types/passport-jwt</code>
             </li>
+            <li>nest encrypt : <code>npm install brcypt --save</code></li>
           </uL>
         </li>
       </ul>

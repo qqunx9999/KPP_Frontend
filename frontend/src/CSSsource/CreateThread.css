@@ -1,22 +1,48 @@
 .backgroundCreateThread {
     width: 100%;
-    height: 100%;
+    height: 130%;
     overflow: hidden;
-    background: var(--Theme6, #47624f);
+    background: var(--B5, #d6ce15);
     position: absolute;
   }
+
+  .sThread_goback_button:hover{
+    background: var(--Theme3, #0f0508) ! important; /* Green */
+  }
+
+
+
+.sThread_goback_button {
+    background: var(--Theme3, #0f0508) ! important; /* Green */
+
+    border-radius: 19px ! important;
+    color: white ! important;
+    width: 207px ! important;
+    height: 90px ! important;
+    text-align: center ! important;
+    text-decoration: none ! important;
+    display: inline-block ! important;
+    font-size: 30px ! important;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25) ! important;
+    position: absolute ! important;    
+    top: 40px ! important;
+    left: 25px ! important;
+    transform: scale(1, 1) ! important;
+    border-width: 0px ! important;
+  }
+
 
 .whiteFrameCreateThread {
     width: 1348px;
     height: 1300px;
     overflow: visible;
-    background: var(--Theme1, #ffffff);
+    background: var(--B3, #53900f);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
-    transform: scale(0.6, 0.6);
+    transform: scale(0.9, 0.9);
     position: absolute;
-    top: -25%;
-    left: 15%;
+    top: -2%;
+    left: 20%;
   }
 
 .createNewThreadTextCreateThread {
@@ -25,7 +51,7 @@
     overflow: visible;
     text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
     font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
+    color: var(--Theme1, #ffffff);
     font-size: 91px;
     letter-spacing: 0px;
     line-height: 1.2;
@@ -38,7 +64,7 @@
     width: 1235px;
     height: 101px;
     overflow: visible;
-    background: var(--Theme3, #0f0508);
+    background: var(--B1, #1f2605);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     position: absolute;
@@ -84,7 +110,7 @@
     width: 1233px;
     height: 174px;
     overflow: visible;
-    background: var(--Theme3, #0f0508);
+    background: var(--B1, #1f2605);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     position: absolute;
@@ -390,15 +416,15 @@
 }
 
 .nonsenseTextCreateThread {
-    width: 50px;
-    height: 69px;
-    overflow: visible;
-    font-family: "Inter", sans-serif;
-    color: #ffffff;
-    font-size: 23px;
-    letter-spacing: 3px;
-    line-height: 2.5;
-    position: absolute;
+  width: 50px;
+  height: 69px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  font-size: 23px;
+  letter-spacing: 3px;
+  line-height: 2.5;
+  position: absolute;
     top: -3px;
     left: 80px;
   }
@@ -407,7 +433,7 @@
     width: 1231px;
     height: 700px;
     overflow: visible;
-    background: var(--Theme3, #0f0508);
+    background: var(--B1, #1f2605);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     position: absolute;
@@ -433,7 +459,7 @@
     width: 488px;
     height: 150px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--B4, #a4a71e);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     position: absolute;
@@ -622,28 +648,28 @@
   }
 
   .frameSendCreateThread {
-    width: 116px;
-    height: 53px;
-    overflow: visible;
-    background: var(--ThemeSup1, #9beb33);
-    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
-    border-radius: 15px;
-    position: absolute;
-    top: 75px;
-    left: 355px;
+    width: 116px !important;
+    height: 53px !important;
+    overflow: visible !important;
+    background: var(--ThemeSup1, #9beb33) !important;
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25) !important;
+    border-radius: 15px !important;
+    position: absolute !important;
+    top: 75px !important;
+    left: 355px !important;
   }
 
   .textSendToolsPlaceYourContentCreateThread {    
-    overflow: visible;
-    font-family: "Inter", sans-serif;
-    color: #7e7c7c;
-    font-size: 36px;
-    letter-spacing: 3px;
-    line-height: 3;
-    position: absolute;
-    top: -25px;
-    left: 10px;
-    line-height: 2.5;
+    overflow: visible !important;
+    font-family: "Inter", sans-serif !important;
+    color: #7e7c7c !important;
+    font-size: 36px !important;
+    letter-spacing: 3px !important;
+    line-height: 3 !important;
+    position: absolute !important;
+    top: -25px !important;
+    left: 10px !important;
+    line-height: 2.5 !important;
   }
 
 .inputContentCreateThread {

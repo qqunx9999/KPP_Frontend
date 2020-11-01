@@ -1,8 +1,8 @@
 .backgroundHomePage {
     width: 100%;
-    height: 200%;
+    height: 350%;
     overflow: hidden;
-    background: var(--Theme6, #47624f);
+    background: var(--B5, #d6ce15);
     position: absolute;
     
   }
@@ -219,10 +219,10 @@ div.LDC {
     overflow: visible;
     background: var(--ThemeSup1, #9beb33);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
-    transform: scale(0.6, 0.6) rotate(342deg);
+    transform: scale(1, 1) rotate(342deg);
     position: absolute;
-    top: 2.5%;
-    left: 18%;
+    top: 4%;
+    left: 4%;
     
   }
 
@@ -245,12 +245,12 @@ div.LDC {
     width: 1594px;
     height: 916px;
     overflow: visible;
-    background: var(--Theme1, #ffffff);
+    background: var(--B3, #53900f);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
-    transform: scale(0.6, 0.6);
+    transform: scale(1, 1);
     position: absolute;
-    top: -6%;
+    top: 5%;
     left: 8%;
     margin: auto;
   }
@@ -259,7 +259,7 @@ div.LDC {
     width: 1496px;
     height: 720px;
     overflow: visible;
-    background: var(--Theme5, #6cc551);
+    background: var(--B1, #1f2605);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;
@@ -315,6 +315,7 @@ div.LDC {
     justify-content: space-evenly;
     align-items: center;
     overflow: visible;
+    color: #ffffff;
   }
 
 .stackLatestPageNumberHomePage {
@@ -521,13 +522,13 @@ div.LDC {
   .hottestFrameHomePage {
     width: 316px;
     height: 77px;
-    transform: scale(0.6, 0.6) rotate(342deg);
+    transform: scale(1, 1) rotate(342deg);
     overflow: visible;
     background: var(--Theme3, #0f0508);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     position: absolute;
-    top: 34.5%;
-    left: 18%;
+    top: 34%;
+    left: 4%;
   }
 
 .hottestTextHomePage {
@@ -548,12 +549,12 @@ div.LDC {
     width: 1594px;
     height: 916px;
     overflow: visible;
-    background: var(--Theme1, #ffffff);
+    background: var(--B3, #53900f);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
-    transform: scale(0.6, 0.6);
+    transform: scale(1, 1);
     position: absolute;
-    top: 25.5%;
+    top: 35%;
     left: 8%;
   }
 
@@ -561,7 +562,7 @@ div.LDC {
     width: 1496px;
     height: 720px;
     overflow: visible;
-    background: var(--Theme5, #6cc551);
+    background: var(--B1, #1f2605);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;
@@ -681,6 +682,7 @@ div.LDC {
     justify-content: space-evenly;
     align-items: center;
     overflow: visible;
+    color: #ffffff;
   }
 
 .stackHottestPageNumberHomePage {
@@ -887,13 +889,13 @@ div.LDC {
   .newsFrameHomePage {
     width: 297px;
     height: 80px;
-    transform: scale(0.6, 0.6) rotate(342deg);
+    transform: scale(1, 1) rotate(342deg);
     overflow: visible;
     background: var(--ThemeSup1, #9beb33);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     position: absolute;
-    top: 66%;
-    left: 18%;
+    top: 64%;
+    left: 4%;
   }
 
 .newsTextHomePage {
@@ -915,12 +917,12 @@ div.LDC {
     width: 1594px;
     height: 916px;
     overflow: visible;
-    background: var(--Theme1, #ffffff);
+    background: var(--B3, #53900f);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
-    transform: scale(0.6, 0.6);
+    transform: scale(1, 1);
     position: absolute;
-    top: 57%;
+    top: 65%;
     left: 8%;
   }
 
@@ -928,7 +930,7 @@ div.LDC {
     width: 1496px;
     height: 720px;
     overflow: visible;
-    background: var(--Theme5, #6cc551);
+    background: var(--B1, #1f2605);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;
@@ -984,6 +986,7 @@ div.LDC {
     justify-content: space-evenly;
     align-items: center;
     overflow: visible;
+    color: #ffffff;
   }
 
 .stackNewsPageNumberHomePage {
