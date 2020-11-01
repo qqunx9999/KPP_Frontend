@@ -53,7 +53,7 @@ export class ChatroomsController {
             return this.chatroomsService.updateChatroom(chatroomID ,updateChatroomDto);
         }
 
-    @Patch(':messageID')
+        @Patch(':chatroomID/messages/:messageID')
         async updateMessage(@Param('messageID',ParseObjectIdPipe) messageID:ObjectID,
         @Body() updateChat_messageDto:UpdateChat_messageDto){
             return this.chatroomsService.updateChat_message(messageID,updateChat_messageDto);
