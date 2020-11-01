@@ -230,9 +230,18 @@ export class ThreadsService {
   }
 
   async createReportment_thread(createReportment_threadDto: CreateReportment_threadDto) {
+    
+    let NO:Threadnogen;
+    await this.threadNOGenRepository.find()
+      .then(setNO =>{NO=setNO[2]});
+    //console.log(NO);
+    createReportment_threadDto.reportTNO = NO.threadNO +1 ;
+    await this.threadNOGenRepository.update({id: NO.id}, {threadNO:NO.threadNO+1} )
+    
     createReportment_threadDto.status = "wait";
     let date = new Date();
     date.setMinutes(date.getMinutes()+7*60);
+    createReportment_threadDto.considered_by = null;
     createReportment_threadDto.date_create = date;
     createReportment_threadDto.date_considered = null;
     createReportment_threadDto.date_delete = null;
@@ -240,9 +249,18 @@ export class ThreadsService {
   }
 
   async createReportment_comment(createReportment_commentDto: CreateReportment_commentDto){
+    
+    let NO:Threadnogen;
+    await this.threadNOGenRepository.find()
+      .then(setNO =>{NO=setNO[3]});
+    //console.log(NO);
+    createReportment_commentDto.reportCNO = NO.threadNO +1 ;
+    await this.threadNOGenRepository.update({id: NO.id}, {threadNO:NO.threadNO+1} )
+    
     createReportment_commentDto.status = "wait";
     let date = new Date()
     date.setMinutes(date.getMinutes()+7*60);
+    createReportment_commentDto.considered_by = null;
     createReportment_commentDto.date_create = date;
     createReportment_commentDto.date_considered = null;
     createReportment_commentDto.date_delete = null;
