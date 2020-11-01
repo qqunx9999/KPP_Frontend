@@ -102,6 +102,11 @@ function Home_new() {
             <button onClick={ previous }>Previous</button>
                 <button onClick={ next }>Next</button>
           </div>
+          <div className="latestFrameHomePage">
+            <div className="latestTextHomePage">
+              Latest
+            </div>
+          </div>
         <div style={temp}></div>
           <div className="hottestWhiteFrameHomePage">
             <div className="hottestGreenFrameHomePage">
