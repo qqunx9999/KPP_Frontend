@@ -45,7 +45,7 @@ const Navigtion = () => {
           <div className="container">
 
           <li>
-            { user.isAdmin ? <Link to="/ReportList"><div className="frame-notification"><img src={ reportButton } alt="React is hell !!!" width = "52" height="50" title="ReportList"/></div></Link> : <div className="frame-notification"><Link to=""><img src={ notiButton } alt="React is hell !!!" width = "52" height="50" title="Notification"/></Link></div> }
+            { user.isAdmin ? <Link to="/ReportList"><div className="frame-notification"><img src={ reportButton } alt="React is hell !!!" width = "52" height="50" title="ReportList"/></div></Link> : <div className="frame-notification"><img src={ notiButton } width = "52" height="50" title="Notification"/></div> }
           </li>
 
           <li className="nav-item active">

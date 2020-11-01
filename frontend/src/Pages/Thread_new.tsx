@@ -14,7 +14,6 @@ function Threads_new() {
   const fetchThread = () => {
     ThreadService.fetchOneThread({ ThreadID }.ThreadID)
       .then(obj => {
-        console.log(obj)
         setThread(obj);
       });
   };
@@ -48,9 +47,8 @@ function Threads_new() {
     const year = String(day.getFullYear());
     const time = date + '/' + month + '/' + year;
     return time;
-  }console.log(thread)
+  }
 
-  //console.log(thread)
   return (
     <div>
       <Navigtion />

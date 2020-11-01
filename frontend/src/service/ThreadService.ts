@@ -1,3 +1,4 @@
+import { promises } from 'dns';
 import { baseUrl } from '../config/constant';
 import AuthService from './AuthService';
 
@@ -78,8 +79,24 @@ export async function fetchReportComment(userID: string) {
     return report;
 }
 
-export async function reportThread() {
-    
+export async function reportThread(threadID: string, reportBody: any) {
+    const res = await fetch(`${ baseUrl }/threads/${ threadID }/reportTs`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(reportBody)
+    });
+    const report = res.json();
+    return report;
+}
+
+export async function reportComment(threadID: string, reportBody: any, commentID: string) {
+    const res = await fetch(`${ baseUrl }/threads/${ threadID }/comments/${ commentID }/reportCs`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(reportBody)
+    });
+    const report = res.json();
+    return report;
 }
 
 export default {
@@ -96,4 +113,5 @@ export default {
     fetchReportThread,
     fetchReportComment,
     reportThread,
+    reportComment,
 }; 

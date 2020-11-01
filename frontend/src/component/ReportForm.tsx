@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import '../CSSsource/CreateReport.css';
 import AuthService from '../service/AuthService';
 import { baseUrl } from '../config/constant';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
+import ThreadService from '../service/ThreadService';
+import { resourceUsage } from 'process';
 
 function ReportForm() {
+  const [comment, setComment] = useState<any[]>([{comment:{}, userInfo:{}}]);
+  const history = useHistory();
   const { ThreadID } = useParams();
-  const { CommentID } = useParams();
+
+  const fetchComment = () => {
+    ThreadService.fetchComment({ ThreadID }.ThreadID)
+      .then(obj => {
+        setComment(obj);
+      })
+  };
+
+  useEffect(() => {
+    fetchComment();
+  }, [])
 
   return (
     <Formik
@@ -23,21 +37,19 @@ function ReportForm() {
             "image_arr": [],
           };
 
-          const res = await fetch(`${ baseUrl }/threads/${ThreadID}/reportTs`,{
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(reportOption)
-          });
+          const result = ThreadService.reportThread({ ThreadID }.ThreadID, reportOption);
+          if(result) { history.goBack() }
         } else {
           reportOption = {
             "userID": AuthService.getUserID(),
+            "description": values.description,
+            "text_type": text,
+            "image_arr": [],
+            "at_comment": Number(values.commentNO)
           };
-
-          const res = await fetch(`${ baseUrl }/threads/${ThreadID}/comments/${CommentID}/reportCs`,{
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(reportOption)
-          });
+          const commentID: string = comment[Number(values.commentNO) - 1].comment.commentID;
+          const result = ThreadService.reportComment({ ThreadID }.ThreadID, reportOption, commentID);
+          if(result) { history.goBack() }
         }
         actions.setSubmitting(false);
       }}
