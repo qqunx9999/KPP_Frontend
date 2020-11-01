@@ -9,9 +9,11 @@ import profilePic from '../Pages/image/Patrick.png'
 import notiButton from '../Pages/image/Notify-button.png'
 import reportButton from '../Pages/image/Report-button.png'
 import '../CSSsource/NavBar.css';
+import UserService from '../service/UserService';
 
 const Navigtion = () => {
   const [user, setUser] = useState<any>({});
+  const [notification, setNotificaiton] = useState<any>([]);
 
   const logOut = () => {
     AuthService.logOutUser();
@@ -22,9 +24,17 @@ const Navigtion = () => {
     AuthService.fetchUser(userID)
       .then(obj => setUser(obj));
   };
+
+  const fetchNotification = () => {
+    const userID = AuthService.getUserID();
+    UserService.notification(userID)
+      .then(obj => setNotificaiton(obj));
+      console.log(notification);
+  }
   
   useEffect(() => {
-    fetchUser()
+    fetchUser();
+    fetchNotification();
   }, []);
 
   return(

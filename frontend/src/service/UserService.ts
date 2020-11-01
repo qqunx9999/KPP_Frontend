@@ -21,7 +21,14 @@ export async function changeName(userID: string, patchBody: any) {
   return result;
 }
 
+export async function notification(userID: string) {
+  const res = await fetch(`${ baseUrl }/notifications/any/users/${ userID }`);
+  const noti = res.json();
+  return noti;
+}
+
 export default {
   fetchUser,
   changeName,
+  notification,
 };

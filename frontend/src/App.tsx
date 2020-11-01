@@ -43,7 +43,7 @@ function App() {
       <Route path="/Profile" component={Profile_new} />
       <Route exact path="/Setting" component={Setting_new} />
       <Route path="/ReportList" component={ReportList} />
-      <Route path="/ReadReport/:threadID" component={ReadReport} />
+      <Route path="/ReadReport/:type/:reportID" component={ReadReport} />
       <Route path="/ChatRoom" component={ChatRoom} />
       <Route path="/AuthenLogout" component={AuthenLogout} />
       <Route exact path="/Setting/ChangeName" component={ChangeName} />

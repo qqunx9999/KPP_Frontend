@@ -16,9 +16,6 @@ function Threads_new() {
       .then(obj => {
         setThread(obj);
       });
-  };
-
-  const fetchComment = () => {
     ThreadService.fetchComment({ ThreadID }.ThreadID)
       .then(obj => {
         setComment(obj);
@@ -27,7 +24,6 @@ function Threads_new() {
 
   useEffect(() => {
     fetchThread();
-    fetchComment();
   }, []);
 
   const voteUp = () => {

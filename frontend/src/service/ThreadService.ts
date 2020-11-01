@@ -23,7 +23,7 @@ export async function fetchNewsThread(pageNum: number): Promise<[]> {
 export async function fetchOneThread(threadID: any | undefined): Promise<any> {
     const res = await fetch(`${ baseUrl }/threads/${ threadID }`);
     const thread = res.json();
-    return thread;
+    return thread
 }
 
 export function passThreadNO(threadNO: string): void {
@@ -64,6 +64,7 @@ export async function voteDown(threadID: string | undefined) {
 export async function fetchComment(threadID: string | undefined) {
     const res = await fetch(`${ baseUrl }/threads/${ threadID }/comments`);
     const comment = res.json();
+    console.log(comment)
     return comment;
 }
 
@@ -99,6 +100,18 @@ export async function reportComment(threadID: string, reportBody: any, commentID
     return report;
 }
 
+export async function fetchOneThreadReport(reportTID: string) {
+    const res = await fetch(`${ baseUrl }/reports/reportTs/${ reportTID }`);
+    const report = res.json();
+    return report;
+}
+
+export async function fetchOneCommentReport(reportCID: string) {
+    const res = await fetch(`${ baseUrl }/reports/reportCs/${ reportCID }`);
+    const report = res.json();
+    return report;
+}
+
 export default {
     fetchLatestThread,
     fetchHottestThread,
@@ -114,4 +127,6 @@ export default {
     fetchReportComment,
     reportThread,
     reportComment,
+    fetchOneThreadReport,
+    fetchOneCommentReport,
 }; 
