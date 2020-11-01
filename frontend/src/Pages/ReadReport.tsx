@@ -29,7 +29,7 @@ function ReadReport() {
 
   useEffect(() => {
     fetching();
-  }, []); console.log(thread[0].status)
+  }, []);
 
   return (
     <div>

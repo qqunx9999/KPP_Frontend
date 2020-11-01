@@ -4,6 +4,8 @@ import Navigtion from '../component/NavBar';
 import AuthService from '../service/AuthService';
 import ThreadService from '../service/ThreadService';
 import '../CSSsource/ReportList.css';
+import { Modal } from 'react-bootstrap';
+import ReportModal from '../component/ReportModal';
 
 export default function ReportList() {
   const [reportThread, setReportThread] = useState<any>([[{}]]);
@@ -38,8 +40,6 @@ export default function ReportList() {
     fetchReportThread();
   }, []);
 
-  
-
   return(
     <div>
       <Navigtion />
@@ -52,7 +52,8 @@ export default function ReportList() {
         <div className="rpList-read-round1">
         {/* Read :&nbsp; { reportThread[1] ? "Yes" : "No" } &nbsp;  */}
             <div className="rplist-read1">
-            <Link to={`/ReadReport/${ 'thread' }/${ reportThread[0][0].reportTID }`}>read</Link> &nbsp;
+            {/* <Link to={`/ReadReport/${ 'thread' }/${ reportThread[0][0].reportTID }`}>read</Link> &nbsp; */}
+            { reportThread[0][0].reportTID === undefined ? null : <ReportModal type="thread" reportID={ reportThread[0][0].reportTID } /> }
             </div>
         </div>
         <div className="rpList-date-round1">

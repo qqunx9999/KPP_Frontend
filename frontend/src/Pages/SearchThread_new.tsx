@@ -12,6 +12,7 @@ const SearchThread_new = () => {
   const [search, setSearch] = useState<any>([]);
 
   const searching = () => {
+    console.log(localStorage.tags);
     ThreadService.searchThread(localStorage.keyword, localStorage.tags, localStorage.sort, 8, 1)
       .then(obj => {
         setSearch(obj)
@@ -34,9 +35,9 @@ const SearchThread_new = () => {
         <Formik
           initialValues={{ keyword: '', tags: '', sort: '', faculty: '' }}
           onSubmit={async (values, actions) => {
-            localStorage.setItem("keyword", values.keyword);
-            localStorage.setItem("tags", values.tags);
-            localStorage.setItem("sort", values.sort);
+            const sendInfo = {
+              
+            }
             console.log(localStorage.tags)
             actions.setSubmitting(false);
           }}
