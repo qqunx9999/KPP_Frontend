@@ -21,7 +21,7 @@
     position: absolute;    
     top: 4.5%;
     left: 2.5%;
-    transform: scale(0.7, 0.7);
+    transform: scale(1, 1);
     border-width: 0px;
   }
 
@@ -35,7 +35,7 @@
     position: absolute;    
     top: 15.5%;
     left: 15%;
-    transform: scale(0.7, 0.7);
+    transform: scale(1, 1);
   }
 
 .cName-change-name {
