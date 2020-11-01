@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { In, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../entities/user.entity'
@@ -14,6 +14,11 @@ import Commentation from 'src/threads/comentation.entity';
 import Reportment_comment from 'src/entities/reportment_comment.entity';
 import Reportment_thread from 'src/entities/reportment_thread.entity';
 import Threadnogen from 'src/entities/threadnogen.entity';
+
+import {map, catchError } from 'rxjs/operators';
+import {from ,throwError} from 'rxjs';
+
+
 
 
 
@@ -44,8 +49,9 @@ export class UsersService {
         @InjectRepository(Reportment_thread)
         private reportTRepository: Repository<Reportment_thread>,
         @InjectRepository(Threadnogen)
-        private threadnogenRopsitory: Repository<Threadnogen>
+        private threadnogenRopsitory: Repository<Threadnogen>,
 
+            
     ) {}
 
     async chatroomaction(userID: ObjectID, chatroomID: ObjectID,act: string): Promise<any> {
@@ -357,6 +363,25 @@ export class UsersService {
     }
 
     async createUser(createUserDto: CreateUserDto) {
+        createUserDto.email = createUserDto.email.toLowerCase();
+        let allUser:User[];
+        await this.usersRepository.find()
+            .then(setUsers=>{allUser = setUsers});
+        
+        //console.log(allUser.some(eachuser => {console.log(eachuser.email,createUserDto.email, eachuser.email === createUserDto.email);return eachuser.email === createUserDto.email}));
+
+        if(allUser.some(eachuser => {return eachuser.email === createUserDto.email})){
+            //console.log("this email has already used to sign up");
+            //return {"message": "this email has already used to sign up"};
+            throw new HttpException("this email has already used to sign up", HttpStatus.FORBIDDEN);
+        }
+        if(allUser.some(eachuser => { return eachuser.username === createUserDto.username})){
+            //console.log("this username has already used to sign up");
+            throw new HttpException("this username has already used to sign up", HttpStatus.FORBIDDEN);
+        }
+        
+    
+        
         let NO: Threadnogen;
         // Generate GuestNO. but use number from threadnogen entity
         await this.threadnogenRopsitory.find()
@@ -364,7 +389,7 @@ export class UsersService {
         let userNO = (NO.threadNO+1).toString();
         createUserDto.name = "Guest"+ userNO;
         await this.threadnogenRopsitory.update({id:NO.id}, {threadNO: NO.threadNO+1});
-
+        
         createUserDto.avatar_URL = null;
         createUserDto.exp = 0;
         createUserDto.rank = "Beginner";
@@ -378,6 +403,27 @@ export class UsersService {
         createUserDto.date_join = date;
         createUserDto.isAdmin = false;
         createUserDto.isLoggedIn = false;
-        return this.usersRepository.save(createUserDto);
+        
+        
+        // var bcrypt =  require('bcrypt');
+        // const saltRounds = 10;
+        // const hash = bcrypt.hashSync(createUserDto.password, saltRounds);
+        // createUserDto.password = hash;
+        
+        //uncomment above to hashpassword
+        
+        // Store hash in your password DB.
+        //console.log(createUserDto.password);
+        return from(this.usersRepository.save(createUserDto)).pipe( // don't show password
+            map((user: User)=>{
+                const{password, ...result} = user;
+                return result;
+            }),
+            catchError(err => throwError(err))
+        );
+            
+        
+        
+        
     }
 }

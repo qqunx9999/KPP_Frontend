@@ -13,3 +13,8 @@
 .navbar-color{
     background-color: #1f6521;
 }
+
+.frame-notification {
+    position: relative;
+    left: -10px;
+  }

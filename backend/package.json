@@ -31,6 +31,7 @@
     "@types/nodemailer": "^6.4.0",
     "@types/nodemailer-direct-transport": "^1.0.31",
     "@types/nodemailer-smtp-transport": "^2.7.4",
+    "bcrypt": "^5.0.0",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
     "nodemailer": "^6.4.14",

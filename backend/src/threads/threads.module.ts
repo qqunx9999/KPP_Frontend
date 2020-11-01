@@ -21,6 +21,7 @@ import { Threadnogen } from 'src/entities/threadnogen.entity';
             Reportment_comment, User, Threadnogen]),
         UsersModule
     ],
+    exports: [ThreadsService],
     controllers: [ThreadsController],
     providers: [ThreadsService],
 
