@@ -83,7 +83,9 @@ function Threads_new() {
         <Link to={`/CreateComment/${{ ThreadID }.ThreadID}`}><button className="thread-givecm-button">
           <div className="comment-button-icon">
           </div> 
+          <div className="thread-givecomment-txt">
           Give Comment
+          </div>
           </button>
         </Link>
         <Link to={`/CreateReport/${{ ThreadID }.ThreadID}`}><button className="thread-report-frame"><div className="report-button-icon">
