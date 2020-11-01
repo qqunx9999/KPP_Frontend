@@ -7,8 +7,8 @@ import Navigtion from '../component/NavBar';
 
 function Threads_new() {
   const { ThreadID } = useParams();
-  const [thread, setThread] = useState<any>({thread:{ tag_arr:[] }, userInfo:{}});
-  const [comment, setComment] = useState<any[]>([{comment:{}, userInfo:{}}]);
+  const [thread, setThread] = useState<any>({ thread: { tag_arr: [] }, userInfo: {} });
+  const [comment, setComment] = useState<any[]>([{ comment: {}, userInfo: {} }]);
   const history = useHistory();
 
   const fetchThread = () => {
@@ -53,22 +53,22 @@ function Threads_new() {
           <div className="thread-topicname-frame">
             <div className="thread-topicname">
               Topic : &nbsp;
-                { thread.thread.topic }
+                {thread.thread.topic}
             </div>
             <div className="thread-topiccreater">
               by : &nbsp;
-                { thread.userInfo.name }
+                {thread.userInfo.name}
             </div>
             <div className="thread-topic-createdate">
               When : &nbsp;
-                { toDate(thread.thread.date_create) }
+                {toDate(thread.thread.date_create)}
             </div>
             <div className="thread-topic-lastedit">
               Last edit : &nbsp;
             </div>
             <div className="thread-topic-detail-frame">
               <div className="thread-topic-detail-text">
-                { thread.thread.content }
+                {thread.thread.content}
               </div>
             </div>
           </div>
@@ -76,65 +76,65 @@ function Threads_new() {
 
         <div className="thread-tags-frame">
           <div className="threads_tags_tags">Tags :</div>
-          { thread.thread.tag_arr }
+          {thread.thread.tag_arr}
         </div>
 
         <button className="thread_goback_button" onClick={history.goBack}> Go Back</button>
         <Link to={`/CreateComment/${{ ThreadID }.ThreadID}`}><button className="thread-givecm-button">
           <div className="comment-button-icon">
-          </div> 
+          </div>
           Give Comment
           </button>
         </Link>
         <Link to={`/CreateReport/${{ ThreadID }.ThreadID}`}><button className="thread-report-frame"><div className="report-button-icon">
-          </div></button></Link>
+        </div></button></Link>
         <div className="like-dislike-comment-displayframe">
           <div className="like-display-icon"></div>
           <div className="dislike-display-icon"></div>
           <div className="comment-display-icon"></div>
-          <div className="thread-upvote-no">{ thread.thread.up_vote_count }</div>
-          <div className="thread-downvote-no">{ thread.thread.down_vote_count }</div>
-          <div className="thread-comment-no">{ thread.thread.number_of_all_comment }</div>
+          <div className="thread-upvote-no">{thread.thread.up_vote_count}</div>
+          <div className="thread-downvote-no">{thread.thread.down_vote_count}</div>
+          <div className="thread-comment-no">{thread.thread.number_of_all_comment}</div>
         </div>
-        <button className="thread-upvote-frame" onClick={ voteUp }>
+        <button className="thread-upvote-frame" onClick={voteUp}>
           <div className="like-button-icon"></div>
-          </button>
-        <button className="thread-downvote-frame" onClick={ voteDown }>
+        </button>
+        <button className="thread-downvote-frame" onClick={voteDown}>
           <div className="dislike-button-icon"></div>
-          </button>
+        </button>
         <br />
 
-        { comment.map((item: any) => (
+        {comment.map((item: any) => (
           <ul>
-             <li key={ item.userInfo.userID }></li>
-             <div className="keep" id={item===comment[0] ? "onE":1}>
-                  <div className="frameGreenComment">
-                  <div className="frameBlackComment">
-                    <div className="textTopicComment">
-                    Topic : &nbsp; { thread.thread.topic } <br />
-                    </div>
-                    <div className="numberOfCommentTopicComment">
-                    by : &nbsp; { item.userInfo.name } <br />
-                    </div>
-                    <div className="textWhenTopicComment">
-                    When : &nbsp; { toDate(item.comment.date_create) } <br />
-                    </div>
-                    <div className="textLastEditedTopicComment">
-                      LastEdited :
-                      6/9/2020 9:31 AM
-                    </div>
+            <li key={item.userInfo.userID}></li>
+            <div className="keep" id={item === comment[0] ? "onE" : undefined}>
+              <div className="frameGreenComment">
+                <div className="frameBlackComment">
+                  <div className="textTopicComment">
+                    Topic : &nbsp; {thread.thread.topic} <br />
                   </div>
-                  <div className="textDetailTopicComment">
-                  Content : &nbsp; { item.comment.content }
-                    </div>
+                  <div className="numberOfCommentTopicComment">
+                    by : &nbsp; {item.userInfo.name} <br />
+                  </div>
+                  <div className="textWhenTopicComment">
+                    When : &nbsp; {toDate(item.comment.date_create)} <br />
+                  </div>
+                  <div className="textLastEditedTopicComment">
+                    LastEdited :
+                    6/9/2020 9:31 AM
                     </div>
                 </div>
-                </ul>
-        )) }
+                <div className="textDetailTopicComment">
+                  Content : &nbsp; {item.comment.content}
+                </div>
+              </div>
+            </div>
+          </ul>
+        ))}
 
 
-          </div>
-        </div>
+      </div>
+    </div>
   );
 }
 
