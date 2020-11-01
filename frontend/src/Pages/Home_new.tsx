@@ -80,7 +80,7 @@ function Home_new() {
           <div className="latestWhiteFrameHomePage">
             <div className="latestGreenFrameHomePage">
               <div className="stackLatestHomePage">
-                <h1>Latest</h1>
+                {/* <h1>Latest</h1> */}
                   { latestThread.map((item: any) => {
                     return (
                       <div>
@@ -111,7 +111,7 @@ function Home_new() {
           <div className="hottestWhiteFrameHomePage">
             <div className="hottestGreenFrameHomePage">
               <div className="stackHottestHomePage">
-                <h1>Hottest</h1>
+                {/* <h1>Hottest</h1> */}
                 { hottestThread.map((item: any) => (
                     <div>
                       <Link to={`/Thread/${item.threadID}`}>
@@ -144,7 +144,7 @@ function Home_new() {
         <div className="newsWhiteFrameHomePage">
           <div className="newsGreenFrameHomePage">
             <div className="stackNewsHomePage">
-              <h1>News</h1>
+              {/* <h1>News</h1> */}
               { newsThread.map((item: any) => (
                 <div>
                   <Link to={`/Thread/${item.threadID}`}>
