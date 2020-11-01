@@ -2,6 +2,7 @@ import { IsInt , IsNotEmpty , IsBoolean , IsDate , IsString , IsArray} from "cla
 import {ObjectID} from 'mongodb';
 
 export class CreateChat_messageDto{
+    @IsString()
     userID:ObjectID;
     chatroomID:ObjectID;
     @IsString()
