@@ -219,10 +219,10 @@ div.LDC {
     overflow: visible;
     background: var(--ThemeSup1, #9beb33);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
-    transform: scale(0.6, 0.6) rotate(342deg);
+    transform: scale(1, 1) rotate(342deg);
     position: absolute;
-    top: 2.5%;
-    left: 27%;
+    top: 4%;
+    left: 4%;
     
   }
 
@@ -248,9 +248,9 @@ div.LDC {
     background: var(--B3, #53900f);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
-    transform: scale(0.6, 0.6);
+    transform: scale(1, 1);
     position: absolute;
-    top: -6%;
+    top: 5%;
     left: 8%;
     margin: auto;
   }
