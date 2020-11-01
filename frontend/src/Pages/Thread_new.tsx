@@ -43,7 +43,7 @@ function Threads_new() {
     const year = String(day.getFullYear());
     const time = date + '/' + month + '/' + year;
     return time;
-  } console.log(thread.thread.tag_arr);
+  }
 
   return (
     <div>
@@ -109,7 +109,8 @@ function Threads_new() {
             <li key={ item.userInfo.userID }>
               Topic : &nbsp; { thread.thread.topic } <br />
               by : &nbsp; { item.userInfo.name } <br />
-              When : &nbsp; { toDate(item.comment.date_create) }
+              When : &nbsp; { toDate(item.comment.date_create) } <br />
+              Content : &nbsp; { item.comment.content }
             </li>
           </ul>
         )) }
