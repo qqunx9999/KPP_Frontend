@@ -12,9 +12,9 @@ export class AuthService {
 
     async validateUser(username: string, pass: string): Promise<any> {
         const user = await this.usersService.findOne(username.toLowerCase());
-        //var bcrypt =  require('bcrypt'); uncomment this to hash
-        if (user && user.password === pass){  //bcrypt.compareSync(pass, user.password)) { //uncomment this to hash 
-            const { password, ...result } = user;
+        var bcrypt =  require('bcrypt'); //uncomment this to hash
+        if (user && bcrypt.compareSync(pass, user.password)){  //bcrypt.compareSync(pass, user.password)) { //uncomment this to hash 
+            const { password, ...result } = user; //user.password === pass
             return result;
         }
         return null;

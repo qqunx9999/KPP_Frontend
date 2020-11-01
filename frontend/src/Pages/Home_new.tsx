@@ -7,7 +7,6 @@ import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { PageItem, Pagination } from 'react-bootstrap';
-import { number } from 'yup';
 
 const temp = {
   margin: "10px",
@@ -18,9 +17,9 @@ function Home_new() {
   const [hottestThread, setHottestThread] = useState<any>([{}]);
   const [newsThread, setNewsThread] = useState<any>([{}]);
   const [info, setInfo] = useState<any>([{}]);
+  const [pageNum, setPageNum] = useState<number>(1);
   const time = new Date();
   const history = useHistory();
-  let pageNum = 1;
 
   const fetchNewThread = () => {
     ThreadService.fetchLatestThread(pageNum)
@@ -46,46 +45,33 @@ function Home_new() {
     });
   };
 
+  function next() {
+    if(pageNum < info.total_comment) {
+      setPageNum(pageNum + 1);
+    }
+  };
+
+  function previous() {
+    if(pageNum > 0) {
+      setPageNum(pageNum - 1);
+    }
+  }
+
   function dateCount(timeString: string) {
     const day = new Date(timeString);
     const postTime = day.getTime();
     const currentTime = time.getTime();
     const convertToDay = 1000 * 3600 * 24;
-    const diffTime = Math.floor((currentTime - postTime) / convertToDay) ;
+    const diffTime = Math.floor((currentTime - postTime) / convertToDay);
     return Math.abs(diffTime);
   }
 
-  type pageProps = {
-    threadSize: number,
-  }
-  
-  function Page(props: pageProps) {
-    let [active, setActive] = useState<number>(1);
-    let item = [];
-  
-    const changePage = (page: number) => {
-      setActive(page);
-      pageNum = page;
-    };
-    
-    for (let number = 1;number <= props.threadSize;number++) {
-      item.push(
-        <PageItem key={ number } active={ number === active } onClick={ () => changePage(number) }>{ number }</PageItem>
-      );
-    }
-  
-    return(
-      <div>
-        <Pagination size="lg" >{ item }</Pagination>
-      </div>
-    );
-  }  
-
   useEffect(() => {
     fetchNewThread();
+    next();
+    previous();
   }, []);
 
-  //console.log(thread)
   return (
     <div>
       <Navigtion />
@@ -113,7 +99,8 @@ function Home_new() {
                   }) }
               </div>
             </div>
-            <Page threadSize={ info.total } />
+            <button onClick={ previous }>Previous</button>
+                <button onClick={ next }>Next</button>
           </div>
         <div style={temp}></div>
           <div className="hottestWhiteFrameHomePage">
@@ -142,7 +129,6 @@ function Home_new() {
                   )) }
               </div>
             </div>
-            <Page threadSize={ info.total } />
           </div>
         </div>
         <div className="newsWhiteFrameHomePage">
@@ -162,7 +148,6 @@ function Home_new() {
               )) }
             </div>
           </div>
-              <Page threadSize={ info.total } />
         </div>
       </div>
     </div>

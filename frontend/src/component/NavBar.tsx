@@ -44,7 +44,9 @@ const Navigtion = () => {
         <ul className="navbar-nav ml-auto">
           <div className="container">
 
-          { user.isAdmin ? <Link to="/ReportList">Report List</Link> : Notification }
+          <li>
+            { user.isAdmin ? <Link to="/ReportList"><div className="frame-notification"><img src={ reportButton } alt="React is hell !!!" width = "52" height="50" title="ReportList"/></div></Link> : <div className="frame-notification"><Link to=""><img src={ notiButton } alt="React is hell !!!" width = "52" height="50" title="Notification"/></Link></div> }
+          </li>
 
           <li className="nav-item active">
             <Link to={ `/SearchThread` }>

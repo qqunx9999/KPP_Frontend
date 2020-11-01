@@ -405,10 +405,10 @@ export class UsersService {
         createUserDto.isLoggedIn = false;
         
         
-        // var bcrypt =  require('bcrypt');
-        // const saltRounds = 10;
-        // const hash = bcrypt.hashSync(createUserDto.password, saltRounds);
-        // createUserDto.password = hash;
+        var bcrypt =  require('bcrypt');
+        const saltRounds = 10;
+        const hash = bcrypt.hashSync(createUserDto.password, saltRounds);
+        createUserDto.password = hash;
         
         //uncomment above to hashpassword
         
