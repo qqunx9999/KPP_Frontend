@@ -25,7 +25,7 @@
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25) ! important;
   position: absolute ! important;    
   top: 40px ! important;
-  left: 35px ! important;
+  left: 50px ! important;
   transform: scale(1, 1) ! important;
   border-width: 0px ! important;
   }
@@ -132,10 +132,10 @@
     background: var(--B4, #a4a71e);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
-    transform: scale(1, 1);
+    transform: scale(0.9, 0.9);
     position: absolute;
     top: 4%;
-    left: 18.5%;
+    left: 13%;
   }
 
   .searchTextSearchAndTopicSearchThread {
@@ -566,10 +566,10 @@
     background: var(--B1, #1f2605);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
-    transform: scale(0.8, 0.6);
+    transform: scale(0.9, 0.8);
     position: absolute;
-    top: 45%;
-    left: 11.5%;
+    top: 40%;
+    left: 5%;
   }
 
   .textFirstThreadResultSearchThread {
