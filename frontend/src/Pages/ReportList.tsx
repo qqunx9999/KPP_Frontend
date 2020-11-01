@@ -37,7 +37,7 @@ export default function ReportList() {
 
   useEffect(() => {
     fetchReportThread();
-  }, []);
+  }, []); console.log(reportThread)
 
   return(
     <div>
@@ -52,12 +52,16 @@ export default function ReportList() {
         {/* Read :&nbsp; { reportThread[1] ? "Yes" : "No" } &nbsp;  */}
             <div className="rplist-read1">
             {/* <Link to={`/ReadReport/${ 'thread' }/${ reportThread[0][0].reportTID }`}>read</Link> &nbsp; */}
-            { reportThread[0][0].reportTID === undefined ? null : <ReportModal type="thread" reportID={ reportThread[0][0].reportTID } /> }
+            { reportThread.map((item: any) => {
+              return <li>{ item === undefined ? null : <ReportModal type="thread" reportID={ item[0].reportTID } /> }</li>
+            }) }
             </div>
         </div>
         <div className="rpList-date-round1">
           <div className="rpList-date1">
-          { dateCount(reportThread[0][0].date_create) }
+          { reportThread.map((item: any) => {
+            return <li>{ dateCount(reportThread[0][0].date_create) }</li>
+          }) }
           </div>
         </div>
           <button className="rpList-correct-round1">Approve</button>
@@ -78,7 +82,9 @@ export default function ReportList() {
         </div>
         <div className="rpList-cmdate-round1">
           <div className="rpList-cmdate1">
-          { dateCount(reportComment[0][0].date_create) }
+          { reportComment.map((item: any) => {
+            return <li>{ dateCount(reportComment[0][0].date_create) }</li>
+          }) }
           </div>
         </div>
           <button className="rpList-cmcorrect-round1">Approve</button>

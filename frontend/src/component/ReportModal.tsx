@@ -16,6 +16,7 @@ export default function ReportModal(props: modalProps) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  console.log(reportID)
 
   const fetching = () => {
     if(props.type === 'thread') {
@@ -37,7 +38,7 @@ export default function ReportModal(props: modalProps) {
   
   useEffect(() => {
     fetching();
-  }, []); console.log(thread[2])
+  }, []);
 
   return (
     <>
@@ -50,15 +51,12 @@ export default function ReportModal(props: modalProps) {
         <Modal.Title> { props.type } Report </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Topic : {thread[1].thread.topic} &nbsp; By : {} <br />
-          Reason : {}
+          Topic : {thread[1].thread.topic} &nbsp; By : {thread[2].name} <br />
+          Reason : {thread[0].description}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
           </Button>
         </Modal.Footer>
       </Modal>
