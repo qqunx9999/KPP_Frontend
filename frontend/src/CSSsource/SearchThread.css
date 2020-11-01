@@ -12,7 +12,7 @@
 
 
 .sThread_goback_buttonn {
-  background: rgb(40, 167, 69) ! important; /* Green */
+  background: rgb(0, 0, 0) ! important; /* Green */
 
   border-radius: 19px ! important;
   color: white ! important;
@@ -21,7 +21,7 @@
   text-align: center ! important;
   text-decoration: none ! important;
   display: inline-block ! important;
-  font-size: 30px ! important;
+  font-size: 32px ! important;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25) ! important;
   position: absolute ! important;    
   top: 40px ! important;
