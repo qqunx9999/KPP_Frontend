@@ -124,6 +124,34 @@ export class ChatroomsService {
             }); 
             cr.room_name = newRoomname ;
         }
+        
+        else if(updateChatroomDto.date_delete !== undefined){
+            let date = new Date();
+            date.setMinutes(date.getMinutes()+7*60);
+            updateChatroomDto.date_delete = date;
+        }
+
+        else if(updateChatroomDto.member_arr[0].date_leave_chat !== undefined){
+            let userleave = updateChatroomDto.member_arr[0].userID ;
+            let date = new Date();
+            date.setMinutes(date.getMinutes()+7*60);
+            let cr : Chatroom ;
+            await this.chatroomsRepository.findOne({where:{ _id: chatroomID}})
+            .then(setChatroom => {
+            cr = setChatroom;
+            });
+            let memberArr = cr.member_arr;
+            updateChatroomDto.totalmember=cr.totalmember;
+            for(let i = 0;i<memberArr.length;i++){
+                if(memberArr[i].userID == userleave){
+                    memberArr[i].date_leave_chat = date;
+                    updateChatroomDto.totalmember = updateChatroomDto.totalmember -1;
+                } 
+            }
+            updateChatroomDto.member_arr = memberArr;
+            
+        }
+
         else if(updateChatroomDto.member_arr !== undefined){
             /*
             const newMemberID = updateChatroomDto.member_arr[0].userID;
@@ -159,25 +187,22 @@ export class ChatroomsService {
             }
             updateChatroomDto.member_arr=memberArr;
         }
-        else if(updateChatroomDto.date_delete !== undefined){
-            let cr : Chatroom ;
-            await this.chatroomsRepository.findOne({where:{ _id: chatroomID}})
-            .then(setChatroom => {
-            cr = setChatroom;
-            });
-            let date = new Date();
-            date.setMinutes(date.getMinutes()+7*60);
-            cr.date_delete = date ;
-        }
+
+        
+
+        
         return this.chatroomsRepository.update({chatroomID: chatroomID} , updateChatroomDto);
     }
 
     async updateChat_message(messageID:ObjectID ,updateChat_messageDto:UpdateChat_messageDto){
-        
+        if(updateChat_messageDto.message !== undefined){
+            return this.chat_messagesRepository.update({messageID:messageID},updateChat_messageDto);
+        }
         if(updateChat_messageDto.date_delete !== undefined){
-            let dateDel = new Date()
-            dateDel.setMinutes(dateDel.getMinutes()+7*60)
-            updateChat_messageDto.date_delete = dateDel;    
+            let date = new Date();
+            date.setMinutes(date.getMinutes()+7*60);
+            updateChat_messageDto.date_delete = date;
+            return this.chat_messagesRepository.update({messageID:messageID},updateChat_messageDto);
         }
         return this.chat_messagesRepository.update({messageID: messageID}, updateChat_messageDto);
     }

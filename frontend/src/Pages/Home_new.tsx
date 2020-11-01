@@ -80,7 +80,7 @@ function Home_new() {
           <div className="latestWhiteFrameHomePage">
             <div className="latestGreenFrameHomePage">
               <div className="stackLatestHomePage">
-                <h1>Latest</h1>
+                {/* <h1>Latest</h1> */}
                   { latestThread.map((item: any) => {
                     return (
                       <div>
@@ -102,11 +102,16 @@ function Home_new() {
             <button onClick={ previous }>Previous</button>
                 <button onClick={ next }>Next</button>
           </div>
+          <div className="latestFrameHomePage">
+            <div className="latestTextHomePage">
+              Latest
+            </div>
+          </div>
         <div style={temp}></div>
           <div className="hottestWhiteFrameHomePage">
             <div className="hottestGreenFrameHomePage">
               <div className="stackHottestHomePage">
-                <h1>Hottest</h1>
+                {/* <h1>Hottest</h1> */}
                 { hottestThread.map((item: any) => (
                     <div>
                       <Link to={`/Thread/${item.threadID}`}>
@@ -130,11 +135,16 @@ function Home_new() {
               </div>
             </div>
           </div>
+          <div className="hottestFrameHomePage">
+            <div className="hottestTextHomePage">
+              Hottest
+            </div>
+          </div>
         </div>
         <div className="newsWhiteFrameHomePage">
           <div className="newsGreenFrameHomePage">
             <div className="stackNewsHomePage">
-              <h1>News</h1>
+              {/* <h1>News</h1> */}
               { newsThread.map((item: any) => (
                 <div>
                   <Link to={`/Thread/${item.threadID}`}>
@@ -147,6 +157,11 @@ function Home_new() {
                 </div>
               )) }
             </div>
+          </div>
+        </div>
+        <div className="newsFrameHomePage">
+          <div className="newsTextHomePage">
+              News
           </div>
         </div>
       </div>
