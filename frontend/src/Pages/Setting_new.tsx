@@ -37,7 +37,7 @@ function Setting_new() {
           <Link to="/Setting/ChangeName">
             <div className="frameChangePasswordUserProfile">
               <div className="textChangePasswordUserProfile">
-                Change Password
+                Change Name
             </div>
             </div>
           </Link>
