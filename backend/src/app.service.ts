@@ -3,16 +3,14 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    
-    // let gmailService = new GMailService(); 
-    // gmailService.sendMail( 
-    //   "unnop.nu@ku.th",  
-    //   "subject2",  
-    //   "content2").then( (msg) => { 
-    //     console.log(`sendMail result :(${msg})`); 
-    // } ); 
-
-    return "hello world";
-  }
+  // async getHello(): Promise<void> {
+  //   let gmailService = new GMailService(); 
+  
+  //   return gmailService.sendMail( 
+  //     "unnop.nu@ku.th",  
+  //     "subject2",  
+  //     "content2").then( (msg) => { 
+  //       console.log(`sendMail result :(${msg})`); 
+  //   } ); 
+  //}
 }
