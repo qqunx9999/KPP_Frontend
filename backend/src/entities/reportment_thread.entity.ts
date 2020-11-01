@@ -16,7 +16,11 @@ export class Reportment_thread{
     @Column()
     image_arr: {URL:string, pos:number}[]; 
     @Column()
+    reportTNO: number;
+    @Column()
     status:string;
+    @Column()
+    considered_by: {userID: ObjectID};
     @Column()
     date_create:Date;
     @Column()

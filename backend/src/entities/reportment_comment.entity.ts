@@ -20,7 +20,11 @@ export class Reportment_comment{
     @Column()
     at_comment: number;
     @Column()
+    reportCNO: number;
+    @Column()
     status: string;
+    @Column()
+    considered_by: {userID: ObjectID};
     @Column()
     date_create:Date;
     @Column()

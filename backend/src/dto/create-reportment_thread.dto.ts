@@ -14,7 +14,9 @@ export class CreateReportment_threadDto{
     @IsArray()
     image_arr: {URL: string, pos: number}[]; 
     //@IsString()
-    status: string;
+    reportTNO: number;
+    status:string;
+    considered_by: {userID: ObjectID};
     //@IsDate()
     date_create:Date;
     //@IsDate()
