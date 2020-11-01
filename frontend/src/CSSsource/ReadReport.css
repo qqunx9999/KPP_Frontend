@@ -2,13 +2,13 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: var(--Theme6, #47624f);
+    background: var(--Theme6, #d6ce15);
     margin: 0;
     position: absolute;
   }
 
 .rReport_goback_button {
-    background: var(--Theme5, #6cc551); /* Green */
+    background: var(--Theme5, #1f6521); /* Green */
     border-radius: 19px;
     color: white;
     width: 207px;
@@ -29,7 +29,7 @@
     width: 1348px;
     height: 1010px;
     overflow: visible;
-    background: var(--Theme1, #ffffff);
+    background: var(--Theme1, #53900f);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 5px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;    
@@ -44,7 +44,7 @@
     overflow: visible;
     text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
     font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
+    color: var(--Theme3, #ffffff);
     font-size: 91px;
     letter-spacing: 0px;
     line-height: 1.2;
@@ -57,7 +57,7 @@
     width: 1233px;
     height: 200px;
     overflow: visible;
-    background: var(--Theme3, #0f0508);
+    background: var(--Theme3,#1f2605);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     position: absolute;    
@@ -97,7 +97,7 @@
     width: 317px;
     height: 70px;
     overflow: visible;
-    background: var(--Theme6, #47624f);
+    background: var(--Theme6, #a4a71e);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;    
@@ -122,7 +122,7 @@
     width: 317px;
     height: 66px;
     overflow: visible;
-    background: var(--Theme4, #447604);
+    background: var(--Theme4, #a4a71e);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     color: white;
@@ -147,7 +147,7 @@
     width: 1232px;
     height: 455px;
     overflow: visible;
-    background: var(--Theme3, #0f0508);
+    background: var(--Theme3,#1f2605);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     position: absolute;    
@@ -195,7 +195,7 @@
     height: 86px;
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color: var(--Theme3, #0f0508);
+    color: var(--Theme3, #ffffff);
     font-size: 43px;
     letter-spacing: 3px;
     line-height: 2;
