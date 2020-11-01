@@ -6,13 +6,12 @@ import Navigtion from '../component/NavBar';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Pagination } from 'react-bootstrap';
+import { PageItem, Pagination } from 'react-bootstrap';
+import { number } from 'yup';
 
 const temp = {
   margin: "10px",
 };
-
-let pageNum = 1;
 
 function Home_new() {
   const [latestThread, setLatestThread] = useState<any>([{}]);
@@ -21,6 +20,7 @@ function Home_new() {
   const [info, setInfo] = useState<any>([{}]);
   const time = new Date();
   const history = useHistory();
+  let pageNum = 1;
 
   const fetchNewThread = () => {
     ThreadService.fetchLatestThread(pageNum)
@@ -54,6 +54,32 @@ function Home_new() {
     const diffTime = Math.floor((currentTime - postTime) / convertToDay) ;
     return Math.abs(diffTime);
   }
+
+  type pageProps = {
+    threadSize: number,
+  }
+  
+  function Page(props: pageProps) {
+    let [active, setActive] = useState<number>(1);
+    let item = [];
+  
+    const changePage = (page: number) => {
+      setActive(page);
+      pageNum = page;
+    };
+    
+    for (let number = 1;number <= props.threadSize;number++) {
+      item.push(
+        <PageItem key={ number } active={ number === active } onClick={ () => changePage(number) }>{ number }</PageItem>
+      );
+    }
+  
+    return(
+      <div>
+        <Pagination size="lg" >{ item }</Pagination>
+      </div>
+    );
+  }  
 
   useEffect(() => {
     fetchNewThread();
@@ -102,9 +128,11 @@ function Home_new() {
                             <div className="LDC">
                             <img className="likePic"src="https://www.freeiconspng.com/thumbs/youtube-like-png/youtube-like-button-png-11.png" alt=""/>
                             <p className="likeHottest">
-                           {item.up_vote_count}</p>
-                           <img className="dislikePic"src="https://pngimg.com/uploads/dislike/dislike_PNG63.png" alt=""/>
+                            {item.up_vote_count}</p>
+                            <img className="dislikePic"src="https://pngimg.com/uploads/dislike/dislike_PNG63.png" alt=""/>
                             <p className="dislikeHottest">  {item.down_vote_count}</p>
+                            <img className="commentPic" src="" alt="" />
+                            <p className="commentHottest">{ item.total_comment }</p>
                             </div>
                           </li>
                         </ul>
@@ -133,36 +161,12 @@ function Home_new() {
               )) }
             </div>
           </div>
-          <Page threadSize={ info.total } />
+              <Page threadSize={ info.total } />
         </div>
       </div>
     </div>
   );
 }
 
-type pageProps = {
-  threadSize: number,
-}
-
-function Page(props: pageProps) {
-  let item = [];
-  let active = 1;
-
-  function changePage() {
-
-  }
-
-  for (let number = 1;number <= props.threadSize;number++) {
-    item.push(
-      <Pagination.Item key={ number } active={ number === active }>{ number }</Pagination.Item>
-    );
-  }
-
-  return(
-    <div>
-      <Pagination size="lg" >{ item }</Pagination>
-    </div>
-  );
-}
 
 export default Home_new;
