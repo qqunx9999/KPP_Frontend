@@ -71,13 +71,22 @@ export class ChatroomsService {
         createChatroomDto.date_delete = null ;
         createChatroomDto.date_lastactive = date;
         createChatroomDto.totalmember = createChatroomDto.member_arr.length;
-        let Arraymember = [];
-        for(let i = 0; i < createChatroomDto.member_arr.length;i++){
-            let newmember = {userID:createChatroomDto.member_arr[i].userID,date_join_chat:date,date_leave_chat:null} ;
-            Arraymember.push(newmember);
+        // let Arraymember = [];
+        // for(let i = 0; i < createChatroomDto.member_arr.length;i++){
+        //     let newmember = {userID:createChatroomDto.member_arr[i].userID,date_join_chat:date,date_leave_chat:null} ;
+        //     Arraymember.push(newmember);
+        // }
+        // createChatroomDto.member_arr = Arraymember;
+        const newMem = createChatroomDto.member_arr;
+        createChatroomDto.member_arr = [];
+        const newChatRoom = await this.chatroomsRepository.save(createChatroomDto);
+
+        for(let i = 0; i<newMem.length; i++){
+            await this.usersService.chatroomaction(new ObjectID(newMem[i].userID), newChatRoom.chatroomID, "add");
         }
-        createChatroomDto.member_arr = Arraymember;
-        return this.chatroomsRepository.save(createChatroomDto);
+        
+
+        return newChatRoom;
     }
     
     /*
