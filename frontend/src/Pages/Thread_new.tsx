@@ -106,16 +106,35 @@ function Threads_new() {
 
         { comment.map((item: any) => (
           <ul>
-            <li key={ item.userInfo.userID }>
-              Topic : &nbsp; { thread.thread.topic } <br />
-              by : &nbsp; { item.userInfo.name } <br />
-              When : &nbsp; { toDate(item.comment.date_create) } <br />
-              Content : &nbsp; { item.comment.content }
-            </li>
-          </ul>
+             <li key={ item.userInfo.userID }></li>
+             <div className="keep" id={item===comment[0] ? "onE":1}>
+                  <div className="frameGreenComment">
+                  <div className="frameBlackComment">
+                    <div className="textTopicComment">
+                    Topic : &nbsp; { thread.thread.topic } <br />
+                    </div>
+                    <div className="numberOfCommentTopicComment">
+                    by : &nbsp; { item.userInfo.name } <br />
+                    </div>
+                    <div className="textWhenTopicComment">
+                    When : &nbsp; { toDate(item.comment.date_create) } <br />
+                    </div>
+                    <div className="textLastEditedTopicComment">
+                      LastEdited :
+                      6/9/2020 9:31 AM
+                    </div>
+                  </div>
+                  <div className="textDetailTopicComment">
+                  Content : &nbsp; { item.comment.content }
+                    </div>
+                    </div>
+                </div>
+                </ul>
         )) }
-      </div>
-    </div>
+
+
+          </div>
+        </div>
   );
 }
 
