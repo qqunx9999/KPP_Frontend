@@ -11,7 +11,10 @@ export class Notifications {
     object_type: string; //chat, friend_request, report 
     @Column()
     object_typeID: ObjectID;
-    
+    @Column()
+    date_noti: Date;
+    @Column()
+    date_read: Date;
     
 }
 

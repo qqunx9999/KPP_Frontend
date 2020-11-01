@@ -10,10 +10,10 @@ export class AppController {
       private authService: AuthService  
     ) {}
 
-    @Get()
-    getHello(): Promise<void> {
-      return this.appService.getHello();
-    }
+    // @Get()
+    // getHello(): Promise<void> {
+    //   return this.appService.getHello();
+    // }
 
     @UseGuards(LocalAuthGuard)  
     @Post('auth/login')
