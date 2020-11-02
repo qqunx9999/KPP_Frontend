@@ -18,6 +18,7 @@ import { UpdateThreadDto } from 'src/dto_update/update-thread.dto';
 import { UpdateCommentDto } from 'src/dto_update/update-comment.dto';
 import { User_info } from 'src/common/user_info';
 import { Threadnogen } from 'src/entities/threadnogen.entity';
+import { NotificationsService } from 'src/notification/notification.service';
 
 
 @Injectable()
@@ -37,6 +38,7 @@ export class ThreadsService {
     private threadNOGenRepository: Repository<Threadnogen>,
     
     private usersService: UsersService,
+    private notificationsService: NotificationsService
       
   ) {}
 
@@ -226,7 +228,19 @@ export class ThreadsService {
     createCommentationDto.date_create = date;
     createCommentationDto.date_lastedit = null;
     createCommentationDto.date_delete = null;
-    return this.commentationsRepository.save(createCommentationDto);
+    //noti
+    const newComment = await this.commentationsRepository.save(createCommentationDto);
+    if(createCommentationDto.reply_to === 0){
+      await this.notificationsService.postComment(new ObjectID(thread.userID), newComment.commentID);
+    }
+    else{
+      let comment: Commentation;
+      await this.commentationsRepository.findOne({where: {threadID:thread.threadID, commentNO:createCommentationDto.reply_to}})
+        .then(setCmt => {comment = setCmt});
+      await this.notificationsService.postComment(new ObjectID(comment.userID), newComment.commentID);
+    }
+
+    return newComment;
   }
 
   async createReportment_thread(createReportment_threadDto: CreateReportment_threadDto) {

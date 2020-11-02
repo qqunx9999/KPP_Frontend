@@ -15,34 +15,48 @@ export class NotificationsService {
         private chatroomsRepository: Repository<Chatroom>,
     ){}
 
-    async find_id_chat(userID: ObjectID,chatroomID: ObjectID): Promise <Notifications> {
-        return this.notificationsRepository.findOne({where:{userID: userID, object_type: 'chat',chatroomID: chatroomID}})
-    } // get one id
+    // async find_id_chat(userID: ObjectID,chatroomID: ObjectID): Promise <Notifications> {
+    //     return this.notificationsRepository.findOne({where:{userID: userID, object_type: 'chat',chatroomID: chatroomID}})
+    // } // get one id
     
-    async find_id_friend(userID: ObjectID): Promise <Notifications> {
-        return this.notificationsRepository.findOne({where:{userID: userID, object_type: 'friend_request'}})
-    } // get one id
+    // async find_id_friend(userID: ObjectID): Promise <Notifications> {
+    //     return this.notificationsRepository.findOne({where:{userID: userID, object_type: 'friend_request'}})
+    // } // get one id
 
-    async find_id_report(userID: ObjectID): Promise <Notifications> {
-        return this.notificationsRepository.findOne({where:{userID: userID, object_type: 'report'}})
-    } // get one id
+    // async find_id_report(userID: ObjectID): Promise <Notifications> {
+    //     return this.notificationsRepository.findOne({where:{userID: userID, object_type: 'report'}})
+    // } // get one id
     
-    async allUnread(userID: ObjectID): Promise <Notifications[]> {
-        return this.notificationsRepository.find({where:{userID: userID, object_type: 'chat'}})
+    async allUnread(userID: ObjectID): Promise <any> {
+        let allnoti: Notifications[]
+        await this.notificationsRepository.find({where:{userID: userID, date_read:null}})
+            .then(set => {allnoti = set});
+        // allnoti = allnoti.filter(each =>{if(each.object_type !== "chat"){return true;}})
+        // let allnotiwithInfo = [];
+        // for(let i = 0; i<allnoti.length; i++){
+        //     if(allnoti[i].object_type == "friend_request" || allnoti[i].object_type == "friend_accept"){
+        //         var notiwithinfo = {
+        //             notificationInfo: allnoti[i],
+                    
+        //         }
+        //     }
+
+        // }
+        return allnoti;
     }
 
-    async friendRequest(userID: ObjectID): Promise <Notifications[]> {
-        return this.notificationsRepository.find({userID: userID, object_type: 'friend_request'})
+    async noticontacts(userID: ObjectID): Promise <Notifications[]> {
+        return this.notificationsRepository.find({userID: userID, object_type: 'chat', date_read:null})
     }
 
-    async report(userID: ObjectID): Promise <Notifications[]> {
-        return this.notificationsRepository.find({userID: userID, object_type: 'report'})
-    }
+    // async report(userID: ObjectID): Promise <Notifications[]> {
+    //     return this.notificationsRepository.find({userID: userID, object_type: 'report'})
+    // }
 
-    async findReport(notificationDto: NotificationDto){
-        const admin = this.notificationsRepository.find({object_type: 'report'})
-        return admin;
-    }
+    // async findReport(notificationDto: NotificationDto){
+    //     const admin = this.notificationsRepository.find({object_type: 'report'})
+    //     return admin;
+    // }
 
     async postFriendRequest(userID1: ObjectID, userID2: ObjectID){
         let date_noti = new Date();
@@ -137,38 +151,47 @@ export class NotificationsService {
     
 
     async postReportTCon(userID: ObjectID, reportTID: ObjectID){
-        let notificationDto:NotificationDto;
-        notificationDto.userID = userID;
-        notificationDto.object_type = "reportT_considered";
-        notificationDto.object_typeID = reportTID;
+        
         let date_noti = new Date();
         date_noti.setMinutes(date_noti.getMinutes()+7*60);
-        notificationDto.date_noti = date_noti;
-        notificationDto.date_read = null;
+        var notificationDto:NotificationDto = {
+            userID: userID,
+            object_type: "reportT_considered",
+            object_typeID:reportTID,
+            date_noti: date_noti,
+            date_read:null
+
+        };
+
         return this.notificationsRepository.save(notificationDto);
     }
 
     async postReportCCon(userID: ObjectID, reportTID: ObjectID){
-        let notificationDto:NotificationDto;
-        notificationDto.userID = userID;
-        notificationDto.object_type = "reportC_considered";
-        notificationDto.object_typeID = reportTID;
         let date_noti = new Date();
         date_noti.setMinutes(date_noti.getMinutes()+7*60);
-        notificationDto.date_noti = date_noti;
-        notificationDto.date_read = null;
+        var notificationDto:NotificationDto = {
+            userID: userID,
+            object_type: "reportC_considered",
+            object_typeID:reportTID,
+            date_noti: date_noti,
+            date_read:null
+
+        };
         return this.notificationsRepository.save(notificationDto);
     }
 
     async postComment(userID: ObjectID, commentID: ObjectID){
-        let notificationDto:NotificationDto;
-        notificationDto.userID = userID;
-        notificationDto.object_type = "comment";
-        notificationDto.object_typeID = commentID;
         let date_noti = new Date();
         date_noti.setMinutes(date_noti.getMinutes()+7*60);
-        notificationDto.date_noti = date_noti;
-        notificationDto.date_read = null;
+        var notificationDto:NotificationDto = {
+            userID: userID,
+            object_type: "comment",
+            object_typeID:commentID,
+            date_noti: date_noti,
+            date_read:null
+
+        };
+        
         return this.notificationsRepository.save(notificationDto);
     }
 
@@ -176,22 +199,38 @@ export class NotificationsService {
 
 
     async patchChatroom(userID: ObjectID ,chatroomID: ObjectID): Promise <Notifications> {
-        const unread_noti = await this.find_id_chat(userID,chatroomID);
-        unread_noti.date_read = new Date();
-        return unread_noti;
+        let allnotichat: Notifications[];
+        await this.notificationsRepository.find({where:{userID:userID, object_type:"chat", object_typeID: chatroomID, date_read:null}})
+            .then(setallnoti => {allnotichat = setallnoti});
+        let dateRead = new Date();
+        dateRead.setMinutes(dateRead.getMinutes()+7*60);
+        var newdateRead = {date_read: dateRead}
+        for(let i =0; i<allnotichat.length; i++){
+            await this.notificationsRepository.update({userID:userID, object_type:"chat", object_typeID: chatroomID}, newdateRead);
+        }
+        return ;
     }
 
-    async patchFriendNoti(userID: ObjectID): Promise <Notifications> {
-        const friend_noti = await this.find_id_friend(userID);
-        friend_noti.date_read = new Date();
-        return friend_noti;
+    async patchAllNoti(userID: ObjectID): Promise <Notifications> {
+        console.log("test");
+        let allnoti: Notifications[];
+        await this.notificationsRepository.find({where:{userID:userID,  date_read:null}})
+            .then(setallnoti => {allnoti = setallnoti});
+        
+        allnoti = allnoti.filter(each =>{if(each.object_type !== "chat"){return true;}})
+        //console.log(allnoti);
+
+        let dateRead = new Date();
+        dateRead.setMinutes(dateRead.getMinutes()+7*60);
+        var newdateRead = {date_read: dateRead}
+        for(let i =0; i<allnoti.length; i++){
+            await this.notificationsRepository.update({userID:userID, object_type:allnoti[i].object_type, object_typeID:allnoti[i].object_typeID}, newdateRead);
+        }
+        
+        return ;
     }
 
-    async patchReportNoti(userID: ObjectID): Promise <Notifications> {
-        const report_noti = await this.find_id_report(userID);
-        report_noti.date_read = new Date();
-        return report_noti;
-    }
+    
 }
 
 

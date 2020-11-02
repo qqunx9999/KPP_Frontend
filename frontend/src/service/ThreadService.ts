@@ -87,7 +87,8 @@ export async function reportThread(threadID: string, reportBody: any) {
         body: JSON.stringify(reportBody)
     });
     const report = res.json();
-    return report;
+    if(report) { return report }
+    else { return null }
 }
 
 export async function reportComment(threadID: string, reportBody: any, commentID: string) {
@@ -97,7 +98,8 @@ export async function reportComment(threadID: string, reportBody: any, commentID
         body: JSON.stringify(reportBody)
     });
     const report = res.json();
-    return report;
+    if(report) { return report }
+    else { return null }
 }
 
 export async function fetchOneThreadReport(reportTID: string) {
