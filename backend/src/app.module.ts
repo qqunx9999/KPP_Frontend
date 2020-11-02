@@ -20,6 +20,7 @@ import { ChatroomsModule } from './chatrooms/chatrooms.module';
 import { NotificationModule } from './notification/notification.module';
 import Notifications from './entities/notification.entity';
 import { Threadnogen } from './entities/threadnogen.entity';
+import Verifygen from './entities/verifygen.entity';
 
 @Module({
   imports: [
@@ -28,7 +29,7 @@ import { Threadnogen } from './entities/threadnogen.entity';
       host: 'localhost',
       database: 'test_kuPeople',
       entities: [Admin, Chat_message, Chatroom, Commentation,
-          Reportment_comment, Reportment_thread, Thread, User, Notifications, Threadnogen],
+          Reportment_comment, Reportment_thread, Thread, User, Notifications, Threadnogen, Verifygen],
       synchronize: true,
     }),
     ThreadsModule,

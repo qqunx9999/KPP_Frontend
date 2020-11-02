@@ -11,7 +11,8 @@ import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
-    constructor(private usersService: UsersService) {}
+    constructor(private usersService: UsersService,
+      ) {}
 
     @Get(':userID/forgetpass')
     async getoldpass(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise<any> {
@@ -86,6 +87,13 @@ export class UsersController {
     async createUser(@Body() createUserDto: CreateUserDto){
       return this.usersService.createUser(createUserDto);
     }
+
+    @Post('genverify/:email')
+    async genver(@Param('email') email: string){
+      return this.usersService.genver(email);
+
+    }
+
     
     
 }
