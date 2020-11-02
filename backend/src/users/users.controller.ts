@@ -10,7 +10,8 @@ import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
-    constructor(private usersService: UsersService) {}
+    constructor(private usersService: UsersService,
+      ) {}
 
     @Get(':userID/forgetpass')
     async getoldpass(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise<any> {
@@ -87,11 +88,9 @@ export class UsersController {
     }
 
     @Post('genverify/:email')
-    async gerver(@Param('email') email: string){
-      var bcrypt =  require('bcrypt');
-      console.log(email);
-      const hashmail = bcrypt.hashSync(email, 10);
-        console.log(hashmail);
+    async genver(@Param('email') email: string){
+      return this.usersService.genver(email);
+
     }
 
     

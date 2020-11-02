@@ -18,6 +18,7 @@ import Threadnogen from 'src/entities/threadnogen.entity';
 import {map, catchError } from 'rxjs/operators';
 import {from ,throwError} from 'rxjs';
 import { NotificationsService } from 'src/notification/notification.service';
+import Verifygen from 'src/entities/verifygen.entity';
 
 
 
@@ -51,6 +52,9 @@ export class UsersService {
         private reportTRepository: Repository<Reportment_thread>,
         @InjectRepository(Threadnogen)
         private threadnogenRopsitory: Repository<Threadnogen>,
+        @InjectRepository(Verifygen)
+        private verifygenRepository: Repository<Verifygen>,
+
 
         private notificationsService: NotificationsService
 
@@ -448,22 +452,40 @@ export class UsersService {
             //return {"message": "this email has already used to sign up"};
             throw new HttpException("this email has already used to sign up", HttpStatus.FORBIDDEN);
         }
+        
+
+
         if(allUser.some(eachuser => { return eachuser.username === createUserDto.username})){
             //console.log("this username has already used to sign up");
             throw new HttpException("this username has already used to sign up", HttpStatus.FORBIDDEN);
         }
-        var bcrypt =  require('bcrypt');
-        /* verify
-        //const hashmail = bcrypt.hashSync(createUserDto.password, 10);
-        //console.log(hashmail)
-        console.log(bcrypt.compareSync(createUserDto.email, createUserDto.verify));
-        console.log(createUserDto.email, createUserDto.verify);
-        if(!bcrypt.compareSync(createUserDto.email, createUserDto.verify)){
+        
+        // verify
+        /*
+        let verifys: Verifygen[];
+        await this.verifygenRepository.find({where:{email: createUserDto.email}, order:{date_expire: "DESC"}})
+            .then(set => {verifys = set})
+        let verify: Verifygen;
+        if(verifys.length === 0){
+            throw new HttpException("no verifycode", HttpStatus.FORBIDDEN);
+        }
+        else{
+            verify = verifys[0];
+        }
+        if(createUserDto.verify !== verify.code){
             throw new HttpException("wrong verifycode", HttpStatus.FORBIDDEN);
         }
-        delete createUserDto.verify; */
-    
         
+        date = new Date()
+        date.setMinutes(date.getMinutes()+7*60);
+        if(date > verify.date_expire){
+            throw new HttpException("expired", HttpStatus.FORBIDDEN);
+        }
+        delete createUserDto.verify; 
+        await this.verifygenRepository.remove(verifys);
+    
+        */
+       
         let NO: Threadnogen;
         // Generate GuestNO. but use number from threadnogen entity
         await this.threadnogenRopsitory.find()
@@ -488,7 +510,7 @@ export class UsersService {
         createUserDto.isLoggedIn = false;
         
         
-        
+        var bcrypt =  require('bcrypt');
         const saltRounds = 10;
         const hash = bcrypt.hashSync(createUserDto.password, saltRounds);
         createUserDto.password = hash;
@@ -503,10 +525,34 @@ export class UsersService {
                 return result;
             }),
             catchError(err => throwError(err))
-        );
-            
-        
-        
+        );   
+    }
+
+    async genver(email: string){
+        var code:string ="";
+        for(let i = 0; i<6; i++){
+            let random = Math.floor(Math.random()*3);
+            let randomDigit: number;
+            let char: string;
+            if(random ===0){
+             randomDigit = Math.floor(Math.random()*(57-48+1)+48);
+            }
+            else if(random ===1){
+                randomDigit = Math.floor(Math.random()*(90-65+1)+65);
+            }
+            else if(random ===2){
+                randomDigit = Math.floor(Math.random()*(122-97+1)+97);
+            }
+            code += String.fromCharCode(randomDigit);
+        }
+        let dateExpire = new Date();
+        dateExpire.setMinutes(dateExpire.getMinutes()+7*60+10);
+        let verify: Verifygen = {
+            code: code,
+            email: email,
+            date_expire: dateExpire
+        }
+        return this.verifygenRepository.save(verify);
         
     }
 }
