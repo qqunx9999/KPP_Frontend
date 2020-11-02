@@ -1,6 +1,6 @@
 .Threads-bigframe {
     width: 100%;
-    height: 1274px;
+    height: 200%;
     overflow: hidden;
     background: var(--ฺB5, #d6ce15);
     margin: 0;
@@ -687,6 +687,13 @@ top: 40%;
 left: 20px;
 }
 
+.keep{
+  height: 300px;
+}
+#onE{
+  height: 280px;
+}
+
 .comment-display-icon {
   width: 50px;
   height: 50px;
@@ -698,4 +705,98 @@ left: 20px;
   position: absolute;    
   top: 70%;
   left: 22px;
+}
+
+.frameGreenComment {
+  width: 865px;
+  height: 240px;
+  overflow: visible;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
+  background-color: var(--B3, #53900f);
+  border-radius: 66px;
+  position: relative;    
+  top: 100%;
+  left: 23.5%;
+}
+
+.frameBlackComment {
+  width: 790px;
+  height: 84px;
+  overflow: visible;
+  box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+  background-color: var(--Theme3, #0f0508);
+  border-radius: 28px;
+  position: relative;    
+  top: 7%;
+  left: 4%;
+}
+
+.textTopicComment {
+  width: 401px;
+  height: 102px;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  font-size: 34px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: relative;    
+  top: -30%;
+  left: 14%;
+}
+
+.numberOfCommentTopicComment {
+  width: 277px;
+  height: 63px;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  font-size: 21px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: relative;  
+  top: -67.5px;
+  left: 14%;
+}
+
+.textWhenTopicComment {
+  width: 174px;
+  height: 48px;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: relative;  
+  top: -165px;
+  left: 70%;
+}
+
+.textLastEditedTopicComment{
+  width: 194px;
+  height: 148px;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 3px;
+  line-height: 1.5;
+  position: relative;  
+  top: -175px;
+  left: 70%;
+}
+
+.textDetailTopicComment {
+  width: 659px;
+  height: 81px;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme3, #000000);
+  font-size: 27px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: relative;  
+  top: 15%;
+  left: 5%;
 }

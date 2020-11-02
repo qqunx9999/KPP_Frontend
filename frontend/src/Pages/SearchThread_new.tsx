@@ -12,6 +12,7 @@ const SearchThread_new = () => {
   const [search, setSearch] = useState<any>([]);
 
   const searching = () => {
+    console.log(localStorage.tags);
     ThreadService.searchThread(localStorage.keyword, localStorage.tags, localStorage.sort, 8, 1)
       .then(obj => {
         setSearch(obj)
@@ -34,9 +35,9 @@ const SearchThread_new = () => {
         <Formik
           initialValues={{ keyword: '', tags: '', sort: '', faculty: '' }}
           onSubmit={async (values, actions) => {
-            localStorage.setItem("keyword", values.keyword);
-            localStorage.setItem("tags", values.tags);
-            localStorage.setItem("sort", values.sort);
+            const sendInfo = {
+              
+            }
             console.log(localStorage.tags)
             actions.setSubmitting(false);
           }}
@@ -69,7 +70,6 @@ const SearchThread_new = () => {
                 </div>
                 </button>
                 <button className="facultyFrameSearchThread">
-                  {/* <Field type="checkbox" name="faculty" className="facultyClickBoxSearchThread" />  */}
                   <Dropdown>
                     <Dropdown.Toggle className="facultyTextSearchThread" variant="green">
                       {/* <Field type="checkbox" name="faculty" className="newsClickBoxSearchThread"/>  */}
@@ -140,3 +140,99 @@ const SearchThread_new = () => {
 };
 
 export default SearchThread_new;
+
+// import React from 'react';
+// import { useFormik } from 'formik';
+
+// export default function SearchThread_new() {
+//   const formik = useFormik({
+//     initialValues: {
+//       search: '',
+//       tags: [],
+//     },
+//     onSubmit: values => {
+//       alert(JSON.stringify(values, null, 2));
+//     },
+//   });console.log(formik.values);
+
+//   return(
+//     <div>
+//       <form onSubmit={formik.handleSubmit}>
+//        <label htmlFor="search">Search</label>
+//        <input
+//          id="search"
+//          name="search"
+//          type="text"
+//          onChange={formik.handleChange}
+//          value={formik.values.search}
+//        /> <br />
+//        <input
+//          id="help"
+//          name="tags"
+//          type="checkbox"
+//          onChange={formik.handleChange}
+//          value={formik.values.tags}
+//        />
+//        <label htmlFor="tags">Help</label> &nbsp;
+//        <input
+//          id="food"
+//          name="tags"
+//          type="checkbox"
+//          onChange={formik.handleChange}
+//          value={formik.values.tags}
+//        />
+//        <label htmlFor="tags">Food</label> &nbsp;
+//        <input
+//          id="news"
+//          name="tags"
+//          type="checkbox"
+//          onChange={formik.handleChange}
+//          value={formik.values.tags}
+//        />
+//        <label htmlFor="tags">News</label> &nbsp;
+//        <input
+//          id="faculty"
+//          name="tags"
+//          type="checkbox"
+//          onChange={formik.handleChange}
+//          value={formik.values.tags}
+//        />
+//        <label htmlFor="tags">Faculty</label> <br />
+//        <input
+//          id="question"
+//          name="tags"
+//          type="checkbox"
+//          onChange={formik.handleChange}
+//          value={formik.values.tags}
+//        />
+//        <label htmlFor="tags">Question</label> &nbsp;
+//        <input
+//          id="sharing"
+//          name="tags"
+//          type="checkbox"
+//          onChange={formik.handleChange}
+//          value={formik.values.tags}
+//        />
+//        <label htmlFor="tags">Sharing</label> &nbsp;
+//        <input
+//          id="complain"
+//          name="tags"
+//          type="checkbox"
+//          onChange={formik.handleChange}
+//          value={formik.values.tags}
+//        />
+//        <label htmlFor="tags">Complain</label> &nbsp;
+//        <input
+//          id="nonsense"
+//          name="tags"
+//          type="checkbox"
+//          onChange={formik.handleChange}
+//          value={formik.values.tags}
+//        />
+//        <label htmlFor="tags">Nonsense</label> 
+//        <button>Sort By</button>
+//        <button type="submit">Submit</button>
+//      </form>
+//     </div>
+//   );
+// };

@@ -115,19 +115,7 @@
   top: 0px;
   left: 50px
 }
-.blog{
-  width: 1400px;
-  height: 25px;
-  overflow: visible;
-  font-family: "Inter", sans-serif;
-  color: #ffffff;
-  font-size: 36px;
-  letter-spacing: 3px;
-  /* line-height: 3; */
-  position: relative;
-  top: 0px;
-  left: 50px
-}
+
 .dateLatest{
   position: absolute;
   left: 1100px;
@@ -160,11 +148,25 @@ li[ket=item.threadID]:hover{
   position: absolute;
   left : 85px;
 }
+.commentPic{
+  display:inline-block ! important;
+  width: 41px;
+  height: 61;
+  position: absolute;
+  left : 295px;
+
+}
+.dP{
+  position: relative;
+  top:5px;  
+}
+ 
 
 .dislikePic{
   display:inline-block ! important;
   width: 41px;
   height: 61;
+  line-height: 2.0 ! important;
   position: absolute;
   left : 190px;
 }
@@ -196,7 +198,7 @@ div.LDC {
 }
 .commentHottest{
   position: relative;
-  left : 200px;
+  left : 325px;
 }
 
 .userDisplayNameHomePage {

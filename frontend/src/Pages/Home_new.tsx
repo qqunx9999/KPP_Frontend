@@ -7,6 +7,7 @@ import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { PageItem, Pagination } from 'react-bootstrap';
+// import { blackMessageCircle } from "../CSSsource/Icons/black_Message_circle.png";
 
 const temp = {
   margin: "10px",
@@ -120,9 +121,10 @@ function Home_new() {
                             <img className="likePic"src="https://www.freeiconspng.com/thumbs/youtube-like-png/youtube-like-button-png-11.png" alt=""/>
                             <p className="likeHottest">
                             {item.up_vote_count}</p>
-                            <img className="dislikePic"src="https://pngimg.com/uploads/dislike/dislike_PNG63.png" alt=""/>
+                            <div className="dP">
+                            <img className="dislikePic" src="https://pngimg.com/uploads/dislike/dislike_PNG63.png" alt=""/></div>
                             <p className="dislikeHottest">  {item.down_vote_count}</p>
-                            <img className="commentPic" src="" alt="" />
+                            <img className="commentPic" src="https://image.flaticon.com/icons/png/512/25/25663.png" alt="" />
                             <p className="commentHottest">{ item.total_comment }</p>
                             </div>
                           </li>
@@ -166,6 +168,7 @@ function Home_new() {
     </div>
   );
 }
+
 
 
 export default Home_new;
