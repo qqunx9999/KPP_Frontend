@@ -154,12 +154,13 @@ li[ket=item.threadID]:hover{
   height: 61;
   position: absolute;
   left : 295px;
-  
+
 }
 .dP{
   position: relative;
   top:5px;  
 }
+ 
 
 .dislikePic{
   display:inline-block ! important;
