@@ -106,50 +106,6 @@ export class UsersService {
         mg.messages().send(data, function (error, body) {
             console.log(body);
         });
-        // const nodemailer = require("nodemailer");
-        // const { google } = require("googleapis");
-        // const OAuth2 = google.auth.OAuth2;
-
-
-        // const oauth2Client = new OAuth2(
-        //     "1002709865150-eaebtmjtmsh41ek9b57us4k4i4e1d74i.apps.googleusercontent.com", // ClientID
-        //     "zaQtoYTXJIf_EMVORC--5Zwm", // Client Secret
-        //     "https://developers.google.com/oauthplayground" // Redirect URL
-        // );
-
-        // oauth2Client.setCredentials({
-        //     refresh_token: "1//04ItGxNwFyiqzCgYIARAAGAQSNwF-L9Ir9AWhQsxRg8qeveuGliy9OLlv5ssy_3Jelq1-7Rbg8HLDjLZJT7vzYtyXFVichcLyNpE"
-        // });
-        // const accessToken = oauth2Client.getAccessToken()
-
-        // const smtpTransport = nodemailer.createTransport({
-        //     service: "gmail",
-        //     auth: {
-        //         type: "OAuth2",
-        //         user: "ku.people.team@gmail.com", 
-        //         clientId: "1002709865150-eaebtmjtmsh41ek9b57us4k4i4e1d74i.apps.googleusercontent.com",
-        //         clientSecret: "zaQtoYTXJIf_EMVORC--5Zwm",
-        //         refreshToken: "1//04ItGxNwFyiqzCgYIARAAGAQSNwF-L9Ir9AWhQsxRg8qeveuGliy9OLlv5ssy_3Jelq1-7Rbg8HLDjLZJT7vzYtyXFVichcLyNpE",
-        //         accessToken: accessToken
-        //     },
-        //     tls: {
-        //         rejectUnauthorized: false
-        //     }
-        // });
-
-        // const mailOptions = {
-        //     from: 'ku.people.team@gmail.com',
-        //     to: `${newmail}`,
-        //     subject: `KU-PEOPLE forget password Username: ${newname}`,
-        //     generateTextFromHTML: true,
-        //     text: `Your verified code is ${oldpass}`
-        //     //html: '<body> <p id="a"> </p> <script> let name = 5; document.getElementById("a").innerHTML = "hello" + name; </script> </body>'
-        // };
-
-        // smtpTransport.sendMail(mailOptions, (error, response) => {
-        //     error ? console.log(error) : console.log(response);
-        //     smtpTransport.close();
-        // });
     }
 
     async chatroomaction(userID: ObjectID, chatroomID: ObjectID,act: string): Promise<any> {
