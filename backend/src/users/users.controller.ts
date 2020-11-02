@@ -12,6 +12,18 @@ import { UsersService } from './users.service';
 export class UsersController {
     constructor(private usersService: UsersService) {}
 
+    @Get(':userID/forgetpass')
+    async getoldpass(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise<any> {
+      return this.usersService.getoldpass(userID);
+    }
+
+    @Patch(':userID/:oldpass/newpass')
+    async changepass(@Param('userID', ParseObjectIdPipe) userID: ObjectID,
+      @Param('oldpass') oldpass: string
+    ): Promise<any> {
+      return this.usersService.changepass(userID,oldpass);
+    }
+
     @Patch(':userID/chatrooms/:chatroomID/:act')
     async chatroomaction(@Param('userID', ParseObjectIdPipe) userID: ObjectID,
       @Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID,

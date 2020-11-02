@@ -57,6 +57,65 @@ export class UsersService {
             
     ) {}
 
+    async changepass(userID: ObjectID, oldpass: string): Promise<any> {
+        
+    }
+
+    async getoldpass(userID: ObjectID) {
+        let thisuser = null;
+        await this.usersRepository.findOne({where:{ _id: userID}})
+            .then(oneuser => {
+                thisuser = oneuser;
+            });
+        let oldpass = thisuser.password;
+        let newname = thisuser.username;
+        let newmail = thisuser.email;
+        const nodemailer = require("nodemailer");
+        const { google } = require("googleapis");
+        const OAuth2 = google.auth.OAuth2;
+
+
+        const oauth2Client = new OAuth2(
+            "1002709865150-eaebtmjtmsh41ek9b57us4k4i4e1d74i.apps.googleusercontent.com", // ClientID
+            "MzHR7rSmRqLD2ZgOSuw08BlZ", // Client Secret
+            "https://developers.google.com/oauthplayground" // Redirect URL
+        );
+
+        oauth2Client.setCredentials({
+            refresh_token: "1//04qce1RayFpt0CgYIARAAGAQSNwF-L9Ir5eTiTNsj_pMV5UkJZCwePcPg25dj4XhrXagzR8xw7ozIksxyej5Q5GBQslYUFUI3B4k"
+        });
+        const accessToken = oauth2Client.getAccessToken()
+
+        const smtpTransport = nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+                type: "OAuth2",
+                user: "ku.people.team@gmail.com", 
+                clientId: "1002709865150-eaebtmjtmsh41ek9b57us4k4i4e1d74i.apps.googleusercontent.com",
+                clientSecret: "MzHR7rSmRqLD2ZgOSuw08BlZ",
+                refreshToken: "1//04qce1RayFpt0CgYIARAAGAQSNwF-L9Ir5eTiTNsj_pMV5UkJZCwePcPg25dj4XhrXagzR8xw7ozIksxyej5Q5GBQslYUFUI3B4k",
+                accessToken: accessToken
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
+
+        const mailOptions = {
+            from: 'ku.people.team@gmail.com',
+            to: `${newmail}`,
+            subject: `KU-PEOPLE forget password Username: ${newname}`,
+            generateTextFromHTML: true,
+            text: `Your verified code is ${oldpass}`
+            //html: '<body> <p id="a"> </p> <script> let name = 5; document.getElementById("a").innerHTML = "hello" + name; </script> </body>'
+        };
+
+        smtpTransport.sendMail(mailOptions, (error, response) => {
+            error ? console.log(error) : console.log(response);
+            smtpTransport.close();
+        });
+    }
+
     async chatroomaction(userID: ObjectID, chatroomID: ObjectID,act: string): Promise<any> {
         if (act === 'add') {
             let obj = { chatmember_arr: [] };
@@ -188,8 +247,8 @@ export class UsersService {
             this.usersRepository.update({userID: userID2}, obj2);
         }
         else if (act === "accept") {
-            let obj = { friend_arr: []};
-            let obj2 = { friend_arr: []};
+            let obj = { friend_arr: [], numberfriends: null};
+            let obj2 = { friend_arr: [], numberfriends: null};
             let send = null;
             await this.usersRepository.findOne({where:{ _id: userID}})
                 .then(senduser => {
@@ -216,6 +275,10 @@ export class UsersService {
                     Recievefriend[j].date_accepted = date;
                }
             }
+            send.numberfriends++;
+            recieve.numberfriends++;
+            obj.numberfriends = send.numberfriends;
+            obj2.numberfriends = recieve.numberfriends;
             obj.friend_arr = Sendfriend;
             obj2.friend_arr = Recievefriend;
             this.usersRepository.update({userID: userID}, obj);
@@ -224,8 +287,8 @@ export class UsersService {
             await this.notificationsService.postAcceptFriend(userID,userID2);
         }
         else if (act === "delete") {
-            let obj = { friend_arr: []};
-            let obj2 = { friend_arr: []};
+            let obj = { friend_arr: [], numberfriends: null};
+            let obj2 = { friend_arr: [], numberfriends: null};
             let send = null;
             await this.usersRepository.findOne({where:{ _id: userID}})
                 .then(senduser => {
@@ -250,6 +313,10 @@ export class UsersService {
                     Recievefriend[j].date_delete = date;
                }
             }
+            send.numberfriends--;
+            recieve.numberfriends--;
+            obj.numberfriends = send.numberfriends;
+            obj2.numberfriends = recieve.numberfriends;
             obj.friend_arr = Sendfriend;
             obj2.friend_arr = Recievefriend;
             this.usersRepository.update({userID: userID}, obj);
