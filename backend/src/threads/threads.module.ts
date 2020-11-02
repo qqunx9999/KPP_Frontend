@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 
@@ -20,8 +20,8 @@ import { NotificationModule } from 'src/notification/notification.module';
     imports: [
         TypeOrmModule.forFeature([Thread, Commentation, Reportment_thread,
             Reportment_comment, User, Threadnogen]),
-        UsersModule,
-        NotificationModule
+        forwardRef(() => UsersModule),
+        forwardRef(() => NotificationModule)
     ],
     exports: [ThreadsService],
     controllers: [ThreadsController],

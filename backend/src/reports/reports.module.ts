@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import Reportment_comment from 'src/entities/reportment_comment.entity';
@@ -18,12 +18,13 @@ import { UsersModule } from 'src/users/users.module';
 @Module({
   imports: [
     TypeOrmModule.forFeature([Thread, Commentation, Reportment_thread,Reportment_comment, Admin, User]),
-    ThreadsModule,
-    NotificationModule,
-    UsersModule
+    forwardRef(() => ThreadsModule),
+    forwardRef(() => NotificationModule),
+    forwardRef(() => UsersModule)
   ],
   controllers: [ReportsController],
-  providers: [ReportsService]
+  providers: [ReportsService],
+  exports: [ReportsService]
 })
 
 export class ReportsModule {}

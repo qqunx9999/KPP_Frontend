@@ -376,7 +376,6 @@ export class UsersService {
             .then(setUsers=>{allUser = setUsers});
         
         //console.log(allUser.some(eachuser => {console.log(eachuser.email,createUserDto.email, eachuser.email === createUserDto.email);return eachuser.email === createUserDto.email}));
-
         if(allUser.some(eachuser => {return eachuser.email === createUserDto.email})){
             //console.log("this email has already used to sign up");
             //return {"message": "this email has already used to sign up"};
@@ -386,7 +385,16 @@ export class UsersService {
             //console.log("this username has already used to sign up");
             throw new HttpException("this username has already used to sign up", HttpStatus.FORBIDDEN);
         }
-        
+        var bcrypt =  require('bcrypt');
+        /* verify
+        //const hashmail = bcrypt.hashSync(createUserDto.password, 10);
+        //console.log(hashmail)
+        console.log(bcrypt.compareSync(createUserDto.email, createUserDto.verify));
+        console.log(createUserDto.email, createUserDto.verify);
+        if(!bcrypt.compareSync(createUserDto.email, createUserDto.verify)){
+            throw new HttpException("wrong verifycode", HttpStatus.FORBIDDEN);
+        }
+        delete createUserDto.verify; */
     
         
         let NO: Threadnogen;
@@ -413,7 +421,7 @@ export class UsersService {
         createUserDto.isLoggedIn = false;
         
         
-        var bcrypt =  require('bcrypt');
+        
         const saltRounds = 10;
         const hash = bcrypt.hashSync(createUserDto.password, saltRounds);
         createUserDto.password = hash;

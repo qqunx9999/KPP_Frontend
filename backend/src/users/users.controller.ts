@@ -73,6 +73,15 @@ export class UsersController {
     async createUser(@Body() createUserDto: CreateUserDto){
       return this.usersService.createUser(createUserDto);
     }
+
+    @Post('genverify/:email')
+    async gerver(@Param('email') email: string){
+      var bcrypt =  require('bcrypt');
+      console.log(email);
+      const hashmail = bcrypt.hashSync(email, 10);
+        console.log(hashmail);
+    }
+
     
     
 }

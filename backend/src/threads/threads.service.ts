@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
@@ -37,7 +37,9 @@ export class ThreadsService {
     @InjectRepository(Threadnogen)
     private threadNOGenRepository: Repository<Threadnogen>,
     
+    @Inject(forwardRef(() => UsersService))
     private usersService: UsersService,
+    @Inject(forwardRef(() => NotificationsService))
     private notificationsService: NotificationsService
       
   ) {}
