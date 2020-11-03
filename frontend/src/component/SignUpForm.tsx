@@ -45,7 +45,7 @@ export const SignUp = () => {
           </label>
           <label htmlFor="email" className="signup-email_">
             Email :
-            <Field type="input" required name="email" placeholder="Type your Email..." style={{ width: "750px", height: "50px" , fontSize: "30px","background-color":"white"}} className="form-control signup-Input_email" />
+            <Field type="input" required name="email" placeholder="Type your Email..." style={{ width: "500px", height: "50px" , fontSize: "30px","background-color":"white"}} className="form-control signup-Input_email" />
           </label>
           <label className="signup-_ku-th">
             @ku.th
