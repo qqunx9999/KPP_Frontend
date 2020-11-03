@@ -32,5 +32,6 @@ export class CreateUserDto {
     isAdmin: boolean ;//= false;
     //@IsBoolean()
     isLoggedIn: boolean ;//= false;
+    verify?:string;
     
 }

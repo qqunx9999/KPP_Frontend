@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ObjectID } from 'mongodb';
@@ -32,9 +32,11 @@ export class ReportsService {
     @InjectRepository(User)
     private usersRepository: Repository<User>,
 
-    
+    @Inject(forwardRef(() => NotificationsService))
     private notificationsService: NotificationsService,
+    @Inject(forwardRef(() => ThreadsService))
     private threadsService: ThreadsService,
+    @Inject(forwardRef(() => UsersService))
     private usersService: UsersService
       
   ) {}

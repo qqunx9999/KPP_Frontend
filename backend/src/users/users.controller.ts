@@ -6,11 +6,25 @@ import { ParseObjectIdPipe } from 'src/common/pipes';
 import { CreateUserDto } from 'src/dto/create-user.dto';
 import { UpdateUserDto } from 'src/dto_update/update-user.dto';
 import User from 'src/entities/user.entity';
+import { changepassDto } from './changepass.dto';
 import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
-    constructor(private usersService: UsersService) {}
+    constructor(private usersService: UsersService,
+      ) {}
+
+    @Get(':userID/forgetpass')
+    async getoldpass(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise<any> {
+      return this.usersService.getoldpass(userID);
+    }
+
+    @Patch(':userID/newpass')
+    async changepass(@Body() changepassdto: changepassDto, 
+     @Param('userID', ParseObjectIdPipe) userID: ObjectID,
+    ): Promise<any> {
+      return this.usersService.changepass(userID,changepassdto);
+    }
 
     @Patch(':userID/chatrooms/:chatroomID/:act')
     async chatroomaction(@Param('userID', ParseObjectIdPipe) userID: ObjectID,
@@ -73,6 +87,13 @@ export class UsersController {
     async createUser(@Body() createUserDto: CreateUserDto){
       return this.usersService.createUser(createUserDto);
     }
+
+    @Post('genverify/:email')
+    async genver(@Param('email') email: string){
+      return this.usersService.genver(email);
+
+    }
+
     
     
 }
