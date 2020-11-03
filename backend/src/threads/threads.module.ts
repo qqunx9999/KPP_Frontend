@@ -10,7 +10,7 @@ import Reportment_thread from 'src/entities/reportment_thread.entity';
 import Reportment_comment from 'src/entities/reportment_comment.entity';
 import { UsersModule } from 'src/users/users.module';
 import User from 'src/entities/user.entity';
-import { Threadnogen } from 'src/entities/threadnogen.entity';
+import { Objectnumber } from 'src/entities/objectnumber.entity';
 import { NotificationModule } from 'src/notification/notification.module';
 
 
@@ -19,7 +19,7 @@ import { NotificationModule } from 'src/notification/notification.module';
 @Module({
     imports: [
         TypeOrmModule.forFeature([Thread, Commentation, Reportment_thread,
-            Reportment_comment, User, Threadnogen]),
+            Reportment_comment, User, Objectnumber]),
         forwardRef(() => UsersModule),
         forwardRef(() => NotificationModule)
     ],

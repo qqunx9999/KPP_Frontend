@@ -17,7 +17,7 @@ import { UsersService } from 'src/users/users.service';
 import { UpdateThreadDto } from 'src/dto_update/update-thread.dto';
 import { UpdateCommentDto } from 'src/dto_update/update-comment.dto';
 import { User_info } from 'src/common/user_info';
-import { Threadnogen } from 'src/entities/threadnogen.entity';
+import { Objectnumber } from 'src/entities/objectnumber.entity';
 import { NotificationsService } from 'src/notification/notification.service';
 
 
@@ -34,8 +34,8 @@ export class ThreadsService {
     private reportment_commentRepository: Repository<Reportment_comment>,
     @InjectRepository(User)
     private usersRepository: Repository<User>,
-    @InjectRepository(Threadnogen)
-    private threadNOGenRepository: Repository<Threadnogen>,
+    @InjectRepository(Objectnumber)
+    private objectNumberRepository: Repository<Objectnumber>,
     
     @Inject(forwardRef(() => UsersService))
     private usersService: UsersService,
@@ -140,12 +140,12 @@ export class ThreadsService {
 
   async createThread(createThreadDto: CreateThreadDto) {
     createThreadDto.userID = new ObjectID(createThreadDto.userID); // userID: string to Object
-    let NO:Threadnogen;
-    await this.threadNOGenRepository.find()
-      .then(setNO =>{NO=setNO[0]});
+    let NO:Objectnumber;
+    await this.objectNumberRepository.findOne({where:{object_type: "thread"}})
+      .then(setNO =>{NO=setNO});
     //console.log(NO);
-    createThreadDto.threadNO = NO.threadNO +1 ;
-    await this.threadNOGenRepository.update({id: NO.id}, {threadNO:NO.threadNO+1} );
+    createThreadDto.threadNO = NO.NO +1 ;
+    await this.objectNumberRepository.update({id: NO.id}, {NO:NO.NO+1} );
 
     createThreadDto.up_vote_arr = [];
     createThreadDto.down_vote_arr = [];
@@ -237,9 +237,11 @@ export class ThreadsService {
     }
     else{
       let comment: Commentation;
-      await this.commentationsRepository.findOne({where: {threadID:thread.threadID, commentNO:createCommentationDto.reply_to}})
+      await this.commentationsRepository.findOne({where: {threadID:thread.threadID, commentNO:createCommentationDto.reply_to, date_delete:null}})
         .then(setCmt => {comment = setCmt});
-      await this.notificationsService.postComment(new ObjectID(comment.userID), newComment.commentID);
+      if(comment !== undefined){
+        await this.notificationsService.postComment(new ObjectID(comment.userID), newComment.commentID);
+      }
     }
 
     return newComment;
@@ -247,12 +249,12 @@ export class ThreadsService {
 
   async createReportment_thread(createReportment_threadDto: CreateReportment_threadDto) {
     
-    let NO:Threadnogen;
-    await this.threadNOGenRepository.find()
-      .then(setNO =>{NO=setNO[2]});
+    let NO: Objectnumber;
+    await this.objectNumberRepository.findOne({where:{object_type: "reportT"}})
+      .then(setNO =>{NO=setNO});
     //console.log(NO);
-    createReportment_threadDto.reportTNO = NO.threadNO +1 ;
-    await this.threadNOGenRepository.update({id: NO.id}, {threadNO:NO.threadNO+1} )
+    createReportment_threadDto.reportTNO = NO.NO +1 ;
+    await this.objectNumberRepository.update({id: NO.id}, {NO:NO.NO+1} )
     
     createReportment_threadDto.status = "wait";
     let date = new Date();
@@ -266,12 +268,12 @@ export class ThreadsService {
 
   async createReportment_comment(createReportment_commentDto: CreateReportment_commentDto){
     
-    let NO:Threadnogen;
-    await this.threadNOGenRepository.find()
-      .then(setNO =>{NO=setNO[3]});
+    let NO:Objectnumber;
+    await this.objectNumberRepository.findOne({where:{object_type:"reportC"}})
+      .then(setNO =>{NO=setNO});
     //console.log(NO);
-    createReportment_commentDto.reportCNO = NO.threadNO +1 ;
-    await this.threadNOGenRepository.update({id: NO.id}, {threadNO:NO.threadNO+1} )
+    createReportment_commentDto.reportCNO = NO.NO +1 ;
+    await this.objectNumberRepository.update({id: NO.id}, {NO:NO.NO+1} )
     
     createReportment_commentDto.status = "wait";
     let date = new Date()

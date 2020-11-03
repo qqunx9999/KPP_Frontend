@@ -7,5 +7,6 @@ export class User_info{
     avatar_URL: string;
     exp: number;
     rank: string;
+    isAdmin: boolean;
     isLoggedIn: boolean;
 }

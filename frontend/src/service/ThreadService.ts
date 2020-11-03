@@ -1,4 +1,3 @@
-import { promises } from 'dns';
 import { baseUrl } from '../config/constant';
 import AuthService from './AuthService';
 

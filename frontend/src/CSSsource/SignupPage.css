@@ -3,7 +3,7 @@
   height: 100%;
   overflow: hidden;
   margin: 0;
-  background: var(--ฺB5, #d6ce15);
+  /*background: var(--ฺB5, #d6ce15);*/
   position: absolute;
 }
 .btn-success:hover{
@@ -140,7 +140,7 @@ background: rgba(0, 0, 0, 0.2)
   line-height: 3;
   position: absolute;    
   top: 397px;
-  left: 1021px;
+  left: 750px;
 }
 
 .signup-password_ {
@@ -351,4 +351,90 @@ background: rgba(0, 0, 0, 0.2)
   color: #ffffff ! important;
   font-size: 30px ! important;
   letter-spacing: 3px ! important;
+}
+
+.signup-verify {
+  width: 500px;
+  height: 138px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme1, #ffffff);
+  font-size: 46px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: absolute;
+  top: 700px;
+  left: 53px;
+}
+
+.signup-Input_verify {
+  background-color: rgb(221, 221, 227);
+  font-size: 22;
+  color: "#333333";
+  border: rgba(0,0,0,0);
+  border-width: 1;
+  /*focusColor=#09F*/
+  /*focused:false*/
+  font: false;
+  font-family: "";
+  /*keyboard:""*/
+  /*multiLine:false*/
+  padding: 12;
+  /*password:false*/
+  border-radius: 10;
+  width: 411px;
+  position: absolute;    
+  top: 35%;
+  left:95%;
+}
+
+.sendVerifyBtn {
+  width: 145px;
+  height: 90px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme1, #ffffff);
+  font-size: 30px;
+  letter-spacing: 3px;
+  line-height: 3;
+}
+
+#sendVerify {
+  width: 200px;
+  height: 90px;
+  overflow: visible;
+  background: var(--Theme5, #6cc551);
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
+  border-radius: 19px;
+  position: absolute;
+  top: 42%;
+  left: 78%;
+}
+
+.sendVerifyText {
+  width: 386px ! important;
+  height: 90px ! important;
+  overflow: visible ! important;
+  font-family: "Inter", sans-serif ! important;
+  color: #ffffff ! important;
+  font-size: 30px ! important;
+  letter-spacing: 3px ! important;
+  line-height: 2.2 ! important;
+  position: absolute ! important;
+  top: 10px;
+  left: -48%;
+}
+
+.textVerificationExpireSignupPage {
+  width: 826px;
+  height: 57px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme1, #ffffff);
+  font-size: 19px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: absolute;    
+  top: 49%;
+  left: 14%;
 }

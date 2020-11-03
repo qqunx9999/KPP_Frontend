@@ -19,8 +19,8 @@ import { ReportsModule } from './reports/reports.module';
 import { ChatroomsModule } from './chatrooms/chatrooms.module';
 import { NotificationModule } from './notification/notification.module';
 import Notifications from './entities/notification.entity';
-import { Threadnogen } from './entities/threadnogen.entity';
-import Verifygen from './entities/verifygen.entity';
+import { Objectnumber } from './entities/objectnumber.entity';
+import Verifycode from './entities/verifycode.entity';
 
 @Module({
   imports: [
@@ -29,7 +29,7 @@ import Verifygen from './entities/verifygen.entity';
       host: 'localhost',
       database: 'test_kuPeople',
       entities: [Admin, Chat_message, Chatroom, Commentation,
-          Reportment_comment, Reportment_thread, Thread, User, Notifications, Threadnogen, Verifygen],
+          Reportment_comment, Reportment_thread, Thread, User, Notifications, Objectnumber, Verifycode],
       synchronize: true,
     }),
     ThreadsModule,

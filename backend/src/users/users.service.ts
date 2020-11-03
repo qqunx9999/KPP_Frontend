@@ -13,14 +13,20 @@ import { UpdateUserDto } from 'src/dto_update/update-user.dto';
 import Commentation from 'src/threads/comentation.entity';
 import Reportment_comment from 'src/entities/reportment_comment.entity';
 import Reportment_thread from 'src/entities/reportment_thread.entity';
-import Threadnogen from 'src/entities/threadnogen.entity';
+import objectnumber, { Objectnumber } from 'src/entities/objectnumber.entity';
 
 import {map, catchError } from 'rxjs/operators';
 import {from ,throwError} from 'rxjs';
 import { NotificationsService } from 'src/notification/notification.service';
+import Verifycode from 'src/entities/verifycode.entity';
 import { changepassDto } from './changepass.dto';
+<<<<<<< HEAD
 import Verifygen from 'src/entities/verifygen.entity';
 import { emailsecret } from './emailsecret';
+=======
+
+
+>>>>>>> 1e3f1e7a429c184e02c6d3e1c36cde2bcccf8195
 
 
 
@@ -29,7 +35,7 @@ import { emailsecret } from './emailsecret';
 export class UsersService {
     
     private user_info: User[] = [];
-    private info: User_info={userID: null,name:null,avatar_URL:null, exp:null, rank:null ,isLoggedIn:null };
+    private info: User_info={userID: null,name:null,avatar_URL:null, exp:null, rank:null, isAdmin:null,isLoggedIn:null };
     private newusers = [];
     private findoneuser = null;
     private iamuser = null;
@@ -51,10 +57,10 @@ export class UsersService {
         private reportCRepository: Repository<Reportment_comment>,
         @InjectRepository(Reportment_thread)
         private reportTRepository: Repository<Reportment_thread>,
-        @InjectRepository(Threadnogen)
-        private threadnogenRopsitory: Repository<Threadnogen>,
-        @InjectRepository(Verifygen)
-        private verifygenRepository: Repository<Verifygen>,
+        @InjectRepository(Objectnumber)
+        private objectNumberRopsitory: Repository<Objectnumber>,
+        @InjectRepository(Verifycode)
+        private verifygenRepository: Repository<Verifycode>,
 
 
         private notificationsService: NotificationsService
@@ -447,7 +453,7 @@ export class UsersService {
 
     async findUserInfo(userID: ObjectID): Promise<User_info>{
         //console.log(userID);
-        this.info = {userID: null,name:null,avatar_URL:null, exp:null, rank:null ,isLoggedIn:null };
+        this.info = {userID: null,name:null,avatar_URL:null, exp:null, rank:null, isAdmin:null ,isLoggedIn:null };
         this.user_info = [];
         await this.usersRepository.find({where:{_id: userID}})
             .then(setuser_info => {
@@ -460,6 +466,7 @@ export class UsersService {
         this.info.avatar_URL = this.user_info[0].avatar_URL;
         this.info.exp = this.user_info[0].exp;
         this.info.rank = this.user_info[0].rank;
+        this.info.isAdmin = this.user_info[0].isAdmin;
         this.info.isLoggedIn = this.user_info[0].isLoggedIn;
         return this.info;
 
@@ -485,12 +492,12 @@ export class UsersService {
             throw new HttpException("this username has already used to sign up", HttpStatus.FORBIDDEN);
         }
         
-        // verify
+        // verify email with verify code
         /*
-        let verifys: Verifygen[];
+        let verifys: Verifycode[];
         await this.verifygenRepository.find({where:{email: createUserDto.email}, order:{date_expire: "DESC"}})
             .then(set => {verifys = set})
-        let verify: Verifygen;
+        let verify: Verifycode;
         if(verifys.length === 0){
             throw new HttpException("no verifycode", HttpStatus.FORBIDDEN);
         }
@@ -506,18 +513,18 @@ export class UsersService {
         if(date > verify.date_expire){
             throw new HttpException("expired", HttpStatus.FORBIDDEN);
         }
-        delete createUserDto.verify; 
+         
         await this.verifygenRepository.remove(verifys);
     
-        */
+        */delete createUserDto.verify;
        
-        let NO: Threadnogen;
+        let NO: Objectnumber;
         // Generate GuestNO. but use number from threadnogen entity
-        await this.threadnogenRopsitory.find()
-            .then(setNO=>{NO=setNO[1]});
-        let userNO = (NO.threadNO+1).toString();
+        await this.objectNumberRopsitory.findOne({where:{object_type:"guest"}})
+            .then(setNO=>{NO=setNO});
+        let userNO = (NO.NO+1).toString();
         createUserDto.name = "Guest"+ userNO;
-        await this.threadnogenRopsitory.update({id:NO.id}, {threadNO: NO.threadNO+1});
+        await this.objectNumberRopsitory.update({id:NO.id}, {NO: NO.NO+1});
         
         createUserDto.avatar_URL = null;
         createUserDto.exp = 0;
@@ -572,7 +579,7 @@ export class UsersService {
         }
         let dateExpire = new Date();
         dateExpire.setMinutes(dateExpire.getMinutes()+7*60+10);
-        let verify: Verifygen = {
+        let verify: Verifycode = {
             code: code,
             email: email,
             date_expire: dateExpire

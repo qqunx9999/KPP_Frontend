@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 import ThreadService from '../service/ThreadService';
+import '../CSSsource/CreateReport.css';
 
 type modalProps = {
   type: string,
@@ -42,9 +43,9 @@ export default function ReportModal(props: modalProps) {
 
   return (
     <>
-      <Button onClick={handleShow}>
+      <p onClick={handleShow} className = "fuck">
         Read
-      </Button>
+      </p>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

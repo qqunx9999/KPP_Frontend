@@ -2,7 +2,7 @@
     width: 100%;
     height: 200%;
     overflow: hidden;
-    background: var(--B5, #d6ce15);
+    /*background: var(--B5, #d6ce15);*/
     margin: 0;
     position: absolute;
   }
@@ -18,6 +18,13 @@
     left: -22%;
     transform: scale(0.7, 0.7);  
   }
+  li {
+    list-style:none;
+}
+
+ReportModal{
+
+}
 
 .rpList-kuppl2 {
     width: 510px;
@@ -104,12 +111,24 @@
     width: 197px;
     height: 50px;
     overflow: visible;
-    background: var(--Theme1_50_, rgba(255, 255, 255, 0.5));
+    background-color: rgba(255, 255, 255, 0.5);
     box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
-    position: absolute;    
+    position: absolute;     
     top: 45px;
     left: 447px;
+  }
+
+  .rpList-read-round2 {
+    width: 197px;
+    height: 50px;
+    overflow: visible;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    position: absolute;     
+    top: 45px;
+    left: 27px;
   }
 
 .rplist-read1 {
@@ -123,9 +142,19 @@
     line-height: 3;
     position: absolute;    
     top: -29px;
-    left: 85px;
+    left: 50px;
   }
-
+.fuck{
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: rgba(13, 4, 82, 0.85);
+  font-size: 32px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: relative;    
+  top: 0px;
+  left: 0px;
+}
 .rpList-date-round1 {
     width: 296px;
     height: 50px;
@@ -151,30 +180,59 @@
     top: -23px;
     left: 57.5px;
   }
+.wtf{
+  position: relative;
+  margin-bottom: 0px ! important;
+}
+.blog{
+  width: 500px;
+  height: 100px;;
+  position: relative;
+  left: -60px;
 
+}
 .rpList-correct-round1 {
-    width: 91px;
+  width: 200px;
+  height: 50px;
+  overflow: visible;
+  background: var(--Theme2, #dddde3);
+  box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  line-height: 1;
+  position: relative;    
+  top : -125px;
+  margin-bottom: 100px;
+  left:445px; 
+  border-width: 0px;
+}
+  #yeS {
+    width: 200px;
     height: 50px;
     overflow: visible;
     background: var(--Theme2, #dddde3);
     box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
-    position: absolute;    
-    top: 45px;
-    left: 985px;
-    border-width: 0px;
+    line-height: 1;
+    position: relative;    
+    /* top: 45px; */
+    left: 945px; 
+    border-width: 0px;   
   }
 
+
+  
+
 .rpList-incorrect-round1 {
-    width: 91px;
+    width: 200px;
     height: 50px;
     overflow: visible;
     background: var(--Theme2, #dddde3);
     box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
-    position: absolute;    
-    top: 45px;
-    left: 1096px;
+    line-height: 1;
+    position: relative;    
+    top: -122px;
+    left: 470px;
     border-width: 0px;
   }
 
@@ -478,9 +536,9 @@
     background: var(--Theme2, #dddde3);
     box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
-    position: absolute;    
+    position: relative;
     top: 45px;
-    left: 985px;
+    left: 1500px;
     border-width: 0px;
   }
 
