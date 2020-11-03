@@ -20,13 +20,10 @@ import {from ,throwError} from 'rxjs';
 import { NotificationsService } from 'src/notification/notification.service';
 import Verifycode from 'src/entities/verifycode.entity';
 import { changepassDto } from './changepass.dto';
-<<<<<<< HEAD
 import Verifygen from 'src/entities/verifygen.entity';
 import { emailsecret } from './emailsecret';
-=======
 
 
->>>>>>> 1e3f1e7a429c184e02c6d3e1c36cde2bcccf8195
 
 
 
