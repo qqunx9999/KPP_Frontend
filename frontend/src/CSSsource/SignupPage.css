@@ -425,8 +425,8 @@ background: rgba(0, 0, 0, 0.2)
   left: -48%;
 }
 
-.verificationSignupPage {
-  width: 726px;
+.textVerificationExpireSignupPage {
+  width: 826px;
   height: 57px;
   overflow: visible;
   font-family: "Inter", sans-serif;
@@ -436,5 +436,5 @@ background: rgba(0, 0, 0, 0.2)
   line-height: 3;
   position: absolute;    
   top: 49%;
-  left: 40%;
+  left: 14%;
 }

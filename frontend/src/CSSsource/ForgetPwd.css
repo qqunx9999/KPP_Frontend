@@ -115,7 +115,7 @@
   }
 
 .verification {
-    width: 726px;
+    width: 826px;
     height: 57px;
     overflow: visible;
     font-family: "Inter", sans-serif;
@@ -125,7 +125,7 @@
     line-height: 3;
     position: absolute;    
     top: 302px;
-    left: 248px;
+    left: 210px;
   }
 
 .new-password_ {
