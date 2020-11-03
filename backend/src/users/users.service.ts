@@ -30,7 +30,7 @@ import { changepassDto } from './changepass.dto';
 export class UsersService {
     
     private user_info: User[] = [];
-    private info: User_info={userID: null,name:null,avatar_URL:null, exp:null, rank:null ,isLoggedIn:null };
+    private info: User_info={userID: null,name:null,avatar_URL:null, exp:null, rank:null, isAdmin:null,isLoggedIn:null };
     private newusers = [];
     private findoneuser = null;
     private iamuser = null;
@@ -455,7 +455,7 @@ export class UsersService {
 
     async findUserInfo(userID: ObjectID): Promise<User_info>{
         //console.log(userID);
-        this.info = {userID: null,name:null,avatar_URL:null, exp:null, rank:null ,isLoggedIn:null };
+        this.info = {userID: null,name:null,avatar_URL:null, exp:null, rank:null, isAdmin:null ,isLoggedIn:null };
         this.user_info = [];
         await this.usersRepository.find({where:{_id: userID}})
             .then(setuser_info => {
@@ -468,6 +468,7 @@ export class UsersService {
         this.info.avatar_URL = this.user_info[0].avatar_URL;
         this.info.exp = this.user_info[0].exp;
         this.info.rank = this.user_info[0].rank;
+        this.info.isAdmin = this.user_info[0].isAdmin;
         this.info.isLoggedIn = this.user_info[0].isLoggedIn;
         return this.info;
 
@@ -514,10 +515,10 @@ export class UsersService {
         if(date > verify.date_expire){
             throw new HttpException("expired", HttpStatus.FORBIDDEN);
         }
-        delete createUserDto.verify; 
+         
         await this.verifygenRepository.remove(verifys);
     
-        */
+        */delete createUserDto.verify;
        
         let NO: Objectnumber;
         // Generate GuestNO. but use number from threadnogen entity

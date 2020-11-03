@@ -38,7 +38,7 @@ export class NotificationsService {
     
     async allUnread(userID: ObjectID): Promise <any> {
         let allnoti: Notifications[]
-        await this.notificationsRepository.find({where:{userID: userID, date_read:null}})
+        await this.notificationsRepository.find({where:{userID: userID}})
             .then(set => {allnoti = set});
         allnoti = allnoti.filter(each =>{if(each.object_type !== "chat"){return true;}})
         let allnotiwithInfo = [];
@@ -46,7 +46,7 @@ export class NotificationsService {
             if(allnoti[i].object_type == "friend_request" || allnoti[i].object_type == "friend_accept"){
                 var notiwithinfo = {
                     notificationInfo: allnoti[i],
-                    
+                    // userinfo
                 }
             }
             else if(allnoti[i].object_type == "reportT_considered"){
