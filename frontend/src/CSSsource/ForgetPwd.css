@@ -86,7 +86,7 @@
 
 
 .send_button {
-    background: var(--B2, #1f6521) ! important; /* Green */
+    background: var(--B2, #6cc551) ! important; /* Green */
     border-radius: 25px ! important;
     color: white ! important;
     width: 156px ! important;
@@ -235,7 +235,7 @@
 
 .fgpwd_goback_button {
     line-height: 2.2 ! important;
-    background: var(--B2, #1f6521) ! important; /* Green */
+    background: var(--B2, #6cc551) ! important; /* Green */
     border-radius: 19px ! important;
     color: white ! important;
     width: 215px ! important;
@@ -264,7 +264,7 @@
 
   
 .fgpwd_confirm_button {
-    background: var(--B2, #1f6521) ! important; /* Green */
+    background: var(--B2, #6cc551) ! important; /* Green */
     border-radius: 25px ! important;
     color: white ! important;
     width: 193px ! important;

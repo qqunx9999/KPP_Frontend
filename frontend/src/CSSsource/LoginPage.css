@@ -192,7 +192,7 @@
   width: 215px;
   height: 90px;
   overflow: visible;
-  background: var(--B3, #53900f);
+  background: var(--B3, #6cc551);
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
   border-radius: 19px;
   position: absolute;
@@ -246,7 +246,7 @@
   width: 215px;
   height: 90px;
   overflow: visible;
-  background: var(--B3, #53900f);
+  background: var(--B3, #6cc551);
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
   border-radius: 19px;
   position: absolute;
