@@ -1,7 +1,7 @@
 import { Entity, Column, ObjectIdColumn } from 'typeorm';
 import { ObjectID } from 'mongodb'
 @Entity()
-export class Verifygen{
+export class Verifycode{
     @ObjectIdColumn()
     verifyID?: ObjectID;
     @Column()
@@ -11,4 +11,4 @@ export class Verifygen{
     @Column()
     date_expire: Date;
 }
-export default Verifygen;
+export default Verifycode;

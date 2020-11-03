@@ -11,13 +11,13 @@ import Reportment_thread from 'src/entities/reportment_thread.entity';
 import Reportment_comment from 'src/entities/reportment_comment.entity';
 import Threadnogen from 'src/entities/threadnogen.entity';
 import { NotificationModule } from 'src/notification/notification.module';
-import Verifygen from 'src/entities/verifygen.entity';
+import Verifycode from 'src/entities/verifycode.entity';
 
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([User, Chatroom, Notifications, Thread, Commentation,
-     Reportment_thread, Reportment_comment, Threadnogen, Verifygen]),
+     Reportment_thread, Reportment_comment, Threadnogen, Verifycode]),
     NotificationModule
   ],
   providers: [UsersService],

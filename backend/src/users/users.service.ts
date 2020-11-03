@@ -18,7 +18,7 @@ import Threadnogen from 'src/entities/threadnogen.entity';
 import {map, catchError } from 'rxjs/operators';
 import {from ,throwError} from 'rxjs';
 import { NotificationsService } from 'src/notification/notification.service';
-import Verifygen from 'src/entities/verifygen.entity';
+import Verifycode from 'src/entities/verifycode.entity';
 
 
 
@@ -52,8 +52,8 @@ export class UsersService {
         private reportTRepository: Repository<Reportment_thread>,
         @InjectRepository(Threadnogen)
         private threadnogenRopsitory: Repository<Threadnogen>,
-        @InjectRepository(Verifygen)
-        private verifygenRepository: Repository<Verifygen>,
+        @InjectRepository(Verifycode)
+        private verifygenRepository: Repository<Verifycode>,
 
 
         private notificationsService: NotificationsService
@@ -460,12 +460,12 @@ export class UsersService {
             throw new HttpException("this username has already used to sign up", HttpStatus.FORBIDDEN);
         }
         
-        // verify
+        // verify email with verify code
         /*
-        let verifys: Verifygen[];
+        let verifys: Verifycode[];
         await this.verifygenRepository.find({where:{email: createUserDto.email}, order:{date_expire: "DESC"}})
             .then(set => {verifys = set})
-        let verify: Verifygen;
+        let verify: Verifycode;
         if(verifys.length === 0){
             throw new HttpException("no verifycode", HttpStatus.FORBIDDEN);
         }
@@ -547,7 +547,7 @@ export class UsersService {
         }
         let dateExpire = new Date();
         dateExpire.setMinutes(dateExpire.getMinutes()+7*60+10);
-        let verify: Verifygen = {
+        let verify: Verifycode = {
             code: code,
             email: email,
             date_expire: dateExpire
