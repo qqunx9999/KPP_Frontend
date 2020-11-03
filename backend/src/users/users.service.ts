@@ -13,7 +13,7 @@ import { UpdateUserDto } from 'src/dto_update/update-user.dto';
 import Commentation from 'src/threads/comentation.entity';
 import Reportment_comment from 'src/entities/reportment_comment.entity';
 import Reportment_thread from 'src/entities/reportment_thread.entity';
-import Threadnogen from 'src/entities/threadnogen.entity';
+import objectnumber, { Objectnumber } from 'src/entities/objectnumber.entity';
 
 import {map, catchError } from 'rxjs/operators';
 import {from ,throwError} from 'rxjs';
@@ -52,8 +52,8 @@ export class UsersService {
         private reportCRepository: Repository<Reportment_comment>,
         @InjectRepository(Reportment_thread)
         private reportTRepository: Repository<Reportment_thread>,
-        @InjectRepository(Threadnogen)
-        private threadnogenRopsitory: Repository<Threadnogen>,
+        @InjectRepository(Objectnumber)
+        private objectNumberRopsitory: Repository<Objectnumber>,
         @InjectRepository(Verifycode)
         private verifygenRepository: Repository<Verifycode>,
 
@@ -519,13 +519,13 @@ export class UsersService {
     
         */
        
-        let NO: Threadnogen;
+        let NO: Objectnumber;
         // Generate GuestNO. but use number from threadnogen entity
-        await this.threadnogenRopsitory.find()
-            .then(setNO=>{NO=setNO[1]});
-        let userNO = (NO.threadNO+1).toString();
+        await this.objectNumberRopsitory.findOne({where:{object_type:"guest"}})
+            .then(setNO=>{NO=setNO});
+        let userNO = (NO.NO+1).toString();
         createUserDto.name = "Guest"+ userNO;
-        await this.threadnogenRopsitory.update({id:NO.id}, {threadNO: NO.threadNO+1});
+        await this.objectNumberRopsitory.update({id:NO.id}, {NO: NO.NO+1});
         
         createUserDto.avatar_URL = null;
         createUserDto.exp = 0;
