@@ -26,7 +26,7 @@ function CommentForm() {
           "content": values.comment,
           "text_type": text,
           "image_arr": [],
-          "reply_to": 0,
+          "reply_to": Number(values.reply),
         };
         const res = await fetch(`${ baseUrl }/threads/${ThreadID}/comments`, {
           method: 'POST',

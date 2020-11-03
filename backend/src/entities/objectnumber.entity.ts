@@ -2,11 +2,13 @@ import {Entity , Column , ObjectIdColumn } from 'typeorm';
 import {ObjectID} from 'mongodb';
 
 @Entity()
-export class Threadnogen{
+export class Objectnumber{
     @ObjectIdColumn()
     id?: ObjectID;
     @Column()
-    threadNO: number;
+    object_type: string;
+    @Column()
+    NO: number;
 }
 
-export default Threadnogen;
+export default Objectnumber;

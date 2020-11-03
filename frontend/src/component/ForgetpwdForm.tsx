@@ -9,9 +9,9 @@ export const Forgetpass = () => {
     const [signUpErrorMessage, setSignUpErrorMessage] = useState('');
     const history = useHistory();
 
-    const style1 = {  width: "490px", height: "40px", };
-    const style2 = { width: "420px", height: "40px", };
-    const style3 = { width: "440px", height: "40px", };
+    const style1 = {  width: "490px", height: "40px","background-color":"white" };
+    const style2 = { width: "420px", height: "40px","background-color":"white" };
+    const style3 = { width: "440px", height: "40px","background-color":"white" };
 
     const sendVerify = () => {
         // AuthService.fetchVerifyCode();

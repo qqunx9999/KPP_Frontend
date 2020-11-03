@@ -1,91 +1,66 @@
-// import React, { useState } from "react";
-// import { Editor } from '@tinymce/tinymce-react';
+import React, { useState } from "react";
+// import ImageUploader from "react-images-upload";
 
-// class Test extends React.Component {
-//   constructor(props: any) {
-//     super(props);
-//     this.state = { value: '' };
+// const Test = (props: any) => {
+//   const [pictures, setPictures] = useState<any[]>([[[]]]);
+
+//   const onDrop = (picture: any) => {
+//     setPictures([picture]);
+//     localStorage.setItem("image", picture[0][0])
+//   };
+//   return (
+//     <div>
+//       <ImageUploader
+//         {...props}
+//         withIcon={true}
+//         onChange={onDrop}
+//         imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+//         maxFileSize={5242880}
+//       />
+//       {console.log(pictures[0][0], localStorage.image)}
+//     </div>
+//   );
+// };
+
+// export default Test;
+
+// type myProps = {  };
+// type myState = { file: any }
+
+// export default class Test extends React.Component<myProps, myState> {
+//   constructor(props: any){
+//     super(props)
+//     this.state = {
+//       file: ''
+//     }
+//     this.handleChange = this.handleChange.bind(this)
 //   }
-
-//   handleEditorChange = (content: string, editor: any) => {
-//     console.log('Content was updated:', content);
+//   handleChange(event: any) {
+//     this.setState({
+//       file: URL.createObjectURL(event.target.files[0])
+//     })
 //   }
-
 //   render() {
+//     localStorage.setItem("objUrl", this.state.file);
+//     console.log(localStorage.objUrl);
 //     return (
 //       <div>
-//         <Editor
-//          initialValue="<p>This is the initial content of the editor</p>"
-//          init={{
-//            height: 500,
-//            menubar: false,
-//            plugins: [
-//              'advlist autolink lists link image charmap print preview anchor',
-//              'searchreplace visualblocks code fullscreen',
-//              'insertdatetime media table paste code help wordcount'
-//            ],
-//            toolbar:
-//              'undo redo | formatselect | bold italic backcolor | \
-//              alignleft aligncenter alignright alignjustify | \
-//              bullist numlist outdent indent | removeformat | help'
-//          }}
-//          onEditorChange={this.handleEditorChange}
-//        />
+//         <input type="file" onChange={this.handleChange}/>
+//         <img src={this.state.file}/>
+//         <p>{ this.state.file }</p>
+//         <a href={ this.state.file }>pic</a>
 //       </div>
 //     );
 //   }
 // }
 
-// export default Test;
-
-import React from 'react';
-import { useFormik } from 'formik';
-
 export default function Test() {
-  let data: any;
-
-  const formik = useFormik({
-    initialValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-    },
-    onSubmit: values => {
-      data = values;
-      alert(JSON.stringify(values));
-    },
-  });console.log(formik.values)
+  let data = new FormData();
+  console.log(data);
 
   return(
     <div>
-      <form onSubmit={formik.handleSubmit}>
-       <label htmlFor="firstName">First Name</label>
-       <input
-         id="firstName"
-         name="firstName"
-         type="text"
-         onChange={formik.handleChange}
-         value={formik.values.firstName}
-       />
-       <label htmlFor="lastName">Last Name</label>
-       <input
-         id="lastName"
-         name="lastName"
-         type="text"
-         onChange={formik.handleChange}
-         value={formik.values.lastName}
-       />
-       <label htmlFor="email">Email Address</label>
-       <input
-         id="email"
-         name="email"
-         type="email"
-         onChange={formik.handleChange}
-         value={formik.values.email}
-       />
-       <button type="submit">Submit</button>
-       <h1>{ formik.values.firstName }</h1>
-     </form>
+
     </div>
   );
 }

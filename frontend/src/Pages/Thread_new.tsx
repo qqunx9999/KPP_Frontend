@@ -43,7 +43,7 @@ function Threads_new() {
     const year = String(day.getFullYear());
     const time = date + '/' + month + '/' + year;
     return time;
-  }
+  } 
 
   return (
     <div>
@@ -116,12 +116,15 @@ function Threads_new() {
                   <div className="numberOfCommentTopicComment">
                     by : &nbsp; {item.userInfo.name} <br />
                   </div>
+                  <div>
+                    { item.comment.reply_to === 0 ? null : <div>Reply to : &nbsp; {item.comment.reply_to}</div> }
+                  </div>
                   <div className="textWhenTopicComment">
                     When : &nbsp; {toDate(item.comment.date_create)} <br />
                   </div>
                   <div className="textLastEditedTopicComment">
                     LastEdited :
-                    6/9/2020 9:31 AM
+                    { item.comment.date_lastedit === null ? <p>--</p> : item.comment.date_last_edit }
                     </div>
                 </div>
                 <div className="textDetailTopicComment">

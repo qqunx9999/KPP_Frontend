@@ -18,7 +18,7 @@ function Setting_new() {
   useEffect(() => {
     fetchUser();
   }, []);
-
+  console.log(user.name)
   return (
     <div>
       <Navigtion />
@@ -29,10 +29,31 @@ function Setting_new() {
           </button>
           <div className="textSettingUserSetting">Setting</div>
           <div className="frameBlackUserSetting">
-            <div className="textNameUserProfile">Name : {user.name}</div>
-            <div className="textUsernameUserProfile"> Username : {user.username}</div>
-            <div className="textEmailUserProfile"> Email: {user.email}</div>
-            <div className="textYourquoteUserProfile"> Your Quote: {user.description}</div>
+            <div className="textNameUserProfile">
+              Name : 
+              <div className="nameUserProfile">
+                {user.name}
+              </div>
+            </div>
+            <div className="textUsernameUserProfile"> 
+              Username : 
+              <div className="usernameUserProfile">
+                {user.username}
+              </div>
+            </div>
+            <div className="textEmailUserProfile"> 
+              Email: 
+              <div className="emailUserProfile">  
+                {user.email}
+              </div>
+            </div>
+            <div className="textYourquoteUserProfile"> 
+              Your Quote: 
+              <div className="userquoteUserProfile">
+                {user.description === "" ? <i>Not have any quote</i> : user.description}
+              </div>
+            </div>
+          
           </div>
           <Link to="/Setting/ChangeName">
             <div className="frameChangePasswordUserProfile">

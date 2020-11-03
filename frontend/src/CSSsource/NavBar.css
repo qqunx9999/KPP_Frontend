@@ -1,3 +1,5 @@
+
+
 .logoCSS{
 
 }
@@ -8,13 +10,18 @@
 .navbar-nav{
     padding-left:30px;
     padding-right:30px;
+    
 }
 
 .navbar-color{
-    background-color: #1f6521;
+    background-color: #000000;
 }
 
 .frame-notification {
     position: relative;
     left: -10px;
   }
+
+#mycustomize{
+   z-index: 10 !important; 
+}

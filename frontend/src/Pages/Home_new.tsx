@@ -75,6 +75,7 @@ function Home_new() {
 
   return (
     <div>
+    <img src="https://dxgh891opzso3.cloudfront.net/files/5/9/6/9/2/shutterstock_1045743757.jpg?height=2000&width=3000" className="image" />
       <Navigtion />
       <div className="backgroundHomePage">
         <div style={temp}>

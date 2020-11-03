@@ -1,18 +1,27 @@
-import { Injectable } from '@nestjs/common';
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ObjectID } from 'mongodb';
 import Notifications from 'src/entities/notification.entity';
 import { NotificationDto } from 'src/dto/create-notifiaction.dto';
 import Chatroom from 'src/entities/chatroom.entity';
+import { ReportsService } from 'src/reports/reports.service';
+import { ThreadsService } from 'src/threads/threads.service';
 
 @Injectable()
 export class NotificationsService {
+    
     constructor(
         @InjectRepository(Notifications)
         private notificationsRepository: Repository<Notifications>,
         @InjectRepository(Chatroom)
         private chatroomsRepository: Repository<Chatroom>,
+
+        @Inject(forwardRef(() => ReportsService))
+        private reportsService: ReportsService,
+
+        @Inject(forwardRef(() => ThreadsService))
+        private threadService: ThreadsService
     ){}
 
     // async find_id_chat(userID: ObjectID,chatroomID: ObjectID): Promise <Notifications> {
@@ -31,18 +40,40 @@ export class NotificationsService {
         let allnoti: Notifications[]
         await this.notificationsRepository.find({where:{userID: userID, date_read:null}})
             .then(set => {allnoti = set});
-        // allnoti = allnoti.filter(each =>{if(each.object_type !== "chat"){return true;}})
-        // let allnotiwithInfo = [];
-        // for(let i = 0; i<allnoti.length; i++){
-        //     if(allnoti[i].object_type == "friend_request" || allnoti[i].object_type == "friend_accept"){
-        //         var notiwithinfo = {
-        //             notificationInfo: allnoti[i],
+        allnoti = allnoti.filter(each =>{if(each.object_type !== "chat"){return true;}})
+        let allnotiwithInfo = [];
+        for(let i = 0; i<allnoti.length; i++){
+            if(allnoti[i].object_type == "friend_request" || allnoti[i].object_type == "friend_accept"){
+                var notiwithinfo = {
+                    notificationInfo: allnoti[i],
                     
-        //         }
-        //     }
+                }
+            }
+            else if(allnoti[i].object_type == "reportT_considered"){
+                var notiRPTwithinfo = {
+                    notificationInfo: allnoti[i],
+                    reportTInfo: await this.reportsService.findOneReportedThread(allnoti[i].object_typeID),
+                }
+                allnotiwithInfo.push(notiRPTwithinfo)
+            }
+            else if(allnoti[i].object_type == "reportT_considered"){
+                var notiRPCwithinfo = {
+                    notificationInfo: allnoti[i],
+                    reportTInfo: await this.reportsService.findOneReportedComment(allnoti[i].object_typeID),
+                }
+                allnotiwithInfo.push(notiRPCwithinfo)
+            }
+            else if(allnoti[i].object_type == "comment"){
+                var notiCwithinfo = {
+                    notificationInfo: allnoti[i],
+                    commentInfo: await this.threadService.findOneComment(allnoti[i].object_typeID),
+                }
+                allnotiwithInfo.push(notiCwithinfo)
+            }
 
-        // }
-        return allnoti;
+        }
+            
+        return allnotiwithInfo;
     }
 
     async noticontacts(userID: ObjectID): Promise <Notifications[]> {

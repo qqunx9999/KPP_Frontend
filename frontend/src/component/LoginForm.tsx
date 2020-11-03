@@ -11,6 +11,7 @@ const inputStyle = {
   width: "500px",
   height: "50px",
   fontSize: "30px"
+  ,"background-color":"white"
 }
 
 export const EmailID = () => {
