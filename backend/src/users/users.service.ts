@@ -20,7 +20,7 @@ import {from ,throwError} from 'rxjs';
 import { NotificationsService } from 'src/notification/notification.service';
 import { changepassDto } from './changepass.dto';
 import Verifygen from 'src/entities/verifygen.entity';
-
+import { emailsecret } from './emailsecret';
 
 
 
@@ -94,18 +94,55 @@ export class UsersService {
         let oldpass = thisuser.password;
         let newname = thisuser.username;
         let newmail = thisuser.email;
-        const mailgun = require("mailgun-js");
-        const DOMAIN = "sandboxcc0d5624e84541f883e7c7a30536acaf.mailgun.org";
-        const mg = mailgun({apiKey: "be32a7077097c68b2013827437aa6821-ea44b6dc-63bd2305", domain: DOMAIN});
-        const data = {
-            from: "Mailgun Sandbox <postmaster@sandboxcc0d5624e84541f883e7c7a30536acaf.mailgun.org>",
-            to: `${newmail}`,
-            subject: `KU-PEOPLE password verified code for username: ${newname}`,
-            text: `Your password verified code is ${oldpass}`
-        };
-        mg.messages().send(data, function (error, body) {
-            console.log(body);
+        const nodemailer = require("nodemailer");
+        const { google } = require("googleapis");
+        const OAuth2 = google.auth.OAuth2;
+        const oauth2Client = new OAuth2(
+            emailsecret.ClientID, // ClientID
+            emailsecret.Client_Secret, // Client Secret
+            emailsecret.Redirect_URL // Redirect URL
+        );
+        oauth2Client.setCredentials({
+            refresh_token: emailsecret.Refresh_Token
         });
+        const accessToken = oauth2Client.getAccessToken()
+        const smtpTransport = nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+                type: "OAuth2",
+                user: emailsecret.SenderUser, 
+                clientId: emailsecret.ClientID,
+                clientSecret: emailsecret.Client_Secret,
+                refreshToken: emailsecret.Refresh_Token,
+                accessToken: accessToken
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
+        const mailOptions = {
+            from: emailsecret.SenderUser,
+            to: "unnop.nu@ku.th",
+            subject: "Node.js Email with Secure OAuth11",
+            generateTextFromHTML: true,
+            html: "<b>test11</b>"
+        };
+        smtpTransport.sendMail(mailOptions, (error, response) => {
+            error ? console.log(error) : console.log(response);
+            smtpTransport.close();
+        });
+        // const mailgun = require("mailgun-js");
+        // const DOMAIN = "sandboxcc0d5624e84541f883e7c7a30536acaf.mailgun.org";
+        // const mg = mailgun({apiKey: "be32a7077097c68b2013827437aa6821-ea44b6dc-63bd2305", domain: DOMAIN});
+        // const data = {
+        //     from: "Mailgun Sandbox <postmaster@sandboxcc0d5624e84541f883e7c7a30536acaf.mailgun.org>",
+        //     to: `${newmail}`,
+        //     subject: `KU-PEOPLE password verified code for username: ${newname}`,
+        //     text: `Your password verified code is ${oldpass}`
+        // };
+        // mg.messages().send(data, function (error, body) {
+        //     console.log(body);
+        // });
     }
 
     async chatroomaction(userID: ObjectID, chatroomID: ObjectID,act: string): Promise<any> {
