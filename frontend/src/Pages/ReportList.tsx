@@ -37,7 +37,7 @@ export default function ReportList() {
 
   useEffect(() => {
     fetchReportThread();
-  }, []); console.log(reportThread)
+  }, []); console.log(reportThread) // 
 
   return(
     <div>
@@ -52,20 +52,28 @@ export default function ReportList() {
         {/* Read :&nbsp; { reportThread[1] ? "Yes" : "No" } &nbsp;  */}
             <div className="rplist-read1">
             {/* <Link to={`/ReadReport/${ 'thread' }/${ reportThread[0][0].reportTID }`}>read</Link> &nbsp; */}
-            { reportThread.map((item: any) => {
-              return <li>{ item === undefined ? null : <ReportModal type="thread" reportID={ item[0].reportTID } /> }</li>
-            }) }
+            { reportThread.map((item: any) => (
+              <div className="blog">
+                              <button className="rpList-correct-round1">Approve</button>
+              <button className="rpList-incorrect-round1">Disapprove</button>
+                <div className="rpList-read-round2">
+              <li className="reaD"><ReportModal type="thread" reportID={ reportThread[0][0].reportTID } /></li>
+              </div>
+
+              </div>
+            )) }
             </div>
         </div>
         <div className="rpList-date-round1">
           <div className="rpList-date1">
-          { reportThread.map((item: any) => {
-            return <li>{ dateCount(reportThread[0][0].date_create) }</li>
-          }) }
+          { reportThread.map((item: any) => (
+            <div className="blog">
+            <li>{ dateCount(reportThread[0][0].date_create) }</li>
+            </div>
+          )) }
           </div>
         </div>
-          <button className="rpList-correct-round1">Approve</button>
-          <button className="rpList-incorrect-round1">Disapprove</button>
+
         </div>
         <hr />
         </div>
@@ -83,12 +91,11 @@ export default function ReportList() {
         <div className="rpList-cmdate-round1">
           <div className="rpList-cmdate1">
           { reportComment.map((item: any) => {
-            return <li>{ dateCount(reportComment[0][0].date_create) }</li>
+            return <li></li>
           }) }
           </div>
         </div>
-          <button className="rpList-cmcorrect-round1">Approve</button>
-          <button className="rpList-cmincorrect-round1">Disapprove</button>
+
         
         </div>
         </div>

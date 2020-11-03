@@ -41,22 +41,22 @@ export const SignUp = () => {
         <Form>
           <label htmlFor="account" className="signup-account-name_">
             Account Name :
-            <Field type="input" required name="account" placeholder="Type your username... (Only characters and numbers allowed.)" style={{ width: "770px", height: "50px" , fontSize: "30px"}} className="form-control signup-Input_account" />
+            <Field type="input" required name="account" placeholder="Type your username... (Only characters and numbers allowed.)" style={{ width: "770px", height: "50px" , fontSize: "30px","background-color":"white"}} className="form-control signup-Input_account" />
           </label>
           <label htmlFor="email" className="signup-email_">
             Email :
-            <Field type="input" required name="email" placeholder="Type your Email..." style={{ width: "750px", height: "50px" , fontSize: "30px"}} className="form-control signup-Input_email" />
+            <Field type="input" required name="email" placeholder="Type your Email..." style={{ width: "750px", height: "50px" , fontSize: "30px","background-color":"white"}} className="form-control signup-Input_email" />
           </label>
           <label className="signup-_ku-th">
             @ku.th
             </label>
           <label htmlFor="password" className="signup-password_">
             Password :
-            <Field type="password" required name="password" placeholder="Type your password..." style={{ width: "855px", height: "50px", fontSize: "30px"}} className="form-control signup-Input_password" />
+            <Field type="password" required name="password" placeholder="Type your password..." style={{ width: "855px", height: "50px", fontSize: "30px","background-color":"white"}} className="form-control signup-Input_password" />
           </label>
           <label htmlFor="conPass" className="signup-cf-password">
             Confirm Password :
-            <Field type="password" required name="conPass" placeholder="Confirm your password..." style={{ width: "675px", height: "50px" , fontSize: "30px"}} className="form-control signup-Input-cf-password" />
+            <Field type="password" required name="conPass" placeholder="Confirm your password..." style={{ width: "675px", height: "50px" , fontSize: "30px","background-color":"white"}} className="form-control signup-Input-cf-password" />
           </label>
           <div className="signup-sign-up">
             <button type="submit" id="signup-su-frame" className="btn btn-success" disabled={ isSubmitting }>

@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: var(--B5, #d6ce15);
+    /*background: var(--B5, #d6ce15);*/
     position: absolute;
   }
 
@@ -70,7 +70,7 @@
     letter-spacing: 3px;
     line-height: 3;
     position: absolute;
-    top: 0px;
+    top: 0%;
     left: 450px;
   }
 
@@ -89,7 +89,7 @@
   }
 
   .usernameUserProfile {
-    width: 248px;
+    width: 1248px;
     height: 138px;
     overflow: visible;
     font-family: "Inter", sans-serif;
@@ -98,8 +98,8 @@
     letter-spacing: 3px;
     line-height: 3;
     position: absolute;
-    top: 100px;
-    left: 450px;
+    top: 0% !important;
+    left: 160% !important; 
   }
 
   .textEmailUserProfile {
@@ -126,7 +126,7 @@
     letter-spacing: 3px;
     line-height: 3;
     position: absolute;
-    top: 200px;
+    top: 0%;
     left: 450px;
   }
 
@@ -154,7 +154,7 @@
     letter-spacing: 3px;
     line-height: 3;
     position: absolute;
-    top: 300px;
+    top: 0%;
     left: 450px;
   }
 

@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../CSSsource/ChatRoom.css';
 import { useHistory } from 'react-router';
+import ChatService from '../service/ChatService';
 
 function ChatRoom() {
   const history = useHistory();
+  const [message, setMessage] = useState<any>('');
+
+  function fetchMessage() {
+    ChatService.fetchMessage()
+      .then(obj => {
+        setMessage(obj);
+      })
+  }
+
+  useEffect(() => {
+    fetchMessage();
+  }, []);
 
   return(
     <div>
       <div className="backgroundChatRoom">
-        <div className="frameContractChatRoom">
+        {/* <div className="frameContractChatRoom">
           <div className="textContractChatRoom">
             Contract
           </div>
@@ -31,8 +44,11 @@ function ChatRoom() {
           <div className="frameChatOutputChatRoom">
 
           </div>
-        </div>
-        
+        </div> */}
+        <label>
+          <input type="text" />
+          <button type="submit">Send</button>
+        </label>
       </div>
     </div>
   );

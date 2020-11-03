@@ -16,7 +16,7 @@ function Profile_new() {
 
   function dateCount(timeString: string) {
     const day = new Date(timeString);
-    const date = String(day.getDay());
+    const date = String(day.getUTCDate());
     const month = String(day.getMonth());
     const year = String(day.getFullYear());
     const joinTime = date + "/" + month + "/" + year;
@@ -40,7 +40,7 @@ function Profile_new() {
               <div className="userExpUserProfile">{user.exp}</div>
             </div>
             <div className="textProfileUserProfile">Profile</div>
-            <div className="usernameUserProfile">{user.name}</div>
+            <div className="usernameUserProfile"><div id="name">{user.name}</div></div>
             <div className="userQuotationUserProfile">{user.description}</div>
             <div>{user.username}</div>
             <button className="frameGobackUserProfile" onClick={history.goBack}>
