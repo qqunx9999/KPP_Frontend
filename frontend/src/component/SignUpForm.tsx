@@ -45,11 +45,14 @@ export const SignUp = () => {
           </label>
           <label htmlFor="email" className="signup-email_">
             Email :
-            <Field type="input" required name="email" placeholder="Type your Email..." style={{ width: "750px", height: "50px" , fontSize: "30px"}} className="form-control signup-Input_email" />
+            <Field type="input" required name="email" placeholder="Type your Email..." style={{ width: "500px", height: "50px" , fontSize: "30px"}} className="form-control signup-Input_email" />
           </label>
           <label className="signup-_ku-th">
             @ku.th
             </label>
+          <label className="verificationSignupPage">
+            Verification code will send to you.
+          </label>
           <label htmlFor="password" className="signup-password_">
             Password :
             <Field type="password" required name="password" placeholder="Type your password..." style={{ width: "855px", height: "50px", fontSize: "30px"}} className="form-control signup-Input_password" />
@@ -58,6 +61,12 @@ export const SignUp = () => {
             Confirm Password :
             <Field type="password" required name="conPass" placeholder="Confirm your password..." style={{ width: "675px", height: "50px" , fontSize: "30px"}} className="form-control signup-Input-cf-password" />
           </label>
+
+          <label htmlFor="verify" className="signup-verify">
+            Verification Code :
+            <Field type="input" required name="verify" placeholder="Enter code" style={{ width: "240px", height: "50px" , fontSize: "30px"}} className="form-control signup-Input_verify" />
+          </label>
+
           <div className="signup-sign-up">
             <button type="submit" id="signup-su-frame" className="btn btn-success" disabled={ isSubmitting }>
               <span id="bigText">Sign Up</span>
