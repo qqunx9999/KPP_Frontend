@@ -19,6 +19,8 @@ import {map, catchError } from 'rxjs/operators';
 import {from ,throwError} from 'rxjs';
 import { NotificationsService } from 'src/notification/notification.service';
 import Verifycode from 'src/entities/verifycode.entity';
+import { changepassDto } from './changepass.dto';
+
 
 
 
@@ -61,8 +63,27 @@ export class UsersService {
             
     ) {}
 
-    async changepass(userID: ObjectID, oldpass: string): Promise<any> {
-        
+    async changepass(userID: ObjectID, changepassdto: changepassDto): Promise<any> {
+        let obj = { Isverified: null };
+        let obj2 = { password: null };
+        let thisuser = null;
+        await this.usersRepository.findOne({where:{ _id: userID}})
+            .then(oneuser => {
+                thisuser = oneuser;
+            });
+        if (changepassdto.oldpass === thisuser.password) {
+            obj.Isverified = true;
+            var bcrypt =  require('bcrypt');
+            const saltRounds = 10;
+            const hash = bcrypt.hashSync(changepassdto.newpass, saltRounds);
+            obj2.password = hash;
+            this.usersRepository.update({userID: userID}, obj2);
+            return obj;
+        }
+        else {
+            obj.Isverified = false;
+            return obj;
+        }
     }
 
     async getoldpass(userID: ObjectID) {
@@ -74,50 +95,62 @@ export class UsersService {
         let oldpass = thisuser.password;
         let newname = thisuser.username;
         let newmail = thisuser.email;
-        const nodemailer = require("nodemailer");
-        const { google } = require("googleapis");
-        const OAuth2 = google.auth.OAuth2;
-
-
-        const oauth2Client = new OAuth2(
-            "1002709865150-eaebtmjtmsh41ek9b57us4k4i4e1d74i.apps.googleusercontent.com", // ClientID
-            "MzHR7rSmRqLD2ZgOSuw08BlZ", // Client Secret
-            "https://developers.google.com/oauthplayground" // Redirect URL
-        );
-
-        oauth2Client.setCredentials({
-            refresh_token: "1//04qce1RayFpt0CgYIARAAGAQSNwF-L9Ir5eTiTNsj_pMV5UkJZCwePcPg25dj4XhrXagzR8xw7ozIksxyej5Q5GBQslYUFUI3B4k"
-        });
-        const accessToken = oauth2Client.getAccessToken()
-
-        const smtpTransport = nodemailer.createTransport({
-            service: "gmail",
-            auth: {
-                type: "OAuth2",
-                user: "ku.people.team@gmail.com", 
-                clientId: "1002709865150-eaebtmjtmsh41ek9b57us4k4i4e1d74i.apps.googleusercontent.com",
-                clientSecret: "MzHR7rSmRqLD2ZgOSuw08BlZ",
-                refreshToken: "1//04qce1RayFpt0CgYIARAAGAQSNwF-L9Ir5eTiTNsj_pMV5UkJZCwePcPg25dj4XhrXagzR8xw7ozIksxyej5Q5GBQslYUFUI3B4k",
-                accessToken: accessToken
-            },
-            tls: {
-                rejectUnauthorized: false
-            }
-        });
-
-        const mailOptions = {
-            from: 'ku.people.team@gmail.com',
+        const mailgun = require("mailgun-js");
+        const DOMAIN = "sandboxcc0d5624e84541f883e7c7a30536acaf.mailgun.org";
+        const mg = mailgun({apiKey: "be32a7077097c68b2013827437aa6821-ea44b6dc-63bd2305", domain: DOMAIN});
+        const data = {
+            from: "Mailgun Sandbox <postmaster@sandboxcc0d5624e84541f883e7c7a30536acaf.mailgun.org>",
             to: `${newmail}`,
-            subject: `KU-PEOPLE forget password Username: ${newname}`,
-            generateTextFromHTML: true,
-            text: `Your verified code is ${oldpass}`
-            //html: '<body> <p id="a"> </p> <script> let name = 5; document.getElementById("a").innerHTML = "hello" + name; </script> </body>'
+            subject: `KU-PEOPLE password verified code for username: ${newname}`,
+            text: `Your password verified code is ${oldpass}`
         };
-
-        smtpTransport.sendMail(mailOptions, (error, response) => {
-            error ? console.log(error) : console.log(response);
-            smtpTransport.close();
+        mg.messages().send(data, function (error, body) {
+            console.log(body);
         });
+        // const nodemailer = require("nodemailer");
+        // const { google } = require("googleapis");
+        // const OAuth2 = google.auth.OAuth2;
+
+
+        // const oauth2Client = new OAuth2(
+        //     "1002709865150-eaebtmjtmsh41ek9b57us4k4i4e1d74i.apps.googleusercontent.com", // ClientID
+        //     "zaQtoYTXJIf_EMVORC--5Zwm", // Client Secret
+        //     "https://developers.google.com/oauthplayground" // Redirect URL
+        // );
+
+        // oauth2Client.setCredentials({
+        //     refresh_token: "1//04ItGxNwFyiqzCgYIARAAGAQSNwF-L9Ir9AWhQsxRg8qeveuGliy9OLlv5ssy_3Jelq1-7Rbg8HLDjLZJT7vzYtyXFVichcLyNpE"
+        // });
+        // const accessToken = oauth2Client.getAccessToken()
+
+        // const smtpTransport = nodemailer.createTransport({
+        //     service: "gmail",
+        //     auth: {
+        //         type: "OAuth2",
+        //         user: "ku.people.team@gmail.com", 
+        //         clientId: "1002709865150-eaebtmjtmsh41ek9b57us4k4i4e1d74i.apps.googleusercontent.com",
+        //         clientSecret: "zaQtoYTXJIf_EMVORC--5Zwm",
+        //         refreshToken: "1//04ItGxNwFyiqzCgYIARAAGAQSNwF-L9Ir9AWhQsxRg8qeveuGliy9OLlv5ssy_3Jelq1-7Rbg8HLDjLZJT7vzYtyXFVichcLyNpE",
+        //         accessToken: accessToken
+        //     },
+        //     tls: {
+        //         rejectUnauthorized: false
+        //     }
+        // });
+
+        // const mailOptions = {
+        //     from: 'ku.people.team@gmail.com',
+        //     to: `${newmail}`,
+        //     subject: `KU-PEOPLE forget password Username: ${newname}`,
+        //     generateTextFromHTML: true,
+        //     text: `Your verified code is ${oldpass}`
+        //     //html: '<body> <p id="a"> </p> <script> let name = 5; document.getElementById("a").innerHTML = "hello" + name; </script> </body>'
+        // };
+
+        // smtpTransport.sendMail(mailOptions, (error, response) => {
+        //     error ? console.log(error) : console.log(response);
+        //     smtpTransport.close();
+        // });
     }
 
     async chatroomaction(userID: ObjectID, chatroomID: ObjectID,act: string): Promise<any> {
