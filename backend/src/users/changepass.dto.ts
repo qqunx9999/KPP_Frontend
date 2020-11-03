@@ -1,4 +1,5 @@
 export class changepassDto {
-    oldpass:string;
+    email:string;
     newpass:string;
+    verify:string;
 }
