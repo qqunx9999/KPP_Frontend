@@ -12,8 +12,6 @@ export class Commentation {
     @Column()
     content:string;
     @Column()
-    text_type: {bold: boolean, italic: boolean, font:string, size:number};
-    @Column()
     image_arr:{URL:string, pos:number}[];//URL ,pos
     @Column()
     reply_to:number;

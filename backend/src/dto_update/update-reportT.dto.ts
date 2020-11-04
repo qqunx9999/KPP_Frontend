@@ -10,7 +10,6 @@ export class UpdateReportment_threadDto{
    
     description:string;
     
-    text_type: {bold: boolean, italic: boolean, font:string, size:number};
     
     image_arr: {URL: string, pos: number}[]; 
     //@IsString()
