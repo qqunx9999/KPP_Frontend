@@ -15,7 +15,7 @@ import CreateReport_new from './Pages/CreateReport';
 import SearchThread_new from './Pages/SearchThread';
 import CreateThread_new from './Pages/CreateThread';
 import Profile_new from './Pages/Profile';
-import Setting_new from './Pages/Setting_new';
+import Setting_new from './Pages/Setting';
 import ReadReport from './Pages/ReadReport';
 import ChatRoom from './Pages/ChatRoom';
 import AuthenLogout from './Pages/AuthenLogout';
