@@ -8,7 +8,7 @@
   }
 
 .createcm_goback_button {
-    background: var(--Theme3, #0f0508); /* Green */
+    background: var(--Theme3, #6cc551); /* Green */
     border-radius: 19px;
     color: white;
     width: 206px;
