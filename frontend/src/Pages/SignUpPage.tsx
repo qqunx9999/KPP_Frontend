@@ -30,11 +30,6 @@ function SignUpPage() {
           Please sign up or log in before use.
         </div>
         <SignUp />
-        <button type="button" className="btn btn-success" id="sendVerify">
-            <div className="sendVerifyText">
-              Send
-            </div>
-        </button>
         <div className="signup-accept-text">
           You already read and accept
         </div>

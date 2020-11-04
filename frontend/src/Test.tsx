@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 // import ImageUploader from "react-images-upload";
 
 // const Test = (props: any) => {
@@ -54,13 +54,36 @@ import React, { useState } from "react";
 //   }
 // }
 
-export default function Test() {
-  let data = new FormData();
-  console.log(data);
+// import { Editor } from '@tinymce/tinymce-react';
 
-  return(
-    <div>
+export default class Test extends React.Component {
+  // handleEditorChange = (content: any, editor: any) => {
+  //   console.log('Content was updated:', content);
+  // }
 
-    </div>
-  );
+  render() {
+    return(
+      <div>
+  
+        {/* <Editor
+          initialValue="<p>This is the initial content of the editor</p>"
+          init={{
+            height: 500,
+            menubar: false,
+            plugins: [
+              'advlist autolink lists link image charmap print preview anchor',
+              'searchreplace visualblocks code fullscreen',
+              'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar:
+              'undo redo | formatselect | bold italic backcolor | \
+               alignleft aligncenter alignright alignjustify | \
+               bullist numlist outdent indent | removeformat | help'
+          }}
+          onEditorChange={this.handleEditorChange}
+        /> */}
+  
+      </div>
+    );
+  }
 }

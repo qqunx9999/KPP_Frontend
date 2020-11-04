@@ -103,6 +103,18 @@ function checkAdmin(): boolean {
     return localStorage.isAdmin;
 }
 
+async function sendVerify(email: string): Promise<any> {
+    const res = await fetch(`${ baseUrl }/users/getverified`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            "email": email
+        })
+    });
+    const verify = res.json();
+    return verify;
+}
+
 export default {
     LoginUser,
     SignupUser,
@@ -115,4 +127,5 @@ export default {
     getUserInfo,
     getUserID,
     checkAdmin,
+    sendVerify,
 };
