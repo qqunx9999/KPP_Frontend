@@ -54,35 +54,36 @@ import React from "react";
 //   }
 // }
 
-// import { Editor } from '@tinymce/tinymce-react';
+import { Editor } from '@tinymce/tinymce-react';
 
-export default class Test extends React.Component {
-  // handleEditorChange = (content: any, editor: any) => {
-  //   console.log('Content was updated:', content);
-  // }
+type myProps = {  }
+type myState = { content: any }
+let message = '';
+
+export default class Test extends React.Component<myProps, myState> {
+  constructor(props: any) {
+    super(props);
+
+    this.state = { content: '' };
+    this.handleEditorChange = this.handleEditorChange.bind(this);
+  }
+
+  handleEditorChange(content: any, editor: any) {
+    this.setState({ content });
+  }
 
   render() {
-    return(
+    message = this.state.content;
+    console.log(message)
+    return (
       <div>
-  
-        {/* <Editor
-          initialValue="<p>This is the initial content of the editor</p>"
-          init={{
-            height: 500,
-            menubar: false,
-            plugins: [
-              'advlist autolink lists link image charmap print preview anchor',
-              'searchreplace visualblocks code fullscreen',
-              'insertdatetime media table paste code help wordcount'
-            ],
-            toolbar:
-              'undo redo | formatselect | bold italic backcolor | \
-               alignleft aligncenter alignright alignjustify | \
-               bullist numlist outdent indent | removeformat | help'
-          }}
+
+        <Editor
+          apiKey="mst7ooroci6ekyb714kes48cufcv5yx1nnnncjaumak2xq9w"
+          value={this.state.content}
           onEditorChange={this.handleEditorChange}
-        /> */}
-  
+        />
+
       </div>
     );
   }
