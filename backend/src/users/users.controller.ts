@@ -14,16 +14,10 @@ export class UsersController {
     constructor(private usersService: UsersService,
       ) {}
 
-    @Get(':userID/forgetpass')
-    async getoldpass(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise<any> {
-      return this.usersService.getoldpass(userID);
-    }
-
-    @Patch(':userID/newpass')
+    @Patch('newpass')
     async changepass(@Body() changepassdto: changepassDto, 
-     @Param('userID', ParseObjectIdPipe) userID: ObjectID,
     ): Promise<any> {
-      return this.usersService.changepass(userID,changepassdto);
+      return this.usersService.changepass(changepassdto);
     }
 
     @Patch(':userID/chatrooms/:chatroomID/:act')
@@ -88,10 +82,14 @@ export class UsersController {
       return this.usersService.createUser(createUserDto);
     }
 
-    @Post('genverify/:email')
-    async genver(@Param('email') email: string){
-      return this.usersService.genver(email);
+    @Post('resetpass/:email')
+    async resetpass(@Param('email') email: string){
+      return this.usersService.resetpass(email);
+    }
 
+    @Post('verifymail/:email')
+    async verifymail(@Param('email') email: string){
+      return this.usersService.verifymail(email);
     }
 
     

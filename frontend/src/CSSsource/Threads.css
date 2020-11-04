@@ -18,7 +18,7 @@ body {
   }
 
 .thread_goback_button {
-    background: var(--Theme3, #0f0508); /* Green */
+    background: var(--Theme3, #6cc551); /* Green */
     border-radius: 19px;
     color: white;
     width: 206px;
@@ -780,7 +780,7 @@ left: 20px;
   letter-spacing: 3px;
   line-height: 3;
   position: relative;  
-  top: -165px;
+  top: -300%;
   left: 70%;
 }
 
@@ -794,7 +794,7 @@ left: 20px;
   letter-spacing: 3px;
   line-height: 1.5;
   position: relative;  
-  top: -175px;
+  top: -300%;
   left: 70%;
 }
 
@@ -803,11 +803,25 @@ left: 20px;
   height: 81px;
   overflow: hidden;
   font-family: "Inter", sans-serif;
-  color: var(--Theme3, #000000);
+  color: var(--Theme3, #ffffff);
   font-size: 27px;
   letter-spacing: 3px;
   line-height: 3;
   position: relative;  
   top: 15%;
   left: 5%;
+}
+
+.textReplyToTopicComment {
+  width: 659px;
+  height: 81px;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme3, #ffffff) !important; 
+  font-size: 17px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: relative;  
+  top: 0% !important;
+  left: 6% !important;
 }

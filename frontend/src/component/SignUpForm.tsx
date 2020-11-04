@@ -55,8 +55,8 @@ export const SignUp = () => {
           <label className="signup-_ku-th">
             @ku.th
             </label>
-          <label className="verificationSignupPage">
-            Verification code will send to you.
+          <label className="textVerificationExpireSignupPage">
+            Verification code will send to you. It expired after 10 minutes.
           </label>
           <label htmlFor="password" className="signup-password_">
             Password :

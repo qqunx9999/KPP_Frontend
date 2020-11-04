@@ -29,7 +29,7 @@ function ForgetPwd() {
           Password reset
         </div>
         <div className="verification">
-          verification code will send to you.It expired after 5 minutes.
+          verification code will send to you.It expired after 10 minutes.
         </div>
         <Forgetpass />
       </div>

@@ -237,7 +237,7 @@
     width: 215px;
     height: 90px;
     overflow: visible;
-    background: var(--B2, #1f6521);
+    background: var(--B2,  #6cc551);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 19px;
     position: absolute;

@@ -20,6 +20,7 @@ import {from ,throwError} from 'rxjs';
 import { NotificationsService } from 'src/notification/notification.service';
 import Verifycode from 'src/entities/verifycode.entity';
 import { changepassDto } from './changepass.dto';
+import { emailsecret } from './emailsecret';
 
 
 
@@ -30,7 +31,7 @@ import { changepassDto } from './changepass.dto';
 export class UsersService {
     
     private user_info: User[] = [];
-    private info: User_info={userID: null,name:null,avatar_URL:null, exp:null, rank:null ,isLoggedIn:null };
+    private info: User_info={userID: null,name:null,avatar_URL:null, exp:null, rank:null, isAdmin:null,isLoggedIn:null };
     private newusers = [];
     private findoneuser = null;
     private iamuser = null;
@@ -63,94 +64,143 @@ export class UsersService {
             
     ) {}
 
-    async changepass(userID: ObjectID, changepassdto: changepassDto): Promise<any> {
-        let obj = { Isverified: null };
-        let obj2 = { password: null };
+    async changepass(changepassdto: changepassDto): Promise<any> {
+        let verifys: Verifycode[];
+        await this.verifygenRepository.find({where:{email: changepassdto.email}, order:{date_expire: "DESC"}})
+            .then(set => {verifys = set})
+        let verify: Verifycode;
+        if(verifys.length === 0){
+            throw new HttpException("no verifycode", HttpStatus.FORBIDDEN);
+        }
+        else{
+            verify = verifys[0];
+        }
+        if (changepassdto.verify !== verify.code){
+            throw new HttpException("wrong verifycode", HttpStatus.FORBIDDEN);
+        }
+        
+        let date = new Date()
+        date.setMinutes(date.getMinutes()+7*60);
+        if(date > verify.date_expire){
+            throw new HttpException("expired", HttpStatus.FORBIDDEN);
+        }
+         
+        await this.verifygenRepository.remove(verifys);
+
         let thisuser = null;
-        await this.usersRepository.findOne({where:{ _id: userID}})
+        await this.usersRepository.findOne({where:{email: changepassdto.email}})
             .then(oneuser => {
                 thisuser = oneuser;
             });
-        if (changepassdto.oldpass === thisuser.password) {
-            obj.Isverified = true;
-            var bcrypt =  require('bcrypt');
-            const saltRounds = 10;
-            const hash = bcrypt.hashSync(changepassdto.newpass, saltRounds);
-            obj2.password = hash;
-            this.usersRepository.update({userID: userID}, obj2);
-            return obj;
-        }
-        else {
-            obj.Isverified = false;
-            return obj;
-        }
+        //console.log(thisuser.userID);
+        //let newID: ObjectID = ObjectID.createFromHexString(thisuser.userID);
+        //console.log(newID);
+        let obj = { password: null };
+        var bcrypt =  require('bcrypt');
+        const saltRounds = 10;
+        const hash = bcrypt.hashSync(changepassdto.newpass, saltRounds);
+        obj.password = hash;
+        return this.usersRepository.update({userID: thisuser.userID}, obj);
     }
 
-    async getoldpass(userID: ObjectID) {
-        let thisuser = null;
-        await this.usersRepository.findOne({where:{ _id: userID}})
-            .then(oneuser => {
-                thisuser = oneuser;
+    async verifymail(email: string) {
+        let allUser:User[];
+        await this.usersRepository.find()
+            .then(setUsers=>{allUser = setUsers});
+        if (allUser.some(eachuser => {return eachuser.email === email})) {
+            throw new HttpException("this email has already used to sign up", HttpStatus.FORBIDDEN);
+        }
+        else {
+            let obj = await this.genver(email);
+            const nodemailer = require("nodemailer");
+            const { google } = require("googleapis");
+            const OAuth2 = google.auth.OAuth2;
+            const oauth2Client = new OAuth2(
+                emailsecret.ClientID, // ClientID
+                emailsecret.Client_Secret, // Client Secret
+                emailsecret.Redirect_URL // Redirect URL
+            );
+            oauth2Client.setCredentials({
+                refresh_token: emailsecret.Refresh_Token
             });
-        let oldpass = thisuser.password;
-        let newname = thisuser.username;
-        let newmail = thisuser.email;
-        const mailgun = require("mailgun-js");
-        const DOMAIN = "sandboxcc0d5624e84541f883e7c7a30536acaf.mailgun.org";
-        const mg = mailgun({apiKey: "be32a7077097c68b2013827437aa6821-ea44b6dc-63bd2305", domain: DOMAIN});
-        const data = {
-            from: "Mailgun Sandbox <postmaster@sandboxcc0d5624e84541f883e7c7a30536acaf.mailgun.org>",
-            to: `${newmail}`,
-            subject: `KU-PEOPLE password verified code for username: ${newname}`,
-            text: `Your password verified code is ${oldpass}`
-        };
-        mg.messages().send(data, function (error, body) {
-            console.log(body);
-        });
-        // const nodemailer = require("nodemailer");
-        // const { google } = require("googleapis");
-        // const OAuth2 = google.auth.OAuth2;
+            const accessToken = oauth2Client.getAccessToken()
+            const smtpTransport = nodemailer.createTransport({
+                service: "gmail",
+                auth: {
+                    type: "OAuth2",
+                    user: emailsecret.SenderUser, 
+                    clientId: emailsecret.ClientID,
+                    clientSecret: emailsecret.Client_Secret,
+                    refreshToken: emailsecret.Refresh_Token,
+                    accessToken: accessToken
+                },
+                tls: {
+                    rejectUnauthorized: false
+                }
+            });
+            const mailOptions = {
+                from: emailsecret.SenderUser,
+                to: `${email}`,
+                subject: "Verification code FROM KU-PEOPLE FOR Create User",
+                generateTextFromHTML: true,
+                text: `Your Verify code is ${obj.code}`
+            };
+            smtpTransport.sendMail(mailOptions, (error, response) => {
+                error ? console.log(error) : console.log(response);
+                smtpTransport.close();
+            });
+        }
+        
+    }
 
-
-        // const oauth2Client = new OAuth2(
-        //     "1002709865150-eaebtmjtmsh41ek9b57us4k4i4e1d74i.apps.googleusercontent.com", // ClientID
-        //     "zaQtoYTXJIf_EMVORC--5Zwm", // Client Secret
-        //     "https://developers.google.com/oauthplayground" // Redirect URL
-        // );
-
-        // oauth2Client.setCredentials({
-        //     refresh_token: "1//04ItGxNwFyiqzCgYIARAAGAQSNwF-L9Ir9AWhQsxRg8qeveuGliy9OLlv5ssy_3Jelq1-7Rbg8HLDjLZJT7vzYtyXFVichcLyNpE"
-        // });
-        // const accessToken = oauth2Client.getAccessToken()
-
-        // const smtpTransport = nodemailer.createTransport({
-        //     service: "gmail",
-        //     auth: {
-        //         type: "OAuth2",
-        //         user: "ku.people.team@gmail.com", 
-        //         clientId: "1002709865150-eaebtmjtmsh41ek9b57us4k4i4e1d74i.apps.googleusercontent.com",
-        //         clientSecret: "zaQtoYTXJIf_EMVORC--5Zwm",
-        //         refreshToken: "1//04ItGxNwFyiqzCgYIARAAGAQSNwF-L9Ir9AWhQsxRg8qeveuGliy9OLlv5ssy_3Jelq1-7Rbg8HLDjLZJT7vzYtyXFVichcLyNpE",
-        //         accessToken: accessToken
-        //     },
-        //     tls: {
-        //         rejectUnauthorized: false
-        //     }
-        // });
-
-        // const mailOptions = {
-        //     from: 'ku.people.team@gmail.com',
-        //     to: `${newmail}`,
-        //     subject: `KU-PEOPLE forget password Username: ${newname}`,
-        //     generateTextFromHTML: true,
-        //     text: `Your verified code is ${oldpass}`
-        //     //html: '<body> <p id="a"> </p> <script> let name = 5; document.getElementById("a").innerHTML = "hello" + name; </script> </body>'
-        // };
-
-        // smtpTransport.sendMail(mailOptions, (error, response) => {
-        //     error ? console.log(error) : console.log(response);
-        //     smtpTransport.close();
-        // });
+    async resetpass(email: string) {
+        let allUser:User[];
+        await this.usersRepository.find()
+            .then(setUsers=>{allUser = setUsers});
+        if (allUser.every(eachuser => {return eachuser.email !== email})) {
+            throw new HttpException("this email hasn't used to sign up yet", HttpStatus.FORBIDDEN);
+        }
+        else {
+            let obj = await this.genver(email);
+            const nodemailer = require("nodemailer");
+            const { google } = require("googleapis");
+            const OAuth2 = google.auth.OAuth2;
+            const oauth2Client = new OAuth2(
+                emailsecret.ClientID, // ClientID
+                emailsecret.Client_Secret, // Client Secret
+                emailsecret.Redirect_URL // Redirect URL
+            );
+            oauth2Client.setCredentials({
+                refresh_token: emailsecret.Refresh_Token
+            });
+            const accessToken = oauth2Client.getAccessToken()
+            const smtpTransport = nodemailer.createTransport({
+                service: "gmail",
+                auth: {
+                    type: "OAuth2",
+                    user: emailsecret.SenderUser, 
+                    clientId: emailsecret.ClientID,
+                    clientSecret: emailsecret.Client_Secret,
+                    refreshToken: emailsecret.Refresh_Token,
+                    accessToken: accessToken
+                },
+                tls: {
+                    rejectUnauthorized: false
+                }
+            });
+            const mailOptions = {
+                from: emailsecret.SenderUser,
+                to: `${email}`,
+                subject: "Verification code FROM KU-PEOPLE FOR Reset Password",
+                generateTextFromHTML: true,
+                text: `Your Verify code is ${obj.code}`
+            };
+            smtpTransport.sendMail(mailOptions, (error, response) => {
+                error ? console.log(error) : console.log(response);
+                smtpTransport.close();
+            });
+        }
+        
     }
 
     async chatroomaction(userID: ObjectID, chatroomID: ObjectID,act: string): Promise<any> {
@@ -455,7 +505,7 @@ export class UsersService {
 
     async findUserInfo(userID: ObjectID): Promise<User_info>{
         //console.log(userID);
-        this.info = {userID: null,name:null,avatar_URL:null, exp:null, rank:null ,isLoggedIn:null };
+        this.info = {userID: null,name:null,avatar_URL:null, exp:null, rank:null, isAdmin:null ,isLoggedIn:null };
         this.user_info = [];
         await this.usersRepository.find({where:{_id: userID}})
             .then(setuser_info => {
@@ -468,6 +518,7 @@ export class UsersService {
         this.info.avatar_URL = this.user_info[0].avatar_URL;
         this.info.exp = this.user_info[0].exp;
         this.info.rank = this.user_info[0].rank;
+        this.info.isAdmin = this.user_info[0].isAdmin;
         this.info.isLoggedIn = this.user_info[0].isLoggedIn;
         return this.info;
 
@@ -493,8 +544,7 @@ export class UsersService {
             throw new HttpException("this username has already used to sign up", HttpStatus.FORBIDDEN);
         }
         
-        // verify email with verify code
-        /*
+        
         let verifys: Verifycode[];
         await this.verifygenRepository.find({where:{email: createUserDto.email}, order:{date_expire: "DESC"}})
             .then(set => {verifys = set})
@@ -514,10 +564,10 @@ export class UsersService {
         if(date > verify.date_expire){
             throw new HttpException("expired", HttpStatus.FORBIDDEN);
         }
-        delete createUserDto.verify; 
+         
         await this.verifygenRepository.remove(verifys);
     
-        */
+        delete createUserDto.verify;
        
         let NO: Objectnumber;
         // Generate GuestNO. but use number from threadnogen entity
@@ -561,7 +611,7 @@ export class UsersService {
         );   
     }
 
-    async genver(email: string){
+    async genver(email: string): Promise<any> {
         var code:string ="";
         for(let i = 0; i<6; i++){
             let random = Math.floor(Math.random()*3);

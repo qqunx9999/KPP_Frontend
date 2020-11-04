@@ -237,9 +237,11 @@ export class ThreadsService {
     }
     else{
       let comment: Commentation;
-      await this.commentationsRepository.findOne({where: {threadID:thread.threadID, commentNO:createCommentationDto.reply_to}})
+      await this.commentationsRepository.findOne({where: {threadID:thread.threadID, commentNO:createCommentationDto.reply_to, date_delete:null}})
         .then(setCmt => {comment = setCmt});
-      await this.notificationsService.postComment(new ObjectID(comment.userID), newComment.commentID);
+      if(comment !== undefined){
+        await this.notificationsService.postComment(new ObjectID(comment.userID), newComment.commentID);
+      }
     }
 
     return newComment;

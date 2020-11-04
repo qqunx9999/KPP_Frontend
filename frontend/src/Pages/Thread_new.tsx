@@ -117,7 +117,9 @@ function Threads_new() {
                     by : &nbsp; {item.userInfo.name} <br />
                   </div>
                   <div>
-                    { item.comment.reply_to === 0 ? null : <div>Reply to : &nbsp; {item.comment.reply_to}</div> }
+                    
+                     { item.comment.reply_to === 0 ? null : <div className="textReplyToTopicComment">Reply to : &nbsp; {item.comment.reply_to}</div> }
+
                   </div>
                   <div className="textWhenTopicComment">
                     When : &nbsp; {toDate(item.comment.date_create)} <br />
