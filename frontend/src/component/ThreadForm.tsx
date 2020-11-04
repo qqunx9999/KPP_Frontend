@@ -6,20 +6,23 @@ import '../CSSsource/CreateThread.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Dropdown } from 'react-bootstrap';
 import { useHistory } from 'react-router';
+import TextEditor from './TextEditor';
 
 const ThreadForm = () => {
   const history = useHistory();
+  let message = localStorage.message
 
   return (
     <div>
       <Formik
         initialValues={{
-          tag: [], topic: '', content: '', size: '', faculty: []
+          tag: [], topic: '', content: message, size: '', faculty: []
         }}
         onSubmit={async (values, actions) => {
           const sendOption = {
             "userID": AuthService.getUserID(),
             "topic": values.topic,
+            "tag_arr": values.tag,
             "content": values.content,
             "image_arr": []
           };
@@ -29,6 +32,7 @@ const ThreadForm = () => {
             body: JSON.stringify(sendOption)
           })
             .then(() => history.push('/Home'));
+            console.log(values.content)
           actions.setSubmitting(false);
         }}
       >
@@ -114,19 +118,15 @@ const ThreadForm = () => {
               <div className="placeYourContentTextCreateThread">Place your content :</div>
               <div className="toolsPlaceYourContentCreateThread">
 
-                <label>
-                  <div className="frameSizeToolsPlaceYourContentCreateThread">
-                    <div className="textSizeToolsPlaceYourContentCreateThread">Size</div>
-                    <Field type="input" name="size" className="inputSizeCreateThread" style={{ width: "60px", height: "40px" }} />
-                  </div>
-                </label>
-
-                <button disabled={isSubmitting} className="btn btn-success frameSendCreateThread" type="submit">
+                <button disabled={isSubmitting} className="btn btn-success frameSendCreateThread" type="submit" value={ localStorage.message }>
                   <div className="textSendToolsPlaceYourContentCreateThread"> Send </div>
                 </button>
               </div>
               <label>
-                <Field type="input" name="content" className="inputContentCreateThread" style={{ width: "1135px", height: "500px" }} />
+                {/* <Field type="input" name="content" className="inputContentCreateThread" style={{ width: "1135px", height: "500px" }} /> */}
+                <div className="inputContentCreateThread">
+                  <TextEditor />
+                </div>
               </label>
             </div>
           </Form>

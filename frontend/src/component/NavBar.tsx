@@ -29,7 +29,7 @@ const Navigtion = () => {
     const userID = AuthService.getUserID();
     UserService.notification(userID)
       .then(obj => setNotificaiton(obj));
-    console.log(notification);
+    // console.log(notification);
   }
 
   useEffect(() => {

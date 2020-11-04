@@ -19,7 +19,7 @@ export default class TextEditor extends React.Component<myProps, myState> {
 
   render() {
     message = this.state.content;
-    console.log(message)
+    localStorage.setItem("message", message);
     return (
       <div>
 

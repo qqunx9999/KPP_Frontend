@@ -3,6 +3,16 @@
     height: 350%;
     overflow: hidden;
     position: absolute;
+    
+  }
+
+  .image {
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    z-index: -1;
   }
   .blog{	
     width: 1400px;	
@@ -12,7 +22,6 @@
     color: #ffffff;	
     font-size: 36px;	
     letter-spacing: 3px;	
-    /* line-height: 3; */	
     position: relative;	
     top: 0px;	
     left: 50px	
@@ -120,7 +129,6 @@
   color: #ffffff;
   font-size: 36px;
   letter-spacing: 3px;
-  /* line-height: 3; */
   position: relative;
   top: 0px;
   left: 50px

@@ -4,18 +4,18 @@ import AuthenLogIn from './Pages/AuthenLogIn';
 import AuthenResetPwd from './Pages/AuthenResetPwd';
 import AuthenSignup from './Pages/AuthenSignup';
 import ForgetPwd from './Pages/ForgetPwd';
-import Home_new from './Pages/Home';
+import Home from './Pages/Home';
 import LoginPage from './Pages/LoginPage';
 import LoginSigninPage from './Pages/LoginSigninPage';
 import SignUpPage from './Pages/SignUpPage';
 import TermOfUse from './Pages/TermOfUse';
-import Threads_new from './Pages/Thread';
-import CreateComment_new from './Pages/CreateComment';
-import CreateReport_new from './Pages/CreateReport';
-import SearchThread_new from './Pages/SearchThread';
-import CreateThread_new from './Pages/CreateThread';
-import Profile_new from './Pages/Profile';
-import Setting_new from './Pages/Setting_new';
+import Threads from './Pages/Thread';
+import CreateComment from './Pages/CreateComment';
+import CreateReport from './Pages/CreateReport';
+import SearchThread from './Pages/SearchThread';
+import CreateThread from './Pages/CreateThread';
+import Profile from './Pages/Profile';
+import Setting from './Pages/Setting';
 import ReadReport from './Pages/ReadReport';
 import ChatRoom from './Pages/ChatRoom';
 import AuthenLogout from './Pages/AuthenLogout';
@@ -34,14 +34,14 @@ function App() {
       <Route path="/TermOfUse" component={TermOfUse} />
       <Route path="/ForgetPwd/AuthenResetPwd" component={AuthenResetPwd} />
       <Route path="/SignUp/AuthenSignup" component={AuthenSignup} />
-      <Route path="/Home" component={Home_new} />
-      <Route path="/Thread/:ThreadID" component={Threads_new} />
-      <Route path="/CreateComment/:ThreadID" component={CreateComment_new} />
-      <Route path="/CreateReport/:ThreadID" component={CreateReport_new} />
-      <Route path="/SearchThread" component={SearchThread_new} />
-      <Route path="/CreateThread" component={CreateThread_new} />
-      <Route path="/Profile" component={Profile_new} />
-      <Route exact path="/Setting" component={Setting_new} />
+      <Route path="/Home" component={Home} />
+      <Route path="/Thread/:ThreadID" component={Threads} />
+      <Route path="/CreateComment/:ThreadID" component={CreateComment} />
+      <Route path="/CreateReport/:ThreadID" component={CreateReport} />
+      <Route path="/SearchThread" component={SearchThread} />
+      <Route path="/CreateThread" component={CreateThread} />
+      <Route path="/Profile" component={Profile} />
+      <Route exact path="/Setting" component={Setting} />
       <Route path="/ReportList" component={ReportList} />
       <Route path="/ReadReport/:type/:reportID" component={ReadReport} />
       <Route path="/ChatRoom" component={ChatRoom} />

@@ -90,13 +90,13 @@ export default function ReportList() {
             {/* Read :&nbsp; { reportComment[1] ? "Yes" : "No" } &nbsp; */}
             <div className="rpList-cmread-round1">
               < div className="rplist-cmread1">
-                <Link to={`/ReadReport/${'comment'}/${reportComment[0][0].reportCID}`}>read</Link> &nbsp;
+                <li><ReportModal type="thread" reportID={reportThread[0][0].reportTID} /></li>
           </div>
             </div>
             <div className="rpList-cmdate-round1">
               <div className="rpList-cmdate1">
                 {reportComment.map((item: any) => {
-                  return <li></li>
+                  return <li>{dateCount(reportComment[0][0].date_create)}</li>
                 })}
               </div>
             </div>
