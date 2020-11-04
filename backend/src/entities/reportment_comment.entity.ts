@@ -14,8 +14,6 @@ export class Reportment_comment{
     @Column()
     description:string;
     @Column()
-    text_type: {bold: boolean, italic: boolean, font:string, size:number};
-    @Column()
     image_arr: {URL:string, pos:number}[];  // URL, pos
     @Column()
     at_comment: number;

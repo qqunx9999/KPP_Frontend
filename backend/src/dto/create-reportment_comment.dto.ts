@@ -10,8 +10,6 @@ export class CreateReportment_commentDto{
     commentID:ObjectID;
     @IsString()
     description:string;
-    @IsObject()
-    text_type: {bold: boolean, italic: boolean, font:string, size:number};
     @IsArray()
     image_arr: {URL: string, pos: number}[]; 
     @IsInt()

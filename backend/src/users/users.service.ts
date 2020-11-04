@@ -65,6 +65,8 @@ export class UsersService {
     ) {}
 
     async changepass(changepassdto: changepassDto): Promise<any> {
+        
+        
         let verifys: Verifycode[];
         await this.verifygenRepository.find({where:{email: changepassdto.email}, order:{date_expire: "DESC"}})
             .then(set => {verifys = set})
@@ -92,6 +94,9 @@ export class UsersService {
             .then(oneuser => {
                 thisuser = oneuser;
             });
+        if(thisuser === undefined){
+            throw new HttpException("this email hasn't used to sign up yet", HttpStatus.FORBIDDEN);
+        }
         //console.log(thisuser.userID);
         //let newID: ObjectID = ObjectID.createFromHexString(thisuser.userID);
         //console.log(newID);
@@ -584,7 +589,6 @@ export class UsersService {
         createUserDto.numberfriends = 0;
         createUserDto.quote = "";
         createUserDto.description = "";
-        createUserDto.text_type = {bold:false, italic: false, font:"Arial", size:10};
         createUserDto.chatmember_arr = [];
         var date = new Date();
         date.setMinutes(date.getMinutes()+7*60); //Thailand timezone offset

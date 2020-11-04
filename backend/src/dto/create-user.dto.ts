@@ -23,7 +23,6 @@ export class CreateUserDto {
     //@IsString()
     quote:string;
     description: string ;//= '';
-    text_type: {bold: boolean, italic: boolean, font:string, size:number};
     //@IsArray()
     chatmember_arr: {chatroomID: ObjectID}[];// =[]; 
     //@IsDate()

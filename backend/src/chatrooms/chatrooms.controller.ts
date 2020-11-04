@@ -36,7 +36,7 @@ export class ChatroomsController {
     */
 
     @Get(':chatroomID/messages')
-        async findAllMessages(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID): Promise<Chat_message[]> {
+        async findAllMessages(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID): Promise<any> {
         return this.chatroomsService.findAllMessages(chatroomID);
     }
 

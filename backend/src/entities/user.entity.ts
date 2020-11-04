@@ -27,8 +27,6 @@ export class User{
     @Column()
     description: string ;
     @Column()
-    text_type: {bold: boolean, italic: boolean, font:string, size:number};
-    @Column()
     chatmember_arr: {chatroomID:ObjectID}[] ; //chatroomID
     @Column()
     date_join: Date ;

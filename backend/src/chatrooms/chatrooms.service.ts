@@ -41,29 +41,8 @@ export class ChatroomsService {
             let thismember = await this.usersService.findUserInfo(new ObjectID(chatroom.member_arr[i].userID));
             memberInfo.push(thismember);
         }
-        let allMess: Chat_message[]; 
-        await this.chat_messagesRepository.find({
-            where:{chatroomID: chatroomID, date_delete:null},
-            order:{date_create: "DESC"}
-        }).then(setAllMess=>{allMess = setAllMess});
-        let allMessWithOwn = []
-        for(let i = 0; i<allMess.length; i++){
-            let OwnMess;
-            for(let j =0; j<memberInfo.length; j++){
-                if(allMess[i].userID.toHexString() === memberInfo[j].userID.toString()){
-                    OwnMess = memberInfo[j];
-                }
-            }
-            
-            var messageWithOwn = {
-                "message": allMess[i],
-                "userInfo": OwnMess
-            }
-            allMessWithOwn.push(messageWithOwn);
-        }
-
-
-        return {"chatroomInfo":chatroom, "membersInfo":memberInfo, messagesInfo: allMessWithOwn};
+        
+        return {"chatroomInfo":chatroom, "membersInfo":memberInfo};
     }
 
     async createChatroom(createChatroomDto: CreateChatroomDto) {
@@ -97,7 +76,38 @@ export class ChatroomsService {
     }
     */
     async findAllMessages(chatroomID: ObjectID){
-        return this.chat_messagesRepository.find({where:{ chatroomID: chatroomID , date_delete:null }});
+        let chatroom: Chatroom;
+        
+        await this.chatroomsRepository.findOne({where:{ _id: chatroomID}})
+            .then(setchatroom=>{chatroom = setchatroom});
+        //console.log(chatroom);
+        let memberInfo: User_info[] = [];
+        for(let i = 0; i<chatroom.member_arr.length; i++ ){
+            let thismember = await this.usersService.findUserInfo(new ObjectID(chatroom.member_arr[i].userID));
+            memberInfo.push(thismember);
+        }
+        let allMess: Chat_message[]; 
+        await this.chat_messagesRepository.find({
+            where:{chatroomID: chatroomID, date_delete:null},
+            order:{date_create: "DESC"}
+        }).then(setAllMess=>{allMess = setAllMess});
+        let allMessWithOwn = []
+        for(let i = 0; i<allMess.length; i++){
+            let OwnMess;
+            for(let j =0; j<memberInfo.length; j++){
+                if(allMess[i].userID.toHexString() === memberInfo[j].userID.toString()){
+                    OwnMess = memberInfo[j];
+                }
+            }
+            
+            var messageWithOwn = {
+                "message": allMess[i],
+                "userInfo": OwnMess
+            }
+            allMessWithOwn.push(messageWithOwn);
+        }
+        
+        return allMessWithOwn;
     }
 
     async createMessages(createChat_messageDto: CreateChat_messageDto){

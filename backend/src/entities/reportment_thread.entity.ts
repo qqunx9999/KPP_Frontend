@@ -12,8 +12,6 @@ export class Reportment_thread{
     @Column()
     description:string;
     @Column()
-    text_type: {bold: boolean, italic: boolean, font:string, size:number};
-    @Column()
     image_arr: {URL:string, pos:number}[]; 
     @Column()
     reportTNO: number;

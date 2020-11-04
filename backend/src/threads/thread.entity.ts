@@ -14,8 +14,6 @@ export class Thread{
     @Column()
     content: string;
     @Column()
-    text_type: {bold: boolean, italic: boolean, font:string, size:number};
-    @Column()
     image_arr: {URL:string,pos:number}[]; //Url, pos
     @Column()
     threadNO: number;

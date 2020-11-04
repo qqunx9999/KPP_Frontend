@@ -22,7 +22,6 @@ export class UpdateUserDto {
     numberfriends: number ;//= 0;
     //@IsString()
     description: string ;//= '';
-    text_type: {bold: boolean, italic: boolean, font:string, size:number};
     //@IsArray()
     chatmember_arr: {chatroomID: ObjectID}[];// =[]; 
     //@IsDate()

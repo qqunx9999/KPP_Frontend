@@ -11,7 +11,6 @@ export class UpdateCommentDto {
     
     content:string;
 
-    text_type: {bold: boolean, italic: boolean, font:string, size:number};
     image_arr:{URL: string, pos: number}[];
     reply_to:number;
     //@IsInt()
@@ -23,15 +22,3 @@ export class UpdateCommentDto {
     
 }
 
-// var test:any[] = [
-//     {
-//             Noti: Notifications,
-//             thread: Thread        
-
-//     },
-//     {
-//         Noti: Notifications,
-//         report: Reportment_comment,
-//         comment: Commentation
-//     }
-// ]
