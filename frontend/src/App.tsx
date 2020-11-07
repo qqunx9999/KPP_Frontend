@@ -31,7 +31,6 @@ function App() {
       <Route exact path="/LogIn" component={LoginPage} />
       <Route exact path="/SignUp" component={SignUpPage} />
       <Route exact path="/ForgetPwd" component={ForgetPwd} />
-      <Route path="/VerifyMail" component={VerifyMail} />
       <Route path="/LogIn/AuthenLogIn" component={AuthenLogIn} />
       <Route path="/TermOfUse" component={TermOfUse} />
       <Route path="/ForgetPwd/AuthenResetPwd" component={AuthenResetPwd} />
