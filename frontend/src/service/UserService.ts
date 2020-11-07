@@ -2,8 +2,6 @@ import AuthService from '../service/AuthService';
 import { baseUrl } from "../config/constant";
 import { Userinfo } from "../interfaces/userInfoEntity";
 
-const User = AuthService
-
 export async function fetchUser(): Promise<Userinfo[]> {
   const userInfo = AuthService.getUserID();
   const res = await fetch(`${ baseUrl }/users/${ userInfo }`)

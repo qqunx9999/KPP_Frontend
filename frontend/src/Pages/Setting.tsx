@@ -3,7 +3,6 @@ import { useHistory } from 'react-router';
 import Navigtion from '../component/NavBar';
 import UserService from '../service/UserService';
 import '../CSSsource/Setting.css';
-import { EmailID } from '../component/LoginForm';
 import { Link } from 'react-router-dom';
 
 function Setting_new() {

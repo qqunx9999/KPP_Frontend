@@ -5,7 +5,6 @@ import {
   useHistory
 } from "react-router-dom";
 import '../CSSsource/AuthenSignup.css';
-import logo from '../Pages/image/nong_plub.png'
 import AuthService from '../service/AuthService';
 
 function AuthenSignup() {

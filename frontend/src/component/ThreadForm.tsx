@@ -11,14 +11,16 @@ import TextEditor from './TextEditor';
 const ThreadForm = () => {
   const history = useHistory();
   let message = localStorage.message
+  console.log(message)
 
   return (
     <div>
       <Formik
         initialValues={{
-          tag: [], topic: '', content: message, size: '', faculty: []
+          tag: [], topic: '', content: '', size: '', faculty: []
         }}
         onSubmit={async (values, actions) => {
+          // console.log(values.content)
           const sendOption = {
             "userID": AuthService.getUserID(),
             "topic": values.topic,
@@ -30,9 +32,11 @@ const ThreadForm = () => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(sendOption)
-          })
-            .then(() => history.push('/Home'));
-            console.log(values.content)
+          });
+          if(res) {
+            history.push('/Home');
+            localStorage.removeItem("message")
+          };
           actions.setSubmitting(false);
         }}
       >
@@ -123,9 +127,9 @@ const ThreadForm = () => {
                 </button>
               </div>
               <label>
-                {/* <Field type="input" name="content" className="inputContentCreateThread" style={{ width: "1135px", height: "500px" }} /> */}
+                <Field type="text" name="content" className="inputContentCreateThread" style={{ width: "1135px", height: "500px" }} />
                 <div className="inputContentCreateThread">
-                  <TextEditor />
+                  {/* <TextEditor /> */}
                 </div>
               </label>
             </div>

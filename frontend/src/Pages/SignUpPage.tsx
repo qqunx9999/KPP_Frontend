@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthService from '../service/AuthService';
 
-function SignUpPage() {
+const SignUpPage = () => {
   const [login, setLogin] = useState<boolean>(false);
   const history = useHistory();
 
@@ -38,13 +38,11 @@ function SignUpPage() {
             Term of Use Agreement
           </Link>
         </button>
-        <Link to="/">
-          <button type="button" className="btn btn-success" id="goBack">
+          <button type="button" className="btn btn-success" id="goBack" onClick={ () => history.goBack() }>
             <div className="eHere">
               &lt; Go Back
             </div>
           </button>
-        </Link>
       </div>
     </div>
   );

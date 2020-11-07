@@ -6,7 +6,6 @@ import AuthService from '../service/AuthService';
 import * as Yup from 'yup';
 
 export const Forgetpass = () => {
-    const [signUpErrorMessage, setSignUpErrorMessage] = useState('');
     const history = useHistory();
 
     const style1 = {  width: "490px", height: "40px","background-color":"white" };

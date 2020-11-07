@@ -1,12 +1,12 @@
 import React from 'react';
-import { useHistory, useParams } from 'react-router';
+import { useHistory/*, useParams*/ } from 'react-router';
 import ReportForm from '../component/ReportForm';
 import '../CSSsource/CreateReport.css';
 import Navigtion from '../component/NavBar';
 
 function CreateReport_new() {
   const history = useHistory();
-  const { ThreadID } = useParams();
+  // const { ThreadID } = useParams();
 
   return (
     <div>

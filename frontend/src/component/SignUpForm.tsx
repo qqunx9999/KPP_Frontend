@@ -10,75 +10,110 @@ import * as Yup from 'yup';
 export const SignUp = () => {
   const [signUpErrorMessage, setSignUpErrorMessage] = useState('');
   const history = useHistory();
+  console.log(localStorage.email)
 
   return (
-    <Formik
-      initialValues={{ account: '', email: '', password: '', conPass: '', verify_email: '' }}
-      validationSchema={Yup.object({
-        account: Yup.string().required('Required'),
-        email: Yup.string().required('Required'),
-        password: Yup.string().required('Required'),
-        conPass: Yup.string().oneOf([Yup.ref('password'), undefined], 'Passwords must match').required('Required'),
-        verify_email: Yup.string().min(6, 'To short').max(6, 'To long'),
-      })}
-      onSubmit={async (values, actions) => {
-        const result = await fetch(`${baseUrl}/users`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            "username": values.account,
-            "email": (values.email).concat('@ku.th'),
-            "password": values.password,
-            "verify_email": values.verify_email
-          })
-        });
-        console.log(result);
-        if (result) {
-          history.push('/SignUp/AuthenSignup');
-        };
-        actions.setSubmitting(false);
-      }}
-    >
-      {({ isSubmitting }) => (
-        <Form>
-          <label htmlFor="account" className="signup-account-name_">
-            Account Name :
-            <Field type="input" required name="account" placeholder="Type your username... (Only characters and numbers allowed.)" style={{ width: "770px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_account" />
-          </label>
-          <label htmlFor="email" className="signup-email_">
-            Email :
-            <Field type="input" required name="email" placeholder="Type your Email..." style={{ width: "500px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_email" />
-            <button type="button" className="btn btn-success" id="sendVerify">
-              <div className="sendVerifyText">Send</div>
+    <div>
+      <Formik
+        initialValues={{ email: '' }}
+        validationSchema={Yup.object({
+          email: Yup.string().required('Required email'),
+        })}
+        onSubmit={async (values, actions) => {
+          const email = values.email.concat('@ku.th');
+          localStorage.setItem("email", email);
+          console.log(2)
+          const result = await fetch(`${baseUrl}/users/verifymail/${email}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'applicaiton/json' },
+          }).then(result => console.log(result))
+          actions.setSubmitting(false);
+        }}
+      >
+        {({ isSubmitting }) => (
+          <Form>
+            <label htmlFor="email" className="signup-email_">
+              Email :
+              <Field type="input" name="email" required placeholder="Type your Email..." style={{ width: "500px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_email" />&nbsp;
+              <button type="button" className="btn btn-success" id="sendVerify">
+              <div className="sendVerifyText">Verify</div>
             </button>
-          </label>
-          <label className="signup-_ku-th">
-            @ku.th
             </label>
-          <label className="textVerificationExpireSignupPage">
-            Verification code will send to you. It expired after 10 minutes.
-          </label>
-          <label htmlFor="password" className="signup-password_">
-            Password :
-            <Field type="password" required name="password" placeholder="Type your password..." style={{ width: "855px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_password" />
-          </label>
-          <label htmlFor="conPass" className="signup-cf-password">
-            Confirm Password :
-            <Field type="password" required name="conPass" placeholder="Confirm your password..." style={{ width: "675px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input-cf-password" />
-          </label>
+            <label className="signup-_ku-th">
+              @ku.th
+            </label>
+          </Form>
+        )}
+      </Formik>
+      <Formik
+        initialValues={{ password: '', conPass: '', verify_email: '' }}
+        validationSchema={Yup.object({
+          password: Yup.string().required('Required'),
+          conPass: Yup.string().oneOf([Yup.ref('password'), undefined], 'Passwords must match').required('Required'),
+          verify_email: Yup.string().min(6, 'To short').max(6, 'To long'),
+        })}
+        onSubmit={async (values, actions) => {
+          const result = await fetch(`${baseUrl}/users`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              "username": localStorage.username,
+              "email": localStorage.email,
+              "password": values.password,
+              "verify": values.verify_email
+            })
+          });
+          console.log(result);
+          if (result.status === 201) {
+            history.push('/SignUp/AuthenSignup');
+          }
+          actions.setSubmitting(false);
+        }}
+      >
+        {({ isSubmitting }) => (
+          <Form>
+            <label htmlFor="password" className="signup-password_">
+              Password :
+              <Field type="password" required name="password" placeholder="Type your password..." style={{ width: "855px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_password" />
+            </label>
+            <label htmlFor="conPass" className="signup-cf-password">
+              Confirm Password :
+              <Field type="password" required name="conPass" placeholder="Confirm your password..." style={{ width: "675px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input-cf-password" />
+            </label>
 
-          <label htmlFor="verify" className="signup-verify">
-            Verification Code :
-            <Field type="input" required name="verify" placeholder="Enter code" style={{ width: "240px", height: "50px", fontSize: "30px" }} className="form-control signup-Input_verify" />
-          </label>
+            <label htmlFor="verify" className="signup-verify">
+              Verification Code :
+              <Field type="input" required name="verify" placeholder="Enter code" style={{ width: "240px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_verify" />
+            </label>
 
-          <div className="signup-sign-up">
-            <button type="submit" id="signup-su-frame" className="btn btn-success" disabled={isSubmitting}>
-              <span id="bigText">Sign Up</span>
-            </button>
-          </div>
-        </Form>
-      )}
-    </Formik>
+            <div className="signup-sign-up">
+              <button type="submit" id="signup-su-frame" className="btn btn-success" disabled={isSubmitting}>
+                <span id="bigText">Sign Up</span>
+              </button>
+            </div>
+          </Form>
+        )}
+      </Formik>
+      <Formik
+        initialValues={{ username: '' }}
+        validationSchema={Yup.object({
+          username: Yup.string(),
+        })}
+        onSubmit={(values, actions) => {
+          localStorage.setItem("username", values.username)
+          actions.setSubmitting(false);
+        }}
+      >
+        {({ isSubmitting }) => (
+          <Form>
+            <label htmlFor="account" className="signup-account-name_">
+              Username :
+              <Field type="input" required name="account" placeholder="Type your username... (Only characters and numbers allowed.)" style={{ width: "770px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_account" />
+            </label>
+            <button disabled={isSubmitting}>Check username</button>
+          </Form>
+        )}
+      </Formik>
+    </div>
   );
 };

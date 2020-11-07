@@ -3,7 +3,6 @@ import { useHistory } from 'react-router';
 import Navigtion from '../component/NavBar';
 import UserService from '../service/UserService';
 import '../CSSsource/Profile.css';
-import { join } from 'path';
 
 function Profile_new() {
   const [user, setUser] = useState<any>({});

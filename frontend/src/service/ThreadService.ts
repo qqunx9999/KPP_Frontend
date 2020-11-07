@@ -46,7 +46,7 @@ export async function voteUp(threadID: string | undefined) {
             "up_vote_arr": [{ "userID": AuthService.getUserID() }]
         })
     });
-    window.location.reload()
+    if(res) { window.location.reload() };
 }
 
 export async function voteDown(threadID: string | undefined) {
@@ -57,7 +57,7 @@ export async function voteDown(threadID: string | undefined) {
             "down_vote_arr": [{ "userID": AuthService.getUserID() }]
         })
     });
-    window.location.reload()
+    if(res) { window.location.reload() };
 }
 
 export async function fetchComment(threadID: string | undefined) {

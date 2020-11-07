@@ -6,8 +6,6 @@ import Navigtion from '../component/NavBar';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { PageItem, Pagination } from 'react-bootstrap';
-// import { blackMessageCircle } from "../CSSsource/Icons/black_Message_circle.png";
 
 const temp = {
   margin: "10px",

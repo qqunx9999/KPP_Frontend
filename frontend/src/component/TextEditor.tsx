@@ -3,7 +3,6 @@ import { Editor } from '@tinymce/tinymce-react';
 
 type myProps = {  }
 type myState = { content: any }
-let message = '';
 
 export default class TextEditor extends React.Component<myProps, myState> {
   constructor(props: any) {
@@ -18,8 +17,10 @@ export default class TextEditor extends React.Component<myProps, myState> {
   }
 
   render() {
-    message = this.state.content;
+    console.log(this.state.content);
+    const message = this.state.content;
     localStorage.setItem("message", message);
+    
     return (
       <div>
 
