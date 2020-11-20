@@ -23,7 +23,7 @@ function Setting_new() {
       <Navigtion />
       <div className="backgroundUserSetting">
         <div className="frameWhiteUserSetting">
-          <button className="frameGoBackUserProfile" onClick={history.goBack}>
+          <button className="frameGoBackUserProfile btn btn-success" onClick={history.goBack}>
             <div className="textGoBackUserProfile"> Go Back</div>
           </button>
           <div className="textSettingUserSetting">Setting</div>
@@ -55,7 +55,7 @@ function Setting_new() {
           
           </div>
           <Link to="/Setting/ChangeName">
-            <div className="frameChangePasswordUserProfile">
+            <div className="frameChangePasswordUserProfile btn btn-success">
               <div className="textChangePasswordUserProfile">
                 Change Name
             </div>

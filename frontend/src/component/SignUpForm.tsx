@@ -112,7 +112,7 @@ export const SignUp = () => {
               <Field type="input" required name="account" placeholder="Only characters and numbers allowed." style={{ width: "550px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_account" />
             
             <button type="button" className="btn btn-success" id="checkUsername">
-              <div className="checkUsernameText">Check Username</div>
+              <div className="checkUsernameText">Check</div>
             </button>
 
             </label>

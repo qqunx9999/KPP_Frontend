@@ -42,7 +42,7 @@ function Profile_new() {
             <div className="usernameUserProfile"><div id="name">{user.name}</div></div>
             <div className="userQuotationUserProfile">{user.description}</div>
             <div>{user.username}</div>
-            <button className="frameGobackUserProfile" onClick={history.goBack}>
+            <button className="frameGobackUserProfile btn btn-success" onClick={history.goBack}>
               <div className="textGobackUserProfile"> Go Back</div>
             </button>
           </div>
