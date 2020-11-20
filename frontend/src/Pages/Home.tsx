@@ -135,7 +135,7 @@ export default class Test extends React.Component {
         <div>
           <Link to={`/Thread/${thread.threadID}`}>
             <ul>
-              <li key={thread.threadID} id="ablog">
+              <li key={thread.threadID} id="reactgivemeafuck">
                 <p className="topicLatest4" id="blog">{thread.topic}</p>
                 <div className="alphar" />
       <p className="dateLatest">  {dateCount(thread.date_create)} {dateCount(thread.date_create) ? ("Days") : ("Day")} </p>
@@ -152,7 +152,7 @@ export default class Test extends React.Component {
         <div>
           <Link to={`/Thread/${thread.threadID}`}>
             <ul>
-              <li key={thread.threadID} >
+              <li key={thread.threadID} id = "blog">
                 <p className="topicLatest" id = "blog">{thread.topic}</p>
                 <div className="LDC">
                   <img className="likePic" src="https://www.freeiconspng.com/thumbs/youtube-like-png/youtube-like-button-png-11.png" />
