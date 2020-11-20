@@ -7,13 +7,13 @@
     top: 10%;
   }
   sThread_goback_buttonn:hover{
-    background: var(--Theme5, #9beb33) ! important; /* Green */
+    background: var(--Theme5, #6cc551) ! important; /* Green */
   }
 
 
 
 .sThread_goback_buttonn {
-  background:  #6cc551 ! important; /* Green */
+  background: var(--Theme3,  #6cc551) ! important; /* Green */
 
   border-radius: 19px ! important;
   color: white ! important;

@@ -6,8 +6,8 @@
     position: absolute;
   }
 
-  .sThread_goback_button:hover{
-    background: var(--Theme3, #9beb33) ! important; /* Green */
+  sThread_goback_button:hover{
+    background: var(--Theme5, #6cc551) ! important; /* Green */
   }
 
 
