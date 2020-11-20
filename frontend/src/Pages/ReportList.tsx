@@ -38,7 +38,7 @@ export default function ReportList() {
 
   useEffect(() => {
     fetchReportThread();
-  }, []); console.log(reportThread) // 
+  }, []); console.log(reportThread)
 
   return (
     <div>
@@ -52,14 +52,14 @@ export default function ReportList() {
             <div className="rpList-read-round1">
               {/* Read :&nbsp; { reportThread[1] ? "Yes" : "No" } &nbsp;  */}
               <div className="rplist-read1">
-                {/* <Link to={`/ReadReport/${ 'thread' }/${ reportThread[0][0].reportTID }`}>read</Link> &nbsp; */}
+                <Link to={`/ReadReport/${ 'thread' }/${ reportThread[0][0].reportTID }`}>read</Link> &nbsp;
                 {reportThread.map((item: any) => (
                   <div className="blog">
                     <button className="rpList-correct-round1 btn btn-success">Approve</button>
                     <button className="rpList-incorrect-round1 btn btn-danger">Disapprove</button>
                     <div className="rpList-read-round2">
                       <li className="reaD">
-                        <ReportModal type="thread" reportID={reportThread[0][0].reportTID} />
+                        { reportThread[0][0].reportID === null ? <ReportModal type="thread" reportID={reportThread[0][0].reportTID} /> : null }
                       </li>
                     </div>
 
@@ -90,7 +90,7 @@ export default function ReportList() {
             {/* Read :&nbsp; { reportComment[1] ? "Yes" : "No" } &nbsp; */}
             <div className="rpList-cmread-round1">
               < div className="rplist-cmread1">
-                <li><ReportModal type="thread" reportID={reportThread[0][0].reportTID} /></li>
+                {/* <li><ReportModal type="thread" reportID={reportThread[0][0].reportTID} /></li> */}
           </div>
             </div>
             <div className="rpList-cmdate-round1">
@@ -100,8 +100,8 @@ export default function ReportList() {
                 })}
               </div>
             </div>
-            <button>Approve</button>
-            <button>Disapprove</button>
+            {/* <button>Approve</button>
+            <button>Disapprove</button> */}
           </div>
         </div>
 
