@@ -135,10 +135,10 @@ export default class Test extends React.Component {
         <div>
           <Link to={`/Thread/${thread.threadID}`}>
             <ul>
-              <li key={thread.threadID} className="blog">
-                <p className="topicLatest">{thread.topic}</p>
+              <li key={thread.threadID} id="ablog">
+                <p className="topicLatest4" id="blog">{thread.topic}</p>
                 <div className="alphar" />
-                <p className="dateLatest">  {dateCount(thread.date_create)} Days</p>
+      <p className="dateLatest">  {dateCount(thread.date_create)} {dateCount(thread.date_create) ? ("Days") : ("Day")} </p>
                 <img className="clockWise" src="https://image.flaticon.com/icons/png/512/3/3811.png" />
               </li>
             </ul>
@@ -152,8 +152,8 @@ export default class Test extends React.Component {
         <div>
           <Link to={`/Thread/${thread.threadID}`}>
             <ul>
-              <li key={thread.threadID} className="blog">
-                <p className="topicLatest">{thread.topic}</p>
+              <li key={thread.threadID} >
+                <p className="topicLatest" id = "blog">{thread.topic}</p>
                 <div className="LDC">
                   <img className="likePic" src="https://www.freeiconspng.com/thumbs/youtube-like-png/youtube-like-button-png-11.png" />
                   <p className="likeHottest">{thread.up_vote_count}</p>
@@ -175,10 +175,11 @@ export default class Test extends React.Component {
         <div>
           <Link to={`/Thread/${thread.threadID}`}>
             <ul>
-              <li key={thread.threadID} className="blog">
-                <p className="topicNews"></p>
-                {thread.topic}
-                <h1>{dateDetail(thread.date_create)}</h1>
+              <li key={thread.threadID} id="ablog">
+                <p>
+                <div >{thread.topic}</div>
+                <div className="llk">{dateDetail(thread.date_create)}</div>
+                </p>
               </li>
             </ul>
           </Link>
@@ -245,7 +246,7 @@ export default class Test extends React.Component {
         <div className="backgroundHomePage">
           <div className="latestWhiteFrameHomePage">
             <div className="latestGreenFrameHomePage">
-              <div className="stackLatestHomePage">
+              <div className="stackLatestHomePage2">
                 {latestThreads}
               </div>
               {renderLatestPageNumber}

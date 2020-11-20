@@ -14,7 +14,7 @@
     position: fixed;
     z-index: -1;
   }
-  .blog{	
+  #blog{	
     width: 1400px;	
     height: 25px;	
     overflow: visible;	
@@ -118,11 +118,15 @@
     height: 37px;
     position : absolute;
     left: 1050px;
-    top:5px;
+    top: px;
   }
 
+
+
+  
+
 .blog{
-  width: 1400px;
+  width: 1400px ;
   height: 25px;
   overflow: visible;
   font-family: "Inter", sans-serif;
@@ -132,6 +136,37 @@
   position: relative;
   top: 0px;
   left: 50px
+}
+
+.log{
+  width: 1500px !important;
+  height: 25px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  font-size: 36px;
+  letter-spacing: 3px;
+  position: relative;
+  top: 0px;
+  left: 50px
+}
+#ablog{
+  width: 1500px ! important;
+  height: 25px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  font-size: 36px;
+  letter-spacing: 3px;
+  margin-top: 80px;
+  position: relative;
+  top: -20px;
+  left: 50px
+}
+
+.llk{
+  position: absolute;
+  left: 1150px;
 }
 
 .dateLatest{
@@ -147,6 +182,10 @@ top: 50px;
 left: 100px;
 width: 750px;
 }
+li p div{
+  display: inline-block !important;
+}
+
 
 div.alphar {
   display:inline-block;
