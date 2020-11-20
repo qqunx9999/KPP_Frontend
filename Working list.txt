@@ -1,21 +1,16 @@
 Working list
 
-พี : ทำ functional หลักๆให้เสร็จ (search thread, report list, tags list, paginations, Rich text editor, notifications, Chat room*) !!
+พี : ทำ functional หลักๆให้เสร็จ (search thread, report list, tags list, Rich text editor, notifications, Chat room*) !!
+    update ความคืบหน้าใน Click up ด้วย (ตาม Backend ให้มา update ด้วย)
 
 มิน : จัด css หน้า Home ให้เรียบร้อย
      รอจัด css หน้า Report list, Read report, tags ต่อจากพี
      ช่วยลบ className ส่วนที่ไม่ได้ใช้ใน css ด้วย เพื่อลดความยาวของไฟล์ --> ง่ายต่อการแก้
      * optimize className ใน css หน่อยบาง className มันซ้ำซ้อนเกิน --> ง่ายต่อการแก้
 
-ไลอ้อน & ปลื้ม : จัด css หน้า sign up ให้เรียบร้อย
-              เรื่องปุ่ม ตำแหน่งของ text มันเพี้ยนไปหน่อย
-              หน้า Profile, Settings, Create thread แถบ Nav Bar มันทับกับ Block
-              ปุ่ม Go back อยากให้มันเป็น theme เดียวกัน บางหน้าเป็น เขียว hover ดำ แต่บางหน้าเป็น เขียว hover เขียว
-              แก้สีไหนหน้าที่มันเพี้ยน
-              * ถ้าทำงานเสร็จแล้วฝากดูเรื่อง React Rich text editor ด้วย
+ไลอ้อน & ปลื้ม : ดูเรื่อง React Rich text editor
 
 ปอนด์ : เก็บรายละเอียดงานทั้งหมด (check bug, ตรวจความคืบหน้า)
        ทำเอกสารที่ต้องส่ง
-       update ความคืบหน้าใน Click up ด้วย (ตาม Backend ให้มา update ด้วย)
 
  * --> Optional (ถ้ามีเวลาเหลือค่อยทำ)
