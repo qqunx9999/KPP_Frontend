@@ -17,7 +17,7 @@ body {
     position: relative;
   }
 
-.thread_goback_button {
+.sthread_goback_button {
     background: var(--Theme3, #6cc551); /* Green */
     border-radius: 19px;
     color: white;
