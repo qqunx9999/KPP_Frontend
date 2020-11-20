@@ -36,9 +36,10 @@ export const SignUp = () => {
               Email :
               <Field type="input" name="email" required placeholder="Type your Email..." style={{ width: "500px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_email" />&nbsp;
               <button type="button" className="btn btn-success" id="sendVerify">
-              <div className="sendVerifyText">Verify</div>
-            </button>
+                <div className="sendVerifyText">Verify</div>
+              </button>
             </label>
+
             <label className="signup-_ku-th">
               @ku.th
             </label>
@@ -74,11 +75,11 @@ export const SignUp = () => {
           <Form>
             <label htmlFor="password" className="signup-password_">
               Password :
-              <Field type="password" required name="password" placeholder="Type your password..." style={{ width: "855px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_password" />
+              <Field type="password" required name="password" placeholder="Type your password..." style={{ width: "810px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_password" />
             </label>
             <label htmlFor="conPass" className="signup-cf-password">
               Confirm Password :
-              <Field type="password" required name="conPass" placeholder="Confirm your password..." style={{ width: "675px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input-cf-password" />
+              <Field type="password" required name="conPass" placeholder="Confirm your password..." style={{ width: "630px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input-cf-password" />
             </label>
 
             <label htmlFor="verify" className="signup-verify">
@@ -108,9 +109,13 @@ export const SignUp = () => {
           <Form>
             <label htmlFor="account" className="signup-account-name_">
               Username :
-              <Field type="input" required name="account" placeholder="Type your username... (Only characters and numbers allowed.)" style={{ width: "770px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_account" />
+              <Field type="input" required name="account" placeholder="Only characters and numbers allowed." style={{ width: "550px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_account" />
+            
+            <button type="button" className="btn btn-success" id="checkUsername">
+              <div className="checkUsernameText">Check Username</div>
+            </button>
+
             </label>
-            <button disabled={isSubmitting}>Check username</button>
           </Form>
         )}
       </Formik>

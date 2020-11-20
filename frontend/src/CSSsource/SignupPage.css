@@ -1,4 +1,4 @@
-.signup-bigframe {
+.signup-password_ {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -88,10 +88,10 @@ background: rgba(0, 0, 0, 0.2)
   padding: 12;
   /*password:false*/
   border-radius: 10;
-  width: 411px;
+  width: 550px;
   position: absolute;    
   top: 50px;
-  left: 380px;
+  left: 300px;
 }
 
 .signup-email_ {
@@ -385,7 +385,7 @@ background: rgba(0, 0, 0, 0.2)
   width: 411px;
   position: absolute;    
   top: 35%;
-  left:95%;
+  left: 96%;
 }
 
 .sendVerifyBtn {
@@ -437,4 +437,43 @@ background: rgba(0, 0, 0, 0.2)
   position: absolute;    
   top: 49%;
   left: 14%;
+}
+
+.checkUsernameBtn {
+  width: 145px;
+  height: 90px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: var(--Theme1, #ffffff);
+  font-size: 30px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: relative;
+  top: 10%;
+}
+
+#checkUsername {
+  width: 200px !important;
+  height: 90px !important;
+  overflow: visible !important;
+  background: var(--Theme5, #6cc551) !important;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25) !important;
+  border-radius: 19px !important;
+  position: absolute !important;
+  top: 20% !important;
+  left: 560% !important;
+}
+
+.checkUsernameText {
+  width: 386px ! important;
+  height: 90px ! important;
+  overflow: visible ! important;
+  font-family: "Inter", sans-serif ! important;
+  color: #ffffff ! important;
+  font-size: 30px ! important;
+  letter-spacing: 3px ! important;
+  line-height: 2.2 ! important;
+  position: absolute ! important;
+  top: 10px;
+  left: -48%;
 }
