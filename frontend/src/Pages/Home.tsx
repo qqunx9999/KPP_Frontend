@@ -1,102 +1,248 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../CSSsource/Home.css';
-import ThreadService from '../service/ThreadService';
 import Navigtion from '../component/NavBar';
-import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const temp = {
-  margin: "10px",
-};
+export default class Test extends React.Component {
+  state = {
+    latest: {
+      threads: [],
+      pageInfo: {
+        pageNo: 1,
+        pagesize: 8,
+        total: 0
+      }
+    },
+    hottest: {
+      threads: [],
+      pageInfo: {
+        pageNo: 1,
+        pagesize: 8,
+        total: 0
+      }
+    },
+    news: {
+      threads: [],
+      pageInfo: {
+        pageNo: 1,
+        pagesize: 8,
+        total: 0
+      }
+    }
+  }
 
-function Home_new() {
-  const [latestThread, setLatestThread] = useState<any>([{}]);
-  const [hottestThread, setHottestThread] = useState<any>([{}]);
-  const [newsThread, setNewsThread] = useState<any>([{}]);
-  const [info, setInfo] = useState<any>([{}]);
-  const [pageNum, setPageNum] = useState<number>(1);
-  const time = new Date();
-  const history = useHistory();
-
-  const fetchNewThread = () => {
-    ThreadService.fetchLatestThread(pageNum)
-      .then(obj => {
-        obj.map((item: any) => {
-          setLatestThread(item.threads);
-          setInfo(item.pageInfo);
-        });
-      });
-
-    ThreadService.fetchHottestThread(pageNum)
-      .then(obj => {
-        obj.map((item: any) => {
-          setHottestThread(item.threads);
-        });
-      });
-
-    ThreadService.fetchNewsThread(pageNum)
-    .then(obj => {
-      obj.map((item: any) => {
-        setNewsThread(item.threads);
-      });
+  fetchLatestPages = async (pageNumber: any) => {
+    let response = await fetch(`http://localhost:3000/threads/filter/%20/Latest/8/${pageNumber}`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'applecation/json',
+        'Content-Type': 'application/json'
+      },
     });
-  };
 
-  function next() {
-    if(pageNum < info.total_comment) {
-      setPageNum(pageNum + 1);
-    }
-  };
+    const data = await response.json();
 
-  function previous() {
-    if(pageNum > 0) {
-      setPageNum(pageNum - 1);
-    }
+    this.setState({
+      latest: {
+        threads: data[0].threads,
+        pageInfo: {
+          pageNo: data[0].pageInfo.pageNo,
+          pagesize: data[0].pageInfo.pagesize,
+          total: data[0].pageInfo.total
+        }
+      }
+    });
   }
 
-  function dateCount(timeString: string) {
-    const day = new Date(timeString);
-    const postTime = day.getTime();
-    const currentTime = time.getTime();
-    const convertToDay = 1000 * 3600 * 24;
-    const diffTime = Math.ceil((currentTime - postTime) / convertToDay);
-    return Math.abs(diffTime);
+  fetchHottestPages = async (pageNumber: any) => {
+    let response = await fetch(`http://localhost:3000/threads/filter/%20/Hottest/8/${pageNumber}`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'applecation/json',
+        'Content-Type': 'application/json'
+      },
+    })
+
+    const data = await response.json();
+
+    this.setState({
+      hottest: {
+        threads: data[0].threads,
+        pageInfo: {
+          pageNo: data[0].pageInfo.pageNo,
+          pagesize: data[0].pageInfo.pagesize,
+          total: data[0].pageInfo.total
+        }
+      }
+    });
   }
 
-  useEffect(() => {
-    fetchNewThread();
-    next();
-    previous();
-  }, []);
+  fetchNewsPages = async (pageNumber: any) => {
+    let response = await fetch(`http://localhost:3000/threads/filter/%20/Newest/8/${pageNumber}`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'applecation/json',
+        'Content-Type': 'application/json'
+      },
+    })
 
-  return (
-    <div>
-      <Navigtion />
-      <div className="backgroundHomePage">
-        <div style={temp}>
+    const data = await response.json();
+
+    this.setState({
+      newest: {
+        threads: data[0].threads,
+        pageInfo: {
+          pageNo: data[0].pageInfo.pageNo,
+          pagesize: data[0].pageInfo.pagesize,
+          total: data[0].pageInfo.total
+        }
+      }
+    });
+  }
+
+  componentDidMount() {
+    this.fetchLatestPages(1);
+    this.fetchHottestPages(1);
+    this.fetchNewsPages(1)
+  }
+
+  render() {
+    // console.dir(this.state.latest.pageInfo.total);
+    let latestThreads: any, hottestThreads: any, newsThreads: any;
+    const time = new Date();
+
+    function dateCount(timeString: string) {
+      const day = new Date(timeString);
+      const postTime = day.getTime();
+      const currentTime = time.getTime();
+      const convertToDay = 1000 * 3600 * 24;
+      const diffTime = Math.ceil((currentTime - postTime) / convertToDay);
+      return Math.abs(diffTime);
+    }
+
+    function dateDetail(timeString: string) {
+      const fullDate = new Date(timeString);
+      const date = fullDate.getDay();
+      const month = fullDate.getMonth();
+      const year = fullDate.getFullYear();
+      return String(date) + "/" + String(month) + "/" + String(year);
+    }
+
+    if (this.state.latest.threads !== []) {
+      latestThreads = this.state.latest.threads.map((thread: any) => (
+        <div>
+          <Link to={`/Thread/${thread.threadID}`}>
+            <ul>
+              <li key={thread.threadID} className="blog">
+                <p className="topicLatest">{thread.topic}</p>
+                <div className="alphar" />
+                <p className="dateLatest">  {dateCount(thread.date_create)} Days</p>
+                <img className="clockWise" src="https://image.flaticon.com/icons/png/512/3/3811.png" />
+              </li>
+            </ul>
+          </Link>
+        </div>
+      ));
+    };
+
+    if (this.state.hottest.threads !== []) {
+      hottestThreads = this.state.latest.threads.map((thread: any) => (
+        <div>
+          <Link to={`/Thread/${thread.threadID}`}>
+            <ul>
+              <li key={thread.threadID} className="blog">
+                <p className="topicLatest">{thread.topic}</p>
+                <div className="LDC">
+                  <img className="likePic" src="https://www.freeiconspng.com/thumbs/youtube-like-png/youtube-like-button-png-11.png" />
+                  <p className="likeHottest">{thread.up_vote_count}</p>
+                  <div className="dP">
+                    <img className="dislikePic" src="https://pngimg.com/uploads/dislike/dislike_PNG63.png" /></div>
+                  <p className="dislikeHottest">  {thread.down_vote_count}</p>
+                  <img className="commentPic" src="https://image.flaticon.com/icons/png/512/25/25663.png" />
+                  <p className="commentHottest">{thread.total_comment}</p>
+                </div>
+              </li>
+            </ul>
+          </Link>
+        </div>
+      ));
+    };
+
+    if (this.state.news.threads !== []) {
+      newsThreads = this.state.latest.threads.map((thread: any) => (
+        <div>
+          <Link to={`/Thread/${thread.threadID}`}>
+            <ul>
+              <li key={thread.threadID} className="blog">
+                <p className="topicNews"></p>
+                {thread.topic}
+                <h1>{dateDetail(thread.date_create)}</h1>
+              </li>
+            </ul>
+          </Link>
+        </div>
+      ));
+    };
+
+    let latestPages = [], hottestPages = [], newestPages = [];
+    for (let i = 1; i <= Number(this.state.latest.pageInfo.total); i++) {
+      latestPages.push(i);
+    }
+    for (let i = 1; i <= Number(this.state.hottest.pageInfo.total); i++) {
+      hottestPages.push(i);
+    }
+    for (let i = 1; i <= Number(this.state.news.pageInfo.total); i++) {
+      newestPages.push(i);
+    }
+
+    const renderLatestPageNumber = latestPages.map((page: any) => {
+      return (
+        <div aria-label="Page navigation">
+          <div className="pagination">
+            <div className="page-item" onClick={ () => this.fetchLatestPages(page) }>
+              <div className="page-link">{page}</div>
+            </div>
+          </div>
+        </div>
+      );
+    })
+
+    const renderHottestPageNumber = hottestPages.map((page: any) => {
+      return (
+        <div aria-label="Page navigation">
+          <div className="pagination">
+            <div className="page-item" onClick={ () => this.fetchHottestPages(page) }>
+              <div className="page-link">{page}</div>
+            </div>
+          </div>
+        </div>
+      );
+    })
+
+    const renderNewestPageNumber = newestPages.map((page: any) => {
+      return (
+        <div aria-label="Page navigation">
+          <div className="pagination">
+            <div className="page-item" onClick={ () => this.fetchNewsPages(page) }>
+              <div className="page-link">{page}</div>
+            </div>
+          </div>
+        </div>
+      );
+    })
+
+    return (
+      <div>
+        <Navigtion />
+        <div className="backgroundHomePage">
           <div className="latestWhiteFrameHomePage">
             <div className="latestGreenFrameHomePage">
               <div className="stackLatestHomePage">
-                {/* <h1>Latest</h1> */}
-                  { latestThread.map((item: any) => {
-                    return (
-                      <div>
-                      <Link to={`/Thread/${item.threadID}`}>
-                        <ul>
-                        <li key={ item.threadID } className = "blog">
-                          <p className="topicLatest">{item.topic}</p>
-                          <div className="alphar"/>
-                          <p className="dateLatest">  { dateCount(item.date_create) } Days</p>
-                          <img className ="clockWise" src="https://image.flaticon.com/icons/png/512/3/3811.png" alt=""/>
-                          </li>
-                          </ul>
-                      </Link>
-                    </div>
-                    );
-                  }) }
+                {latestThreads}
               </div>
+              {renderLatestPageNumber}
             </div>
           </div>
           <div className="latestFrameHomePage">
@@ -104,33 +250,12 @@ function Home_new() {
               Latest
             </div>
           </div>
-        <div style={temp}></div>
           <div className="hottestWhiteFrameHomePage">
             <div className="hottestGreenFrameHomePage">
               <div className="stackHottestHomePage">
-                {/* <h1>Hottest</h1> */}
-                { hottestThread.map((item: any) => (
-                    <div>
-                      <Link to={`/Thread/${item.threadID}`}>
-                        <ul>
-                          <li key={ item.threadID } className = "blog">
-                            <p className="topicLatest">{item.topic}</p>
-                            <div className="LDC">
-                            <img className="likePic"src="https://www.freeiconspng.com/thumbs/youtube-like-png/youtube-like-button-png-11.png" alt=""/>
-                            <p className="likeHottest">
-                            {item.up_vote_count}</p>
-                            <div className="dP">
-                            <img className="dislikePic" src="https://pngimg.com/uploads/dislike/dislike_PNG63.png" alt=""/></div>
-                            <p className="dislikeHottest">  {item.down_vote_count}</p>
-                            <img className="commentPic" src="https://image.flaticon.com/icons/png/512/25/25663.png" alt="" />
-                            <p className="commentHottest">{ item.total_comment }</p>
-                            </div>
-                          </li>
-                        </ul>
-                      </Link>
-                    </div>
-                  )) }
+                {hottestThreads}
               </div>
+              {renderHottestPageNumber}
             </div>
           </div>
           <div className="hottestFrameHomePage">
@@ -138,35 +263,21 @@ function Home_new() {
               Hottest
             </div>
           </div>
-        </div>
-        <div className="newsWhiteFrameHomePage">
-          <div className="newsGreenFrameHomePage">
-            <div className="stackNewsHomePage">
-              {/* <h1>News</h1> */}
-              { newsThread.map((item: any) => (
-                <div>
-                  <Link to={`/Thread/${item.threadID}`}>
-                    <ul>
-                    <li key={ item.threadID } className = "blog">
-                      <p className="topicNews"></p>{item.topic}
-                    </li>
-                    </ul>
-                  </Link>
-                </div>
-              )) }
+          <div className="newsWhiteFrameHomePage">
+            <div className="newsGreenFrameHomePage">
+              <div className="stackNewsHomePage">
+                {newsThreads}
+              </div>
+              {renderNewestPageNumber}
+            </div>
+          </div>
+          <div className="newsFrameHomePage">
+            <div className="newsTextHomePage">
+              News
             </div>
           </div>
         </div>
-        <div className="newsFrameHomePage">
-          <div className="newsTextHomePage">
-              News
-          </div>
-        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
-
-
-
-export default Home_new;

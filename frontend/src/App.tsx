@@ -20,9 +20,8 @@ import ReadReport from './Pages/ReadReport';
 import ChatRoom from './Pages/ChatRoom';
 import AuthenLogout from './Pages/AuthenLogout';
 import ChangeName from './Pages/ChangeName';
-import Test from './Test';
+import Test from './sandbox/Test';
 import ReportList from './Pages/ReportList';
-import VerifyMail from './Pages/VerifyMail';
 
 function App() {
   return (
