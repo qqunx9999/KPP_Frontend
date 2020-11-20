@@ -1,36 +1,56 @@
-import React from 'react';
-import { Editor } from '@tinymce/tinymce-react';
+import React, { Component } from 'react';
 
-type myProps = {  }
-type myState = { content: any }
-
-export default class TextEditor extends React.Component<myProps, myState> {
+class TextEditor extends Component {
   constructor(props: any) {
-    super(props);
-
-    this.state = { content: '' };
-    this.handleEditorChange = this.handleEditorChange.bind(this);
+    super(props)
+    this.onChangeEditorStyle = this.onChangeEditorStyle.bind(this);
   }
 
-  handleEditorChange(content: any, editor: any) {
-    this.setState({ content });
+  onChangeEditorStyle(e: any, command: any) {
+    document.execCommand(command, false)
   }
 
   render() {
-    console.log(this.state.content);
-    const message = this.state.content;
-    localStorage.setItem("message", message);
-    
     return (
-      <div>
-
-        <Editor
-          apiKey="mst7ooroci6ekyb714kes48cufcv5yx1nnnncjaumak2xq9w"
-          value={this.state.content}
-          onEditorChange={this.handleEditorChange}
-        />
-
+      <div className="App">
+      
+        <div className="toolbar">
+          <a href="#" className="toolbar-item" onClick={(e) => this.onChangeEditorStyle(e, 'bold')}>Bold</a>
+          <a href="#" className="toolbar-item" onClick={(e) => this.onChangeEditorStyle(e, 'italic')}>Italic</a>
+          <a href="#" className="toolbar-item" onClick={(e) => this.onChangeEditorStyle(e, 'underline')}>Underline</a>
+        </div>
+        <div className="my-rich-editor" contentEditable="true">
+            <p> Hello World.</p>
+        </div>
+        <style>{`
+          .my-rich-editor {
+            text-align: left;
+            width: 500px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            border-radius: 9px;
+            padding: 1em;
+          }
+          .toolbar {
+            margin-top: 32px;
+            margin-bottom: 8px;
+          }
+          .toolbar-item {
+            margin-right: 7px;
+            text-decoration: none;
+            color: #000;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 4px;
+          }
+          .toolbar-item:hover {
+            background-color: #f5f5f5;
+          }
+        `}
+        </style>
       </div>
     );
   }
-}
+};
+
+export default TextEditor;
