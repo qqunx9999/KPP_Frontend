@@ -177,6 +177,7 @@ export default class Test extends React.Component {
             <ul>
               <li key={thread.threadID} id="ablog">
                 <p>
+                <div className="alphar" />
                 <div >{thread.topic}</div>
                 <div className="llk">{dateDetail(thread.date_create)}</div>
                 </p>
