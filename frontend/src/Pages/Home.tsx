@@ -198,39 +198,45 @@ export default class Test extends React.Component {
     }
 
     const renderLatestPageNumber = latestPages.map((page: any) => {
-      return (
-        <div aria-label="Page navigation">
-          <div className="pagination">
-            <div className="page-item" onClick={ () => this.fetchLatestPages(page) }>
-              <div className="page-link">{page}</div>
+      if (page == 1 || page == this.state.latest.pageInfo.total || (page >= this.state.latest.pageInfo.pageNo - 2 && page <= this.state.latest.pageInfo.pageNo + 2)) {
+        return (
+          <div aria-label="Page navigation">
+            <div className="pagination">
+              <div className="page-item" onClick={() => this.fetchLatestPages(page)}>
+                <div className="page-link">{page}</div>
+              </div>
             </div>
           </div>
-        </div>
-      );
+        );
+      };
     })
 
     const renderHottestPageNumber = hottestPages.map((page: any) => {
-      return (
-        <div aria-label="Page navigation">
-          <div className="pagination">
-            <div className="page-item" onClick={ () => this.fetchHottestPages(page) }>
-              <div className="page-link">{page}</div>
+      if (page == 1 || page == this.state.hottest.pageInfo.total || (page >= this.state.hottest.pageInfo.pageNo - 2 && page <= this.state.hottest.pageInfo.pageNo + 2)) {
+        return (
+          <div aria-label="Page navigation">
+            <div className="pagination">
+              <div className="page-item" onClick={() => this.fetchHottestPages(page)}>
+                <div className="page-link">{page}</div>
+              </div>
             </div>
           </div>
-        </div>
-      );
+        );
+      };
     })
 
     const renderNewestPageNumber = newestPages.map((page: any) => {
-      return (
-        <div aria-label="Page navigation">
-          <div className="pagination">
-            <div className="page-item" onClick={ () => this.fetchNewsPages(page) }>
-              <div className="page-link">{page}</div>
+      if (page == 1 || page == this.state.news.pageInfo.total || (page >= this.state.news.pageInfo.pageNo - 2 && page <= this.state.news.pageInfo.pageNo + 2)) {
+        return (
+          <div aria-label="Page navigation">
+            <div className="pagination">
+              <div className="page-item" onClick={() => this.fetchNewsPages(page)}>
+                <div className="page-link">{page}</div>
+              </div>
             </div>
           </div>
-        </div>
-      );
+        );
+      };
     })
 
     return (
