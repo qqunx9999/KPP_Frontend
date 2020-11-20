@@ -139,9 +139,12 @@
   left: 1100px;
 }
 .topicLatest{
-  text-overflow: ellipsis;
+text-overflow: ellipsis;
 white-space: nowrap;
 overflow: hidden;
+position: relative;
+top: 50px;
+left: 100px;
 width: 750px;
 }
 

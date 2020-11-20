@@ -400,22 +400,21 @@
   }
 
 .createcm_cm_input {
+    width: 1140px;
+    /* height: 250px; */
+    overflow: visible;
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     background-color: rgb(221, 221, 227);
     font-size: 20;
     color: "#333333";
     border: rgba(0,0,0,0);
-    border-width: 1;
-    /*focusColor=#09F*/
-    /*focused:false*/
+    border-width: 1;    
     font: false;
-    font-family: "";
-    /*keyboard:""*/
-    /*multiLine:false*/
-    padding: 12;
-    /*password:false*/
-    border-radius: 10;
-    width: 411px;
+    font-family: "";    
+    padding: 12;    
+    border-radius: 10px;    
     position: absolute;    
     top: 178px;
     left: 45px;
 } 
+

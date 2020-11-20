@@ -51,7 +51,7 @@ function CommentForm() {
               </div>
             </div>
             {/* <Field type="input" name="comment" className="createrp_reason_input" style={{ width: "1140px", height: "250px" }} /> */}
-            <div className="createrp_reason_input">
+            <div className="createcm_cm_input">
               <TextEditor />
             </div>
           </div>

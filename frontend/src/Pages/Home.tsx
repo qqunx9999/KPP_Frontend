@@ -104,10 +104,10 @@ function Home_new() {
               Latest
             </div>
           </div>
-        <div style={temp}></div>
+        <div style={temp}>
           <div className="hottestWhiteFrameHomePage">
             <div className="hottestGreenFrameHomePage">
-              <div className="stackHottestHomePage">
+              {/* <div className="stackHottestHomePage"> */}
                 {/* <h1>Hottest</h1> */}
                 { hottestThread.map((item: any) => (
                     <div>
@@ -130,6 +130,7 @@ function Home_new() {
                       </Link>
                     </div>
                   )) }
+              {/* </div> */}
               </div>
             </div>
           </div>
