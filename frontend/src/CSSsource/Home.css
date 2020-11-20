@@ -279,7 +279,7 @@ div.LDC {
     width: 1496px;
     height: 720px;
     overflow: visible;
-    background: var(--B1, #1f2605);
+    background: var(--Theme3, #0f0508);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;
@@ -582,7 +582,7 @@ div.LDC {
     width: 1496px;
     height: 720px;
     overflow: visible;
-    background: var(--B1, #1f2605);
+    background: var(--Theme3, #0f0508);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;
@@ -950,7 +950,7 @@ div.LDC {
     width: 1496px;
     height: 720px;
     overflow: visible;
-    background: var(--B1, #1f2605);
+    background: var(--Theme3, #0f0508);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25), inset -10px -10px 0px 0px rgba(0,0,0,0.25);
     border-radius: 66px;
     position: absolute;
