@@ -45,7 +45,7 @@ const SearchThread_new = () => {
 
   return (
     <div>
-      {/* <Navigtion /> */}
+      <Navigtion />
       <div className="backgroundSearchThread">
         <button className="btn btn-success sThread_goback_buttonn" onClick={history.goBack}> Go Back</button>
         <SearchThreadForm />
@@ -55,12 +55,6 @@ const SearchThread_new = () => {
           return (
             <div>{console.log(item.topic)}
               <h1>{item.topic}</h1>
-            </div>
-          );
-        } else {
-          return (
-            <div>
-              Not have any thread that accept that query !
             </div>
           );
         }

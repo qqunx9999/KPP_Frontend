@@ -188,7 +188,7 @@ export default class Test extends React.Component {
       ));
     };
 
-    let latestPages = [], hottestPages = [], newestPages = [];
+    let latestPages: any = [], hottestPages: any = [], newestPages: any = [];
     for (let i = 1; i <= Number(this.state.latest.pageInfo.total); i++) {
       latestPages.push(i);
     }
@@ -199,47 +199,61 @@ export default class Test extends React.Component {
       newestPages.push(i);
     }
 
-    const renderLatestPageNumber = latestPages.map((page: any) => {
-      if (page == 1 || page == this.state.latest.pageInfo.total || (page >= this.state.latest.pageInfo.pageNo - 2 && page <= this.state.latest.pageInfo.pageNo + 2)) {
-        return (
-          <div aria-label="Page navigation">
-            <div className="pagination">
-              <div className="page-item" onClick={() => this.fetchLatestPages(page)}>
+    const RenderLatestPageNumber = () => {
+      return (
+        <nav aria-label="Page navigation">
+          <ul className="pagination">
+            {latestPages.map((page: any) => (
+              <li key={page} className="page-item" onClick={() => this.fetchLatestPages(page)}>
                 <div className="page-link">{page}</div>
-              </div>
-            </div>
-          </div>
-        );
-      };
-    })
+              </li>
+            ))}
+          </ul>
+        </nav>
+      );
+    }
 
-    const renderHottestPageNumber = hottestPages.map((page: any) => {
-      if (page == 1 || page == this.state.hottest.pageInfo.total || (page >= this.state.hottest.pageInfo.pageNo - 2 && page <= this.state.hottest.pageInfo.pageNo + 2)) {
-        return (
-          <div aria-label="Page navigation">
-            <div className="pagination">
-              <div className="page-item" onClick={() => this.fetchHottestPages(page)}>
+    const RenderHottestPageNumber = () => {
+      return (
+        <nav aria-label="Page navigation">
+          <ul className="pagination">
+            {hottestPages.map((page: any) => (
+              <li key={page} className="page-item" onClick={() => this.fetchHottestPages(page)}>
                 <div className="page-link">{page}</div>
-              </div>
-            </div>
-          </div>
-        );
-      };
-    })
+              </li>
+            ))}
+          </ul>
+        </nav>
+      );
+    }
 
-    const renderNewestPageNumber = newestPages.map((page: any) => {
-      if (page == 1 || page == this.state.news.pageInfo.total || (page >= this.state.news.pageInfo.pageNo - 2 && page <= this.state.news.pageInfo.pageNo + 2)) {
-        return (
-          <div aria-label="Page navigation">
-            <div className="pagination">
-              <div className="page-item" onClick={() => this.fetchNewsPages(page)}>
+    const RenderNewestPageNumber = () => {
+      return (
+        <nav aria-label="Page navigation">
+          <ul className="pagination">
+            {newestPages.map((page: any) => (
+              <li key={page} className="page-item" onClick={() => this.fetchNewsPages(page)}>
                 <div className="page-link">{page}</div>
-              </div>
-            </div>
-          </div>
-        );
-      };
-    })
+              </li>
+            ))}
+          </ul>
+        </nav>
+      );
+    }
+
+    // const renderNewestPageNumber = newestPages.map((page: any) => {
+    //   if (page == 1 || page == this.state.news.pageInfo.total || (page >= this.state.news.pageInfo.pageNo - 2 && page <= this.state.news.pageInfo.pageNo + 2)) {
+    //     return (
+    //       <div aria-label="Page navigation">
+    //         <div className="pagination">
+    //           <div className="page-item" onClick={() => this.fetchNewsPages(page)}>
+    //             <div className="page-link">{page}</div>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     );
+    //   };
+    // })
 
     return (
       <div>
@@ -250,7 +264,7 @@ export default class Test extends React.Component {
               <div className="stackLatestHomePage2">
                 {latestThreads}
               </div>
-              {renderLatestPageNumber}
+              <RenderLatestPageNumber />
             </div>
           </div>
           <div className="latestFrameHomePage">
@@ -263,7 +277,7 @@ export default class Test extends React.Component {
               <div className="stackHottestHomePage">
                 {hottestThreads}
               </div>
-              {renderHottestPageNumber}
+              <RenderHottestPageNumber />
             </div>
           </div>
           <div className="hottestFrameHomePage">
@@ -276,7 +290,7 @@ export default class Test extends React.Component {
               <div className="stackNewsHomePage">
                 {newsThreads}
               </div>
-              {renderNewestPageNumber}
+              <RenderNewestPageNumber />
             </div>
           </div>
           <div className="newsFrameHomePage">
