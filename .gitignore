@@ -18,6 +18,7 @@ lerna-debug.log*
 /backend/coverage
 /backend/.nyc_output
 /backend/src/users/emailsecret.ts
+/backend/imageUpload
 
 # IDEs and editors
 /backend/.idea
