@@ -1,6 +1,6 @@
 Working list
 
-พี : ทำ functional หลักๆให้เสร็จ (search thread, report list, tags list, Rich text editor, notifications, Chat room*) !!
+พี : ทำ functional หลักๆให้เสร็จ (report list, tags list, Rich text editor, notifications, Chat room*) !!
     update ความคืบหน้าใน Click up ด้วย (ตาม Backend ให้มา update ด้วย)
 
 มิน : รอจัด css หน้า Report list, Read report, tags ต่อจากพี
@@ -8,6 +8,7 @@ Working list
      * optimize className ใน css หน่อยบาง className มันซ้ำซ้อนเกิน --> ง่ายต่อการแก้
 
 ไลอ้อน & ปลื้ม : ดูเรื่อง React Rich text editor
+              จัดตำแหน่ง css หน้า search thread
 
 ปอนด์ : เก็บรายละเอียดงานทั้งหมด (check bug, ตรวจความคืบหน้า)
        ทำเอกสารที่ต้องส่ง
