@@ -118,7 +118,7 @@ export class NotificationsService {
         return this.notificationsRepository.save(notificationDto)
     }
     
-    async postChatroom(userID: ObjectID, chatroomID: ObjectID){
+    async notifyChatroom(userID: ObjectID, chatroomID: ObjectID){
         /*let chatroom: Chatroom;
         //console.log(chatroomID);
         await this.chatroomsRepository.findOne({where:{_id: chatroomID}})
