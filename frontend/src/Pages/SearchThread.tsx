@@ -57,6 +57,12 @@ const SearchThread_new = () => {
               <h1>{item.topic}</h1>
             </div>
           );
+        } else {
+          return (
+            <div>
+              Not have any thread that accept that query !
+            </div>
+          );
         }
       })}
     </div>
