@@ -109,7 +109,6 @@ export default class Test extends React.Component {
   }
 
   render() {
-    // console.dir(this.state.hottest.threads);
     let latestThreads: any, hottestThreads: any, newsThreads: any;
     const time = new Date();
 
@@ -241,20 +240,6 @@ export default class Test extends React.Component {
       );
     }
 
-    // const renderNewestPageNumber = newestPages.map((page: any) => {
-    //   if (page == 1 || page == this.state.news.pageInfo.total || (page >= this.state.news.pageInfo.pageNo - 2 && page <= this.state.news.pageInfo.pageNo + 2)) {
-    //     return (
-    //       <div aria-label="Page navigation">
-    //         <div className="pagination">
-    //           <div className="page-item" onClick={() => this.fetchNewsPages(page)}>
-    //             <div className="page-link">{page}</div>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     );
-    //   };
-    // })
-
     return (
       <div>
         <Navigtion />
@@ -264,8 +249,8 @@ export default class Test extends React.Component {
               <div className="stackLatestHomePage2">
                 {latestThreads}
               </div>
-              <RenderLatestPageNumber />
             </div>
+            <RenderLatestPageNumber />
           </div>
           <div className="latestFrameHomePage">
             <div className="latestTextHomePage">
@@ -277,8 +262,8 @@ export default class Test extends React.Component {
               <div className="stackHottestHomePage">
                 {hottestThreads}
               </div>
-              <RenderHottestPageNumber />
             </div>
+            <RenderHottestPageNumber />
           </div>
           <div className="hottestFrameHomePage">
             <div className="hottestTextHomePage">
@@ -290,8 +275,8 @@ export default class Test extends React.Component {
               <div className="stackNewsHomePage">
                 {newsThreads}
               </div>
-              <RenderNewestPageNumber />
             </div>
+            <RenderNewestPageNumber />
           </div>
           <div className="newsFrameHomePage">
             <div className="newsTextHomePage">
