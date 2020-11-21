@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post, UploadedFile, UseGuards, UseInterceptors, Request } from '@nestjs/common';
 import { ObjectID } from 'mongodb';
 import { use } from 'passport';
+import { from, Observable, of } from 'rxjs';
 import { Action } from 'rxjs/internal/scheduler/Action';
 import { ParseObjectIdPipe } from 'src/common/pipes';
 import { CreateUserDto } from 'src/dto/create-user.dto';
@@ -8,6 +9,14 @@ import { UpdateUserDto } from 'src/dto_update/update-user.dto';
 import User from 'src/entities/user.entity';
 import { changepassDto } from './changepass.dto';
 import { UsersService } from './users.service';
+//import path from 'path';
+import { v4 as uuidv4 } from 'uuid';
+import { file } from 'googleapis/build/src/apis/file';
+import path = require('path');
+//import { join } from 'path';
+import {FileInterceptor} from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('users')
 export class UsersController {
@@ -92,6 +101,31 @@ export class UsersController {
       return this.usersService.verifymail(email);
     }
 
+    @UseGuards(JwtAuthGuard)
+    @Post('uploadAvatar')
+    @UseInterceptors(FileInterceptor('file',{
+      storage: diskStorage({
+        destination: './imageUpload/avatar',//'D:/Kupeople/Avatar',
+        filename: (req, file, cb) =>{
+          const filename: string = path.parse(file.originalname).name.replace(/\s/g, '')+ uuidv4();
+          const extension:string = path.parse(file.originalname).ext;
+
+          cb(null, `${filename}${extension}`)
+        }
+      })
+    }))
     
+    uploadAvatar(@UploadedFile() file, @Request() req): Observable<Object> {
+        console.log(file);
+        let updateUser: UpdateUserDto;
+        const user: User = req.user.userID;
+        console.log(user);
+        //updateUser.avatar_URL = file.path;
+        //this.usersService.updateUser({avatar_URL: file.path}, userID);
+        return of({imagePath: file.path});
+    }
+    
+      
     
 }
+
