@@ -23,7 +23,21 @@
     font-size: 36px;	
     letter-spacing: 3px;	
     position: relative;	
-    top: 0px;
+    margin-top: 40px;
+    top: -50px;
+    left: 10px;
+  }
+  #blog9{	
+    width: 1400px;	
+    height: 25px;	
+    overflow: visible;	
+    font-family: "Inter", sans-serif;	
+    color: #ffffff;	
+    font-size: 36px;	
+    letter-spacing: 3px;	
+    position: relative;	
+    margin-top: 40px;
+    top: -0px;
     left: 10px;
   }
 .topBlackFrameHomePage {
@@ -159,9 +173,9 @@
   color: #ffffff;
   font-size: 36px;
   letter-spacing: 3px;
-  margin-top: 15px;
+  margin-top: 40px;
   position: relative;
-  top: -5px;
+  top: 5px;
   left: 50px;
 }
 #reactgivemeafuck{
@@ -192,7 +206,7 @@ text-overflow: ellipsis;
 white-space: nowrap;
 overflow: hidden;
 position: relative;
-top: 50px;
+top: -40px !important;
 left: 100px;
 width: 750px;
 }
@@ -752,7 +766,6 @@ div.LDC {
 
 .stackHottestHomePage {
     width: 1450px;
-    height: 686px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -1056,7 +1069,6 @@ div.LDC {
 
 .stackNewsHomePage {
     width: 1450px;
-    height: 686px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

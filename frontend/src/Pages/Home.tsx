@@ -152,8 +152,8 @@ export default class Test extends React.Component {
         <div>
           <Link to={`/Thread/${thread.threadID}`}>
             <ul>
-              <li key={thread.threadID} id="blog">
-                <p className="topicLatest" id="blog">{thread.topic}</p>
+              <li key={thread.threadID} id="blog9">
+                <p className="topicLatest" id="blog9">{thread.topic}</p>
                 <div className="LDC">
                   <img className="likePic" src="https://www.freeiconspng.com/thumbs/youtube-like-png/youtube-like-button-png-11.png" alt="" />
                   <p className="likeHottest">{thread.up_vote_count}</p>
