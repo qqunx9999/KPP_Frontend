@@ -200,8 +200,9 @@ export default class Test extends React.Component {
 
     const RenderLatestPageNumber = () => {
       return (
+        <div className="fk">
         <nav aria-label="Page navigation">
-          <ul className="pagination">
+          <ul className="pagination justify-content-center">
             {latestPages.map((page: any) => (
               <li key={page} className="page-item" onClick={() => this.fetchLatestPages(page)}>
                 <div className="page-link">{page}</div>
@@ -209,13 +210,15 @@ export default class Test extends React.Component {
             ))}
           </ul>
         </nav>
+        </div>
       );
     }
 
     const RenderHottestPageNumber = () => {
       return (
+        <div className="fk">
         <nav aria-label="Page navigation">
-          <ul className="pagination">
+          <ul className="pagination justify-content-center">
             {hottestPages.map((page: any) => (
               <li key={page} className="page-item" onClick={() => this.fetchHottestPages(page)}>
                 <div className="page-link">{page}</div>
@@ -223,13 +226,15 @@ export default class Test extends React.Component {
             ))}
           </ul>
         </nav>
+        </div>
       );
     }
 
     const RenderNewestPageNumber = () => {
       return (
+        <div className="fk">
         <nav aria-label="Page navigation">
-          <ul className="pagination">
+          <ul className="pagination justify-content-center">
             {newestPages.map((page: any) => (
               <li key={page} className="page-item" onClick={() => this.fetchNewsPages(page)}>
                 <div className="page-link">{page}</div>
@@ -237,6 +242,7 @@ export default class Test extends React.Component {
             ))}
           </ul>
         </nav>
+        </div>
       );
     }
 

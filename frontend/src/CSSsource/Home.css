@@ -14,6 +14,14 @@
     position: fixed;
     z-index: -1;
   }
+.fk{
+  position: absolute;
+  left: 1275px;
+  top: 825px;
+
+}
+
+
   #blog{	
     width: 1400px;	
     height: 25px;	
