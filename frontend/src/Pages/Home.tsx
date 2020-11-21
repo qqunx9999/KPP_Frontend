@@ -109,7 +109,7 @@ export default class Test extends React.Component {
   }
 
   render() {
-    console.dir(this.state.hottest.threads);
+    // console.dir(this.state.hottest.threads);
     let latestThreads: any, hottestThreads: any, newsThreads: any;
     const time = new Date();
 
@@ -139,7 +139,7 @@ export default class Test extends React.Component {
                 <p className="topicLatest4" id="blog">{thread.topic}</p>
                 <div className="alphar" />
                 <p className="dateLatest">  {dateCount(thread.date_create)} {dateCount(thread.date_create) ? ("Days") : ("Day")} </p>
-                <img className="clockWise" src="https://image.flaticon.com/icons/png/512/3/3811.png" />
+                <img className="clockWise" src="https://image.flaticon.com/icons/png/512/3/3811.png" alt="" />
               </li>
             </ul>
           </Link>
@@ -155,12 +155,12 @@ export default class Test extends React.Component {
               <li key={thread.threadID} id="blog">
                 <p className="topicLatest" id="blog">{thread.topic}</p>
                 <div className="LDC">
-                  <img className="likePic" src="https://www.freeiconspng.com/thumbs/youtube-like-png/youtube-like-button-png-11.png" />
+                  <img className="likePic" src="https://www.freeiconspng.com/thumbs/youtube-like-png/youtube-like-button-png-11.png" alt="" />
                   <p className="likeHottest">{thread.up_vote_count}</p>
                   <div className="dP">
-                    <img className="dislikePic" src="https://pngimg.com/uploads/dislike/dislike_PNG63.png" /></div>
+                    <img className="dislikePic" src="https://pngimg.com/uploads/dislike/dislike_PNG63.png" alt="" /></div>
                   <p className="dislikeHottest">  {thread.down_vote_count}</p>
-                  <img className="commentPic" src="https://image.flaticon.com/icons/png/512/25/25663.png" />
+                  <img className="commentPic" src="https://image.flaticon.com/icons/png/512/25/25663.png" alt="" />
                   <p className="commentHottest">{thread.total_comment}</p>
                 </div>
               </li>

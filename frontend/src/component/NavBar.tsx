@@ -42,7 +42,7 @@ const Navigtion = () => {
     <nav className="navbar navbar-expand-lg navbar-dark navbar-color" id="mycustomize" style={{"width":"100%","position":"fixed"}} >
       <Link to={`/Home`}>
         <div className="logoCSS">
-          <img src={logoPic} width="220" height="46.2" />
+          <img src={logoPic} width="220" height="46.2" alt="" />
         </div>
       </Link>
 
@@ -55,14 +55,14 @@ const Navigtion = () => {
         <ul className="navbar-nav ml-auto">
           <div className="container">
 
-            <li>
+            <li key="report & notification">
               {user.isAdmin ?
                 <Link to="/ReportList"><div className="frame-notification">
-                  <img src={reportButton} width="52" height="50" title="ReportList" />
+                  <img src={reportButton} width="52" height="50" title="ReportList" alt="" />
                 </div></Link> : <div className="frame-notification">
                   <li className="nav-item dropdown active ml-1">
                     <NavDropdown title={
-                      <img src={notiButton} width="52" height="50" className="rounded-circle z-depth-0" />}
+                      <img src={notiButton} width="52" height="50" className="rounded-circle z-depth-0" alt="" />}
                       id="collasible-nav-dropdown">
                       <NavDropdown.Item ><Notifications /></NavDropdown.Item>
                     </NavDropdown>
@@ -73,7 +73,7 @@ const Navigtion = () => {
             <li className="nav-item active">
               <Link to={`/SearchThread`}>
                 <div className="searchCSS">
-                  <img src={searchBlog} width="52" height="50" title="Search" />
+                  <img src={searchBlog} width="52" height="50" title="Search" alt="" />
                 </div>
               </Link>
             </li>
@@ -81,7 +81,7 @@ const Navigtion = () => {
 
               <div className="searchCSS">
                 <Link to={`/CreateThread`}>
-                  <img src={createBlog} width="57" height="57" title="Create Thread" />
+                  <img src={createBlog} width="57" height="57" title="Create Thread" alt="" />
                 </Link>
               </div>
             </li>
@@ -89,11 +89,11 @@ const Navigtion = () => {
 
             <li className="nav-item dropdown active ml-1">
               <NavDropdown title={
-                <img src={profilePic} width="52" height="50" className="rounded-circle z-depth-0" />}
+                <img src={profilePic} width="52" height="50" className="rounded-circle z-depth-0" alt="" />}
                 id="collasible-nav-dropdown">
-                <NavDropdown.Item ><Link to={`/Profile`}><a className="dropdown-item" >Profile</a></Link> </NavDropdown.Item>
-                <NavDropdown.Item ><Link to={`/Setting`}><a className="dropdown-item" >Setting</a></Link></NavDropdown.Item>
-                <NavDropdown.Item><Link to={`/AuthenLogout`}> <a className="dropdown-item" onClick={logOut}>Log out</a></Link></NavDropdown.Item>
+                <NavDropdown.Item ><Link to={`/Profile`}><div className="dropdown-item" key="profile" >Profile</div></Link> </NavDropdown.Item>
+                <NavDropdown.Item ><Link to={`/Setting`}><div className="dropdown-item" key="setting" >Setting</div></Link></NavDropdown.Item>
+                <NavDropdown.Item><Link to={`/AuthenLogout`}> <div className="dropdown-item" key="log out" onClick={logOut}>Log out</div></Link></NavDropdown.Item>
               </NavDropdown>
             </li>
           </div>

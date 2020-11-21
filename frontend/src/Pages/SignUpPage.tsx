@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { SignUp } from '../component/SignUpForm';
 import '../CSSsource/SignupPage.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -38,11 +38,13 @@ const SignUpPage = () => {
             Term of Use Agreement
           </Link>
         </button>
-          <button type="button" className="btn btn-success" id="goBack" onClick={ () => history.goBack() }>
+        <Link to='/'>
+          <button type="button" className="btn btn-success" id="goBack">
             <div className="eHere">
               &lt; Go Back
             </div>
           </button>
+          </Link>
       </div>
     </div>
   );

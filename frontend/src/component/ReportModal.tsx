@@ -11,7 +11,6 @@ type modalProps = {
 
 export default function ReportModal(props: modalProps) {
   const reportID = props.reportID;
-  const history = useHistory();
   const [thread, setThread] = useState<any>([{}, {thread:{}, userInfo:{}}, {}]);
   const [comment, setComment] = useState<any>([{comment:{}, userInfo:{}}]);
   const [show, setShow] = useState(false);

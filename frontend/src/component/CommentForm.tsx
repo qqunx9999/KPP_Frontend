@@ -36,7 +36,7 @@ function CommentForm() {
           <div className="createcm-repltyo-frame">
             <label>
               <div className="createcm-replyto">Reply to:</div>
-              <Field type="input" id="createcm_replyto_input" name="reply" placeholder="Comment numbers" style={{ width: "250px", height: "70px" }} />
+              <Field type="text" id="createcm_replyto_input" name="reply" placeholder="Comment numbers" style={{ width: "250px", height: "70px" }} />
             </label>
           </div>
 

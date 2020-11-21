@@ -108,7 +108,7 @@ function ReportForm() {
               </div>
 
             </div>
-            <Field type="input" name="comment" className="createrp_reason_input" style={{ width: "1140px", height: "250px" }} />
+            <Field type="text" name="comment" className="createrp_reason_input" style={{ width: "1140px", height: "250px" }} />
           </div>
         </Form>
       )}
