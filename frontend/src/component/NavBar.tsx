@@ -10,6 +10,7 @@ import notiButton from '../Pages/image/Notify-button.png'
 import reportButton from '../Pages/image/Report-button.png'
 import '../CSSsource/NavBar.css';
 import UserService from '../service/UserService';
+import Notifications from './Notifications';
 
 const Navigtion = () => {
   const [user, setUser] = useState<any>({});
@@ -41,7 +42,7 @@ const Navigtion = () => {
     <nav className="navbar navbar-expand-lg navbar-dark navbar-color" id="mycustomize" style={{"width":"100%","position":"fixed"}} >
       <Link to={`/Home`}>
         <div className="logoCSS">
-          <img src={logoPic} alt="React is hell !!!" width="220" height="46.2" />
+          <img src={logoPic} width="220" height="46.2" />
         </div>
       </Link>
 
@@ -57,13 +58,13 @@ const Navigtion = () => {
             <li>
               {user.isAdmin ?
                 <Link to="/ReportList"><div className="frame-notification">
-                  <img src={reportButton} alt="React is hell !!!" width="52" height="50" title="ReportList" />
+                  <img src={reportButton} width="52" height="50" title="ReportList" />
                 </div></Link> : <div className="frame-notification">
                   <li className="nav-item dropdown active ml-1">
                     <NavDropdown title={
-                      <img src={notiButton} alt="React is hell !!!" width="52" height="50" className="rounded-circle z-depth-0" />}
+                      <img src={notiButton} width="52" height="50" className="rounded-circle z-depth-0" />}
                       id="collasible-nav-dropdown">
-                      <NavDropdown.Item >Notification</NavDropdown.Item>
+                      <NavDropdown.Item ><Notifications /></NavDropdown.Item>
                     </NavDropdown>
                   </li>
                 </div>}
@@ -72,7 +73,7 @@ const Navigtion = () => {
             <li className="nav-item active">
               <Link to={`/SearchThread`}>
                 <div className="searchCSS">
-                  <img src={searchBlog} alt="React is hell !!!" width="52" height="50" title="Search" />
+                  <img src={searchBlog} width="52" height="50" title="Search" />
                 </div>
               </Link>
             </li>
@@ -80,7 +81,7 @@ const Navigtion = () => {
 
               <div className="searchCSS">
                 <Link to={`/CreateThread`}>
-                  <img src={createBlog} alt="React is hell !!!" width="57" height="57" title="Create Thread" />
+                  <img src={createBlog} width="57" height="57" title="Create Thread" />
                 </Link>
               </div>
             </li>
@@ -88,7 +89,7 @@ const Navigtion = () => {
 
             <li className="nav-item dropdown active ml-1">
               <NavDropdown title={
-                <img src={profilePic} alt="React is hell !!!" width="52" height="50" className="rounded-circle z-depth-0" />}
+                <img src={profilePic} width="52" height="50" className="rounded-circle z-depth-0" />}
                 id="collasible-nav-dropdown">
                 <NavDropdown.Item ><Link to={`/Profile`}><a className="dropdown-item" >Profile</a></Link> </NavDropdown.Item>
                 <NavDropdown.Item ><Link to={`/Setting`}><a className="dropdown-item" >Setting</a></Link></NavDropdown.Item>
