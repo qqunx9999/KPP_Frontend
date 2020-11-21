@@ -56,9 +56,9 @@ export class ReportsService {
         rt = setRT;
       });
     let rt_thread:ObjectID = rt.threadID
-    const info_rt_thread = this.threadsService.findOneThreadWithOwn(rt_thread);
-    const own = this.usersService.findUserInfo(new ObjectID(rt.userID));
-    return {"reportT":rt, "threadInfo":await(info_rt_thread), "userInfo":await(own)};
+    const own = await this.usersService.findUserInfo(new ObjectID(rt.userID));
+    const info_rt_thread = await this.threadsService.findOneThreadWithOwn(rt_thread);
+    return {"reportT":rt, "threadInfo":info_rt_thread, "userInfo":own};
   }
 
   async findOneReportedComment(reportCID: ObjectID): Promise<any>{
@@ -70,9 +70,9 @@ export class ReportsService {
     //let rc_thread:ObjectID = rc.threadID
     let rc_comment:ObjectID = rc.commentID
     //const info_rc_thread = this.threadsService.findOneThreadWithOwn(rc_thread);
-    const info_rc_comment = this.threadsService.findOneComment(rc_comment);
-    const own = this.usersService.findUserInfo(new ObjectID(rc.userID));
-    return {"reportC":rc,  "commentInfo":await(info_rc_comment), "userInfo":await(own)};
+    const info_rc_comment = await this.threadsService.findOneComment(rc_comment);
+    const own = await this.usersService.findUserInfo(new ObjectID(rc.userID));
+    return {"reportC":rc,  "commentInfo":info_rc_comment, "userInfo":own};
   }
 
   async RTlisting(adminID: ObjectID): Promise<any[][]>{
