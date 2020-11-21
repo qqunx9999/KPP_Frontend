@@ -3,8 +3,7 @@ Working list
 พี : ทำ functional หลักๆให้เสร็จ (search thread, report list, tags list, Rich text editor, notifications, Chat room*) !!
     update ความคืบหน้าใน Click up ด้วย (ตาม Backend ให้มา update ด้วย)
 
-มิน : จัด css หน้า Home ให้เรียบร้อย
-     รอจัด css หน้า Report list, Read report, tags ต่อจากพี
+มิน : รอจัด css หน้า Report list, Read report, tags ต่อจากพี
      ช่วยลบ className ส่วนที่ไม่ได้ใช้ใน css ด้วย เพื่อลดความยาวของไฟล์ --> ง่ายต่อการแก้
      * optimize className ใน css หน่อยบาง className มันซ้ำซ้อนเกิน --> ง่ายต่อการแก้
 

@@ -59,7 +59,7 @@ export default function ReportList() {
                     <button className="rpList-incorrect-round1 btn btn-danger">Disapprove</button>
                     <div className="rpList-read-round2">
                       <li className="reaD">
-                        { reportThread[0][0].reportID === null ? <ReportModal type="thread" reportID={reportThread[0][0].reportTID} /> : null }
+                        { reportThread[0][0].reportID == null ? <ReportModal type="thread" reportID={reportThread[0][0].reportTID} /> : null }
                       </li>
                     </div>
 

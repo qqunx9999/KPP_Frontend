@@ -8,34 +8,36 @@ import { baseUrl } from '../config/constant';
 import * as Yup from 'yup';
 
 export const SignUp = () => {
-  const [signUpErrorMessage, setSignUpErrorMessage] = useState('');
+  // const [signUpErrorMessage, setSignUpErrorMessage] = useState('');
   const history = useHistory();
-  console.log(localStorage.email)
+  // console.log(localStorage.email)
 
   return (
     <div>
       <Formik
         initialValues={{ email: '' }}
-        validationSchema={Yup.object({
-          email: Yup.string().required('Required email'),
-        })}
-        onSubmit={async (values, actions) => {
-          const email = values.email.concat('@ku.th');
-          localStorage.setItem("email", email);
-          console.log(2)
-          const result = await fetch(`${baseUrl}/users/verifymail/${email}`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'applicaiton/json' },
-          }).then(result => console.log(result))
-          actions.setSubmitting(false);
-        }}
+        // validationSchema={Yup.object({
+        //   email: Yup.string().required('Required email'),
+        // })}
+        onSubmit={() => console.log('hello world')}
+        // onSubmit={async (values, actions) => {
+        //   console.log(1)
+        //   const email = values.email.concat('@ku.th');
+        //   localStorage.setItem("email", email);
+        //   console.log(2)
+        //   const result = await fetch(`${baseUrl}/users/verifymail/${email}`, {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'applicaiton/json' },
+        //   }).then(result => console.log(result))
+        //   actions.setSubmitting(false);
+        // }}
       >
         {({ isSubmitting }) => (
           <Form>
             <label htmlFor="email" className="signup-email_">
               Email :
               <Field type="input" name="email" required placeholder="Type your Email..." style={{ width: "500px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_email" />&nbsp;
-              <button type="button" className="btn btn-success" id="sendVerify">
+              <button type="button" className="btn btn-success" id="sendVerify" disabled={isSubmitting}>
                 <div className="sendVerifyText">Verify</div>
               </button>
             </label>

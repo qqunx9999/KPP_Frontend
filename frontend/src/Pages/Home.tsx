@@ -63,7 +63,7 @@ export default class Test extends React.Component {
         'Accept': 'applecation/json',
         'Content-Type': 'application/json'
       },
-    })
+    });
 
     const data = await response.json();
 
@@ -86,12 +86,12 @@ export default class Test extends React.Component {
         'Accept': 'applecation/json',
         'Content-Type': 'application/json'
       },
-    })
+    });
 
     const data = await response.json();
 
     this.setState({
-      newest: {
+      news: {
         threads: data[0].threads,
         pageInfo: {
           pageNo: data[0].pageInfo.pageNo,
@@ -109,7 +109,7 @@ export default class Test extends React.Component {
   }
 
   render() {
-    // console.dir(this.state.latest.pageInfo.total);
+    console.dir(this.state.hottest.threads);
     let latestThreads: any, hottestThreads: any, newsThreads: any;
     const time = new Date();
 
@@ -138,7 +138,7 @@ export default class Test extends React.Component {
               <li key={thread.threadID} id="reactgivemeafuck">
                 <p className="topicLatest4" id="blog">{thread.topic}</p>
                 <div className="alphar" />
-      <p className="dateLatest">  {dateCount(thread.date_create)} {dateCount(thread.date_create) ? ("Days") : ("Day")} </p>
+                <p className="dateLatest">  {dateCount(thread.date_create)} {dateCount(thread.date_create) ? ("Days") : ("Day")} </p>
                 <img className="clockWise" src="https://image.flaticon.com/icons/png/512/3/3811.png" />
               </li>
             </ul>
@@ -148,12 +148,12 @@ export default class Test extends React.Component {
     };
 
     if (this.state.hottest.threads !== []) {
-      hottestThreads = this.state.latest.threads.map((thread: any) => (
+      hottestThreads = this.state.hottest.threads.map((thread: any) => (
         <div>
           <Link to={`/Thread/${thread.threadID}`}>
             <ul>
-              <li key={thread.threadID} id = "blog">
-                <p className="topicLatest" id = "blog">{thread.topic}</p>
+              <li key={thread.threadID} id="blog">
+                <p className="topicLatest" id="blog">{thread.topic}</p>
                 <div className="LDC">
                   <img className="likePic" src="https://www.freeiconspng.com/thumbs/youtube-like-png/youtube-like-button-png-11.png" />
                   <p className="likeHottest">{thread.up_vote_count}</p>
@@ -171,15 +171,15 @@ export default class Test extends React.Component {
     };
 
     if (this.state.news.threads !== []) {
-      newsThreads = this.state.latest.threads.map((thread: any) => (
+      newsThreads = this.state.news.threads.map((thread: any) => (
         <div>
           <Link to={`/Thread/${thread.threadID}`}>
             <ul>
               <li key={thread.threadID} id="ablog">
                 <p>
-                <div className="alphar" />
-                <div >{thread.topic}</div>
-                <div className="llk">{dateDetail(thread.date_create)}</div>
+                  <div className="alphar" />
+                  <div >{thread.topic}</div>
+                  <div className="llk">{dateDetail(thread.date_create)}</div>
                 </p>
               </li>
             </ul>
