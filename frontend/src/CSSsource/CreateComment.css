@@ -132,7 +132,7 @@
 
 #createcm_replyto_input {
     background-color: rgb(221, 221, 227);
-    font-size: 23;
+    font-size: 30px;
     color: "#333333";
     border: rgba(0,0,0,0);
     border-width: 1;
@@ -291,7 +291,7 @@
 
 .createcm_size_input {
     background-color: rgb(221, 221, 227);
-    font-size: 20;
+    font-size: 30px;
     color: "#333333";
     border: rgba(0,0,0,0.29);
     border-width: 3;
@@ -405,7 +405,7 @@
     overflow: visible;
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     background-color: rgb(221, 221, 227);
-    font-size: 20;
+    font-size: 30px;
     color: "#333333";
     border: rgba(0,0,0,0);
     border-width: 1;    
