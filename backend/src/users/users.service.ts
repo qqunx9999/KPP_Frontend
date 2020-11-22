@@ -72,6 +72,8 @@ export class UsersService {
                 thisuser = oneuser;
             });
         
+        
+        
         if(thisuser === undefined){
             throw new HttpException("this email hasn't used to sign up yet", HttpStatus.FORBIDDEN);
         }
@@ -83,29 +85,31 @@ export class UsersService {
                 throw new HttpException("wrong confirm password", HttpStatus.FORBIDDEN);
             }
         }
+        else{
+            let verifys: Verifycode[];
+            await this.verifyCodeRepository.find({where:{email: changepassdto.email}, order:{date_expire: "DESC"}})
+                .then(set => {verifys = set})
+            let verify: Verifycode;
+            if(verifys.length === 0){
+                throw new HttpException("no verifycode", HttpStatus.FORBIDDEN);
+            }
+            else{
+                verify = verifys[0];
+            }
+            let date = new Date()
+            date.setMinutes(date.getMinutes()+7*60);
+            if(date > verify.date_expire){
+                throw new HttpException("expired", HttpStatus.FORBIDDEN);
+            }
+            if (changepassdto.verify !== verify.code){
+                throw new HttpException("wrong verifycode", HttpStatus.FORBIDDEN);
+            }
+            await this.verifyCodeRepository.remove(verifys);
+
+        }
     
 
-        let verifys: Verifycode[];
-        await this.verifyCodeRepository.find({where:{email: changepassdto.email}, order:{date_expire: "DESC"}})
-            .then(set => {verifys = set})
-        let verify: Verifycode;
-        if(verifys.length === 0){
-            throw new HttpException("no verifycode", HttpStatus.FORBIDDEN);
-        }
-        else{
-            verify = verifys[0];
-        }
-        let date = new Date()
-        date.setMinutes(date.getMinutes()+7*60);
-        if(date > verify.date_expire){
-            throw new HttpException("expired", HttpStatus.FORBIDDEN);
-        }
-        if (changepassdto.verify !== verify.code){
-            throw new HttpException("wrong verifycode", HttpStatus.FORBIDDEN);
-        }
-        await this.verifyCodeRepository.remove(verifys);
-
-        
+    
         //console.log(thisuser.userID);
         //let newID: ObjectID = ObjectID.createFromHexString(thisuser.userID);
         //console.log(newID);
@@ -120,6 +124,23 @@ export class UsersService {
         let allUser:User[];
         await this.usersRepository.find()
             .then(setUsers=>{allUser = setUsers});
+
+        let verifys: Verifycode[];
+        await this.verifyCodeRepository.find({where:{email: email}, order:{date_expire: "DESC"}})
+            .then(set => {verifys = set})
+        let verify: Verifycode;
+        if (verifys.length != 0) {
+            verify = verifys[0];
+            let date = new Date()
+            date.setMinutes(date.getMinutes()+7*60);
+            verify.date_expire.setMinutes(verify.date_expire.getMinutes()-9);
+            console.log(date);
+            console.log(verify.date_expire);
+            if(date < verify.date_expire){
+                throw new HttpException("please wait 1 minute before sending new verify code", HttpStatus.FORBIDDEN);
+            }
+        }
+        
         if (allUser.some(eachuser => {return eachuser.email === email})) {
             throw new HttpException("this email has already used to sign up", HttpStatus.FORBIDDEN);
         }
@@ -170,6 +191,24 @@ export class UsersService {
         let allUser:User[];
         await this.usersRepository.find()
             .then(setUsers=>{allUser = setUsers});
+    
+        let verifys: Verifycode[];
+        await this.verifyCodeRepository.find({where:{email: email}, order:{date_expire: "DESC"}})
+            .then(set => {verifys = set})
+        let verify: Verifycode;
+        if (verifys.length != 0) {
+            verify = verifys[0];
+            let date = new Date()
+            date.setMinutes(date.getMinutes()+7*60);
+            verify.date_expire.setMinutes(verify.date_expire.getMinutes()-9);
+            console.log(date);
+            console.log(verify.date_expire);
+            if(date < verify.date_expire){
+                throw new HttpException("please wait 1 minute before sending new verify code", HttpStatus.FORBIDDEN);
+            }
+        }
+        
+        
         if (allUser.every(eachuser => {return eachuser.email !== email})) {
             throw new HttpException("this email hasn't used to sign up yet", HttpStatus.FORBIDDEN);
         }

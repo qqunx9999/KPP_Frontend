@@ -46,17 +46,17 @@ function CommentForm() {
           <p className="createcm-leave-empty">*If you do not reply just leave it empty</p>
           <div className="createcm-cm-frame">
             <div className="createcm-placecm">Place your comment :</div>
-            <div className="createcm-green-frame">
-              <div className="createcm-send">
-                <button className="createcm-send-frame" disabled={ isSubmitting }>
-                  Send
+            
+              
+                <button className="btn btn-success createcm-send-frame" disabled={ isSubmitting }>
+                <div className="createcm-send">Send</div>
                 </button>
-              </div>
-            </div>
-            <Field type="input" name="comment" className="createrp_reason_input" style={{ width: "1140px", height: "250px" }} />
-            <div className="createcm_cm_input">
-              {/* <TextEditor /> */}
-            </div>
+              
+            
+            <Field type="input" name="comment" className="createcm_cm_input" style={{ width: "1140px", height: "250px" }} />
+            {/* <div className="createcm_cm_input">
+              <TextEditor />
+            </div> */}
           </div>
         </Form>
       )}
