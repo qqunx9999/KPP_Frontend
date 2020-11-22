@@ -247,7 +247,7 @@
 }
 
 .needHelpTextSearchThread {  
-    width: 200px;
+    width: 180px;
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
@@ -256,7 +256,7 @@
     letter-spacing: 3px;
     position: absolute;
     top: 10%;
-    left: 5%;
+    left: 17%;
   }
 
   
@@ -295,7 +295,7 @@
     line-height: 2;
     position: absolute;
     top: 10%;
-    left: 0%;
+    left: 40%;
     
   }
 
