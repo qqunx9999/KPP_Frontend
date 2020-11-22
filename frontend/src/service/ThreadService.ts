@@ -41,7 +41,10 @@ export function clearThreadNO(): void {
 export async function voteUp(threadID: string | undefined) {
     const res = await fetch(`${ baseUrl }/threads/${ threadID }`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.token}`
+        },
         body: JSON.stringify({
             "up_vote_arr": [{ "userID": AuthService.getUserID() }]
         })
@@ -52,7 +55,10 @@ export async function voteUp(threadID: string | undefined) {
 export async function voteDown(threadID: string | undefined) {
     const res = await fetch(`${ baseUrl }/threads/${ threadID }`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.token}`
+        },
         body: JSON.stringify({
             "down_vote_arr": [{ "userID": AuthService.getUserID() }]
         })
@@ -82,7 +88,10 @@ export async function fetchReportComment(userID: string) {
 export async function reportThread(threadID: string, reportBody: any) {
     const res = await fetch(`${ baseUrl }/threads/${ threadID }/reportTs`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+            "Content-Type": "application/json",
+            'Authorization': `Bearer ${localStorage.token}`
+        },
         body: JSON.stringify(reportBody)
     });
     const report = res.json();
@@ -93,7 +102,10 @@ export async function reportThread(threadID: string, reportBody: any) {
 export async function reportComment(threadID: string, reportBody: any, commentID: string) {
     const res = await fetch(`${ baseUrl }/threads/${ threadID }/comments/${ commentID }/reportCs`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+            "Content-Type": "application/json",
+            'Authorization': `Bearer ${localStorage.token}`
+        },
         body: JSON.stringify(reportBody)
     });
     const report = res.json();

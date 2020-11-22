@@ -1,14 +1,13 @@
 import { baseUrl } from '../config/constant';
 import { Userinfo } from '../interfaces/userInfoEntity';
 
-type user = {
-    User: Userinfo,
-}
-
 async function LoginUser(email: string, password: string): Promise<any | null> {
     const res = await fetch(`${ baseUrl }/auth/login`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.token}`
+        },
         body: JSON.stringify({
             "username": email,
             "password": password,
@@ -28,7 +27,10 @@ async function LoginUser(email: string, password: string): Promise<any | null> {
 async function SignupUser(username: string, email: string, password: string, conPassword: string): Promise<any | null> {
     const postOption = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.token}`
+        },
         body: JSON.stringify({
             "username": username,
             "email": email,
@@ -44,7 +46,10 @@ async function SignupUser(username: string, email: string, password: string, con
 async function ForgetPass(email: string, password: string, conPassword: string, verify: string): Promise<any | null> {
     const res = await fetch(`${ baseUrl }/auth/forget`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.token}`
+        },
         body: JSON.stringify({
             "email": email,
             "password": password,
@@ -106,7 +111,10 @@ function checkAdmin(): boolean {
 async function sendVerify(email: string): Promise<any> {
     const res = await fetch(`${ baseUrl }/users/getverified`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.token}`
+        },
         body: JSON.stringify({
             "email": email
         })
