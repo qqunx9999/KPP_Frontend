@@ -64,23 +64,26 @@ export class UsersService {
             
     ) {}
 
-    async changepass(changepassdto: changepassDto): Promise<any> {
+    async changepass(changepassdto: changepassDto, act: string): Promise<any> {
         
         let thisuser = null;
         await this.usersRepository.findOne({where:{email: changepassdto.email}})
             .then(oneuser => {
                 thisuser = oneuser;
             });
+        
         if(thisuser === undefined){
             throw new HttpException("this email hasn't used to sign up yet", HttpStatus.FORBIDDEN);
         }
         
         var bcrypt =  require('bcrypt');
         const saltRounds = 10;
-
-        if(!bcrypt.compareSync(changepassdto.oldpass, thisuser.password)){
-            throw new HttpException("wrong confirm password", HttpStatus.FORBIDDEN);
+        if(act === "changepass"){
+            if(!bcrypt.compareSync(changepassdto.oldpass, thisuser.password)){
+                throw new HttpException("wrong confirm password", HttpStatus.FORBIDDEN);
+            }
         }
+    
 
         let verifys: Verifycode[];
         await this.verifyCodeRepository.find({where:{email: changepassdto.email}, order:{date_expire: "DESC"}})

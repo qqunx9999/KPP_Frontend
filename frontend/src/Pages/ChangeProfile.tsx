@@ -13,11 +13,24 @@ function ChangeProfile() {
         <div className="cName-bigframe">
           <button className="cName_goback_button" onClick={ history.goBack }>Go Back</button>
           <div className="cName-whiteframe">
-            <div className="cName-change-name">Change Name</div>
+            <div className="cName-change-name">Change Profile</div>
             <div className="cName-blackframe">
               <div className="cName-new-name_">New Name :</div>
               <ChangeProfileForm />
-            </div>
+            
+
+              <div className="cName-new-quote_">New Quote :</div>
+
+              
+
+              <div className="cName-new-password_">New Password :</div>
+          
+              <div className="cName-confirm-password_">Confirm New Password :</div>
+
+              <div className="cName-old-password_">Old Password :</div>
+
+              <div className="cName-confirm-verify_">Verify Code :</div>
+          </div>
           </div>
         </div>  
   

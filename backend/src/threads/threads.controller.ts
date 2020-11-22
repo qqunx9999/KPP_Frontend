@@ -46,7 +46,7 @@ export class ThreadsController {
     let begin = pagesize*(pageNo-1);
     let last = pagesize*pageNo; if(last>threads.length){last = threads.length}
     threads = threads.slice(begin, last);
-    return [{threads, pageInfo:{pagesize: threads.length, pageNo, total: totals}}];
+    return {threads, pageInfo:{pagesize: threads.length, pageNo, total: totals}};
   }
 
   @Get('search/:keyword/:tags/:sortby/:pagesize/:pageNo')
