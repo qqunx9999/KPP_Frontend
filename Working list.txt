@@ -4,11 +4,12 @@ Working list
     update ความคืบหน้าใน Click up ด้วย (ตาม Backend ให้มา update ด้วย)
 
 มิน : รอจัด css หน้า Report list, Read report, tags ต่อจากพี
+     ทำให้ web สามารถ resize ได้โดยไม่เพี้ยน
      ช่วยลบ className ส่วนที่ไม่ได้ใช้ใน css ด้วย เพื่อลดความยาวของไฟล์ --> ง่ายต่อการแก้
      * optimize className ใน css หน่อยบาง className มันซ้ำซ้อนเกิน --> ง่ายต่อการแก้
 
 ไลอ้อน & ปลื้ม : ดูเรื่อง React Rich text editor
-              จัดตำแหน่ง css หน้า search thread
+              จัดตำแหน่ง css หน้า search thread, setting
 
 ปอนด์ : เก็บรายละเอียดงานทั้งหมด (check bug, ตรวจความคืบหน้า)
        ทำเอกสารที่ต้องส่ง
