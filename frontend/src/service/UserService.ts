@@ -19,6 +19,16 @@ export async function changeName(userID: string, patchBody: any) {
   return result;
 }
 
+export async function changePass(patchBody: any) {
+  const res = await fetch(`${baseUrl}/users/newpass`, {
+    method: 'PATCH',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(patchBody)
+  });
+  const result = res.json();
+  return result;
+}
+
 export async function notification(userID: string) {
   const res = await fetch(`${ baseUrl }/notifications/any/users/${ userID }`);
   const noti = res.json();
@@ -28,5 +38,6 @@ export async function notification(userID: string) {
 export default {
   fetchUser,
   changeName,
+  changePass,
   notification,
 };

@@ -5,7 +5,7 @@ import UserService from '../service/UserService';
 import '../CSSsource/Setting.css';
 import { Link } from 'react-router-dom';
 
-function Setting_new() {
+function Setting() {
   const [user, setUser] = useState<any>({});
   const history = useHistory();
 
@@ -67,4 +67,4 @@ function Setting_new() {
   );
 }
 
-export default Setting_new;
+export default Setting;

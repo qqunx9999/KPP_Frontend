@@ -33,6 +33,7 @@ export const EmailID = () => {
           setLoginErrorMessage('Login error: Wrong username or password');
         } else {
           setLoginErrorMessage('');
+          localStorage.setItem('email', values.email);
           history.push('/LogIn/AuthenLogIn');
         };
         actions.setSubmitting(false);

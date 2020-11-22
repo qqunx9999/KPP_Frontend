@@ -4,7 +4,7 @@ import Navigtion from '../component/NavBar';
 import UserService from '../service/UserService';
 import '../CSSsource/Profile.css';
 
-function Profile_new() {
+function Profile() {
   const [user, setUser] = useState<any>({});
   const history = useHistory();
 
@@ -52,4 +52,4 @@ function Profile_new() {
   );
 }
 
-export default Profile_new;
+export default Profile;

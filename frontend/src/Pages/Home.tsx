@@ -46,11 +46,11 @@ export default class Test extends React.Component {
 
     this.setState({
       latest: {
-        threads: data[0].threads,
+        threads: data.threads,
         pageInfo: {
-          pageNo: data[0].pageInfo.pageNo,
-          pagesize: data[0].pageInfo.pagesize,
-          total: data[0].pageInfo.total
+          pageNo: data.pageInfo.pageNo,
+          pagesize: data.pageInfo.pagesize,
+          total: data.pageInfo.total
         }
       }
     });
@@ -69,11 +69,11 @@ export default class Test extends React.Component {
 
     this.setState({
       hottest: {
-        threads: data[0].threads,
+        threads: data.threads,
         pageInfo: {
-          pageNo: data[0].pageInfo.pageNo,
-          pagesize: data[0].pageInfo.pagesize,
-          total: data[0].pageInfo.total
+          pageNo: data.pageInfo.pageNo,
+          pagesize: data.pageInfo.pagesize,
+          total: data.pageInfo.total
         }
       }
     });
@@ -92,11 +92,11 @@ export default class Test extends React.Component {
 
     this.setState({
       news: {
-        threads: data[0].threads,
+        threads: data.threads,
         pageInfo: {
-          pageNo: data[0].pageInfo.pageNo,
-          pagesize: data[0].pageInfo.pagesize,
-          total: data[0].pageInfo.total
+          pageNo: data.pageInfo.pageNo,
+          pagesize: data.pageInfo.pagesize,
+          total: data.pageInfo.total
         }
       }
     });
