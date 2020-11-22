@@ -77,15 +77,15 @@ export class UsersService {
         else{
             verify = verifys[0];
         }
-        if (changepassdto.verify !== verify.code){
-            throw new HttpException("wrong verifycode", HttpStatus.FORBIDDEN);
-        }
-        
         let date = new Date()
         date.setMinutes(date.getMinutes()+7*60);
         if(date > verify.date_expire){
             throw new HttpException("expired", HttpStatus.FORBIDDEN);
         }
+        if (changepassdto.verify !== verify.code){
+            throw new HttpException("wrong verifycode", HttpStatus.FORBIDDEN);
+        }
+        
          
         await this.verifygenRepository.remove(verifys);
 
@@ -560,15 +560,16 @@ export class UsersService {
         else{
             verify = verifys[0];
         }
-        if(createUserDto.verify !== verify.code){
-            throw new HttpException("wrong verifycode", HttpStatus.FORBIDDEN);
-        }
-        
         date = new Date()
         date.setMinutes(date.getMinutes()+7*60);
         if(date > verify.date_expire){
             throw new HttpException("expired", HttpStatus.FORBIDDEN);
         }
+
+        if(createUserDto.verify !== verify.code){
+            throw new HttpException("wrong verifycode", HttpStatus.FORBIDDEN);
+        }
+        
          
         await this.verifygenRepository.remove(verifys);
     

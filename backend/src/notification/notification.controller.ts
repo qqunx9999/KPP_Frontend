@@ -12,13 +12,13 @@ export class NotificationController {
     constructor(private notificationService: NotificationsService) {}
 
     @Get('/any/users/:userID')
-    async allUnread(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise <any> {
-        return this.notificationService.allUnread(userID);
+    async findAllNotify(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise <any> {
+        return this.notificationService.findAllNotify(userID);
     }
 
     @Get('/contact/users/:userID')
     async noticontact(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise <any>{
-        return this.notificationService.noticontacts(userID);
+        return this.notificationService.findNotifychat(userID);
     }
 
     // @Post('/friend_request')
@@ -67,14 +67,14 @@ export class NotificationController {
     @Patch('/chatrooms/:chatroomID/users/:userID')
     async patchChatroom(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID,
     @Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise <Notifications>{
-        return this.notificationService.patchChatroom(userID, chatroomID);
+        return this.notificationService.readChatroom(userID, chatroomID);
     }
 
     @Patch('/users/:userID/')
     async patchAllNoti(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise <any>{
         
         
-        return this.notificationService.patchAllNoti(userID);
+        return this.notificationService.readAllNotify(userID);
     }
 }
 

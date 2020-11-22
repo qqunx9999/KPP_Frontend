@@ -241,14 +241,14 @@ export class ThreadsService {
     //noti
     const newComment = await this.commentationsRepository.save(createCommentationDto);
     if(createCommentationDto.reply_to === 0){
-      await this.notificationsService.postComment(new ObjectID(thread.userID), newComment.commentID);
+      await this.notificationsService.createNotifyCommentRepiled(new ObjectID(thread.userID), newComment.commentID);
     }
     else{
       let comment: Commentation;
       await this.commentationsRepository.findOne({where: {threadID:thread.threadID, commentNO:createCommentationDto.reply_to, date_delete:null}})
         .then(setCmt => {comment = setCmt});
       if(comment !== undefined){
-        await this.notificationsService.postComment(new ObjectID(comment.userID), newComment.commentID);
+        await this.notificationsService.createNotifyCommentRepiled(new ObjectID(comment.userID), newComment.commentID);
       }
     }
 

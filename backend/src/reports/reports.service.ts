@@ -139,7 +139,7 @@ export class ReportsService {
     return RCs_page;
   }
 
-  async actReportC(reportCID: ObjectID, userID:ObjectID, updateReportCDto: UpdateReportment_commentDto):Promise<any>{
+  async consideredReportC(reportCID: ObjectID, userID:ObjectID, updateReportCDto: UpdateReportment_commentDto):Promise<any>{
     if(updateReportCDto.date_delete !== undefined){
       let dateDel = new Date();
       dateDel.setMinutes(dateDel.getMinutes()+7*60);
@@ -155,12 +155,12 @@ export class ReportsService {
         .then(setrpc => {thisRPC = setrpc});
       console.log(thisRPC);
 
-      await this.notificationsService.postReportCCon(new ObjectID(thisRPC.userID),reportCID);
+      await this.notificationsService.createNotifyReportCConsidered(new ObjectID(thisRPC.userID),reportCID);
     }
     return this.reportment_commentsRepository.update({reportCID:reportCID}, updateReportCDto);
   }
 
-  async actReportT(reportTID: ObjectID, userID:ObjectID, updateReportTDto: UpdateReportment_threadDto):Promise<any>{
+  async consideredReportT(reportTID: ObjectID, userID:ObjectID, updateReportTDto: UpdateReportment_threadDto):Promise<any>{
     if(updateReportTDto.date_delete !== undefined){
       let dateDel = new Date();
       dateDel.setMinutes(dateDel.getMinutes()+7*60);
@@ -176,7 +176,7 @@ export class ReportsService {
         .then(setrpt => {thisRPT = setrpt});
       
 
-      await this.notificationsService.postReportTCon(new ObjectID(thisRPT.userID),reportTID);
+      await this.notificationsService.createNotifyReportTConsidered(new ObjectID(thisRPT.userID),reportTID);
     }
     return this.reportment_threadsRepository.update({reportTID:reportTID}, updateReportTDto);
   }

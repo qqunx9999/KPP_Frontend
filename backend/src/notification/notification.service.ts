@@ -36,7 +36,7 @@ export class NotificationsService {
     //     return this.notificationsRepository.findOne({where:{userID: userID, object_type: 'report'}})
     // } // get one id
     
-    async allUnread(userID: ObjectID): Promise <any> {
+    async findAllNotify(userID: ObjectID): Promise <any> {
         let allnoti: Notifications[]
         await this.notificationsRepository.find({where:{userID: userID}})
             .then(set => {allnoti = set});
@@ -76,7 +76,7 @@ export class NotificationsService {
         return allnotiwithInfo;
     }
 
-    async noticontacts(userID: ObjectID): Promise <Notifications[]> {
+    async findNotifychat(userID: ObjectID): Promise <Notifications[]> {
         return this.notificationsRepository.find({userID: userID, object_type: 'chat', date_read:null})
     }
 
@@ -118,7 +118,7 @@ export class NotificationsService {
         return this.notificationsRepository.save(notificationDto)
     }
     
-    async notifyChatroom(userID: ObjectID, chatroomID: ObjectID){
+    async createNotifyChatroom(userID: ObjectID, chatroomID: ObjectID){
         /*let chatroom: Chatroom;
         //console.log(chatroomID);
         await this.chatroomsRepository.findOne({where:{_id: chatroomID}})
@@ -181,7 +181,7 @@ export class NotificationsService {
     
     
 
-    async postReportTCon(userID: ObjectID, reportTID: ObjectID){
+    async createNotifyReportTConsidered(userID: ObjectID, reportTID: ObjectID){
         
         let date_noti = new Date();
         date_noti.setMinutes(date_noti.getMinutes()+7*60);
@@ -197,7 +197,7 @@ export class NotificationsService {
         return this.notificationsRepository.save(notificationDto);
     }
 
-    async postReportCCon(userID: ObjectID, reportTID: ObjectID){
+    async createNotifyReportCConsidered(userID: ObjectID, reportTID: ObjectID){
         let date_noti = new Date();
         date_noti.setMinutes(date_noti.getMinutes()+7*60);
         var notificationDto:NotificationDto = {
@@ -211,7 +211,7 @@ export class NotificationsService {
         return this.notificationsRepository.save(notificationDto);
     }
 
-    async postComment(userID: ObjectID, commentID: ObjectID){
+    async createNotifyCommentRepiled(userID: ObjectID, commentID: ObjectID){
         let date_noti = new Date();
         date_noti.setMinutes(date_noti.getMinutes()+7*60);
         var notificationDto:NotificationDto = {
@@ -229,7 +229,7 @@ export class NotificationsService {
 
 
 
-    async patchChatroom(userID: ObjectID ,chatroomID: ObjectID): Promise <Notifications> {
+    async readChatroom(userID: ObjectID ,chatroomID: ObjectID): Promise <Notifications> {
         let allnotichat: Notifications[];
         await this.notificationsRepository.find({where:{userID:userID, object_type:"chat", object_typeID: chatroomID, date_read:null}})
             .then(setallnoti => {allnotichat = setallnoti});
@@ -242,7 +242,7 @@ export class NotificationsService {
         return ;
     }
 
-    async patchAllNoti(userID: ObjectID): Promise <Notifications> {
+    async readAllNotify(userID: ObjectID): Promise <Notifications> {
         console.log("test");
         let allnoti: Notifications[];
         await this.notificationsRepository.find({where:{userID:userID,  date_read:null}})

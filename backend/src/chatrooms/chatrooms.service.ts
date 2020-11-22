@@ -126,7 +126,7 @@ export class ChatroomsService {
         //noti
         for(let i = 0; i<cr.member_arr.length;i++){
             if(cr.member_arr[i].userID.toHexString() !== createChat_messageDto.userID.toHexString()){
-                await this.notificationsService.notifyChatroom(new ObjectID(cr.member_arr[i].userID), chatroomID);
+                await this.notificationsService.createNotifyChatroom(new ObjectID(cr.member_arr[i].userID), chatroomID);
             }
         }
         return this.chat_messagesRepository.save(createChat_messageDto);

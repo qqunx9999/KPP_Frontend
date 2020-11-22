@@ -77,7 +77,7 @@ export class ReportsController {
         @Param('reportCID', ParseObjectIdPipe) reportCID: ObjectID,
         @Param('userID', ParseObjectIdPipe) userID: ObjectID
     ): Promise<any>{
-        return this.reportsService.actReportC(reportCID, userID, updateReportCDto);
+        return this.reportsService.consideredReportC(reportCID, userID, updateReportCDto);
     }
 
     @Patch('/reportTs/:reportTID/actby/:userID')
@@ -86,7 +86,7 @@ export class ReportsController {
         @Param('reportTID', ParseObjectIdPipe) reportTID: ObjectID,
         @Param('userID', ParseObjectIdPipe) userID: ObjectID
     ): Promise<any>{
-        return this.reportsService.actReportT(reportTID, userID, updateReportTDto);
+        return this.reportsService.consideredReportT(reportTID, userID, updateReportTDto);
     }
 
     @Patch('/reportCs/:reportCID/reader/:userID')
@@ -109,7 +109,7 @@ export class ReportsController {
 
     
     
-    @Post('createadmin/:email')
+    @Post('createadmin/:email') // No need to do sequen diagram
     async createAdmin(@Param('email') email:string){
         return this.reportsService.createAdmin(email);
     }
