@@ -52,7 +52,7 @@ export const Forgetpass = () => {
                     </div>
                     <div className="verification-code_">
                         Verification Code :
-                    <Field type="input" name="verify" placeholder="Type your verification code..." style={ style3 } className="verification-code_input" />
+                    <Field type="input" maxlength = "6" name="verify" placeholder="Type your verification code..." style={ style3 } className="verification-code_input" />
                     </div>
                     <Link to="/LogIn" className="fgpwd_go-back">
                         <div className="btn btn-success fgpwd_goback_button">
