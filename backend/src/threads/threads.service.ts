@@ -53,9 +53,9 @@ export class ThreadsService {
     let threadArr: Thread[];
     var orderby: object;
     if(sortby === "Oldest"){  orderby = {date_create: "ASC"};}
-    else if(sortby === "popular"){  orderby = {total_comment: "DESC"};}
+    //else if(sortby === "popular"){  orderby = {total_comment: "DESC"};}
     else if (sortby === "like"){orderby = {up_vote_count: "DESC"};}
-    else if (sortby === "Hottest"){orderby = {total_comment: "DESC", up_vote_count:"DESC", down_vote_count: "DESC"};}
+    else if (sortby === "Hottest" || sortby === "popular"){orderby = {total_comment: "DESC", up_vote_count:"DESC", down_vote_count: "DESC"};}
     else {orderby = {date_create: "DESC"};}
     //console.log(tags);
     //console.log(tags[0]);
@@ -80,6 +80,14 @@ export class ThreadsService {
       });
     }
     else{ threads = threadArr;}
+    if(sortby === "Hottest" || sortby === "popular"){
+      threads = threads.sort((t1: Thread, t2: Thread )=>{
+        let score1 = t1.down_vote_count + t1.up_vote_count + t1.total_comment;
+        let score2 = t2.down_vote_count + t2.up_vote_count + t2.total_comment;
+        return score2 - score1;
+      })
+
+    }
     // const totals = Math.ceil(threads.length/pagesize);
     // let begin = pagesize*(pageNo-1);
     // let last = pagesize*pageNo; if(last>threads.length){last = threads.length}
