@@ -153,9 +153,10 @@ export class ReportsService {
       let thisRPC: Reportment_comment;
       await this.reportment_commentsRepository.findOne({where:{_id: reportCID}})
         .then(setrpc => {thisRPC = setrpc});
-      console.log(thisRPC);
+      //console.log(thisRPC);
 
       await this.notificationsService.createNotifyReportCConsidered(new ObjectID(thisRPC.userID),reportCID);
+      await this.notificationsService.createNotifyDelComment(new ObjectID(thisRPC.userID), thisRPC.commentID);
     }
     return this.reportment_commentsRepository.update({reportCID:reportCID}, updateReportCDto);
   }
@@ -177,6 +178,7 @@ export class ReportsService {
       
 
       await this.notificationsService.createNotifyReportTConsidered(new ObjectID(thisRPT.userID),reportTID);
+      await this.notificationsService.createNotifyDelThread(new ObjectID(thisRPT.userID), thisRPT.threadID);
     }
     return this.reportment_threadsRepository.update({reportTID:reportTID}, updateReportTDto);
   }
