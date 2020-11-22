@@ -297,7 +297,9 @@ export class NotificationsService {
         dateRead.setMinutes(dateRead.getMinutes()+7*60);
         var newdateRead = {date_read: dateRead}
         for(let i =0; i<allnoti.length; i++){
-            await this.notificationsRepository.update({userID:userID, object_type:allnoti[i].object_type, object_typeID:allnoti[i].object_typeID}, newdateRead);
+            if(allnoti[i].date_read === null){
+                await this.notificationsRepository.update({userID:userID, object_type:allnoti[i].object_type, object_typeID:allnoti[i].object_typeID}, newdateRead);
+            }
         }
         
         return ;

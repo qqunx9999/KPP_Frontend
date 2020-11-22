@@ -73,7 +73,7 @@ export class ReportsController {
     }
 
     @UseGuards(JwtAuthGuard)
-    @Patch('/reportCs/:reportCID/actby/:userID')
+    @Patch('/reportCs/:reportCID')
     async actReportC(
         @Body() updateReportCDto: UpdateReportment_commentDto,
         @Param('reportCID', ParseObjectIdPipe) reportCID: ObjectID,
@@ -83,7 +83,7 @@ export class ReportsController {
     }
 
     @UseGuards(JwtAuthGuard)
-    @Patch('/reportTs/:reportTID/actby/:userID')
+    @Patch('/reportTs/:reportTID')
     async actReportT(
         @Body() updateReportTDto: UpdateReportment_threadDto,
         @Param('reportTID', ParseObjectIdPipe) reportTID: ObjectID,

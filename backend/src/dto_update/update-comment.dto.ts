@@ -9,16 +9,15 @@ import Thread from 'src/threads/thread.entity';
 
 export class UpdateCommentDto {
     
-    content:string;
+    content?:string;
 
-    image_arr:{URL: string, pos: number}[];
-    reply_to:number;
+    image_arr?:{URL: string, pos: number}[];
     //@IsInt()
     //@IsDate()
     //@IsDate()
-    date_lastedit:Date;
+    date_lastedit?:Date;
     //@IsDate()
-    date_delete:Date;
+    date_delete?:Date;
     
 }
 

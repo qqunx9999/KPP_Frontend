@@ -11,7 +11,7 @@ function ChangeProfile() {
       <div>
         <Navigtion />
         <div className="cName-bigframe">
-          <button className="cName_goback_button" onClick={ history.goBack }>Go Back</button>
+          <button className="cName_goback_button btn btn-success" onClick={ history.goBack }>Go Back</button>
           <div className="cName-whiteframe">
             <div className="cName-change-name">Edit Profile</div>
             <div className="cName-blackframe">
