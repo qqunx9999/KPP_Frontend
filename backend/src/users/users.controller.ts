@@ -23,10 +23,10 @@ export class UsersController {
     constructor(private usersService: UsersService,
       ) {}
 
-    @Patch('newpass')
+    @Patch('newpass/:act')
     async changepass(@Body() changepassdto: changepassDto, 
-    ): Promise<any> {
-      return this.usersService.changepass(changepassdto);
+    @Param('act') act:string): Promise<any> {
+      return this.usersService.changepass(changepassdto, act);
     }
 
     @Patch(':userID/chatrooms/:chatroomID/:act')
