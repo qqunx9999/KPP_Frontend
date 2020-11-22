@@ -17,20 +17,11 @@ function ChangeProfile() {
             <div className="cName-blackframe">
               <div className="cName-new-name_">New Name :</div>
               <ChangeProfileForm />
-            
-
               <div className="cName-new-quote_">New Quote :</div>
-
-              
-
               <div className="cName-new-password_">New Password :</div>
-          
               <div className="cName-confirm-password_">Confirm New Password :</div>
-
               <div className="cName-old-password_">Old Password :</div>
-
-              <div className="cName-confirm-verify_">Verify Code :</div>
-          </div>
+            </div>
           </div>
         </div>  
   
