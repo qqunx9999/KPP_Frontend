@@ -6,7 +6,7 @@ import '../CSSsource/SearchThread.css';
 import ThreadService from '../service/ThreadService';
 import SearchThreadForm from '../component/SearchThreadForm';
 
-const SearchThread_new = () => {
+const SearchThread = () => {
   const history = useHistory();
   const [pageInfo, setPageInfo] = useState<any>([]);
   const [threads, setThreads] = useState<any>([{}]);
@@ -29,7 +29,7 @@ const SearchThread_new = () => {
       };
       const keyword = localStorage.keyword;
       const sort = localStorage.sort;
-      ThreadService.searchThread(keyword, tags, sort, 8, 1)
+      ThreadService.searchThread(keyword, tags, sort, 5, 1)
         .then(res => {
           setPageInfo(res.pageInfo);
           setThreads(res.threads);
@@ -63,4 +63,4 @@ const SearchThread_new = () => {
   );
 };
 
-export default SearchThread_new;
+export default SearchThread;

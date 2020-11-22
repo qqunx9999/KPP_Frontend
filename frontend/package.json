@@ -11,18 +11,18 @@
     "@tinymce/tinymce-react": "^3.8.1",
     "@types/draft-js": "^0.10.44",
     "@types/jest": "^24.9.1",
-    "@types/node": "^12.19.1",
-    "@types/react": "^16.9.53",
+    "@types/node": "^12.19.6",
+    "@types/react": "^16.14.1",
     "@types/react-bootstrap": "^0.32.24",
-    "@types/react-dom": "^16.9.8",
+    "@types/react-dom": "^16.9.10",
     "@types/react-router-dom": "^5.1.6",
     "@types/react-rte": "^0.16.1",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.5.3",
     "draft-js": "^0.11.7",
-    "formik": "^2.2.1",
+    "formik": "^2.2.5",
     "jquery": "^3.5.1",
-    "npm": "^7.0.2",
+    "npm": "^7.0.13",
     "popper.js": "^1.16.1",
     "react": "^16.14.0",
     "react-bootstrap": "^1.4.0",
@@ -34,7 +34,7 @@
     "react-rte": "^0.16.3",
     "react-scripts": "^3.4.4",
     "react-wysiwyg-typescript": "^1.0.2",
-    "tinymce": "^5.5.1",
+    "tinymce": "^5.6.0",
     "yup": "^0.29.3"
   },
   "scripts": {
@@ -59,10 +59,10 @@
     ]
   },
   "devDependencies": {
-    "@types/ws": "^7.2.7",
-    "@types/yup": "^0.29.8",
-    "ts-loader": "^8.0.6",
+    "@types/ws": "^7.4.0",
+    "@types/yup": "^0.29.9",
+    "ts-loader": "^8.0.11",
     "typescript": "^3.9.7",
-    "ws": "^7.3.1"
+    "ws": "^7.4.0"
   }
 }

@@ -44,7 +44,7 @@ const SignUpPage = () => {
               &lt; Go Back
             </div>
           </button>
-          </Link>
+        </Link>
       </div>
     </div>
   );
