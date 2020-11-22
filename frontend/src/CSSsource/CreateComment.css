@@ -132,7 +132,7 @@
 
 #createcm_replyto_input {
     background-color: rgb(221, 221, 227);
-    font-size: 23;
+    font-size: 30px;
     color: "#333333";
     border: rgba(0,0,0,0);
     border-width: 1;
@@ -291,7 +291,7 @@
 
 .createcm_size_input {
     background-color: rgb(221, 221, 227);
-    font-size: 20;
+    font-size: 30px;
     color: "#333333";
     border: rgba(0,0,0,0.29);
     border-width: 3;
@@ -376,36 +376,41 @@
   }
 
 .createcm-send-frame {
-    width: 116px;
-    height: 53px;
+    width: 200px;
+    height: 100px;
     overflow: visible;
     background: var(--ThemeSup1, #9beb33);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 15px;
     position: absolute;    
-    top: 81px;
-    left: 344px;
+    top: 50px;
+    left: 980px;
   }
-
+  
 .createcm-send {
-    width: 101px;
-    height: 108px;
-    overflow: visible;
-    font-family: "Inter", sans-serif;
-    color: #7e7c7c;
-    font-size: 36px;
-    letter-spacing: 3px;
-    line-height: 3;
-    line-height: 1;
+    width: 101px !important; 
+    height: 108px !important;
+    overflow: visible !important;
+    font-family: "Inter", sans-serif !important;
+    color: #ffffff !important;
+    font-size: 50px !important;
+    letter-spacing: 3px !important;
+    line-height: 2.5 !important;
+    position: absolute !important;
+    top: -15px !important;
+    left: 35px !important;
   }
-
+  
+.btn-success{
+  background-color:#6cc551 !important;
+}
 .createcm_cm_input {
     width: 1140px;
     /* height: 250px; */
     overflow: visible;
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     background-color: rgb(221, 221, 227);
-    font-size: 20;
+    font-size: 30px;
     color: "#333333";
     border: rgba(0,0,0,0);
     border-width: 1;    

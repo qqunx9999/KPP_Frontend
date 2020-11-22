@@ -12,6 +12,7 @@ import { UsersModule } from 'src/users/users.module';
 import User from 'src/entities/user.entity';
 import { Objectnumber } from 'src/entities/objectnumber.entity';
 import { NotificationModule } from 'src/notification/notification.module';
+import { JwtStrategy } from 'src/auth/jwt.strategy';
 
 
 
@@ -25,7 +26,7 @@ import { NotificationModule } from 'src/notification/notification.module';
     ],
     exports: [ThreadsService],
     controllers: [ThreadsController],
-    providers: [ThreadsService],
+    providers: [ThreadsService, JwtStrategy],
 
 })
 export class ThreadsModule {}

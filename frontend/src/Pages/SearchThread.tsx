@@ -55,7 +55,7 @@ const SearchThread = () => {
           if (item.topic !== undefined) {
             return (
               <div>{console.log(item.topic)}
-                <h1>{item.topic}</h1>
+                <h1>{item.topic}</h1>               
               </div>
             );
           }

@@ -120,12 +120,11 @@ const ThreadForm = () => {
             </div>
             <div className="placeYourContentFrameCreateThread">
               <div className="placeYourContentTextCreateThread">Place your content :</div>
-              <div className="toolsPlaceYourContentCreateThread">
 
                 <button disabled={isSubmitting} className="btn btn-success frameSendCreateThread" type="submit" value={ localStorage.message }>
                   <div className="textSendToolsPlaceYourContentCreateThread"> Send </div>
                 </button>
-              </div>
+              
               <label>
                 <Field type="text" name="content" className="inputContentCreateThread" style={{ width: "1135px", height: "500px" }} />
                 <div className="inputContentCreateThread">

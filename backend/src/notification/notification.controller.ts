@@ -1,10 +1,11 @@
-import { Controller, Get, Post, Delete, Param, Body, Patch } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Param, Body, Patch, UseGuards } from '@nestjs/common';
 import { ObjectID } from 'mongodb'
 import { ParseObjectIdPipe } from 'src/common/pipes';
 import { NotificationsService } from './notification.service';
 import { Notifications } from 'src/entities/notification.entity';
 import { NotificationDto } from 'src/dto/create-notifiaction.dto';
 import Chatroom from 'src/entities/chatroom.entity';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('notifications')
 export class NotificationController {
@@ -64,12 +65,14 @@ export class NotificationController {
     //     return this.notificationService.postReportCon(notificationDto);
     // }
 
+    @UseGuards(JwtAuthGuard)
     @Patch('/chatrooms/:chatroomID/users/:userID')
     async patchChatroom(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID,
     @Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise <Notifications>{
         return this.notificationService.readChatroom(userID, chatroomID);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Patch('/users/:userID/')
     async patchAllNoti(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise <any>{
         

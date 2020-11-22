@@ -29,6 +29,7 @@ export class UsersController {
       return this.usersService.changepass(changepassdto, act);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Patch(':userID/chatrooms/:chatroomID/:act')
     async chatroomaction(@Param('userID', ParseObjectIdPipe) userID: ObjectID,
       @Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID,
@@ -37,6 +38,7 @@ export class UsersController {
       return this.usersService.chatroomaction(userID,chatroomID,act);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Patch(':userID/:userID2/friend_act/:act')
     async friendaction(@Param('userID', ParseObjectIdPipe) userID: ObjectID,
       @Param('userID2', ParseObjectIdPipe) userID2: ObjectID,
@@ -70,11 +72,13 @@ export class UsersController {
       return this.usersService.findownReportT(userID);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Patch(':userID')
     async updateUser(@Body() createUserDto: UpdateUserDto, @Param('userID', ParseObjectIdPipe) userID: ObjectID) {
       return this.usersService.updateUser(createUserDto, userID);
     }
 
+    
     @Get(':userID') 
     async findOneUser(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise<User>{
       return this.usersService.findOneUser(userID);
@@ -86,6 +90,7 @@ export class UsersController {
       return this.usersService.findallUser();
     }
 
+    
     @Post()
     async createUser(@Body() createUserDto: CreateUserDto){
       return this.usersService.createUser(createUserDto);

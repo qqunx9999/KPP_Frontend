@@ -49,7 +49,7 @@ function Threads_new() {
     <div>
       <Navigtion />
       <div className="Threads-bigframe">
-        <div className="thread-topic-frame">
+        <div className="thread-topic-frame mx-auto ml-1">
           <div className="thread-topicname-frame">
             <div className="thread-topicname">
               Topic : &nbsp;
@@ -84,7 +84,7 @@ function Threads_new() {
           
         </div>
 
-        <button className="sthread_goback_button btn btn-success" onClick={history.goBack}> Go Back</button>
+        <button className="sthread_goback_button btn btn-success ml-1 mx-auto" onClick={history.goBack}> Go Back</button>
         <Link to={`/CreateComment/${{ ThreadID }.ThreadID}`}><button className="thread-givecm-button">
           <div className="comment-button-icon">
           </div>

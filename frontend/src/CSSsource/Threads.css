@@ -21,16 +21,18 @@ body {
     background: var(--Theme3, #6cc551); /* Green */
     border-radius: 19px;
     color: white;
-    width: 206px;
+    width: 10%;
     height: 90px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 30px;
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25), inset -5px -5px 5px 0px rgba(0,0,0,0.25);
-    position: fixed;    
+    position: fixed;  
+    max-width:206px;  
     top: 14%;
-    left: 2.5%;
+    left: 48px;
+    margin-right:500px !important;
     transform: scale(1, 1);
     border-width: 0px;
   }
@@ -47,18 +49,7 @@ body {
     
   }
 
-.thread-tags-frame {
-    width: 338px;
-    height: 413px;
-    overflow: visible;
-    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
-    background-color: var(--Theme2, #dddde3);
-    border-radius: 33px;
-    position: fixed;    
-    top: 20%;
-    left: 0%;
-    transform: scale(0.7, 0.7);
-  }
+
 
 .threads_tags_tags {
     width: 128px;
@@ -165,7 +156,8 @@ body {
     background: var(--Theme2, #dddde3);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
-    position: absolute;    
+    position: absolute; 
+    margin-bottom:25px !important;   
     top: -0.5%;
     left: 77%;
     transform: scale(0.7, 0.7);
@@ -178,6 +170,7 @@ body {
     font-family: "Inter", sans-serif;
     color: var(--Theme3, #ffffff);
     font-size: 29px;
+    margin-bottom:25px;   
     letter-spacing: 0px;
     line-height: 1.8;
     position: absolute;    
@@ -220,23 +213,29 @@ body {
     background: var(--Theme5,#53900f);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 29px;
-    position: fixed;    
+    position: fixed;   
     top: 15%;
-    left: 90%;
+    left: 45%;
+    margin-left:900px;
+    margin-bottom:500px !important; 
+    
     transform: scale(0.7, 0.7);
   }
 
-.thread-downvote-frame {
+  .thread-downvote-frame {
     width: 97px;
     height: 94px;
+    margin-bottom:25px !important; 
     overflow: visible;
     background: var(--Theme5,#53900f);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 29px;
     position: fixed;    
-    top: 26%;
-    left: 90%;
+    top: 25%;
+    left: 45%;
+    margin-left:900px !important;
     transform: scale(0.7, 0.7);
+    margin-left:100px;
   }
 
 .thread-report-frame {
@@ -247,8 +246,9 @@ body {
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 29px;
     position: fixed;    
-    top: 38%;
-    left: 90%;
+    left: 45%;
+    top: 35%;
+    margin-left:900px;
     transform: scale(0.7, 0.7);
   }
 
@@ -296,19 +296,22 @@ body {
     
   }
 div.tagAlphar{
-  width: 290px;
+  width: 85%;
   height: 73px;
   overflow: visible;
-  box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+  box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 2px 2px 2px 0px rgba(0,0,0,0.25);
   background-color: var(--Theme4, #447604);
   border-radius: 29px;
   position: relative;
   text-align: center !important;
+  max-width:290px;
+
   top: 90px;
   left:20px;
 }
 div.tagText{
-  width: 290px;
+  width: 100%;
+  max-width: 290px;
   font-family: "Inter", sans-serif;
   color: var(--Theme1, #ffffff);
   font-size: 28px;
@@ -317,10 +320,23 @@ div.tagText{
   position: absolute;
   top:15px;
 }
-
+.thread-tags-frame {
+  width: 20%;
+  height: 413px;
+  overflow: visible;
+  box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+  background-color: var(--Theme2, #dddde3);
+  border-radius: 33px;
+  position: fixed;  
+  max-width:338px;  
+  top: 20%;
+  left: 0%;
+  margin-right:200px !important;
+  transform: scale(0.7, 0.7);
+}
 
 .thread-topic-frame {
-    width: 865px;
+    width: 100% !important;
     height: 698px;
     overflow: visible;
     background: var(--B3, #53900f);
@@ -328,8 +344,25 @@ div.tagText{
     border-radius: 66px;
     position: relative;    
     top: 200px !important ;
+    margin-right: 15px !important;
+    /* padding-right:200px; */
+    margin-left: 25px !important;
+    max-width: 865px !important;
     left: 25%;
     transform: scale(1.2, 1.2);
+  }
+  .like-dislike-comment-displayframe {
+    width: 175px;
+    height: 332px;
+    overflow: visible;
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
+    background-color: var(--B3, #53900f);
+    margin-left: 800px !important;
+    border-radius: 33px;
+    position: fixed;   
+    /* margin-left:50px;  */
+    top: 15%;
+    left: 40%;
   }
 
 .thread-topicname-frame {
@@ -641,6 +674,7 @@ div.tagText{
     position: absolute;    
     top: 15px;
     left: 20px;
+    
   }
 
 .dislike-button-icon {
@@ -682,17 +716,7 @@ div.tagText{
   left: 22px;
 }
 
-.like-dislike-comment-displayframe {
-  width: 175px;
-  height: 332px;
-  overflow: visible;
-  box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
-  background-color: var(--B3, #53900f);
-  border-radius: 33px;
-  position: fixed;    
-  top: 15%;
-  left: 80%;
-}
+
 
 .like-display-icon {
   width: 50px;
