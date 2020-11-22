@@ -15,6 +15,8 @@ import { UpdateReportment_threadDto } from 'src/dto_update/update-reportT.dto';
 import User from 'src/entities/user.entity';
 import { NotificationsService } from 'src/notification/notification.service';
 import { UsersService } from 'src/users/users.service';
+import { UpdateThreadDto } from 'src/dto_update/update-thread.dto';
+import { UpdateCommentDto } from 'src/dto_update/update-comment.dto';
 
 @Injectable()
 export class ReportsService {
@@ -156,7 +158,12 @@ export class ReportsService {
       //console.log(thisRPC);
 
       await this.notificationsService.createNotifyReportCConsidered(new ObjectID(thisRPC.userID),reportCID);
-      await this.notificationsService.createNotifyDelComment(new ObjectID(thisRPC.userID), thisRPC.commentID);
+      if(updateReportCDto.status === "approved"){
+        await this.notificationsService.createNotifyDelComment(new ObjectID(thisRPC.userID), thisRPC.commentID);
+        let date = new Date;
+        let updateCommentDto: UpdateCommentDto = {"date_delete": date}
+        await this.threadsService.updateComment(thisRPC.threadID, thisRPC.commentID, updateCommentDto)
+      }
     }
     return this.reportment_commentsRepository.update({reportCID:reportCID}, updateReportCDto);
   }
@@ -178,7 +185,12 @@ export class ReportsService {
       
 
       await this.notificationsService.createNotifyReportTConsidered(new ObjectID(thisRPT.userID),reportTID);
-      await this.notificationsService.createNotifyDelThread(new ObjectID(thisRPT.userID), thisRPT.threadID);
+      if(updateReportTDto.status === "approved"){
+        await this.notificationsService.createNotifyDelThread(new ObjectID(thisRPT.userID), thisRPT.threadID);
+        let date = new Date;
+        let updateThreadDto: UpdateThreadDto = {"date_delete": date}
+        await this.threadsService.updateThread(thisRPT.threadID, updateThreadDto)
+      }
     }
     return this.reportment_threadsRepository.update({reportTID:reportTID}, updateReportTDto);
   }
