@@ -20,7 +20,7 @@ export async function changeName(userID: string, patchBody: any) {
 }
 
 export async function changePass(patchBody: any) {
-  const res = await fetch(`${baseUrl}/users/newpass`, {
+  const res = await fetch(`${baseUrl}/users/newpass/changepass`, {
     method: 'PATCH',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(patchBody)
