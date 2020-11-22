@@ -102,7 +102,7 @@ export class UsersController {
     }
 
     @UseGuards(JwtAuthGuard)
-    @Post('uploadAvatar')
+    @Post('avatar')
     @UseInterceptors(FileInterceptor('file',{
       storage: diskStorage({
         destination: './imageUpload/avatar',//'D:/Kupeople/Avatar',
@@ -114,7 +114,7 @@ export class UsersController {
         }
       })
     }))
-    
+
     uploadAvatar(@UploadedFile() file, @Request() req): Observable<Object> {
         console.log(file);
         let updateUser: UpdateUserDto;
@@ -122,7 +122,7 @@ export class UsersController {
         console.log(user);
         //updateUser.avatar_URL = file.path;
         //this.usersService.updateUser({avatar_URL: file.path}, userID);
-        return of({imagePath: file.path});
+        return of({"avatar_URL": file.path});
     }
     
       

@@ -1,4 +1,5 @@
-  import { Body, Controller, Get, Param, Post, HttpException, HttpStatus, Patch, ParseArrayPipe, ParseIntPipe } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, HttpException, HttpStatus, Patch, ParseArrayPipe, ParseIntPipe, UseInterceptors, UploadedFile 
+ ,Request } from '@nestjs/common';
 import { ObjectID } from 'mongodb'
 
 import Thread from './thread.entity';
@@ -16,6 +17,13 @@ import Reportment_comment from 'src/entities/reportment_comment.entity';
 import { CreateReportment_commentDto } from 'src/dto/create-reportment_comment.dto';
 import { UpdateThreadDto } from 'src/dto_update/update-thread.dto';
 import { UpdateCommentDto } from 'src/dto_update/update-comment.dto';
+
+import { v4 as uuidv4 } from 'uuid';
+import path = require('path');
+//import { join } from 'path';
+import {FileInterceptor} from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
+import { Observable, of } from 'rxjs';
 
 
 @Controller('threads')
@@ -69,6 +77,25 @@ export class ThreadsController {
   async findOneThreadWithOwn(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID): Promise<any> {
     return this.threadsService.findOneThreadWithOwn(threadID);
   }
+
+  @Post('images')
+  @UseInterceptors(FileInterceptor('file',{
+    storage: diskStorage({
+      destination: './imageUpload/image',//'D:/Kupeople/Avatar',
+      filename: (req, file, cb) =>{
+        const filename: string = path.parse(file.originalname).name.replace(/\s/g, '')+ uuidv4();
+        const extension:string = path.parse(file.originalname).ext;
+
+        cb(null, `${filename}${extension}`)
+      }
+    })
+  }))
+  uploadImmage(@UploadedFile() file, @Request() req): Observable<Object> {
+    console.log(file);
+    //updateUser.avatar_URL = file.path;
+    //this.usersService.updateUser({avatar_URL: file.path}, userID);
+    return of({image_URL: file.path});
+}
 
   @Post()
   async createThread(@Body() createThreadDto: CreateThreadDto){
