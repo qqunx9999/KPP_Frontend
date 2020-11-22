@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post, UseGuards } from '@nestjs/common';
 import { ParseObjectIdPipe } from '../common/pipes';
 import { ObjectID } from 'typeorm';
 
@@ -17,6 +17,7 @@ import { of } from 'rxjs';
 import { ThreadsController } from 'src/threads/threads.controller';
 import { UpdateReportment_commentDto } from 'src/dto_update/update-reportc.dto';
 import { UpdateReportment_threadDto } from 'src/dto_update/update-reportT.dto';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('reports')
 export class ReportsController {
@@ -71,6 +72,7 @@ export class ReportsController {
         return {RCs_page, pageInfo:{pagesize: RCs_page.length, pageNO, total: total}};
     }
 
+    @UseGuards(JwtAuthGuard)
     @Patch('/reportCs/:reportCID/actby/:userID')
     async actReportC(
         @Body() updateReportCDto: UpdateReportment_commentDto,
@@ -80,6 +82,7 @@ export class ReportsController {
         return this.reportsService.consideredReportC(reportCID, userID, updateReportCDto);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Patch('/reportTs/:reportTID/actby/:userID')
     async actReportT(
         @Body() updateReportTDto: UpdateReportment_threadDto,
@@ -89,6 +92,7 @@ export class ReportsController {
         return this.reportsService.consideredReportT(reportTID, userID, updateReportTDto);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Patch('/reportCs/:reportCID/reader/:userID')
     async addReadRC(
         @Param('reportCID', ParseObjectIdPipe) reportCID: ObjectID,
@@ -97,6 +101,7 @@ export class ReportsController {
         return this.reportsService.addReadRC(reportCID, userID);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Patch('/reportTs/:reportTID/reader/:userID')
     async addReadRT(
         @Param('reportTID', ParseObjectIdPipe) reportTID: ObjectID,
@@ -108,7 +113,7 @@ export class ReportsController {
 
 
     
-    
+    @UseGuards(JwtAuthGuard)
     @Post('createadmin/:email') // No need to do sequen diagram
     async createAdmin(@Param('email') email:string){
         return this.reportsService.createAdmin(email);
