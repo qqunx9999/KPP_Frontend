@@ -56,7 +56,7 @@ export class UsersService {
         @InjectRepository(Objectnumber)
         private objectNumberRopsitory: Repository<Objectnumber>,
         @InjectRepository(Verifycode)
-        private verifygenRepository: Repository<Verifycode>,
+        private verifyCodeRepository: Repository<Verifycode>,
 
 
         private notificationsService: NotificationsService
@@ -66,9 +66,24 @@ export class UsersService {
 
     async changepass(changepassdto: changepassDto): Promise<any> {
         
+        let thisuser = null;
+        await this.usersRepository.findOne({where:{email: changepassdto.email}})
+            .then(oneuser => {
+                thisuser = oneuser;
+            });
+        if(thisuser === undefined){
+            throw new HttpException("this email hasn't used to sign up yet", HttpStatus.FORBIDDEN);
+        }
         
+        var bcrypt =  require('bcrypt');
+        const saltRounds = 10;
+
+        if(!bcrypt.compareSync(changepassdto.oldpass, thisuser.password)){
+            throw new HttpException("wrong confirm password", HttpStatus.FORBIDDEN);
+        }
+
         let verifys: Verifycode[];
-        await this.verifygenRepository.find({where:{email: changepassdto.email}, order:{date_expire: "DESC"}})
+        await this.verifyCodeRepository.find({where:{email: changepassdto.email}, order:{date_expire: "DESC"}})
             .then(set => {verifys = set})
         let verify: Verifycode;
         if(verifys.length === 0){
@@ -85,24 +100,14 @@ export class UsersService {
         if (changepassdto.verify !== verify.code){
             throw new HttpException("wrong verifycode", HttpStatus.FORBIDDEN);
         }
-        
-         
-        await this.verifygenRepository.remove(verifys);
+        await this.verifyCodeRepository.remove(verifys);
 
-        let thisuser = null;
-        await this.usersRepository.findOne({where:{email: changepassdto.email}})
-            .then(oneuser => {
-                thisuser = oneuser;
-            });
-        if(thisuser === undefined){
-            throw new HttpException("this email hasn't used to sign up yet", HttpStatus.FORBIDDEN);
-        }
+        
         //console.log(thisuser.userID);
         //let newID: ObjectID = ObjectID.createFromHexString(thisuser.userID);
         //console.log(newID);
         let obj = { password: null };
-        var bcrypt =  require('bcrypt');
-        const saltRounds = 10;
+        
         const hash = bcrypt.hashSync(changepassdto.newpass, saltRounds);
         obj.password = hash;
         return this.usersRepository.update({userID: thisuser.userID}, obj);
@@ -551,7 +556,7 @@ export class UsersService {
         
         
         let verifys: Verifycode[];
-        await this.verifygenRepository.find({where:{email: createUserDto.email}, order:{date_expire: "DESC"}})
+        await this.verifyCodeRepository.find({where:{email: createUserDto.email}, order:{date_expire: "DESC"}})
             .then(set => {verifys = set})
         let verify: Verifycode;
         if(verifys.length === 0){
@@ -571,7 +576,7 @@ export class UsersService {
         }
         
          
-        await this.verifygenRepository.remove(verifys);
+        await this.verifyCodeRepository.remove(verifys);
     
         delete createUserDto.verify;
        
@@ -640,7 +645,7 @@ export class UsersService {
             email: email,
             date_expire: dateExpire
         }
-        return this.verifygenRepository.save(verify);
+        return this.verifyCodeRepository.save(verify);
         
     }
 }

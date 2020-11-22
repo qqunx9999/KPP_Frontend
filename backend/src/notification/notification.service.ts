@@ -43,32 +43,46 @@ export class NotificationsService {
         allnoti = allnoti.filter(each =>{if(each.object_type !== "chat"){return true;}})
         let allnotiwithInfo = [];
         for(let i = 0; i<allnoti.length; i++){
-            if(allnoti[i].object_type == "friend_request" || allnoti[i].object_type == "friend_accept"){
+            if(allnoti[i].object_type === "friend_request" || allnoti[i].object_type === "friend_accept"){
                 var notiwithinfo = {
                     notificationInfo: allnoti[i],
                     // userinfo
                 }
             }
-            else if(allnoti[i].object_type == "reportT_considered"){
+            else if(allnoti[i].object_type === "reportT_considered"){
                 var notiRPTwithinfo = {
                     notificationInfo: allnoti[i],
                     reportTInfo: await this.reportsService.findOneReportedThread(allnoti[i].object_typeID),
                 }
                 allnotiwithInfo.push(notiRPTwithinfo)
             }
-            else if(allnoti[i].object_type == "reportT_considered"){
+            else if(allnoti[i].object_type === "reportT_considered"){
                 var notiRPCwithinfo = {
                     notificationInfo: allnoti[i],
                     reportTInfo: await this.reportsService.findOneReportedComment(allnoti[i].object_typeID),
                 }
                 allnotiwithInfo.push(notiRPCwithinfo)
             }
-            else if(allnoti[i].object_type == "comment"){
+            else if(allnoti[i].object_type === "comment_repiled"){
                 var notiCwithinfo = {
                     notificationInfo: allnoti[i],
                     commentInfo: await this.threadService.findOneComment(allnoti[i].object_typeID),
                 }
                 allnotiwithInfo.push(notiCwithinfo)
+            }
+            else if(allnoti[i].object_type === "comment_deleted" ){
+                var notiDCwithinfo = {
+                    notificationInfo: allnoti[i],
+                    commentInfo: await this.threadService.findOneComment(allnoti[i].object_typeID),
+                }
+                allnotiwithInfo.push(notiDCwithinfo)
+            }
+            else if(allnoti[i].object_type === "thread_deleted" ){
+                var notiDTwithinfo = {
+                    notificationInfo: allnoti[i],
+                    commentInfo: await this.threadService.findOneThreadWithOwn(allnoti[i].object_typeID),
+                }
+                allnotiwithInfo.push(notiDTwithinfo)
             }
 
         }
@@ -216,13 +230,39 @@ export class NotificationsService {
         date_noti.setMinutes(date_noti.getMinutes()+7*60);
         var notificationDto:NotificationDto = {
             userID: userID,
-            object_type: "comment",
+            object_type: "comment_replied",
             object_typeID:commentID,
             date_noti: date_noti,
             date_read:null
 
         };
         
+        return this.notificationsRepository.save(notificationDto);
+    }
+
+    async createNotifyDelThread(userID:ObjectID, threadID: ObjectID){
+        let date_noti = new Date();
+        date_noti.setMinutes(date_noti.getMinutes()+7*60);
+        var notificationDto:NotificationDto = {
+            userID: userID,
+            object_type: "thread_deleted",
+            object_typeID:threadID,
+            date_noti: date_noti,
+            date_read:null
+        };
+        return this.notificationsRepository.save(notificationDto);
+    }
+
+    async createNotifyDelComment(userID:ObjectID, commentID: ObjectID){
+        let date_noti = new Date();
+        date_noti.setMinutes(date_noti.getMinutes()+7*60);
+        var notificationDto:NotificationDto = {
+            userID: userID,
+            object_type: "comment_deleted",
+            object_typeID:commentID,
+            date_noti: date_noti,
+            date_read:null
+        };
         return this.notificationsRepository.save(notificationDto);
     }
 
