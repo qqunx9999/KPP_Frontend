@@ -42,6 +42,7 @@ export class NotificationsService {
             .then(set => {allnoti = set});
         allnoti = allnoti.filter(each =>{if(each.object_type !== "chat"){return true;}})
         let allnotiwithInfo = [];
+        console.log(allnoti)
         for(let i = 0; i<allnoti.length; i++){
             if(allnoti[i].object_type === "friend_request" || allnoti[i].object_type === "friend_accept"){
                 var notiwithinfo = {
@@ -56,18 +57,19 @@ export class NotificationsService {
                 }
                 allnotiwithInfo.push(notiRPTwithinfo)
             }
-            else if(allnoti[i].object_type === "reportT_considered"){
+            else if(allnoti[i].object_type === "reportC_considered"){
                 var notiRPCwithinfo = {
                     notificationInfo: allnoti[i],
                     reportTInfo: await this.reportsService.findOneReportedComment(allnoti[i].object_typeID),
                 }
                 allnotiwithInfo.push(notiRPCwithinfo)
             }
-            else if(allnoti[i].object_type === "comment_repiled"){
+            else if(allnoti[i].object_type === "comment_replied"){
                 var notiCwithinfo = {
                     notificationInfo: allnoti[i],
                     commentInfo: await this.threadService.findOneComment(allnoti[i].object_typeID),
                 }
+                //console.log("y")
                 allnotiwithInfo.push(notiCwithinfo)
             }
             else if(allnoti[i].object_type === "comment_deleted" ){
@@ -84,10 +86,10 @@ export class NotificationsService {
                 }
                 allnotiwithInfo.push(notiDTwithinfo)
             }
-
+            //console.log(allnotiwithInfo)
         }
             
-        return allnotiwithInfo;
+        return  allnotiwithInfo;
     }
 
     async findNotifychat(userID: ObjectID): Promise <Notifications[]> {
