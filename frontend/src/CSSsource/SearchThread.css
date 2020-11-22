@@ -981,13 +981,13 @@
 
 .search-searchresult {
     width: 1015px;
-    height: 108px;
+    height: 460px;
     overflow: hidden;
     font-family: "Inter", sans-serif;
     color: var(--Theme1, #ffffff);
     font-size: 36px;
     letter-spacing: 3px;
-    line-height: 3;
+    line-height: 2;
     position: absolute;    
     top: 60%;
     left: 17%;

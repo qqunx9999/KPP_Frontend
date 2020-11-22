@@ -85,29 +85,31 @@ export class UsersService {
                 throw new HttpException("wrong confirm password", HttpStatus.FORBIDDEN);
             }
         }
+        else{
+            let verifys: Verifycode[];
+            await this.verifyCodeRepository.find({where:{email: changepassdto.email}, order:{date_expire: "DESC"}})
+                .then(set => {verifys = set})
+            let verify: Verifycode;
+            if(verifys.length === 0){
+                throw new HttpException("no verifycode", HttpStatus.FORBIDDEN);
+            }
+            else{
+                verify = verifys[0];
+            }
+            let date = new Date()
+            date.setMinutes(date.getMinutes()+7*60);
+            if(date > verify.date_expire){
+                throw new HttpException("expired", HttpStatus.FORBIDDEN);
+            }
+            if (changepassdto.verify !== verify.code){
+                throw new HttpException("wrong verifycode", HttpStatus.FORBIDDEN);
+            }
+            await this.verifyCodeRepository.remove(verifys);
+
+        }
     
 
-        let verifys: Verifycode[];
-        await this.verifyCodeRepository.find({where:{email: changepassdto.email}, order:{date_expire: "DESC"}})
-            .then(set => {verifys = set})
-        let verify: Verifycode;
-        if(verifys.length === 0){
-            throw new HttpException("no verifycode", HttpStatus.FORBIDDEN);
-        }
-        else{
-            verify = verifys[0];
-        }
-        let date = new Date()
-        date.setMinutes(date.getMinutes()+7*60);
-        if(date > verify.date_expire){
-            throw new HttpException("expired", HttpStatus.FORBIDDEN);
-        }
-        if (changepassdto.verify !== verify.code){
-            throw new HttpException("wrong verifycode", HttpStatus.FORBIDDEN);
-        }
-        await this.verifyCodeRepository.remove(verifys);
-
-        
+    
         //console.log(thisuser.userID);
         //let newID: ObjectID = ObjectID.createFromHexString(thisuser.userID);
         //console.log(newID);
