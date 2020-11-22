@@ -64,7 +64,7 @@ export const SignUp = () => {
             })
           }).then(res => {
             if (res.status === 201) {
-              localStorage.setItem('email', values.email);
+              localStorage.setItem('email', email);
             }
           });
           actions.setSubmitting(false);
