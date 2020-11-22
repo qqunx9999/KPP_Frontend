@@ -97,7 +97,7 @@
 
   .cName_newname_input {
     background-color: rgb(221, 221, 227);
-    font-size: 40;
+    font-size: 36px;
     color: "#333333";
     border: rgba(0,0,0,0.29);
     border-width: 3;
@@ -120,7 +120,7 @@
 }  
 
 .cName-new-quote_ {
-  width: 503px;
+  width: 303px;
   height: 138px;
   overflow: visible;
   font-family: "Inter", sans-serif;
@@ -148,7 +148,7 @@
 }
 
 .cName-confirm-password_ {
-  width: 1503px;
+  width: 603px;
   height: 138px;
   overflow: visible;
   font-family: "Inter", sans-serif;
@@ -162,7 +162,7 @@
 }
 
 .cName-old-password_ {
-  width: 503px;
+  width: 370px;
   height: 138px;
   overflow: visible;
   font-family: "Inter", sans-serif;
@@ -176,7 +176,7 @@
 }
 
 .cName-confirm-verify_ {
-  width: 503px;
+  width: 333px;
   height: 138px;
   overflow: visible;
   font-family: "Inter", sans-serif;
@@ -191,7 +191,7 @@
 
 .cName_newquote_input {
   background-color: rgb(221, 221, 227);
-  font-size: 20;
+  font-size: 36px;
   color: "#333333";
   border: rgba(0,0,0,0.29);
   border-width: 3;
@@ -213,7 +213,7 @@
 
 .cName_newpassword_input {
   background-color: rgb(221, 221, 227);
-  font-size: 20;
+  font-size: 36px;
   color: "#333333";
   border: rgba(0,0,0,0.29);
   border-width: 3;
@@ -235,7 +235,7 @@
 
 .cName_confirm_newpassword_input {
   background-color: rgb(221, 221, 227);
-  font-size: 20;
+  font-size: 36px;
   color: "#333333";
   border: rgba(0,0,0,0.29);
   border-width: 3;
@@ -257,7 +257,7 @@
 
 .cName_oldpassword_input {
   background-color: rgb(221, 221, 227);
-  font-size: 20;
+  font-size: 36px;
   color: "#333333";
   border: rgba(0,0,0,0.29);
   border-width: 3;
@@ -279,7 +279,7 @@
 
 .cName_verifycode_input {
   background-color: rgb(221, 221, 227);
-  font-size: 20;
+  font-size: 36px;
   color: "#333333";
   border: rgba(0,0,0,0.29);
   border-width: 3;

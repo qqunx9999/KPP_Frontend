@@ -88,7 +88,7 @@ export const SignUp = () => {
 
             <label htmlFor="verify" className="signup-verify">
               Verification Code :
-              <Field type="input" required name="verify_email" placeholder="Enter code" style={{ width: "240px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_verify" />
+              <Field type="input" maxlength = "6" required name="verify_email" placeholder="Enter code" style={{ width: "240px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_verify" />
             </label>
 
             <div className="signup-sign-up">
