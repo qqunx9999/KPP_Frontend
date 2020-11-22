@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Param, Post, HttpException, HttpStatus, Patch, ParseArrayPipe, ParseIntPipe, UseInterceptors, UploadedFile 
- ,Request } from '@nestjs/common';
+ ,Request, 
+ UseGuards} from '@nestjs/common';
 import { ObjectID } from 'mongodb'
 
 import Thread from './thread.entity';
@@ -24,6 +25,7 @@ import path = require('path');
 import {FileInterceptor} from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { Observable, of } from 'rxjs';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 
 @Controller('threads')
@@ -95,8 +97,9 @@ export class ThreadsController {
     //updateUser.avatar_URL = file.path;
     //this.usersService.updateUser({avatar_URL: file.path}, userID);
     return of({image_URL: file.path});
-}
+  }
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   async createThread(@Body() createThreadDto: CreateThreadDto){
     return this.threadsService.createThread(createThreadDto);
