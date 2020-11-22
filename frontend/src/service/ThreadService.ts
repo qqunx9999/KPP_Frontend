@@ -69,7 +69,6 @@ export async function voteDown(threadID: string | undefined) {
 export async function fetchComment(threadID: string | undefined) {
     const res = await fetch(`${ baseUrl }/threads/${ threadID }/comments`);
     const comment = res.json();
-    console.log(comment)
     return comment;
 }
 
@@ -128,7 +127,6 @@ export async function fetchOneCommentReport(reportCID: string) {
 export async function searchThread(keyword: string, tags: string, sortby: string, pagesize: number, pageNO: number) {
     const res = await fetch(`${ baseUrl }/threads/search/${ keyword }/${ tags }/${ sortby }/${ pagesize }/${ pageNO }`);
     const search = res.json();
-    console.log(`${ baseUrl }/threads/search/${ keyword }/${ tags }/${ sortby }/${ pagesize }/${ pageNO }`)
     return search;
 }
 

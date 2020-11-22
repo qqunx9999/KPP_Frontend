@@ -85,7 +85,7 @@ class Notifications extends React.Component {
   }
 
   checkRead = async () => {
-    await fetch(`${ baseUrl }/`, {
+    await fetch(`${ baseUrl }/notifications/users/${ localStorage.userID }`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -95,13 +95,12 @@ class Notifications extends React.Component {
   }
 
   render() {
-    // scripts
     console.dir(this.state.notification[0]);
     return (
       <div>
         {this.state.notification.map((noti: any) => (
           <Link to={`/Thread/${noti.commentInfo.threadInfo.thread.threadID}`}>
-            { noti.commentInfo.userInfo.name} is comment at thread
+            { noti.commentInfo.userInfo.name } is comment at thread
             <b> {noti.commentInfo.threadInfo.thread.topic} </b>
             as { noti.commentInfo.comment.content} <hr />
           </Link>
