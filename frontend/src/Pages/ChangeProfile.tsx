@@ -2,9 +2,9 @@ import React from 'react';
 import '../CSSsource/ChangeName.css';
 import { useHistory } from 'react-router';
 import Navigtion from '../component/NavBar';
-import ChangeNameForm from '../component/ChangeNameForm';
+import ChangeProfileForm from '../component/ChangeProfileForm';
 
-function ChangeName() {
+function ChangeProfile() {
   const history = useHistory();
 
     return (
@@ -16,7 +16,7 @@ function ChangeName() {
             <div className="cName-change-name">Change Name</div>
             <div className="cName-blackframe">
               <div className="cName-new-name_">New Name :</div>
-              <ChangeNameForm />
+              <ChangeProfileForm />
             </div>
           </div>
         </div>  
@@ -25,4 +25,4 @@ function ChangeName() {
     );
   }
   
-  export default ChangeName;
+  export default ChangeProfile;

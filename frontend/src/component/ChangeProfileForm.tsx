@@ -5,7 +5,7 @@ import AuthService from '../service/AuthService';
 import UserService from '../service/UserService';
 import { useHistory } from 'react-router';
 
-function ChangeNameForm() {
+function ChangeProfileForm() {
     const history = useHistory();
 
     return (
@@ -31,4 +31,4 @@ function ChangeNameForm() {
     );
 }
 
-export default ChangeNameForm;
+export default ChangeProfileForm;

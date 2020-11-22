@@ -2,51 +2,15 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../CSSsource/SignupPage.css';
-import AuthService from '../service/AuthService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { baseUrl } from '../config/constant';
 import * as Yup from 'yup';
 
 export const SignUp = () => {
-  // const [signUpErrorMessage, setSignUpErrorMessage] = useState('');
   const history = useHistory();
-  // console.log(localStorage.email)
 
   return (
     <div>
-      {/* <Formik
-        initialValues={{ email: '' }}
-        validationSchema={Yup.object({
-          email: Yup.string().required('Required email'),
-        })}
-        onSubmit={async (values, actions) => {
-          console.log(1)
-          const email = values.email.concat('@ku.th');
-          localStorage.setItem("email", email);
-          console.log(2)
-          const result = await fetch(`${baseUrl}/users/verifymail/${email}`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'applicaiton/json' },
-          }).then(result => console.log(result))
-          actions.setSubmitting(false);
-        }}
-      >
-        {({ isSubmitting }) => (
-          <Form>
-            <label htmlFor="email" className="signup-email_">
-              Email :
-              <Field type="input" name="email" required placeholder="Type your Email..." style={{ width: "500px", height: "50px", fontSize: "30px", "background-color": "white" }} className="form-control signup-Input_email" />&nbsp;
-              <button type="button" className="btn btn-success" id="sendVerify" disabled={isSubmitting}>
-                <div className="sendVerifyText">Verify</div>
-              </button>
-            </label>
-
-            <label className="signup-_ku-th">
-              @ku.th
-            </label>
-          </Form>
-        )}
-      </Formik> */}
       <Formik
         initialValues={{ email: '' }}
         validationSchema={Yup.object({
@@ -91,7 +55,6 @@ export const SignUp = () => {
           verify_email: Yup.string().min(6, 'To short').max(6, 'To long'),
         })}
         onSubmit={async (values, actions) => {
-          console.log(values.verify_email)
           const result = await fetch(`${baseUrl}/users`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -102,7 +65,6 @@ export const SignUp = () => {
               "verify": values.verify_email
             })
           });
-          console.log(result);
           if (result.status === 201) {
             history.push('/SignUp/AuthenSignup');
           }

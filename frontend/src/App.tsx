@@ -19,7 +19,7 @@ import Setting from './Pages/Setting';
 import ReadReport from './Pages/ReadReport';
 import ChatRoom from './Pages/ChatRoom';
 import AuthenLogout from './Pages/AuthenLogout';
-import ChangeName from './Pages/ChangeName';
+import ChangeProfile from './Pages/ChangeProfile';
 import Test from './sandbox/Test';
 import ReportList from './Pages/ReportList';
 
@@ -46,7 +46,7 @@ function App() {
       <Route path="/ReadReport/:type/:reportID" component={ReadReport} />
       <Route path="/ChatRoom" component={ChatRoom} />
       <Route path="/AuthenLogout" component={AuthenLogout} />
-      <Route exact path="/Setting/ChangeName" component={ChangeName} />
+      <Route exact path="/Setting/ChangeProfile" component={ChangeProfile} />
       <Route path="/Test" component={Test} />
     </Switch>
   );

@@ -54,10 +54,10 @@ function Setting_new() {
             </div>
           
           </div>
-          <Link to="/Setting/ChangeName">
+          <Link to="/Setting/ChangeProfile">
             <div className="frameChangePasswordUserProfile btn btn-success">
               <div className="textChangePasswordUserProfile">
-                Change Name
+                Edit profile
             </div>
             </div>
           </Link>
