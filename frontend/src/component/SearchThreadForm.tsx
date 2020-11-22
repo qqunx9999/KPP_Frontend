@@ -47,11 +47,11 @@ const SearchThreadForm = () => {
                 <div className="topicTextSearchThread">Topic :</div>
                 <div className="needHelpFrameSearchThread">
                   <Field type="checkbox" name="tags" value="help" className="needHelpClickBoxSearchThread" />
-                  <div className="needHelpTextSearchThread"> &nbsp; &nbsp; Need Help </div>
+                  <div className="needHelpTextSearchThread"> Need Help </div>
                 </div>
                 <div className="foodFrameSearchThread">
                   <Field type="checkbox" name="tags" value="food" className="foodClickBoxSearchThread" />
-                  <div className="foodTextSearchThread"> &nbsp; &nbsp; Food </div>
+                  <div className="foodTextSearchThread">Food </div>
                 </div>
                 <div className="newsFrameSearchThread">
                   <Field type="checkbox" name="tags" value="news" className="newsClickBoxSearchThread" />
