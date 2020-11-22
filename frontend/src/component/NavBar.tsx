@@ -38,6 +38,8 @@ const Navigtion = () => {
     fetchNotification();
   }, []);
 
+  const direction = 'left';
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark navbar-color" id="mycustomize" style={{"width":"100%","position":"fixed"}} >
       <Link to={`/Home`}>
@@ -63,7 +65,7 @@ const Navigtion = () => {
                   <li className="nav-item dropdown active ml-1">
                     <NavDropdown title={
                       <img src={notiButton} width="52" height="50" className="rounded-circle z-depth-0" alt="" />}
-                      id="collasible-nav-dropdown">
+                      id="collasible-nav-dropdown" drop={direction}>
                       <NavDropdown.Item ><Notifications /></NavDropdown.Item>
                     </NavDropdown>
                   </li>

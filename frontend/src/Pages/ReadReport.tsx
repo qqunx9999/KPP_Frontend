@@ -38,7 +38,7 @@ function ReadReport() {
         <button className="rReport_goback_button" onClick={ history.goBack }>&lt; Go Back</button>
         <div className="rReport_whiteframe">
           <div className="rReport_report-id_">
-            Report { { type }.type }
+            {{ type }.type} Report
           </div>
           <ReadReportForm />
           <div className="rReport_status">

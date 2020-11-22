@@ -107,7 +107,7 @@ function Threads_new() {
         <button className="thread-downvote-frame" onClick={voteDown}>
           <div className="dislike-button-icon"></div>
         </button>
-        <br />{console.dir(comment.comments[0])}
+        <br />{console.dir(comment.comments)}
 
         {comment.comments.map((item: any) => (
           <ul>
