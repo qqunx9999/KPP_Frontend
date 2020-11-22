@@ -181,14 +181,19 @@ export class ThreadsService {
     var comments: Array<any> = [];
     //console.log(commentArr);
     //console.log(commentArr.length);
+    let existComments = []
     for (let i = 0 ; i< commentArr.length; i++){
       let userInfo =  await this.usersService.findUserInfo(commentArr[i].userID);
       //console.log(userInfo);
       //console.log("He");
       comments.push({comment:commentArr[i], userInfo});
+      if (commentArr[i].date_delete !== null){
+        existComments.push(commentArr[i].commentNO)
+      }
       
     }
-    return comments;
+    return {comments: comments, commentsExist: existComments};
+    //return comments;
   } 
 
   async findPageCommentations(threadID: ObjectID, pagesize: number, pageNo: number): Promise<any>{
