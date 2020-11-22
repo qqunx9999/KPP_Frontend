@@ -28,12 +28,12 @@ function ChangeProfileForm() {
     >
       {({ isSubmitting }) => (
         <Form>
-          <Field type="text" name="newName" className="cName_newname_input" placeholder="Type your new name... (Only characters and Numbers allowed.)" style={{ width: "800px", height: "60px" }} />
-          <Field type="text" name="newQuote" className="" placeholder="Type your new quote..." />
-          <Field type="text" name="newPass" className="" placeholder="Type your new password ..." />
-          <Field type="text" name="conPass" className="" placeholder="Type confirm password..." />
-          <Field type="text" name="oldPass" className="" placeholder="Type your old password ..." />
-          <Field type="text" name="verify" className="" placeholder="Type verify code ..." />
+          <Field type="text" name="newName" className="cName_newname_input" placeholder="Type your new name... (Only characters and Numbers allowed.)"/>
+          <Field type="text" name="newQuote" className="cName_newquote_input" placeholder="Type your new quote..."/>
+          <Field type="text" name="newPass" className="cName_newpassword_input" placeholder="Type your new password ..." />
+          <Field type="text" name="conPass" className="cName_confirm_newpassword_input" placeholder="Type confirm password..." />
+          <Field type="text" name="oldPass" className="cName_oldpassword_input" placeholder="Type your old password ..." />
+          <Field type="text" name="verify" className="cName_verifycode_input" placeholder="Type verify code ..." />
           <button className="cName-confirmbutton" disabled={isSubmitting}>Confirm</button>
         </Form>
       )}
