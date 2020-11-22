@@ -129,7 +129,7 @@ const ThreadForm = () => {
               <label>
                 <Field type="text" name="content" className="inputContentCreateThread" style={{ width: "1135px", height: "500px" }} />
                 <div className="inputContentCreateThread">
-                  <TextEditor />
+                  {/* <TextEditor /> */}
                 </div>
               </label>
             </div>
