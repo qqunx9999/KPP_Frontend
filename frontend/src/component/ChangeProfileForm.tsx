@@ -3,10 +3,8 @@ import { Formik, Form, Field } from 'formik';
 import '../CSSsource/ChangeName.css';
 import AuthService from '../service/AuthService';
 import UserService from '../service/UserService';
-import { useHistory } from 'react-router';
 
 function ChangeProfileForm() {
-  const history = useHistory();
 
   return (
     <Formik
@@ -18,11 +16,12 @@ function ChangeProfileForm() {
         };
         const changePassOption = {
           "email": values.email,
+          "oldPass": values.oldPass,
           "newPass": values.newPass,
           "verify": values.verify,
         }
         UserService.changeName(userID, changeNameOption);
-        // UserService.
+        UserService.changePass(changePassOption);
         actions.setSubmitting(false);
       }}
     >
