@@ -949,5 +949,46 @@
     
   }
 
+.search-keywordrequired {
+    width: 602px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme1, red);
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 36%;
+    left: 29.5%;
+    border-color: white;
+  }
 
+  .search-sortrequired {
+    width: 602px;
+    height: 69px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme1, red);
+    font-size: 23px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 36%;
+    left: 73%;
+    border-color: white;
+  }
 
+.search-searchresult {
+    width: 1015px;
+    height: 108px;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    color: var(--Theme1, #ffffff);
+    font-size: 36px;
+    letter-spacing: 3px;
+    line-height: 3;
+    position: absolute;    
+    top: 60%;
+    left: 17%;
+  }

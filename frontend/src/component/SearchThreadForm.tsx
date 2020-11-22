@@ -35,10 +35,12 @@ const SearchThreadForm = () => {
         >
           {({ isSubmitting }) => (
             <Form>
+               <div className="search-keywordrequired"><ErrorMessage name="keyword" /></div>
+               <div className="search-sortrequired"><ErrorMessage name="sort" /></div>               
               <div className="frameSearchAndTopicSearchThread">
                 <div className="searchTextSearchAndTopicSearchThread">Search :</div>
                 <Field type="text" name="keyword" className="inputKeywordSearchThread" placeholder="Enter your keyword" style={{ width: "800px", height: "60px", fontSize: "30px" }} />
-                <ErrorMessage name="keyword" />
+                
                 <button disabled={isSubmitting} className="btn btn-success frameSubmitSearchThread">
                   <div className="btn textSubmitSearchThread"> Submit </div>
                 </button>
@@ -144,7 +146,7 @@ const SearchThreadForm = () => {
 
                   </Dropdown>
                 </button>
-                <ErrorMessage name="sort" />
+                
               </div>
             </Form>
           )}
