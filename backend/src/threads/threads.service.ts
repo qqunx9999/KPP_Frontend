@@ -145,7 +145,7 @@ export class ThreadsService {
     return {thread:th, userInfo: await(info_own_thread)};
   }
   
-
+  
   async createThread(createThreadDto: CreateThreadDto) {
     createThreadDto.userID = new ObjectID(createThreadDto.userID); // userID: string to Object
     let NO:Objectnumber;

@@ -21,6 +21,7 @@ import { NotificationModule } from './notification/notification.module';
 import Notifications from './entities/notification.entity';
 import { Objectnumber } from './entities/objectnumber.entity';
 import Verifycode from './entities/verifycode.entity';
+import { JwtStrategy } from './auth/jwt.strategy';
 
 @Module({
   imports: [
@@ -41,6 +42,6 @@ import Verifycode from './entities/verifycode.entity';
   ],
 
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, JwtStrategy],
 })
 export class AppModule {}

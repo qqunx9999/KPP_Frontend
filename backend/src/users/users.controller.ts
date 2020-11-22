@@ -75,6 +75,7 @@ export class UsersController {
       return this.usersService.updateUser(createUserDto, userID);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Get(':userID') 
     async findOneUser(@Param('userID', ParseObjectIdPipe) userID: ObjectID): Promise<User>{
       return this.usersService.findOneUser(userID);
