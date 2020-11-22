@@ -11,16 +11,36 @@ function ChangeProfileForm() {
       initialValues={{ email: localStorage.email, newName: '', newQuote: '', newPass: '', conPass: '', oldPass: '', verify: '' }}
       onSubmit={async (values, actions) => {
         const userID = AuthService.getUserID();
-        const changeNameOption = {
-          "name": values.newName,
-        };
-        const changePassOption = {
-          "email": values.email,
-          "oldPass": values.oldPass,
-          "newPass": values.newPass,
-          "verify": values.verify,
+        let changeProfileOption = {};
+        let changePassOption = {};
+
+        if (values.newName !== '') {
+          if (values.newQuote !== '') {
+            changeProfileOption = {
+              "name": values.newName,
+              "quote": values.newQuote
+            };
+          } else {
+            changeProfileOption = {
+              "name": values.newName,
+            };
+          }
+        } else {
+          if (values.newQuote !== '') {
+            changeProfileOption = {
+              "name": values.newQuote,
+            };
+          }
         }
-        UserService.changeName(userID, changeNameOption);
+        if (values.newPass) {
+          changePassOption = {
+            "email": values.email,
+            "oldPass": values.oldPass,
+            "newPass": values.newPass,
+            "verify": values.verify,
+          };
+        }
+        UserService.changeName(userID, changeProfileOption);
         UserService.changePass(changePassOption);
         actions.setSubmitting(false);
       }}
