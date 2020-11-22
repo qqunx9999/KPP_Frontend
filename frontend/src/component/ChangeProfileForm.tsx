@@ -8,7 +8,7 @@ function ChangeProfileForm() {
 
   return (
     <Formik
-      initialValues={{ email: localStorage.email, newName: '', newQuote: '', newPass: '', conPass: '', oldPass: '', verify: '' }}
+      initialValues={{ email: localStorage.email, newName: '', newQuote: '', newPass: '', conPass: '', oldPass: '' }}
       onSubmit={async (values, actions) => {
         const userID = AuthService.getUserID();
         let changeProfileOption = {};
@@ -36,8 +36,7 @@ function ChangeProfileForm() {
           changePassOption = {
             "email": values.email,
             "oldPass": values.oldPass,
-            "newPass": values.newPass,
-            "verify": values.verify,
+            "newPass": values.newPass
           };
         }
         UserService.changeName(userID, changeProfileOption);
@@ -52,7 +51,6 @@ function ChangeProfileForm() {
           <Field type="text" name="newPass" className="cName_newpassword_input" placeholder="Type your new password ..." />
           <Field type="text" name="conPass" className="cName_confirm_newpassword_input" placeholder="Type confirm password..." />
           <Field type="text" name="oldPass" className="cName_oldpassword_input" placeholder="Type your old password ..." />
-          <Field type="text" maxlength = "6" name="verify" className="cName_verifycode_input" placeholder="Type verify code ..." />
           <button className="cName-confirmbutton" disabled={isSubmitting}>Confirm</button>
         </Form>
       )}
