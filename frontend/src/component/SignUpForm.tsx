@@ -18,6 +18,7 @@ export const SignUp = () => {
         })}
         onSubmit={async (values, actions) => {
           const email = values.email.concat('@ku.th');
+          // console.log(email)
           await fetch(`${baseUrl}/users/verifymail/${email}`, {
             method: 'POST',
             headers: {
@@ -29,6 +30,7 @@ export const SignUp = () => {
           }).then(res => {
             if (res.status === 201) {
               localStorage.setItem('email', email);
+              // console.log(localStorage.email)
             }
           });
           actions.setSubmitting(false);
@@ -55,6 +57,7 @@ export const SignUp = () => {
           verify_email: Yup.string().min(6, 'To short').max(6, 'To long'),
         })}
         onSubmit={async (values, actions) => {
+          console.log(typeof(localStorage.email))
           const result = await fetch(`${baseUrl}/users`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
