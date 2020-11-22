@@ -8,7 +8,7 @@ import Navigtion from '../component/NavBar';
 function Threads_new() {
   const { ThreadID } = useParams();
   const [thread, setThread] = useState<any>({ thread: { tag_arr: [] }, userInfo: {} });
-  const [comment, setComment] = useState<any[]>([{ comment: {}, userInfo: {} }]);
+  const [comment, setComment] = useState<any>({ comments: [{ comment: {}, userInfo: {} }], commentsExist: [] });
   const history = useHistory();
 
   const fetchThread = () => {
@@ -102,9 +102,9 @@ function Threads_new() {
         <button className="thread-downvote-frame" onClick={voteDown}>
           <div className="dislike-button-icon"></div>
         </button>
-        <br />
+        <br />{console.dir(comment.comments[0])}
 
-        {comment.map((item: any) => (
+        {comment.comments.map((item: any) => (
           <ul>
             <li key={item.userInfo.userID}></li>
             <div className="keep" id={item === comment[0] ? "onE" : undefined}>
