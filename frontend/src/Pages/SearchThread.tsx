@@ -49,16 +49,18 @@ const SearchThread = () => {
       <div className="backgroundSearchThread">
         <button className="btn btn-success sThread_goback_buttonn" onClick={history.goBack}> Go Back</button>
         <SearchThreadForm />
+      </div>      
+      <div className="search-searchresult">
+        {threads.map((item: any) => {
+          if (item.topic !== undefined) {
+            return (
+              <div>{console.log(item.topic)}
+                <h1>{item.topic}</h1>
+              </div>
+            );
+          }
+        })}
       </div>
-      {threads.map((item: any) => {
-        if (item.topic !== undefined) {
-          return (
-            <div>{console.log(item.topic)}
-              <h1>{item.topic}</h1>
-            </div>
-          );
-        }
-      })}
     </div>
   );
 };
