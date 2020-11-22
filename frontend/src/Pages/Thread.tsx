@@ -76,7 +76,12 @@ function Threads_new() {
 
         <div className="thread-tags-frame">
           <div className="threads_tags_tags">Tags :</div>
-          {thread.thread.tag_arr}
+          <div className="tagAlphar">
+            <div className = "tagText">
+            {thread.thread.tag_arr}
+            </div>
+          </div>
+          
         </div>
 
         <button className="sthread_goback_button btn btn-success" onClick={history.goBack}> Go Back</button>
