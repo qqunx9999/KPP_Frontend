@@ -80,6 +80,7 @@ export class ThreadsController {
     return this.threadsService.findOneThreadWithOwn(threadID);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post('images')
   @UseInterceptors(FileInterceptor('file',{
     storage: diskStorage({
@@ -121,7 +122,7 @@ export class ThreadsController {
   
 
   
-  
+  @UseGuards(JwtAuthGuard)
   @Post(':threadID/comments')
   async createCommentation(@Param('threadID', ParseObjectIdPipe) threadID:ObjectID, 
                 @Body() createCommentationDto: CreateCommentDto){
@@ -130,6 +131,7 @@ export class ThreadsController {
     return this.threadsService.createCommentation(createCommentationDto);
     }
 
+  @UseGuards(JwtAuthGuard)
   @Post(':threadID/reportTs')
   async createReportment_thread(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
                 @Body() createReportment_threadDto: CreateReportment_threadDto){
@@ -138,6 +140,7 @@ export class ThreadsController {
     return this.threadsService.createReportment_thread(createReportment_threadDto);
     }
   
+  @UseGuards(JwtAuthGuard)
   @Post(':threadID/comments/:commentID/reportCs')
   async createReportment_comment(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
     @Param('commentID',ParseObjectIdPipe) commentID: ObjectID,
@@ -148,7 +151,7 @@ export class ThreadsController {
       return this.threadsService.createReportment_comment(createReportment_commentDto);
     }
 
-
+  @UseGuards(JwtAuthGuard)
   @Patch(':threadID')
   async updateThread(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
     @Body() updateThreadDto: UpdateThreadDto) {
@@ -156,6 +159,7 @@ export class ThreadsController {
       return this.threadsService.updateThread(threadID, updateThreadDto);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Patch(':threadID/comments/:commentID')
   async updateComment(@Param('threadID', ParseObjectIdPipe) threadID: ObjectID,
     @Param('commentID', ParseObjectIdPipe) commentID: ObjectID,

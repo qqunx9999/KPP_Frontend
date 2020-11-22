@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, HttpException, HttpStatus, Patch } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, HttpException, HttpStatus, Patch, UseGuards } from '@nestjs/common';
 import { ObjectID } from 'mongodb'
 import { ParseObjectIdPipe } from '../common/pipes';
 import { ChatroomsService } from './chatrooms.service'
@@ -9,6 +9,7 @@ import {CreateChat_messageDto}  from 'src/dto/create-chat_message.dto';
 import User from 'src/entities/user.entity';
 import { UpdateChatroomDto } from 'src/dto_update/update-chatroom.dto';
 import { UpdateChat_messageDto} from 'src/dto_update/update-message.dto'
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('chatrooms')
 export class ChatroomsController {
@@ -23,6 +24,7 @@ export class ChatroomsController {
         return this.chatroomsService.findOne(chatroomID);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Post()
         async createChatroom(@Body() createChatroomDto: CreateChatroomDto){
         return this.chatroomsService.createChatroom(createChatroomDto);
@@ -40,6 +42,7 @@ export class ChatroomsController {
         return this.chatroomsService.findAllMessages(chatroomID);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Post(':chatroomID/messages')
         async createMessages(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID,
               @Body() createChat_messageDto:CreateChat_messageDto){
@@ -48,12 +51,14 @@ export class ChatroomsController {
         return  this.chatroomsService.createMessages(createChat_messageDto);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Patch(':chatroomID')
         async updateChatroom(@Param('chatroomID', ParseObjectIdPipe) chatroomID: ObjectID,
         @Body() updateChatroomDto:UpdateChatroomDto){
             return this.chatroomsService.updateChatroom(chatroomID ,updateChatroomDto);
         }
 
+    @UseGuards(JwtAuthGuard)
     @Patch(':chatroomID/messages/:messageID')
         async updateMessage(@Param('messageID',ParseObjectIdPipe) messageID:ObjectID,
         @Body() updateChat_messageDto:UpdateChat_messageDto){
