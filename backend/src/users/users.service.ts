@@ -65,8 +65,10 @@ export class UsersService {
     ) {}
 
     async changepass(changepassdto: changepassDto, act: string): Promise<any> {
-        
         let thisuser = null;
+        // changepassdto.email = changepassdto.email.concat("@ku.th")
+        console.log(changepassdto)
+
         await this.usersRepository.findOne({where:{email: changepassdto.email}})
             .then(oneuser => {
                 thisuser = oneuser;
@@ -79,10 +81,12 @@ export class UsersService {
         }
         
         var bcrypt =  require('bcrypt');
-        const saltRounds = 10;
+        console.log(thisuser.password, changepassdto.oldpass)
         if(act === "changepass"){
-            if(!bcrypt.compareSync(changepassdto.oldpass, thisuser.password)){
-                throw new HttpException("wrong confirm password", HttpStatus.FORBIDDEN);
+            //console.log("yeah")
+            if(!(bcrypt.compareSync(changepassdto.oldpass, thisuser.password))){
+                console.log("wrong")
+                throw new HttpException("wrong old password", HttpStatus.FORBIDDEN);
             }
         }
         else{
@@ -107,16 +111,18 @@ export class UsersService {
             await this.verifyCodeRepository.remove(verifys);
 
         }
-    
+        
 
     
         //console.log(thisuser.userID);
         //let newID: ObjectID = ObjectID.createFromHexString(thisuser.userID);
         //console.log(newID);
         let obj = { password: null };
-        
+        const saltRounds = 10;
+
         const hash = bcrypt.hashSync(changepassdto.newpass, saltRounds);
         obj.password = hash;
+        console.log("passwordChange")
         return this.usersRepository.update({userID: thisuser.userID}, obj);
     }
 

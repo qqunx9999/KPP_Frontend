@@ -50,31 +50,31 @@ const ThreadForm = () => {
             <div className="topicBlackFrameCreateThread">
               <div className="topicTextCreateThread">Topic :</div>
               <label>
-                <Field type="text" name="topic" className="inputTopicNameCreateThread" placeholder="&nbsp; Topic name..." style={{ width: "980px", height: "65px" ,fontSize: "30px"}} />
+                <Field type="text" maxlength="30" name="topic" className="inputTopicNameCreateThread" placeholder="&nbsp; Topic name..." style={{ width: "980px", height: "65px" ,fontSize: "30px"}} />
               </label>
             </div>
             <div className="tagsBlackFrameCreateThread">
               <div className="tagsTextCreateThread">Tags :</div>
               <label>
-                <button className="needHelpFrameCreateThread">
+                <div className="needHelpFrameCreateThread">
                   <Field type="checkbox" name="tag" value="help" className="needHelpClickBoxCreateThread" />
                   <div className="needHelpTextCreateThread"> Need Help </div>
-                </button>
+                </div>
               </label>
               <label>
-                <button className="foodFrameCreateThread">
+                <div className="foodFrameCreateThread">
                   <Field type="checkbox" name="tag" value="food" className="foodClickBoxCreateThread" />
                   <div className="foodTextCreateThread"> Food </div>
-                </button>
+                </div>
               </label>
               <label>
-                <button className="newsFrameCreateThread">
+                <div className="newsFrameCreateThread">
                   <Field type="checkbox" name="tag" value="news" className="newsClickBoxCreateThread" />
                   <div className="newsTextCreateThread"> News </div>
-                </button>
+                </div>
               </label>
               <label>
-                <button className="facultyFrameCreateThread">
+                <div className="facultyFrameCreateThread">
                   <div className="facultyTextCreateThread"> Faculty </div>
                   <Dropdown>
                     <Dropdown.Toggle variant="green">          </Dropdown.Toggle>
@@ -96,31 +96,31 @@ const ThreadForm = () => {
                       <Dropdown.Item><Field type="checkbox" name="faculty" value="architecture" /> Architecture</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
-                </button>
+                </div>
               </label>
               <label>
-                <button className="questionFrameCreateThread">
+                <div className="questionFrameCreateThread">
                   <Field type="checkbox" name="tag" value="question" className="questionClickBoxCreateThread" />
                   <div className="questionTextCreateThread"> Question </div>
-                </button>
+                </div>
               </label>
               <label>
-                <button className="sharingFrameCreateThread">
+                <div className="sharingFrameCreateThread">
                   <Field type="checkbox" name="tag" value="sharing" className="sharingClickBoxCreateThread" />
                   <div className="sharingTextCreateThread"> Sharing </div>
-                </button>
+                </div>
               </label>
               <label>
-                <button className="complainFrameCreateThread">
+                <div className="complainFrameCreateThread">
                   <Field type="checkbox" name="tag" value="complain" className="complainClickBoxCreateThread" />
                   <div className="complainTextCreateThread"> Complain </div>
-                </button>
+                </div>
               </label>
               <label>
-                <button className="nonsenseFrameCreateThread">
+                <div className="nonsenseFrameCreateThread">
                   <Field type="checkbox" name="tag" value="nonsense" className="nonsenseClickBoxCreateThread" />
                   <div className="nonsenseTextCreateThread">Nonsense</div> 
-                </button>
+                </div>
               </label>
             </div>
             <div className="placeYourContentFrameCreateThread">
@@ -131,7 +131,8 @@ const ThreadForm = () => {
                 </button>
               
               <label>
-                <Field type="text" name="content" className="inputContentCreateThread" style={{ width: "1135px", height: "500px" }} />
+                <div className="maxLengthTextCreateThread">*Maximum Input Length is 30 </div>
+                <Field type="text" maxlength="30" name="content" className="inputContentCreateThread" style={{ width: "1135px", height: "500px" }} />
                 <div className="inputContentCreateThread">
                   {/* <TextEditor /> */}
                 </div>

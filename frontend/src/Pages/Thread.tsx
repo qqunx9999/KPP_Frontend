@@ -140,7 +140,8 @@ function Threads_new() {
                     </div>
                 </div>
                 <div className="textDetailTopicComment">
-                  Content : &nbsp; {item.comment.content}
+                  {console.log(item.comment.content)}
+                  {item.comment.content}
                 </div>
               </div>
             </div>
