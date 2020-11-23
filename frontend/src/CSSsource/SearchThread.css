@@ -566,16 +566,23 @@
   }
 
   .frameResultSearchThread {
-    width: 1772px;
-    height: 480px;
+    width:100%;
+    height:150% !important;
+    max-width: 1772px;
+    max-height: 875px;
     overflow: visible;
     background: var(--B1, #1f2605);
     box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.25), 5px 5px 5px 0px rgba(0,0,0,0.25);
     border-radius: 33px;
     transform: scale(0.9, 0.8);
     position: absolute;
-    top: 40%;
+    top: 48%;
     left: 5%;
+  }
+  .pagination{
+    position : relative;
+    left:-750px !important;
+    top:600px;
   }
 
   .textFirstThreadResultSearchThread {
@@ -980,8 +987,10 @@
   }
 
 .search-searchresult {
-    width: 1015px;
-    height: 460px;
+    width: 100%;
+    height: 100%;
+    max-width: 2000px;
+    max-height: 2000px;
     overflow: hidden;
     font-family: "Inter", sans-serif;
     color: var(--Theme1, #ffffff);
@@ -992,3 +1001,108 @@
     top: 60%;
     left: 17%;
   }
+
+  .search-topicLatest{
+    color:#ffffff;
+    position: relative;
+    top: 000px !important;
+    left: 100px;
+    width: 750px;
+    }
+
+  div.search-LDC {
+      display:inline-block;
+      width: 450px;
+      font-size: 32px;
+      height: 50px;
+      overflow: visible;
+      background-color: rgba(255, 255, 255, 0.5);
+      box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+      border-radius: 50px;
+      position: absolute;
+      left: 920px;
+    }
+
+    .dunno{
+      width: 100%;
+      height: 100%;
+      width:300px;
+      height:50px;
+      /* overflow: visible; */
+      text-align:center;
+      /* background-color: rgba(255, 255, 255, 0.5);
+      box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+      border-radius: 50px;
+      display: inline-block !important; */
+    }
+    ul div{
+      display: inline-block;
+
+    }
+    /* .spac{
+      position :relative;
+      top : -500px !important;
+    } */
+
+    div.LDC2 {
+      display:inline-block;
+      width: 450px;
+      font-size: 32px;
+      height: 50px;
+      overflow: visible;
+      background-color: rgba(255, 255, 255, 0.5);
+      box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25);
+      border-radius: 50px;
+      position: absolute;
+      left: 750px;
+    }
+    .likePic{
+      display:inline-block ! important;
+      width: 41px;
+      height: 61;
+      position: absolute;
+      left : 85px;
+    }
+    .commentPic{
+      display:inline-block ! important;
+      width: 41px;
+      height: 61;
+      position: absolute;
+      top:3px;
+      left : 295px;
+    
+    }
+    .dP{
+      position: relative;
+      left:-250px;
+      top:5px;  
+    }
+    .dislikePic{
+      display:inline-block ! important;
+      width: 41px;
+      height: 61;
+      line-height: 2.0 ! important;
+      position: absolute;
+      top:-40px;
+      left : 240px;
+    }
+    .dislikeHottest{
+      position: relative;
+      position: relative;
+      left : 45px;
+      top:-5px;
+      color: red;
+    }
+    .commentHottest{
+      position: relative;
+      top:-8px;
+      left : 125px;
+    }
+    .likeHottest{
+      position: relative;
+      width: 10px;
+      position: absolute;
+      top:-5px;
+      left : 145px;
+      color:blue;
+    }

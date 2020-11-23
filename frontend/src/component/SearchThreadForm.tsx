@@ -9,7 +9,7 @@ const SearchThreadForm = () => {
   return (
     <div>
       <div>
-        <div className="frameResultSearchThread"></div>
+        {/* <div className="frameResultSearchThread"></div> */}
         <Formik
           initialValues={{ keyword: '', tags: '', sort: '', faculty: '' }}
           validationSchema={Yup.object({
