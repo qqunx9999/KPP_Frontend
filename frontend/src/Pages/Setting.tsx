@@ -17,7 +17,7 @@ function Setting() {
   useEffect(() => {
     fetchUser();
   }, []);
-  console.log(user.name)
+  // console.dir(user.quote)
   return (
     <div>
       <Navigtion />
@@ -49,7 +49,8 @@ function Setting() {
             <div className="textYourquoteUserProfile"> 
               Your Quote: 
               <div className="userquoteUserProfile">
-                {user.description === "" ? <i>Not have any quote</i> : user.description}
+                {/* {console.log(user.description)} */}
+                {user.quote === "" ? <i>Not have any quote</i> : user.quote}
               </div>
             </div>
           

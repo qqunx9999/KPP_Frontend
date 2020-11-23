@@ -24,7 +24,10 @@ function CommentForm() {
         };
         const res = await fetch(`${ baseUrl }/threads/${ThreadID}/comments`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.token}`
+          },
           body: JSON.stringify(createOption)
         }).then(history.goBack);
         localStorage.removeItem("message");

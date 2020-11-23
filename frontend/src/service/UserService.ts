@@ -12,7 +12,10 @@ export async function fetchUser(): Promise<Userinfo[]> {
 export async function changeName(userID: string, patchBody: any) {
   const res = await fetch(`${ baseUrl }/users/${ userID }`, {
     method: "PATCH",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      'Authorization': `Bearer ${localStorage.token}`
+    },
     body: JSON.stringify(patchBody)
   });
   const result = res.json();
@@ -22,7 +25,10 @@ export async function changeName(userID: string, patchBody: any) {
 export async function changePass(patchBody: any) {
   const res = await fetch(`${baseUrl}/users/newpass/changepass`, {
     method: 'PATCH',
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      'Authorization': `Bearer ${localStorage.token}`
+    },
     body: JSON.stringify(patchBody)
   });
   const result = res.json();

@@ -28,11 +28,16 @@ const ThreadForm = () => {
             "content": values.content,
             "image_arr": []
           };
+          // console.log(sendOption);
           const res = await fetch(`${baseUrl}/threads`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${ localStorage.token }`
+            },
             body: JSON.stringify(sendOption)
           });
+          console.log(res);
           if(res) {
             history.push('/Home');
             localStorage.removeItem("message")

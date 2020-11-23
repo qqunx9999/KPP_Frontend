@@ -41,7 +41,10 @@ export function clearThreadNO(): void {
 export async function voteUp(threadID: string | undefined) {
     const res = await fetch(`${ baseUrl }/threads/${ threadID }`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.token}`
+        },
         body: JSON.stringify({
             "up_vote_arr": [{ "userID": AuthService.getUserID() }]
         })
@@ -52,7 +55,10 @@ export async function voteUp(threadID: string | undefined) {
 export async function voteDown(threadID: string | undefined) {
     const res = await fetch(`${ baseUrl }/threads/${ threadID }`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.token}`
+        },
         body: JSON.stringify({
             "down_vote_arr": [{ "userID": AuthService.getUserID() }]
         })
@@ -63,7 +69,6 @@ export async function voteDown(threadID: string | undefined) {
 export async function fetchComment(threadID: string | undefined) {
     const res = await fetch(`${ baseUrl }/threads/${ threadID }/comments`);
     const comment = res.json();
-    console.log(comment)
     return comment;
 }
 
@@ -82,7 +87,10 @@ export async function fetchReportComment(userID: string) {
 export async function reportThread(threadID: string, reportBody: any) {
     const res = await fetch(`${ baseUrl }/threads/${ threadID }/reportTs`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+            "Content-Type": "application/json",
+            'Authorization': `Bearer ${localStorage.token}`
+        },
         body: JSON.stringify(reportBody)
     });
     const report = res.json();
@@ -93,7 +101,10 @@ export async function reportThread(threadID: string, reportBody: any) {
 export async function reportComment(threadID: string, reportBody: any, commentID: string) {
     const res = await fetch(`${ baseUrl }/threads/${ threadID }/comments/${ commentID }/reportCs`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+            "Content-Type": "application/json",
+            'Authorization': `Bearer ${localStorage.token}`
+        },
         body: JSON.stringify(reportBody)
     });
     const report = res.json();
@@ -116,7 +127,6 @@ export async function fetchOneCommentReport(reportCID: string) {
 export async function searchThread(keyword: string, tags: string, sortby: string, pagesize: number, pageNO: number) {
     const res = await fetch(`${ baseUrl }/threads/search/${ keyword }/${ tags }/${ sortby }/${ pagesize }/${ pageNO }`);
     const search = res.json();
-    console.log(`${ baseUrl }/threads/search/${ keyword }/${ tags }/${ sortby }/${ pagesize }/${ pageNO }`)
     return search;
 }
 

@@ -5,11 +5,14 @@ import { useHistory } from 'react-router';
 import '../CSSsource/SearchThread.css';
 import ThreadService from '../service/ThreadService';
 import SearchThreadForm from '../component/SearchThreadForm';
+import { Link } from 'react-router-dom';
+import { baseUrl } from '../config/constant';
 
 const SearchThread = () => {
   const history = useHistory();
   const [pageInfo, setPageInfo] = useState<any>([]);
   const [threads, setThreads] = useState<any>([{}]);
+  const [page, setPage] = useState<number>(1);
 
   function QueryThread() {
     if (localStorage.finish === 'yes') {
@@ -29,7 +32,7 @@ const SearchThread = () => {
       };
       const keyword = localStorage.keyword;
       const sort = localStorage.sort;
-      ThreadService.searchThread(keyword, tags, sort, 5, 1)
+      ThreadService.searchThread(keyword, tags, sort, 5, page)
         .then(res => {
           setPageInfo(res.pageInfo);
           setThreads(res.threads);
@@ -37,11 +40,37 @@ const SearchThread = () => {
     };
   }
 
-  useEffect(() => {
-    QueryThread()
-  }, []);
+  function changePage(page: number) {
+    setPage(page);
+  }
 
-  console.dir(threads);
+  useEffect(() => {
+    QueryThread();
+    changePage(page);
+  }, [page]);
+
+  // console.dir(pageInfo);
+
+  let pages: any = [];
+  for (let i = 1; i <= pageInfo.total; i++) {
+    pages.push(i);
+  }
+  
+  const RenderPages = () => {
+    return (
+      <div>
+        <nav aria-label="Page navigation">
+          <ul className="pagination">
+            {pages.map((page: number) => (
+              <li key={page} className="page-item" onClick={() => changePage(page)}>
+                <div className="page-link">{page}</div>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -54,13 +83,17 @@ const SearchThread = () => {
         {threads.map((item: any) => {
           if (item.topic !== undefined) {
             return (
-              <div>{console.log(item.topic)}
-                <h1>{item.topic}</h1>               
-              </div>
+              <Link to={`/Thread/${item.threadID}`}>
+                <p>{item.topic}</p>
+                <p>{item.total_comment}</p>
+                <p>{item.up_vote_count}</p>
+                <p>{item.down_vote_count}</p>
+              </Link>
             );
           }
         })}
       </div>
+      <RenderPages />
     </div>
   );
 };

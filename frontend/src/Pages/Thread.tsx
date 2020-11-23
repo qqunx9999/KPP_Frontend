@@ -77,9 +77,14 @@ function Threads_new() {
         <div className="thread-tags-frame">
           <div className="threads_tags_tags">Tags :</div>
           <div className="tagAlphar">
-            <div className = "tagText">
-            {thread.thread.tag_arr}
-            </div>
+              {thread.thread.tag_arr.map((tag: string) => {
+                console.log(tag);
+                return (
+                  <div>
+                    <div className="tagText">{tag}</div>
+                  </div>
+                );
+              })}
           </div>
           
         </div>
@@ -107,7 +112,7 @@ function Threads_new() {
         <button className="thread-downvote-frame" onClick={voteDown}>
           <div className="dislike-button-icon"></div>
         </button>
-        <br />{console.dir(comment.comments[0])}
+        <br />
 
         {comment.comments.map((item: any) => (
           <ul>
