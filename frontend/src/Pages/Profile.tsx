@@ -43,10 +43,11 @@ function Profile() {
               <div className="userRankUserProfile">{user.rank}</div>
               <div className="textJoinedDateUserProfile">{dateCount(user.date_join)}</div>
               <div className="userExpUserProfile">Exp: {user.exp} / 100</div>
-              <img src={profilePic} width="156" height="150" className="rounded-circle z-depth-0" alt="" />
+              <img src={profilePic} width="156" height="150" className="picUserProfile rounded-circle z-depth-0" alt="" />
             </div>
             <div className="textProfileUserProfile">Profile</div>
-            <div style={{"color": "white"}}>{user.name}</div>
+            <div className="usernameUserProfile" id="name">{user.name}</div>
+            <div className="textMyQuoteUserProfile">My Quote :</div>
             <div className="userQuotationUserProfile">{user.quote}</div>
             <button className="frameGobackUserProfile btn btn-success" onClick={() => history.goBack()}>
               <div className="textGobackUserProfile">Go Back</div>
