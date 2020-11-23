@@ -50,7 +50,7 @@ const ThreadForm = () => {
             <div className="topicBlackFrameCreateThread">
               <div className="topicTextCreateThread">Topic :</div>
               <label>
-                <Field type="text" name="topic" className="inputTopicNameCreateThread" placeholder="&nbsp; Topic name..." style={{ width: "980px", height: "65px" ,fontSize: "30px"}} />
+                <Field type="text" maxlength="20" name="topic" className="inputTopicNameCreateThread" placeholder="&nbsp; Topic name..." style={{ width: "980px", height: "65px" ,fontSize: "30px"}} />
               </label>
             </div>
             <div className="tagsBlackFrameCreateThread">
