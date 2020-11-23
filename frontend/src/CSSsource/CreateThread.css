@@ -718,3 +718,17 @@
   top: 0px;
   left: 10px;
 }
+
+.maxLengthTextCreateThread {
+  width: 547px;
+  height: 138px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: #ff1b1b;
+  font-size: 26px;
+  letter-spacing: 3px;
+  line-height: 3;
+  position: absolute;    
+  top: 105px;
+  left: 93px;
+}
