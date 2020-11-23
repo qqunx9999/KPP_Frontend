@@ -52,8 +52,8 @@ function CommentForm() {
                 <div className="createcm-send">Send</div>
                 </button>
               
-            
-            <Field type="input" name="comment" className="createcm_cm_input" style={{ width: "1140px", height: "250px" }} />
+            <div className="createcm-max-length-input">*MaxCommentLength = 40</div>
+            <Field type="input" maxlength = "40" name="comment" className="createcm_cm_input" style={{ width: "1140px", height: "250px" }} />
             {/* <div className="createcm_cm_input">
               <TextEditor />
             </div> */}
