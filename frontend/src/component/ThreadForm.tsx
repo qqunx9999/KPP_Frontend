@@ -131,8 +131,8 @@ const ThreadForm = () => {
                 </button>
               
               <label>
-                <div className="maxLengthTextCreateThread">*Maximum Input Length is 40 </div>
-                <Field type="text" maxlength="40" name="content" className="inputContentCreateThread" style={{ width: "1135px", height: "500px" }} />
+                <div className="maxLengthTextCreateThread">*Maximum Input Length is 30 </div>
+                <Field type="text" maxlength="30" name="content" className="inputContentCreateThread" style={{ width: "1135px", height: "500px" }} />
                 <div className="inputContentCreateThread">
                   {/* <TextEditor /> */}
                 </div>
