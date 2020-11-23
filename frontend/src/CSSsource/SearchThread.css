@@ -954,13 +954,13 @@
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color: var(--Theme1, red);
-    font-size: 23px;
+    color: var(--Theme1, rgb(214, 0, 0));
+    font-size: 28px;
     letter-spacing: 3px;
     line-height: 3;
     position: absolute;    
     top: 36%;
-    left: 29.5%;
+    left: 28%;
     border-color: white;
   }
 
@@ -969,13 +969,13 @@
     height: 69px;
     overflow: visible;
     font-family: "Inter", sans-serif;
-    color: var(--Theme1, red);
-    font-size: 23px;
+    color: var(--Theme1,rgb(214, 0, 0));
+    font-size: 28px;
     letter-spacing: 3px;
     line-height: 3;
     position: absolute;    
     top: 36%;
-    left: 73%;
+    left: 57%;
     border-color: white;
   }
 

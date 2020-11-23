@@ -104,8 +104,10 @@ export class ThreadsService {
     let threads: Thread[];
     threads = threadArr.filter(eachThread => {
       let stri = 0;
-      for(var i = 0; i<eachThread.topic.length; i++){
-        if(eachThread.topic[i] === keyword[stri]){
+      keyword = keyword.toLocaleLowerCase()
+      let topic = eachThread.topic.toLocaleLowerCase()
+      for(var i = 0; i<topic.length; i++){
+        if(topic[i] === keyword[stri]){
           stri++;
           if (stri === keyword.length){ return true;}
         }
