@@ -34,9 +34,9 @@ function ChangeProfileForm() {
         }
         if (values.newPass) {
           changePassOption = {
-            "email": values.email,
-            "oldPass": values.oldPass,
-            "newPass": values.newPass,
+            "email": values.email.concat("@ku.th"),
+            "oldpass": values.oldPass,
+            "newpass": values.newPass,
             "verify": values.verify,
           };
         }
