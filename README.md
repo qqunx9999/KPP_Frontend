@@ -42,8 +42,6 @@
             <li>nest encrypt : <code>npm install brcypt --save</code></li>
             <li>nest platform: <code>npm i @nestjs/platform-express --save</code></li>
             <li>nest uuid: <code>npm i uuid --save</code></li>
-
-
           </uL>
         </li>
       </ul>
